@@ -186,7 +186,7 @@
     "href": "index.html#citation",
     "title": "Reproducing Hernandez et al. 2015",
     "section": "Citation",
-    "text": "Citation\nAPA:\nHeather A., Monks T., Harper A., Mustafee N., Mayne A. (2024). Template for computational reproducibility assessments on STARS (version 1.0.4). URL: https://github.com/pythonhealthdatascience/stars_reproduction_template\nSee CITATION.cff and citation_bibtex.bib for alternative formats."
+    "text": "Citation\nAPA:\nHeather A., Monks T., Harper A. (2024). STARS: Computational reproducibility of Hernandez et al. 2015 (version 0.1.0). URL: https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015\nSee CITATION.cff and citation_bibtex.bib for alternative formats."
   },
   {
     "objectID": "index.html#license",
@@ -217,11 +217,11 @@
     "text": "14.38-14.52: Set-up repository\n\nCreated repository from template\nSet up environment\nModified template files:\n\nREADME.md\nquarto site index.qmd\nCITATION.cff\n_quarto.yml\n\nSet up site on GitHub pages (quarto publish gh-pages)"
   },
   {
-    "objectID": "logbook/posts/2024_09_20/index.html#x-upload-code-to-repository",
-    "href": "logbook/posts/2024_09_20/index.html#x-upload-code-to-repository",
+    "objectID": "logbook/posts/2024_09_20/index.html#upload-code-to-repository",
+    "href": "logbook/posts/2024_09_20/index.html#upload-code-to-repository",
     "title": "Day 1",
-    "section": "14.57-X: Upload code to repository",
-    "text": "14.57-X: Upload code to repository"
+    "section": "14.57-14.58: Upload code to repository",
+    "text": "14.57-14.58: Upload code to repository\nThe code is available at https://github.com/ivihernandez/staff-allocation/tree/master. It is licensed under an MIT license."
   },
   {
     "objectID": "logbook/posts/2024_09_20/index.html#timings",
