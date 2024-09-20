@@ -27,7 +27,9 @@ Contacted Ivan Hernandez over LinkedIn, who kindly add an MIT license to the rep
     * `_quarto.yml`
 * Set up site on GitHub pages (`quarto publish gh-pages`)
 
-## 14.57-X: Upload code to repository
+## 14.57-14.58: Upload code to repository
+
+The code is available at <https://github.com/ivihernandez/staff-allocation/tree/master>. It is licensed under an MIT license.
 
 ## Timings
 
