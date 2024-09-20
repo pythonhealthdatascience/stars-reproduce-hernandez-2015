@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -170,8 +190,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#code-and-data" id="toc-code-and-data" class="nav-link active" data-scroll-target="#code-and-data">Code and data</a></li>
   <li><a href="#journal-article" id="toc-journal-article" class="nav-link" data-scroll-target="#journal-article">Journal article</a></li>
-  <li><a href="#supplementary-materials" id="toc-supplementary-materials" class="nav-link" data-scroll-target="#supplementary-materials">Supplementary materials</a></li>
-  <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/quarto_site/study_publication.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -197,33 +215,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- TODO: Remove this warning once filled out page -->
-<p><strong>Please note: This is a template page and has not yet been completed</strong></p>
-<!-- TODO: Add citation from .bib file i.e. @study_word_year -->
+<p><span class="citation" data-cites="hernandez_optimal_2015">Hernandez et al. (<a href="#ref-hernandez_optimal_2015" role="doc-biblioref">2015</a>)</span></p>
 <section id="code-and-data" class="level2">
 <h2 class="anchored" data-anchor-id="code-and-data">Code and data</h2>
-<!-- TODO: Add link to folder in repository -->
-<p>View at: &lt;[Link]&gt;</p>
+<p>View at: <a href="https://github.com/ivihernandez/staff-allocation/tree/master" class="uri">https://github.com/ivihernandez/staff-allocation/tree/master</a></p>
 </section>
 <section id="journal-article" class="level2">
 <h2 class="anchored" data-anchor-id="journal-article">Journal article</h2>
-<!-- TODO: Embed article PDF - e.g.
-<iframe width="100%" height="800" src="../original_study/article.pdf"></iframe>
+<p>The article does not provide permissions to reshare, so cannot be uploaded.</p>
+<p>If you wish to view this article, please navigate to: <a href="https://doi.org/10.1016/j.cie.2015.02.015" class="uri">https://doi.org/10.1016/j.cie.2015.02.015</a>.</p>
 
-Unless the article is behind the paywall and no open-access version is available - in which case, just provide link to it -->
-</section>
-<section id="supplementary-materials" class="level2">
-<h2 class="anchored" data-anchor-id="supplementary-materials">Supplementary materials</h2>
-<!-- TODO: Embed supplementary PDF (if relevant) -->
-</section>
-<section id="sources" class="level2">
-<h2 class="anchored" data-anchor-id="sources">Sources</h2>
-<!-- TODO: Add links for where the above were sourced from -->
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-hernandez_optimal_2015" class="csl-entry" role="listitem">
+Hernandez, Ivan, Jose E. Ramirez-Marquez, David Starr, Ryan McKay, Seth Guthartz, Matt Motherwell, and Jessica Barcellona. 2015. <span>“Optimal Staffing Strategies for Points of Dispensing.”</span> <em>Computers &amp; Industrial Engineering</em> 83 (May): 172–83. <a href="https://doi.org/10.1016/j.cie.2015.02.015">https://doi.org/10.1016/j.cie.2015.02.015</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

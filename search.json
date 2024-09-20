@@ -151,7 +151,7 @@
     "href": "logbook/logbook.html",
     "title": "Logbook",
     "section": "",
-    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\n\n\n\n\n\n\n\nSep 20, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
+    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\nread\n\n\nscope\n\n\n\n\n\n\n\n\n\nSep 20, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -224,6 +224,20 @@
     "text": "14.57-14.58: Upload code to repository\nThe code is available at https://github.com/ivihernandez/staff-allocation/tree/master. It is licensed under an MIT license."
   },
   {
+    "objectID": "logbook/posts/2024_09_20/index.html#upload-journal-article-and-artefacts",
+    "href": "logbook/posts/2024_09_20/index.html#upload-journal-article-and-artefacts",
+    "title": "Day 1",
+    "section": "15.00-15.08: Upload journal article and artefacts",
+    "text": "15.00-15.08: Upload journal article and artefacts\nThe published article with the journal “Computers & Industrial Engineering” at https://www.sciencedirect.com/science/article/pii/S0360835215000728 does not appear to have the rights to share the full article or reuse images.\nThe abstract is shared at ACM Digital Library and the Stevens Institute but both link to the journal website, with neither containing a green open-access version."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_20/index.html#read-the-article-and-defined-scope",
+    "href": "logbook/posts/2024_09_20/index.html#read-the-article-and-defined-scope",
+    "title": "Day 1",
+    "section": "15.10-15.34: Read the article and defined scope",
+    "text": "15.10-15.34: Read the article and defined scope\nRead the article and identified what I think the scope of the reproduction to be. Outlined this on the scope quarto page then forwarded to Tom for review."
+  },
+  {
     "objectID": "logbook/posts/2024_09_20/index.html#timings",
     "href": "logbook/posts/2024_09_20/index.html#timings",
     "title": "Day 1",
@@ -263,21 +277,21 @@
     "href": "evaluation/scope.html",
     "title": "Scope",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nThis page outlines the parts of the journal article which we will attempt to reproduce.\nAll images and quotes on this page are sourced from"
+    "text": "This page outlines the parts of the journal article which we will attempt to reproduce from Hernandez et al. (2015). The journal does not give permission for upload and reuse of images, so you should refer to the article online to view these."
   },
   {
     "objectID": "evaluation/scope.html#within-scope",
     "href": "evaluation/scope.html#within-scope",
     "title": "Scope",
     "section": "Within scope",
-    "text": "Within scope\n\n\n\n\n\n\nFigure X\n\n\n\n\n\n[Figure with full legend from paper]"
+    "text": "Within scope\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n“Fig. 5. Pareto fronts for tri-objective Model (2). Experiments were run with a population of 100 and 50 generations. The computational time for obtaining each Pareto front was 6.5 h. The title of each grid corresponds to the percentage of Pre-Screened Designees.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 6\n\n\n\n\n\n“Fig. 6. Stafﬁng levels of a sample of solutions. The Dispensing Station needs more resources regardless of the percentage of Pre-Screened Designees. The title of each grid represents the throughput of the solution in forms per hour.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 7\n\n\n\n\n\n“Fig. 7. Pareto fronts for bi-objective Model (2). Experiments were run with a population of 50 and for 25 generations. The computational time for each Pareto was 1.6 h. The title of each grid corresponds to the percentage of Pre-Screened Designees.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 8\n\n\n\n\n\n“Fig. 8. Pareto fronts for analyzing the impact of the population and generations parameters. Each grid has two numbers in parenthesis: the population size and the number of generations. The objectives are: minimize waiting time, maximize throughput and minimize staff members.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 9\n\n\n\n\n\n“Fig. 9. Pareto fronts for analyzing the impact of constraining the maximum number of Line Managers. The name of each grid corresponds to the maximum number of Line Managers allowed.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 10\n\n\n\n\n\n“Fig. 10. Impact of replications of the Discrete Event Simulation for modeling the movement of Designees inside the PODs.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n“Table 3 Conﬁdence intervals. Waiting times are in minutes.” Hernandez et al. (2015)\nScope: To reproduce the Python columns, but not relevant to reproduce the Arena columns.\n\n\n\n\n\n\n\n\n\nTable 4\n\n\n\n\n\n“Table 4 Stafﬁng levels and associated throughput.” Hernandez et al. (2015)"
   },
   {
     "objectID": "evaluation/scope.html#outside-scope",
     "href": "evaluation/scope.html#outside-scope",
     "title": "Scope",
     "section": "Outside scope",
-    "text": "Outside scope\n\n\n\n\n\n\nTable X\n\n\n\n\n\n[Explanation of why it is outside scope]\n[Display table, including full legend from paper]"
+    "text": "Outside scope\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n“Fig. 1. Illustration of the concept of Pareto Efﬁciency. Blue points are non- dominated (i.e. efﬁcient) and red points are dominated. For example, point a is dominated because there is another point with the same number of staff members but with higher throughput (indicated by the dashed line). With the Pareto front decision makers can select the trade-off solution that best meets their criteria. (For interpretation of the references to color in this ﬁgure legend, the reader is referred to the web version of this article.)” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 1\n\n\n\n\n\n“Table 1 Number of forms per Designee.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n“Fig. 2. Architecture of the simulation. There are four inputs (left), one control parameter (top) and three outputs (right). The objective of the simulation is to change the stafﬁng levels (control parameter) in order to explore the trade-off solutions.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 3\n\n\n\n\n\n“Fig. 3. Systems architecture of the proposed framework. There are three main components: a custom program based on Python that performs the optimization (top left), an Arena (http://www.arenasimulation.com/) model used to verify the results obtained by the Python program (top right) and an R program used to generate publication quality plots of the results (bottom).” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n“Fig. 4. Network representation of the ﬂow of Designees inside the POD. Designees follow one of the multiple paths inside the POD.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 2\n\n\n\n\n\n“Table 2 Service time.” Hernandez et al. (2015)"
   },
   {
     "objectID": "evaluation/reproduction_report.html",
@@ -312,35 +326,21 @@
     "href": "quarto_site/study_publication.html",
     "title": "Publication",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed"
+    "text": "Hernandez et al. (2015)"
   },
   {
     "objectID": "quarto_site/study_publication.html#code-and-data",
     "href": "quarto_site/study_publication.html#code-and-data",
     "title": "Publication",
     "section": "Code and data",
-    "text": "Code and data\n\nView at: &lt;[Link]&gt;"
+    "text": "Code and data\nView at: https://github.com/ivihernandez/staff-allocation/tree/master"
   },
   {
     "objectID": "quarto_site/study_publication.html#journal-article",
     "href": "quarto_site/study_publication.html#journal-article",
     "title": "Publication",
     "section": "Journal article",
-    "text": "Journal article"
-  },
-  {
-    "objectID": "quarto_site/study_publication.html#supplementary-materials",
-    "href": "quarto_site/study_publication.html#supplementary-materials",
-    "title": "Publication",
-    "section": "Supplementary materials",
-    "text": "Supplementary materials"
-  },
-  {
-    "objectID": "quarto_site/study_publication.html#sources",
-    "href": "quarto_site/study_publication.html#sources",
-    "title": "Publication",
-    "section": "Sources",
-    "text": "Sources"
+    "text": "Journal article\nThe article does not provide permissions to reshare, so cannot be uploaded.\nIf you wish to view this article, please navigate to: https://doi.org/10.1016/j.cie.2015.02.015."
   },
   {
     "objectID": "CHANGELOG.html",
