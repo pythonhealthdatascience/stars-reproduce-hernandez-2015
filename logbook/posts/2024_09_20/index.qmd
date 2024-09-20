@@ -2,7 +2,7 @@
 title: "Day 1"
 author: "Amy Heather"
 date: "2024-09-20"
-categories: [setup]
+categories: [setup, read, scope]
 bibliography: ../../../quarto_site/references.bib
 ---
 
@@ -30,6 +30,16 @@ Contacted Ivan Hernandez over LinkedIn, who kindly add an MIT license to the rep
 ## 14.57-14.58: Upload code to repository
 
 The code is available at <https://github.com/ivihernandez/staff-allocation/tree/master>. It is licensed under an MIT license.
+
+## 15.00-15.08: Upload journal article and artefacts
+
+The published article with the journal "Computers & Industrial Engineering" at <https://www.sciencedirect.com/science/article/pii/S0360835215000728> does not appear to have the rights to share the full article or reuse images.
+
+The abstract is shared at [ACM Digital Library](https://dl.acm.org/doi/10.1016/j.cie.2015.02.015) and the [Stevens Institute](https://researchwith.stevens.edu/en/publications/optimal-staffing-strategies-for-points-of-dispensing) but both link to the journal website, with neither containing a green open-access version.
+
+## 15.10-15.34: Read the article and defined scope
+
+Read the article and identified what I think the scope of the reproduction to be. Outlined this on the scope quarto page then forwarded to Tom for review.
 
 ## Timings
 

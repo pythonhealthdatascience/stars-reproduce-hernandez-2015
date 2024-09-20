@@ -4,26 +4,73 @@ echo: False
 bibliography: ../quarto_site/references.bib
 ---
 
-<!-- TODO: Remove this warning once filled out page -->
-**Please note: This is a template page and has not yet been completed**
-
-<!-- TODO: Use skeleton to create page describing scope -->
-
-<!-- NOTE: If you do not have a license allowing you to upload and reuse images from the article, then you should describe them below, and direct the reader to a link to the article -->
-
-This page outlines the parts of the journal article which we will attempt to reproduce.
-
-All images and quotes on this page are sourced from <!-- TODO: Add citation to original study -->
+This page outlines the parts of the journal article which we will attempt to reproduce from @hernandez_optimal_2015. The journal does not give permission for upload and reuse of images, so you should refer to the article online to view these.
 
 ## Within scope
 
 ::: {.callout-note appearance="minimal" collapse=true}
 
-## Figure X
+## Figure 5
 
-[Figure with full legend from paper]
-<!-- e.g.
-![Figure 2. "Patient state over time by unit. The patient population progresses through infection over three months (with 80% infected). The bold line shows the median results of 30 trials, and the fainter lines show the minimum and maximum from the 30 trials." @allen_simulation_2020](../original_study/article_fig2.png){width=80%}-->
+"Fig. 5. Pareto fronts for tri-objective Model (2). Experiments were run with a population of 100 and 50 generations. The computational time for obtaining each Pareto front was 6.5 h. The title of each grid corresponds to the percentage of Pre-Screened Designees." @hernandez_optimal_2015
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 6
+
+"Fig. 6. Stafﬁng levels of a sample of solutions. The Dispensing Station needs more resources regardless of the percentage of Pre-Screened Designees. The title of each grid represents the throughput of the solution in forms per hour." @hernandez_optimal_2015
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 7
+
+"Fig. 7. Pareto fronts for bi-objective Model (2). Experiments were run with a population of 50 and for 25 generations. The computational time for each Pareto was 1.6 h. The title of each grid corresponds to the percentage of Pre-Screened Designees." @hernandez_optimal_2015
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 8
+
+"Fig. 8. Pareto fronts for analyzing the impact of the population and generations parameters. Each grid has two numbers in parenthesis: the population size and the number of generations. The objectives are: minimize waiting time, maximize throughput and minimize staff members." @hernandez_optimal_2015
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 9
+
+"Fig. 9. Pareto fronts for analyzing the impact of constraining the maximum number of Line Managers. The name of each grid corresponds to the maximum number of Line Managers allowed." @hernandez_optimal_2015
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 10
+
+"Fig. 10. Impact of replications of the Discrete Event Simulation for modeling the movement of Designees inside the PODs." @hernandez_optimal_2015
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Table 3
+
+"Table 3 Conﬁdence intervals. Waiting times are in minutes." @hernandez_optimal_2015
+
+**Scope:** To reproduce the Python columns, but not relevant to reproduce the Arena columns.
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Table 4
+
+"Table 4 Stafﬁng levels and associated throughput." @hernandez_optimal_2015
 
 :::
 
@@ -31,10 +78,48 @@ All images and quotes on this page are sourced from <!-- TODO: Add citation to o
 
 ::: {.callout-note appearance="minimal" collapse=true}
 
-## Table X
+## Figure 1
 
-[Explanation of why it is outside scope]
+"Fig. 1. Illustration of the concept of Pareto Efﬁciency. Blue points are non- dominated (i.e. efﬁcient) and red points are dominated. For example, point a is dominated because there is another point with the same number of staff members but with higher throughput (indicated by the dashed line). With the Pareto front decision makers can select the trade-off solution that best meets their criteria. (For interpretation of the references to color in this ﬁgure legend, the reader is referred to the web version of this article.)" @hernandez_optimal_2015
 
-[Display table, including full legend from paper]
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Table 1
+
+"Table 1 Number of forms per Designee." @hernandez_optimal_2015
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 2
+
+"Fig. 2. Architecture of the simulation. There are four inputs (left), one control parameter (top) and three outputs (right). The objective of the simulation is to change the stafﬁng levels (control parameter) in order to explore the trade-off solutions." @hernandez_optimal_2015
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 3
+
+"Fig. 3. Systems architecture of the proposed framework. There are three main components: a custom program based on Python that performs the optimization (top left), an Arena (http://www.arenasimulation.com/) model used to verify the results obtained by the Python program (top right) and an R program used to generate publication quality plots of the results (bottom)." @hernandez_optimal_2015
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 4
+
+"Fig. 4. Network representation of the ﬂow of Designees inside the POD. Designees follow one of the multiple paths inside the POD." @hernandez_optimal_2015
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Table 2
+
+"Table 2 Service time." @hernandez_optimal_2015
 
 :::
