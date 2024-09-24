@@ -2,16 +2,218 @@
 title: "Day 2"
 author: "Amy Heather"
 date: "2024-09-24"
-categories: [scope, reproduction]
+categories: [scope, reproduce]
 bibliography: ../../../quarto_site/references.bib
 ---
 
 ::: {.callout-note}
 
-X. Total time used: Xh Xm (X%)
+Set-up and troubleshooting environment. Total time used: 2h 18m (5.8%)
 
 :::
 
-## 09.20-X: Archive on Zenodo
+## 09.20-09.26: Archive on Zenodo
 
 Consensus on the proposed scope was acquired on 23 September, with Tom agreeing with the proposal. Hence, now archived the repository on Zenodo.
+
+## 09.55-10.07: Look over code and create environment
+
+There is a very minimal readme, but looking over the scripts, I'm assuming `main.py` will be a good starting point, just from the name.
+
+The plots look to be from `r-plots/plotting_staff_results.r`.
+
+Doesn't appear to be any environment management/versions in the repository but this is detailed in the paper in Figure 3...
+
+* Python 2.7 with inspyred 1.0 and simpy 2.3.1
+* R 2.15.3 with ggplot 0.9.3
+
+I created a simple python environment just with the three dependencies:
+
+```
+name: hernandez2015
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - inspyred=1.0
+  - python=2.7
+  - simpy=2.3.1
+```
+
+This was built using mamba:
+
+```
+mamba env create --name hernandez2015 --file environment.yml
+```
+
+This had an error:
+
+```
+PackagesNotFoundError: The following packages are not available from current channels:
+
+  - simpy=2.3.1*
+```
+
+[Conda-forge](https://anaconda.org/conda-forge/simpy/files) just has SimPy 3.0.13 to 4.1.1. However, [PyPi](https://pypi.org/project/simpy/#history) have releases back to 2.0.1, so I switched this to pip install:
+
+```
+name: hernandez2015
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - inspyred=1.0
+  - pip
+  - python=2.7
+  - pip:
+    - simpy==2.3.1
+```
+
+This built quickly and successfully.
+
+## 10.24-11.37: Troubleshooting environment
+
+### Use of Python 2.7 in VSCode
+
+I selected this environment as the interpreter in VSCode then attempted to run `main.py`, but it had an error stating it was an invalid environment:
+
+```
+An Invalid Python interpreter is selected, please try changing it to enable features such as IntelliSense, linting, and debugging. See output for more details regarding why the interpreter is invalid.
+```
+
+I tried clearing the workspace interpreter setting, but when trying to select environment again in VSCode, it won't show the python 2.7 environment in the drop-down list. [Based on this forum](https://github.com/microsoft/vscode-python/issues/20637), it appears that the VSCode python extension dropped support for python 2.7. One comments suggests switching the Python language server to Jedi. To do this:
+
+* Ctrl + Shift + P
+* User Settings
+* Select Workspace Tab
+* Search Python Language Server
+* Change from "Default" to "Jedi"
+
+However, it still complained this was an invalid python interpreter, so I reverted this back. Other suggestions were to switch the VSCode Python extension to either:
+
+* Pre-release version
+* Pinned to 2022.2
+
+I tried switching to the pre-release version in the Extensions tab, and this worked in allowing me to use Python 2.7 environment. The downside of this is that I will/may want to switch it back for other projects.
+
+### myutils
+
+On attempting to run `main.py`, it had an error when importing ExperimentRunner:
+
+```
+File "/home/amy/Documents/stars/stars-reproduce-hernandez-2015/reproduction/ExperimentRunner.py", line 14, in <module>
+  import myutils
+ImportError: No module named myutils
+```
+
+From the script, I can see that `myutils/` is a sister folder, and not included in this repository. I can see that it is imported by:
+
+* `ExperimentRunner.py`
+* `ResultsAnalyzer.py`
+* `StaffAllocationProblem.py`
+
+There is only one line of code that specifies that a function is from myutils, which is in `StaffAllocationProblem.py`:
+
+```{python}
+#capacities = myutils.boundingFunction(capacities, self.boundingParameters)
+```
+
+However, as that is commented out, it actually might be possible that `myutils/` is not actually needed. I tried commenting out all attempts to import `myutils` in all scripts, then re-ran.
+
+### numpy and python
+
+There was then an error:
+
+```
+ImportError: No module named numpy
+```
+
+We want to attempt to backdate it. Looking at the other known dates...
+
+* [inspyred=1.0](https://pypi.org/project/inspyred/#history) - released 4 April 2012 (with 1.0.1 on 25 July 2015)
+* [python=2.7](https://www.python.org/doc/versions/) - released 4 July 2010 to 20 April 2020 (depending on date)
+* [simpy==2.3.1](https://pypi.org/project/simpy/#history) - released 11 October 2013 (with 3.0 on 11 October 2013)
+
+Hence, it appears I'll also want to backdate python, as just setting to 2.7 defaulted to 2.7.18, but that wouldn't have been possible based on the publication dates. Dates:
+
+* Article received 23 September 2014
+* Article revised 6 February 2015
+* Article accepted 22 February 2015
+* Last commit to GitHub (prior to license) 10 December 2013
+
+Will choose versions that are on or prior to **10 December 2013**. Hence, for the python version:
+
+* [Python 2.7.6](https://www.python.org/doc/versions/) (10 November 2013, 2.7.7 31 May 2014)
+* [Numpy 1.8.0](https://pypi.org/project/numpy/#history) (30 October 2013, 1.8.1 25 March 2014)
+
+Numpy was set to **install from pypi**, as conda didn't support a version that old.
+
+Deleted and rebuilt:
+
+```
+mamba remove -n hernandez2015 --all
+mamba env create --name hernandez2015 --file environment.yml
+```
+
+However, had error:
+
+```
+PackagesNotFoundError: The following packages are not available from current channels:
+
+  - python=2.7.6*
+
+Current channels:
+
+  - https://repo.anaconda.com/pkgs/main/linux-64
+  - https://repo.anaconda.com/pkgs/r/linux-64
+  - https://conda.anaconda.org/conda-forge/linux-64
+
+To search for alternate channels that may provide the conda package you're
+looking for, navigate to
+
+    https://anaconda.org
+```
+
+Checking the two python channels it lists:
+
+* <https://repo.anaconda.com/pkgs/main/linux-64/> I can see they have 2.7.13 onwards.
+* <https://conda.anaconda.org/conda-forge/linux-64/>, but looking directly at [python on conda-forge](https://anaconda.org/conda-forge/python/files), I can see they have 2.6.9 or leap up to 2.7.12
+
+My options are either to:
+
+* Use Python 2.6.9 - not ideal, as know they were 2.7
+* Look for another conda channel that includes 2.7.6 - however, we are using the default conda channels, and others can be more personal uploads and so on
+* **Use a more recent Python version** - chose this option, and switched to 2.7.12, which was the oldest 2.7 version supported on these channels (2.7.12 is 26 June 2016)
+
+### scipy
+
+Then missing scipy, which based on [released history](https://pypi.org/project/scipy/#history), I chose 0.13.2 (8 December 2013, 0.13.3 4 February 2014). As a version this old wasn't on conda, I used pypi. Add to `environment.yml` then updated:
+
+```
+mamba env update --file environment.yml --prune
+```
+
+### nsga2 and myutils
+
+Then had error that it was missing nsga2. This doesn't appear to be a public package. It is only imported in `ExperimentRunner.py`, which lists it under "Ivan's imports", indicating it is a personal package/script. It uses a single function: `nsga2.nsga2_integer()`. As there was no mention of it in this repository, I tried looking at [Ivan's other GitHub repositories](https://github.com/ivihernandez?tab=repositories).
+
+There I found `myutils` which contains `nsga2.py`, <https://github.com/ivihernandez/myutils>. However, this did not have a license, so I am not presently able to download this repository. I sent a message to Ivan to see if he would be happy to likewise add a license to that repository. I also undid the changes I'd made to comment `myutils`.
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 47
+
+# Times from today
+times = [
+    ('09.20', '09.26'),
+    ('09.55', '10.07'),
+    ('10.24', '11.37')]
+
+calculate_times(used_to_date, times)
+```
