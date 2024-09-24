@@ -25,10 +25,13 @@ authors:
     orcid: 'https://orcid.org/0000-0001-5274-5037'
 repository-code: >-
   https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015
-# TODO: Amend to short description of repo and citation for the original study
 abstract: >-
-  Template repository for assessing the computational reproducibility of discrete-event simulation studies on STARS.
+  This repository forms part of work package 1 on the project STARS: Sharing
+  Tools and Artefacts for Reproducible Simulations. It assesses the
+  computational reproducibility of: Hernandez, I., Ramirez-Marquez, J., Starr,
+  D., McKay, R., Guthartz, S., Motherwell, M., Barcellona, J. Optimal staffing
+  strategies for points of dispensing. Computers & Industrial Engineering 83
+  (2015). https://doi.org/10.1016/j.cie.2015.02.015.
 license: MIT
-# TODO: Manually update with each GitHub release (start with 0.1.0)
 version: '0.1.0'
-date-released: '2024-09-20'
+date-released: '2024-09-24'
