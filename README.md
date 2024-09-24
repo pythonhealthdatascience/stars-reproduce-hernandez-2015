@@ -1,9 +1,8 @@
 # STARS: Computational reproducibility of Hernandez et al. 2015 <a href="https://github.com/pythonhealthdatascience"><img src="quarto_site/stars_logo_blue.png" align="right" height="120" alt="STARS" /></a>
 
 <!-- Status badge from GitHub action checking validity of CITATION.cff -->
-<!-- TODO: Add DOI badge once repository has been archived on Zenodo -->
-<!-- TODO: Amend the URL to your repository -->
 [![Valid CITATION.cff](https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/actions/workflows/cff_validation.yaml/badge.svg)](https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/actions/workflows/cff_validation.yaml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13832260.svg)](https://zenodo.org/doi/10.5281/zenodo.13832260)
 
 This repository forms part of work package 1 on the project STARS: Sharing Tools and Artefacts for Reproducible Simulations. It assesses the computational reproducibility of:
 
