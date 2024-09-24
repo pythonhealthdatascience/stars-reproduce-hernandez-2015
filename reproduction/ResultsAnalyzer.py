@@ -10,7 +10,7 @@ import math
 import os
 from scipy import stats
 #ivan's imports
-#import myutils
+import myutils
 
 def get_half_width(mylist):
         """

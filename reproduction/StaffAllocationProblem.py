@@ -10,7 +10,7 @@ import inspyred
 
 #ivan's imports
 import SimulatorRunner
-#import myutils
+import myutils
 
 class mylist(list):
     """
