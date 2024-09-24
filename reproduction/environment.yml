@@ -1,0 +1,10 @@
+name: hernandez2015
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - inspyred=1.0
+  - pip
+  - python=2.7
+  - pip:
+    - simpy==2.3.1
