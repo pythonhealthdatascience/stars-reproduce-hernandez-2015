@@ -8,7 +8,7 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-X. Total time used: Xh Xm (X%)
+Set-up repository, read article and proposed scope. Total time used: 0h 47m (2.0%)
 
 :::
 
@@ -53,7 +53,10 @@ used_to_date = 0
 
 # Times from today
 times = [
-    ('14.38', '14.52')]
+    ('14.38', '14.52'),
+    ('14.57', '14.58'),
+    ('15.00', '15.08'),
+    ('15.10', '15.34')]
 
 calculate_times(used_to_date, times)
 ```

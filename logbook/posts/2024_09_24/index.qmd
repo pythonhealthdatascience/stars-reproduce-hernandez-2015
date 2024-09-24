@@ -1,0 +1,17 @@
+---
+title: "Day 2"
+author: "Amy Heather"
+date: "2024-09-24"
+categories: [scope, reproduction]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+X. Total time used: Xh Xm (X%)
+
+:::
+
+## 09.20-X: Archive on Zenodo
+
+Consensus on the proposed scope was acquired on 23 September, with Tom agreeing with the proposal. Hence, now archived the repository on Zenodo.
