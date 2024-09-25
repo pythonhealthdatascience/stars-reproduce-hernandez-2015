@@ -1,101 +1,24 @@
 [
   {
-    "objectID": "CONTRIBUTING.html",
-    "href": "CONTRIBUTING.html",
-    "title": "Contributing",
+    "objectID": "evaluation/reproduction_success.html",
+    "href": "evaluation/reproduction_success.html",
+    "title": "Reproduction success",
     "section": "",
-    "text": "🎉 Thank you for checking out our project! 🎉\nThis page contains guidelines on how to get in touch with us and potentially contribute towards this repository.\n\n\nYou can contact the researchers on this project using the provided email addresses in CITATION.cff.\n\n\n\nIf you spot an issue, you are welcome to raise this either by:\n\nUsing GitHub Issues.\nForking the repository, make your changes and submit a pull request for review."
+    "text": "Please note: This is a template page and has not yet been completed\nOf the X items in the scope, X% (X out of X) were considered to be successfully reproduced.\nAs cited throughout, images on this page are sourced from"
   },
   {
-    "objectID": "CONTRIBUTING.html#email",
-    "href": "CONTRIBUTING.html#email",
-    "title": "Contributing",
-    "section": "",
-    "text": "You can contact the researchers on this project using the provided email addresses in CITATION.cff."
+    "objectID": "evaluation/reproduction_success.html#time-to-completion",
+    "href": "evaluation/reproduction_success.html#time-to-completion",
+    "title": "Reproduction success",
+    "section": "Time-to-completion",
+    "text": "Time-to-completion\n\n\n\n\n\n\n\n\n\ntime\nitem\necdf\nhours\n\n\n\n\n0\n0.0\nStart\n0.0\n0.000000\n\n\n1\n100.0\nNaN\n0.0\n1.666667\n\n\n2\n100.0\nIn-text result 1\n12.5\n1.666667\n\n\n3\n200.0\nNaN\n12.5\n3.333333\n\n\n4\n200.0\nIn-text result 2\n25.0\n3.333333\n\n\n5\n300.0\nNaN\n25.0\n5.000000\n\n\n6\n300.0\nFigure 5\n37.5\n5.000000\n\n\n7\n400.0\nNaN\n37.5\n6.666667\n\n\n8\n400.0\nFigure 2\nNaN\n6.666667\n\n\n9\nNaN\nNaN\nNaN\nNaN\n\n\n10\nNaN\nFigure 3\n62.5\nNaN\n\n\n11\nNaN\nNaN\n62.5\nNaN\n\n\n12\nNaN\nFigure 4\n75.0\nNaN\n\n\n13\nNaN\nNaN\n75.0\nNaN\n\n\n14\nNaN\nSupplementary figure\n87.5\nNaN\n\n\n15\nNaN\nNaN\n87.5\nNaN\n\n\n16\nNaN\nIn-text result 3\n100.0\nNaN\n\n\n17\nNaN\nNaN\n100.0\nNaN\n\n\n\n\n\n\n\nNon-interactive plot:\n\n\n\n\n\n\n\n\n\nInteractive plot:"
   },
   {
-    "objectID": "CONTRIBUTING.html#suggesting-changes",
-    "href": "CONTRIBUTING.html#suggesting-changes",
-    "title": "Contributing",
-    "section": "",
-    "text": "If you spot an issue, you are welcome to raise this either by:\n\nUsing GitHub Issues.\nForking the repository, make your changes and submit a pull request for review."
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html",
-    "href": "quarto_site/reproduction_readme.html",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "Please note: This is a template README and has not yet been completed\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\n\nTBC\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\nTBC\n\n\n\n\nTBC\n\n\n\nTBC"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html#model-summary",
-    "href": "quarto_site/reproduction_readme.html#model-summary",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
-    "href": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html#reproducing-these-results",
-    "href": "quarto_site/reproduction_readme.html#reproducing-these-results",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC\n\n\n\nTBC\n\n\n\nTBC"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
-    "href": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html#citation",
-    "href": "quarto_site/reproduction_readme.html#citation",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html#license",
-    "href": "quarto_site/reproduction_readme.html#license",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC"
-  },
-  {
-    "objectID": "quarto_site/license.html",
-    "href": "quarto_site/license.html",
-    "title": "Open Source License",
-    "section": "",
-    "text": "This repository is licensed under the [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\nMIT License\nCopyright (c) 2024 STARS Project Team\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n\n\nThis is aligned with the original study, who shared their code under [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\n\n[Embedded license]\n\n\n\n\nThe original study was published in the journal “[Journal name]”. They distributed the article under [Add more details about license]\n\n\n\n\n\n\nView copyright statement from journal"
-  },
-  {
-    "objectID": "evaluation/reporting.html",
-    "href": "evaluation/reporting.html",
-    "title": "Reporting guidelines",
-    "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nThis page evaluates the extent to which the journal article meets the criteria from two discrete-event simulation study reporting guidelines:"
-  },
-  {
-    "objectID": "evaluation/reporting.html#stress-des",
-    "href": "evaluation/reporting.html#stress-des",
-    "title": "Reporting guidelines",
-    "section": "STRESS-DES",
-    "text": "STRESS-DES\nOf the 24 items in the checklist:\n\n\nX were met fully (✅)\nX were partially met (🟡)\nX were not met (❌)\nX were not applicable (N/A)\n\n\n\n\n\n\n\n\n\n\n\nItem\nRecommendation\nMet by study?\nEvidence\n\n\n\n\nObjectives\n\n\n\n\n\n1.1 Purpose of the model\nExplain the background and objectives for the model\n\n\n\n\n1.2 Model outputs\nDefine all quantitative performance measures that are reported, using equations where necessary. Specify how and when they are calculated during the model run along with how any measures of error such as confidence intervals are calculated.\n\n\n\n\n1.3 Experimentation aims\nIf the model has been used for experimentation, state the objectives that it was used to investigate.(A) Scenario based analysis – Provide a name and description for each scenario, providing a rationale for the choice of scenarios and ensure that item 2.3 (below) is completed.(B) Design of experiments – Provide details of the overall design of the experiments with reference to performance measures and their parameters (provide further details in data below).(C) Simulation Optimisation – (if appropriate) Provide full details of what is to be optimised, the parameters that were included and the algorithm(s) that was be used. Where possible provide a citation of the algorithm(s).\n\n\n\n\nLogic\n\n\n\n\n\n2.1 Base model overview diagram\nDescribe the base model using appropriate diagrams and description. This could include one or more process flow, activity cycle or equivalent diagrams sufficient to describe the model to readers. Avoid complicated diagrams in the main text. The goal is to describe the breadth and depth of the model with respect to the system being studied.\n\n\n\n\n2.2 Base model logic\nGive details of the base model logic. Give additional model logic details sufficient to communicate to the reader how the model works.\n\n\n\n\n2.3 Scenario logic\nGive details of the logical difference between the base case model and scenarios (if any). This could be incorporated as text or where differences are substantial could be incorporated in the same manner as 2.2.\n\n\n\n\n2.4 Algorithms\nProvide further detail on any algorithms in the model that (for example) mimic complex or manual processes in the real world (i.e. scheduling of arrivals/ appointments/ operations/ maintenance, operation of a conveyor system, machine breakdowns, etc.). Sufficient detail should be included (or referred to in other published work) for the algorithms to be reproducible. Pseudo-code may be used to describe an algorithm.\n\n\n\n\n2.5.1 Components - entities\nGive details of all entities within the simulation including a description of their role in the model and a description of all their attributes.\n\n\n\n\n2.5.2 Components - activities\nDescribe the activities that entities engage in within the model. Provide details of entity routing into and out of the activity.\n\n\n\n\n2.5.3 Components - resources\nList all the resources included within the model and which activities make use of them.\n\n\n\n\n2.5.4 Components - queues\nGive details of the assumed queuing discipline used in the model (e.g. First in First Out, Last in First Out, prioritisation, etc.). Where one or more queues have a different discipline from the rest, provide a list of queues, indicating the queuing discipline used for each. If reneging, balking or jockeying occur, etc., provide details of the rules. Detail any delays or capacity constraints on the queues.\n\n\n\n\n2.5.5 Components - entry/exit points\nGive details of the model boundaries i.e. all arrival and exit points of entities. Detail the arrival mechanism (e.g. ‘thinning’ to mimic a non-homogenous Poisson process or balking)\n\n\n\n\nData\n\n\n\n\n\n3.1 Data sources\nList and detail all data sources. Sources may include:• Interviews with stakeholders,• Samples of routinely collected data,• Prospectively collected samples for the purpose of the simulation study,• Public domain data published in either academic or organisational literature. Provide, where possible, the link and DOI to the data or reference to published literature.All data source descriptions should include details of the sample size, sample date ranges and use within the study.\n\n\n\n\n3.2 Pre-processing\nProvide details of any data manipulation that has taken place before its use in the simulation, e.g. interpolation to account for missing data or the removal of outliers.\n\n\n\n\n3.3 Input parameters\nList all input variables in the model. Provide a description of their use and include parameter values. For stochastic inputs provide details of any continuous, discrete or empirical distributions used along with all associated parameters. Give details of all time dependent parameters and correlation.Clearly state:• Base case data• Data use in experimentation, where different from the base case.• Where optimisation or design of experiments has been used, state the range of values that parameters can take.• Where theoretical distributions are used, state how these were selected and prioritised above other candidate distributions.\n\n\n\n\n3.4 Assumptions\nWhere data or knowledge of the real system is unavailable what assumptions are included in the model? This might include parameter values, distributions or routing logic within the model.\n\n\n\n\nExperimentation\n\n\n\n\n\n4.1 Initialisation\nReport if the system modelled is terminating or non-terminating. State if a warm-up period has been used, its length and the analysis method used to select it. For terminating systems state the stopping condition.State what if any initial model conditions have been included, e.g., pre-loaded queues and activities. Report whether initialisation of these variables is deterministic or stochastic.\n\n\n\n\n4.2 Run length\nDetail the run length of the simulation model and time units.\n\n\n\n\n4.3 Estimation approach\nState the method used to account for the stochasticity: For example, two common methods are multiple replications or batch means. Where multiple replications have been used, state the number of replications and for batch means, indicate the batch length and whether the batch means procedure is standard, spaced or overlapping. For both procedures provide a justification for the methods used and the number of replications/size of batches.\n\n\n\n\nImplementation\n\n\n\n\n\n5.1 Software or programming language\nState the operating system and version and build number.State the name, version and build number of commercial or open source DES software that the model is implemented in.State the name and version of general-purpose programming languages used (e.g. Python 3.5).Where frameworks and libraries have been used provide all details including version numbers.\n\n\n\n\n5.2 Random sampling\nState the algorithm used to generate random samples in the software/programming language used e.g. Mersenne Twister.If common random numbers are used, state how seeds (or random number streams) are distributed among sampling processes.\n\n\n\n\n5.3 Model execution\nState the event processing mechanism used e.g. three phase, event, activity, process interaction.Note that in some commercial software the event processing mechanism may not be published. In these cases authors should adhere to item 5.1 software recommendations.State all priority rules included if entities/activities compete for resources.If the model is parallel, distributed and/or use grid or cloud computing, etc., state and preferably reference the technology used. For parallel and distributed simulations the time management algorithms used. If the HLA is used then state the version of the standard, which run-time infrastructure (and version), and any supporting documents (FOMs, etc.)\n\n\n\n\n5.4 System specification\nState the model run time and specification of hardware used. This is particularly important for large scale models that require substantial computing power. For parallel, distributed and/or use grid or cloud computing, etc. state the details of all systems used in the implementation (processors, network, etc.)\n\n\n\n\nCode access\n\n\n\n\n\n6.1 Computer model sharing statement\nDescribe how someone could obtain the model described in the paper, the simulation software and any other associated software (or hardware) needed to reproduce the results. Provide, where possible, the link and DOIs to these."
-  },
-  {
-    "objectID": "evaluation/reporting.html#des-checklist-derived-from-ispor-sdm",
-    "href": "evaluation/reporting.html#des-checklist-derived-from-ispor-sdm",
-    "title": "Reporting guidelines",
-    "section": "DES checklist derived from ISPOR-SDM",
-    "text": "DES checklist derived from ISPOR-SDM\nOf the 18 items in the checklist:\n\n\nX were met fully (✅)\nX were partially met (🟡)\nX were not met (❌)\nX were not applicable (N/A)\n\n\n\n\n\n\n\n\n\n\n\nItem\nAssessed if…\nMet by study?\nEvidence/location\n\n\n\n\nModel conceptualisation\n\n\n\n\n\n1 Is the focused health-related decision problem clarified?\n…the decision problem under investigation was defined. DES studies included different types of decision problems, eg, those listed in previously developed taxonomies.\n\n\n\n\n2 Is the modeled healthcare setting/health condition clarified?\n…the physical context/scope (eg, a certain healthcare unit or a broader system) or disease spectrum simulated was described.\n\n\n\n\n3 Is the model structure described?\n…the model’s conceptual structure was described in the form of either graphical or text presentation.\n\n\n\n\n4 Is the time horizon given?\n…the time period covered by the simulation was reported.\n\n\n\n\n5 Are all simulated strategies/scenarios specified?\n…the comparators under test were described in terms of their components, corresponding variations, etc\n\n\n\n\n6 Is the target population described?\n…the entities simulated and their main attributes were characterized.\n\n\n\n\nParamaterisation and uncertainty assessment\n\n\n\n\n\n7 Are data sources informing parameter estimations provided?\n…the sources of all data used to inform model inputs were reported.\n\n\n\n\n8 Are the parameters used to populate model frameworks specified?\n…all relevant parameters fed into model frameworks were disclosed.\n\n\n\n\n9 Are model uncertainties discussed?\n…the uncertainty surrounding parameter estimations and adopted statistical methods (eg, 95% confidence intervals or possibility distributions) were reported.\n\n\n\n\n10 Are sensitivity analyses performed and reported?\n…the robustness of model outputs to input uncertainties was examined, for example via deterministic (based on parameters’ plausible ranges) or probabilistic (based on a priori-defined probability distributions) sensitivity analyses, or both.\n\n\n\n\nValidation\n\n\n\n\n\n11 Is face validity evaluated and reported?\n…it was reported that the model was subjected to the examination on how well model designs correspond to the reality and intuitions. It was assumed that this type of validation should be conducted by external evaluators with no stake in the study.\n\n\n\n\n12 Is cross validation performed and reported\n…comparison across similar modeling studies which deal with the same decision problem was undertaken.\n\n\n\n\n13 Is external validation performed and reported?\n…the modeler(s) examined how well the model’s results match the empirical data of an actual event modeled.\n\n\n\n\n14 Is predictive validation performed or attempted?\n…the modeler(s) examined the consistency of a model’s predictions of a future event and the actual outcomes in the future. If this was not undertaken, it was assessed whether the reasons were discussed.\n\n\n\n\nGeneralisability and stakeholder involvement\n\n\n\n\n\n15 Is the model generalizability issue discussed?\n…the modeler(s) discussed the potential of the resulting model for being applicable to other settings/populations (single/multiple application).\n\n\n\n\n16 Are decision makers or other stakeholders involved in modeling?\n…the modeler(s) reported in which part throughout the modeling process decision makers and other stakeholders (eg, subject experts) were engaged.\n\n\n\n\n17 Is the source of funding stated?\n…the sponsorship of the study was indicated.\n\n\n\n\n18 Are model limitations discussed?\n…limitations of the assessed model, especially limitations of interest to decision makers, were discussed."
+    "objectID": "evaluation/reproduction_success.html#figure-x",
+    "href": "evaluation/reproduction_success.html#figure-x",
+    "title": "Reproduction success",
+    "section": "Figure X",
+    "text": "Figure X\nConsensus: Not reproduced / Successfully reproduced\nOriginal (citation):\n\nReproduction:"
   },
   {
     "objectID": "evaluation/badges.html",
@@ -126,6 +49,125 @@
     "text": "Sources\nNational Information Standards Organisation (NISO) (NISO Reproducibility Badging and Definitions Working Group (2021))\n\n“Open Research Objects (ORO)”\n“Open Research Objects - All (ORO-A)”\n“Results Reproduced (ROR-R)”\n\nAssociation for Computing Machinery (ACM) (Association for Computing Machinery (ACM) (2020))\n\n“Artifacts Available”\n“Artifacts Evaluated - Functional”\n“Artifacts Evaluated - Resuable”\n“Results Reproduced”\n\nCenter for Open Science (COS) (Blohowiak et al. (2023))\n\n“Open Code”\n\nInstitute of Electrical and Electronics Engineers (IEEE) (Institute of Electrical and Electronics Engineers (IEEE) (n.d.))\n\n“Code Available”\n“Code Reviewed”\n“Code Reproducible”\n\nPsychological Science (Hardwicke and Vazire (2023) and Association for Psychological Science (APS) (2023))\n\n“Computational Reproducibility”"
   },
   {
+    "objectID": "quarto_site/license.html",
+    "href": "quarto_site/license.html",
+    "title": "Open Source License",
+    "section": "",
+    "text": "This repository is licensed under the [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\nMIT License\nCopyright (c) 2024 STARS Project Team\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n\n\nThis is aligned with the original study, who shared their code under [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\n\n[Embedded license]\n\n\n\n\nThe original study was published in the journal “[Journal name]”. They distributed the article under [Add more details about license]\n\n\n\n\n\n\nView copyright statement from journal"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_25/index.html",
+    "href": "logbook/posts/2024_09_25/index.html",
+    "title": "Day 3",
+    "section": "",
+    "text": "Note\n\n\n\nFixed environment, ran mini version of an experiment, and of plotting Figure 5 in R. Total time used: 4h 57m (12.4%)"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_25/index.html#troubleshooting-environment",
+    "href": "logbook/posts/2024_09_25/index.html#troubleshooting-environment",
+    "title": "Day 3",
+    "section": "09.26-09.55: Troubleshooting environment",
+    "text": "09.26-09.55: Troubleshooting environment\n\nmyutils\nCopied https://github.com/ivihernandez/myutils into original_study/ and reproduction/.\nThen ran main.py, but error when importing ExperimentRunner.py for import myutils: ImportError: No module named myutils. Tried tweaking the imports with no luck, so went with a simple solution of keeping myutils.py alongside the other scripts, rather than in reproduction/myutils/myutils.py.\nThen realised it was because I was running from the parent folder, so switched that and it resolved the issue\n\n\nmatplotlib and networkx\nThen found was missing matplotlib and networkx. Alike yesterday, choosing versions on or prior to 10 December 2013…\n\nMatplotlib 1.3.1 (21 October 2013, 1.4.0 26 August 2014)\nNetworkx 1.8.1 (4 August 2013, 1.9 22 June 2014)\n\nNeither of these were on conda so installed from pypi"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_25/index.html#running-main.py",
+    "href": "logbook/posts/2024_09_25/index.html#running-main.py",
+    "title": "Day 3",
+    "section": "09.56-10.06, 10.32-11.03, 11.11-11.27: Running main.py",
+    "text": "09.56-10.06, 10.32-11.03, 11.11-11.27: Running main.py\nThe file main.py is now able to run, and prints that programme has started and Experiment Runner 1.\nWe can see that main.py is looping through the files in experiments-to-run (which I later renamed inputs).\nFor each, it runs:\n\nParameterReader\nExperimentRunner\nSolutionWriter\n\nFrom the article, I anticipate that this could take a long time to run, and I’d ideally try to make sure I can run a “mini” version successfully first, before then exploring whether I need more computational power to run in full. To do this, I made test_run.ipynb, which requried adding ipykernel to the environment. However, this would not work, stating it needed updated versions, so it appears this is not supported for Python 2.7.\n\n\n\n\n\n\nUnsupported versions and IDEs\n\n\n\nImpact of IDEs - with VSCode being an issue in running 2.7. From a google, I can see likewise that Jupyter Notebook and JupterLab no longer support Python 2.7 (since 2020).\n\nRunning a mini version\nIn a case like this, if I were reusing the code for a new purpose, I might look to upgrade to Python 3+. However, for the sake of the reproduction, for now, sticking with 2.7. However, that brings limitations, like being unable to run notebooks, and having to use a pre-release version of the Python extension in VSCode to run the .py files.\n\n\n\nHence, I just made a test_run.py without the loop. I had a brief look into the documentation for the evolutionary algorithms with inspyred, looking at the parameters being input and whether I could lower these so I can do a temporary run.\n\nruns=1 - already minimal\npopulation=100 - used for popSize, so might also help if lower? This presentation mentions popsize 10 being faster than 100 or 500.\ngenerations=5 - used for max_generations, so might help to lower to 1, just for test-run?\n\nReducing population to 10 and generations to 1 it ran in 42 seconds on my machine. This created a folder in reproduction/ with the current date and time. It contained the experiment txt file, and six results txt files.\n\nComparing to paper\nThe nine files in experiments-to-run align with Figure 5, which has nine grids where percentage of pre-screened is 10 to 90%. These were run with a population of 100 and 50 generations. It has a stated computational time of 6.5 hours. Hence, I will need to adjust the parameters in main.py in order to run with 50 generations (and not 5).\nThe plots include staff members, throughput and waiting times. This lines up with the results.txt files, which contain columns for four different staff members, and then columns with throughput and time.\n\n\nRun with population 100 and 5 generations\nRunning one of the scenarios (30% pre-screened) with parameters as in the code by default (100 and 5) took 22 minutes on my machine. This produced 23 results sheets (as summarised then in results.txt)"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_25/index.html#setting-up-r",
+    "href": "logbook/posts/2024_09_25/index.html#setting-up-r",
+    "title": "Day 3",
+    "section": "11.48-11.56: Setting up R",
+    "text": "11.48-11.56: Setting up R\nAnalysis of the results was performed in R, and there is one R file provided: plotting_staff_results.r. This looks to have some of the code required, but not all (for example, no imports/pre-processing of txt files).\nI set up an R project and an renv. In Figure 3 in the paper they state that R 2.15.3 with ggplot 0.9.3 was used. However, due to difficulties I’ve had with backdating R previously, I decided to try with latest versions in the first instance.\nrenv::init()\nrenv::install(\"ggplot2\")\nrenv::snapshot()\nHowever, it was saying that it was up-to-date, so I tried instead:\nrenv::snapshot(packages=\"ggplot2\")\nThis then add ggplot2 and its dependencies to the lockfile (not sure why the error had occurred)."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_25/index.html#organising-repository",
+    "href": "logbook/posts/2024_09_25/index.html#organising-repository",
+    "title": "Day 3",
+    "section": "11.58-12.25: Organising repository",
+    "text": "11.58-12.25: Organising repository\nReorganised repository into python modelling scripts, R analysis scripts, and results, as it was quite busy.\nI also removed some folders that contained results that were generated by the original author.\nAltered SolutionWriter.py so that the:\n\nSave path for the text files is to the new folder.\nThe save path can be altered from date/time to a custom path (so can save as e.g. experiment1/)"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_25/index.html#test-run-of-provided-r-code-on-dummy-data",
+    "href": "logbook/posts/2024_09_25/index.html#test-run-of-provided-r-code-on-dummy-data",
+    "title": "Day 3",
+    "section": "13.24-13.48: Test run of provided R code on dummy data",
+    "text": "13.24-13.48: Test run of provided R code on dummy data\nInstalled R markdown dependencies into renv. However, had to run renv::snapshot(packages=c(\"ggplot2\", \"rmarkdown\")) else it tried to drop things from the lockfile. I ran renv::settings$snapshot.type(\"all\") and that resolved the issue.\nI made some dummy data to run through the functions in plotting_staff_results.r. They include melt(), which seems likely to be from reshape/reshape2 so I add that to the environment, although these functions didn’t seem to work as provided, as there was something not right in melt().\nFor now, focussed on finding closest to Figure 5, which looks to be “#staff vs throughopu, faceting by prescreened”. This gives a good starting point.\n\n13.55-14.09: Writing code to import txt data, combine and test plot\nImported the txt file data (which was already structured in a table in the format required) - just had to bind the tables together into one, and then use the plotting function. Adapted it slightly (e.g. alpha, layout of code) but otherwise very similar to as provided.\nNow just a matter of doing it with some data from the real thing! From a full run.\n\n\n\nTest run Figure 5"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_25/index.html#timings",
+    "href": "logbook/posts/2024_09_25/index.html#timings",
+    "title": "Day 3",
+    "section": "Timings",
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 138\n\n# Times from today\ntimes = [\n    ('09.26', '09.55'),\n    ('09.56', '10.06'),\n    ('10.32', '11.03'),\n    ('11.11', '11.27'),\n    ('11.48', '11.56'),\n    ('11.58', '12.25'),\n    ('13.24', '13.48'),\n    ('13.55', '14.09')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 159m, or 2h 39m\nTotal used to date: 297m, or 4h 57m\nTime remaining: 2103m, or 35h 3m\nUsed 12.4% of 40 hours max"
+  },
+  {
+    "objectID": "evaluation/reproduction_report.html",
+    "href": "evaluation/reproduction_report.html",
+    "title": "Summary report",
+    "section": "",
+    "text": "Please note: This is a template page and has not yet been completed"
+  },
+  {
+    "objectID": "evaluation/reproduction_report.html#study",
+    "href": "evaluation/reproduction_report.html#study",
+    "title": "Summary report",
+    "section": "Study",
+    "text": "Study\n\n[Authors]. [Title]. [Journal] [Volume], [Edition] ([Year]). &lt;[URL]&gt;.\n\n[Paragraph summarising model]"
+  },
+  {
+    "objectID": "evaluation/reproduction_report.html#computational-reproducibility",
+    "href": "evaluation/reproduction_report.html#computational-reproducibility",
+    "title": "Summary report",
+    "section": "Computational reproducibility",
+    "text": "Computational reproducibility\nSuccessfully reproduced X out of X (X%) of items from the scope in Xh Xm (X%).\nRequired troubleshooting:\n\n[List of required changes to code]\n\n\nItem XItem YFigure 4\n\n\n[One sentence description of item X]\n[Display side-by-side] \n\n\n[Set-up as for Item X]\n\n\n[Set-up as for Item X]"
+  },
+  {
+    "objectID": "evaluation/reproduction_report.html#evaluation-against-guidelines",
+    "href": "evaluation/reproduction_report.html#evaluation-against-guidelines",
+    "title": "Summary report",
+    "section": "Evaluation against guidelines",
+    "text": "Evaluation against guidelines\n\n\n                                                \n\n\nContext: The original study repository was evaluated against criteria from journal badges relating to how open and reproducible the model is and against guidance for sharing artefacts from the STARS framework. The original study article and supplementary materials (excluding code) were evaluated against reporting guidelines for DES models: STRESS-DES, and guidelines adapted from ISPOR-SDM."
+  },
+  {
+    "objectID": "logbook/logbook.html",
+    "href": "logbook/logbook.html",
+    "title": "Logbook",
+    "section": "",
+    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 3\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 25, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\nscope\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 24, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\nread\n\n\nscope\n\n\n\n\n\n\n\n\n\nSep 20, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "evaluation/reporting.html",
+    "href": "evaluation/reporting.html",
+    "title": "Reporting guidelines",
+    "section": "",
+    "text": "Please note: This is a template page and has not yet been completed\nThis page evaluates the extent to which the journal article meets the criteria from two discrete-event simulation study reporting guidelines:"
+  },
+  {
+    "objectID": "evaluation/reporting.html#stress-des",
+    "href": "evaluation/reporting.html#stress-des",
+    "title": "Reporting guidelines",
+    "section": "STRESS-DES",
+    "text": "STRESS-DES\nOf the 24 items in the checklist:\n\n\nX were met fully (✅)\nX were partially met (🟡)\nX were not met (❌)\nX were not applicable (N/A)\n\n\n\n\n\n\n\n\n\n\n\nItem\nRecommendation\nMet by study?\nEvidence\n\n\n\n\nObjectives\n\n\n\n\n\n1.1 Purpose of the model\nExplain the background and objectives for the model\n\n\n\n\n1.2 Model outputs\nDefine all quantitative performance measures that are reported, using equations where necessary. Specify how and when they are calculated during the model run along with how any measures of error such as confidence intervals are calculated.\n\n\n\n\n1.3 Experimentation aims\nIf the model has been used for experimentation, state the objectives that it was used to investigate.(A) Scenario based analysis – Provide a name and description for each scenario, providing a rationale for the choice of scenarios and ensure that item 2.3 (below) is completed.(B) Design of experiments – Provide details of the overall design of the experiments with reference to performance measures and their parameters (provide further details in data below).(C) Simulation Optimisation – (if appropriate) Provide full details of what is to be optimised, the parameters that were included and the algorithm(s) that was be used. Where possible provide a citation of the algorithm(s).\n\n\n\n\nLogic\n\n\n\n\n\n2.1 Base model overview diagram\nDescribe the base model using appropriate diagrams and description. This could include one or more process flow, activity cycle or equivalent diagrams sufficient to describe the model to readers. Avoid complicated diagrams in the main text. The goal is to describe the breadth and depth of the model with respect to the system being studied.\n\n\n\n\n2.2 Base model logic\nGive details of the base model logic. Give additional model logic details sufficient to communicate to the reader how the model works.\n\n\n\n\n2.3 Scenario logic\nGive details of the logical difference between the base case model and scenarios (if any). This could be incorporated as text or where differences are substantial could be incorporated in the same manner as 2.2.\n\n\n\n\n2.4 Algorithms\nProvide further detail on any algorithms in the model that (for example) mimic complex or manual processes in the real world (i.e. scheduling of arrivals/ appointments/ operations/ maintenance, operation of a conveyor system, machine breakdowns, etc.). Sufficient detail should be included (or referred to in other published work) for the algorithms to be reproducible. Pseudo-code may be used to describe an algorithm.\n\n\n\n\n2.5.1 Components - entities\nGive details of all entities within the simulation including a description of their role in the model and a description of all their attributes.\n\n\n\n\n2.5.2 Components - activities\nDescribe the activities that entities engage in within the model. Provide details of entity routing into and out of the activity.\n\n\n\n\n2.5.3 Components - resources\nList all the resources included within the model and which activities make use of them.\n\n\n\n\n2.5.4 Components - queues\nGive details of the assumed queuing discipline used in the model (e.g. First in First Out, Last in First Out, prioritisation, etc.). Where one or more queues have a different discipline from the rest, provide a list of queues, indicating the queuing discipline used for each. If reneging, balking or jockeying occur, etc., provide details of the rules. Detail any delays or capacity constraints on the queues.\n\n\n\n\n2.5.5 Components - entry/exit points\nGive details of the model boundaries i.e. all arrival and exit points of entities. Detail the arrival mechanism (e.g. ‘thinning’ to mimic a non-homogenous Poisson process or balking)\n\n\n\n\nData\n\n\n\n\n\n3.1 Data sources\nList and detail all data sources. Sources may include:• Interviews with stakeholders,• Samples of routinely collected data,• Prospectively collected samples for the purpose of the simulation study,• Public domain data published in either academic or organisational literature. Provide, where possible, the link and DOI to the data or reference to published literature.All data source descriptions should include details of the sample size, sample date ranges and use within the study.\n\n\n\n\n3.2 Pre-processing\nProvide details of any data manipulation that has taken place before its use in the simulation, e.g. interpolation to account for missing data or the removal of outliers.\n\n\n\n\n3.3 Input parameters\nList all input variables in the model. Provide a description of their use and include parameter values. For stochastic inputs provide details of any continuous, discrete or empirical distributions used along with all associated parameters. Give details of all time dependent parameters and correlation.Clearly state:• Base case data• Data use in experimentation, where different from the base case.• Where optimisation or design of experiments has been used, state the range of values that parameters can take.• Where theoretical distributions are used, state how these were selected and prioritised above other candidate distributions.\n\n\n\n\n3.4 Assumptions\nWhere data or knowledge of the real system is unavailable what assumptions are included in the model? This might include parameter values, distributions or routing logic within the model.\n\n\n\n\nExperimentation\n\n\n\n\n\n4.1 Initialisation\nReport if the system modelled is terminating or non-terminating. State if a warm-up period has been used, its length and the analysis method used to select it. For terminating systems state the stopping condition.State what if any initial model conditions have been included, e.g., pre-loaded queues and activities. Report whether initialisation of these variables is deterministic or stochastic.\n\n\n\n\n4.2 Run length\nDetail the run length of the simulation model and time units.\n\n\n\n\n4.3 Estimation approach\nState the method used to account for the stochasticity: For example, two common methods are multiple replications or batch means. Where multiple replications have been used, state the number of replications and for batch means, indicate the batch length and whether the batch means procedure is standard, spaced or overlapping. For both procedures provide a justification for the methods used and the number of replications/size of batches.\n\n\n\n\nImplementation\n\n\n\n\n\n5.1 Software or programming language\nState the operating system and version and build number.State the name, version and build number of commercial or open source DES software that the model is implemented in.State the name and version of general-purpose programming languages used (e.g. Python 3.5).Where frameworks and libraries have been used provide all details including version numbers.\n\n\n\n\n5.2 Random sampling\nState the algorithm used to generate random samples in the software/programming language used e.g. Mersenne Twister.If common random numbers are used, state how seeds (or random number streams) are distributed among sampling processes.\n\n\n\n\n5.3 Model execution\nState the event processing mechanism used e.g. three phase, event, activity, process interaction.Note that in some commercial software the event processing mechanism may not be published. In these cases authors should adhere to item 5.1 software recommendations.State all priority rules included if entities/activities compete for resources.If the model is parallel, distributed and/or use grid or cloud computing, etc., state and preferably reference the technology used. For parallel and distributed simulations the time management algorithms used. If the HLA is used then state the version of the standard, which run-time infrastructure (and version), and any supporting documents (FOMs, etc.)\n\n\n\n\n5.4 System specification\nState the model run time and specification of hardware used. This is particularly important for large scale models that require substantial computing power. For parallel, distributed and/or use grid or cloud computing, etc. state the details of all systems used in the implementation (processors, network, etc.)\n\n\n\n\nCode access\n\n\n\n\n\n6.1 Computer model sharing statement\nDescribe how someone could obtain the model described in the paper, the simulation software and any other associated software (or hardware) needed to reproduce the results. Provide, where possible, the link and DOIs to these."
+  },
+  {
+    "objectID": "evaluation/reporting.html#des-checklist-derived-from-ispor-sdm",
+    "href": "evaluation/reporting.html#des-checklist-derived-from-ispor-sdm",
+    "title": "Reporting guidelines",
+    "section": "DES checklist derived from ISPOR-SDM",
+    "text": "DES checklist derived from ISPOR-SDM\nOf the 18 items in the checklist:\n\n\nX were met fully (✅)\nX were partially met (🟡)\nX were not met (❌)\nX were not applicable (N/A)\n\n\n\n\n\n\n\n\n\n\n\nItem\nAssessed if…\nMet by study?\nEvidence/location\n\n\n\n\nModel conceptualisation\n\n\n\n\n\n1 Is the focused health-related decision problem clarified?\n…the decision problem under investigation was defined. DES studies included different types of decision problems, eg, those listed in previously developed taxonomies.\n\n\n\n\n2 Is the modeled healthcare setting/health condition clarified?\n…the physical context/scope (eg, a certain healthcare unit or a broader system) or disease spectrum simulated was described.\n\n\n\n\n3 Is the model structure described?\n…the model’s conceptual structure was described in the form of either graphical or text presentation.\n\n\n\n\n4 Is the time horizon given?\n…the time period covered by the simulation was reported.\n\n\n\n\n5 Are all simulated strategies/scenarios specified?\n…the comparators under test were described in terms of their components, corresponding variations, etc\n\n\n\n\n6 Is the target population described?\n…the entities simulated and their main attributes were characterized.\n\n\n\n\nParamaterisation and uncertainty assessment\n\n\n\n\n\n7 Are data sources informing parameter estimations provided?\n…the sources of all data used to inform model inputs were reported.\n\n\n\n\n8 Are the parameters used to populate model frameworks specified?\n…all relevant parameters fed into model frameworks were disclosed.\n\n\n\n\n9 Are model uncertainties discussed?\n…the uncertainty surrounding parameter estimations and adopted statistical methods (eg, 95% confidence intervals or possibility distributions) were reported.\n\n\n\n\n10 Are sensitivity analyses performed and reported?\n…the robustness of model outputs to input uncertainties was examined, for example via deterministic (based on parameters’ plausible ranges) or probabilistic (based on a priori-defined probability distributions) sensitivity analyses, or both.\n\n\n\n\nValidation\n\n\n\n\n\n11 Is face validity evaluated and reported?\n…it was reported that the model was subjected to the examination on how well model designs correspond to the reality and intuitions. It was assumed that this type of validation should be conducted by external evaluators with no stake in the study.\n\n\n\n\n12 Is cross validation performed and reported\n…comparison across similar modeling studies which deal with the same decision problem was undertaken.\n\n\n\n\n13 Is external validation performed and reported?\n…the modeler(s) examined how well the model’s results match the empirical data of an actual event modeled.\n\n\n\n\n14 Is predictive validation performed or attempted?\n…the modeler(s) examined the consistency of a model’s predictions of a future event and the actual outcomes in the future. If this was not undertaken, it was assessed whether the reasons were discussed.\n\n\n\n\nGeneralisability and stakeholder involvement\n\n\n\n\n\n15 Is the model generalizability issue discussed?\n…the modeler(s) discussed the potential of the resulting model for being applicable to other settings/populations (single/multiple application).\n\n\n\n\n16 Are decision makers or other stakeholders involved in modeling?\n…the modeler(s) reported in which part throughout the modeling process decision makers and other stakeholders (eg, subject experts) were engaged.\n\n\n\n\n17 Is the source of funding stated?\n…the sponsorship of the study was indicated.\n\n\n\n\n18 Are model limitations discussed?\n…limitations of the assessed model, especially limitations of interest to decision makers, were discussed."
+  },
+  {
+    "objectID": "evaluation/artefacts.html",
+    "href": "evaluation/artefacts.html",
+    "title": "STARS framework",
+    "section": "",
+    "text": "Please note: This is a template page and has not yet been completed\nThis page evaluates the extent to which the original study meets the recommendations from the STARS framework for the sharing of code and associated materials from discrete-event simulation models (Monks, Harper, and Mustafee (2024)).\nOf the 8 essential STARS components:\n\n\nX were met fully (✅)\nX was met partially (🟡)\nX was not met (❌)\n\nOf the 5 optional STARS components:\n\n\nX was met fully (✅)\nX were not met (❌)\n\n\n\n\n\n\n\n\n\n\n\nComponent\nDescription\nMet by study?\nEvidence/location\n\n\n\n\nEssential components\n\n\n\n\n\nOpen license\nFree and open-source software (FOSS) license (e.g. MIT, GNU Public License (GPL))\n\n\n\n\nDependency management\nSpecify software libraries, version numbers and sources (e.g. dependency management tools like virtualenv, conda, poetry)\n\n\n\n\nFOSS model\nCoded in FOSS language (e.g. R, Julia, Python)\n\n\n\n\nMinimum documentation\nMinimal instructions (e.g. in README) that overview (a) what model does, (b) how to install and run model to obtain results, and (c) how to vary parameters to run new experiments\n\n\n\n\nORCID\nORCID for each study author\n\n\n\n\nCitation information\nInstructions on how to cite the research artefact (e.g. CITATION.cff file)\n\n\n\n\nRemote code repository\nCode available in a remote code repository (e.g. GitHub, GitLab, BitBucket)\n\n\n\n\nOpen science archive\nCode stored in an open science archive with FORCE11 compliant citation and guaranteed persistance of digital artefacts (e.g. Figshare, Zenodo, the Open Science Framework (OSF), and the Computational Modeling in the Social and Ecological Sciences Network (CoMSES Net))\n\n\n\n\nOptional components\n\n\n\n\n\nEnhanced documentation\nOpen and high quality documentation on how the model is implemented and works (e.g. via notebooks and markdown files, brought together using software like Quarto and Jupyter Book). Suggested content includes:• Plain english summary of project and model• Clarifying license• Citation instructions• Contribution instructions• Model installation instructions• Structured code walk through of model• Documentation of modelling cycle using TRACE• Annotated simulation reporting guidelines• Clear description of model validation including its intended purpose\n\n\n\n\nDocumentation hosting\nHost documentation (e.g. with GitHub pages, GitLab pages, BitBucket Cloud, Quarto Pub)\n\n\n\n\nOnline coding environment\nProvide an online environment where users can run and change code (e.g. BinderHub, Google Colaboratory, Deepnote)\n\n\n\n\nModel interface\nProvide web application interface to the model so it is accessible to less technical simulation users\n\n\n\n\nWeb app hosting\nHost web app online (e.g. Streamlit Community Cloud, ShinyApps hosting)\n\n\n\n\n\n\n\n\n\nReferences\n\nMonks, Thomas, Alison Harper, and Navonil Mustafee. 2024. “Towards Sharing Tools and Artefacts for Reusable Simulations in Healthcare.” Journal of Simulation 0 (0): 1–20. https://doi.org/10.1080/17477778.2024.2347882."
+  },
+  {
     "objectID": "evaluation/reflections.html",
     "href": "evaluation/reflections.html",
     "title": "Reflections",
@@ -147,123 +189,46 @@
     "text": "Full list of troubleshooting steps\n\n\n\n\n\n\nView list\n\n\n\n\n\nTroubleshooting steps are grouped by theme, and the day these occurred is given in brackets at the end of each bullet."
   },
   {
-    "objectID": "logbook/logbook.html",
-    "href": "logbook/logbook.html",
-    "title": "Logbook",
+    "objectID": "evaluation/scope.html",
+    "href": "evaluation/scope.html",
+    "title": "Scope",
     "section": "",
-    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 3\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 25, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\nscope\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 24, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\nread\n\n\nscope\n\n\n\n\n\n\n\n\n\nSep 20, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
+    "text": "This page outlines the parts of the journal article which we will attempt to reproduce from Hernandez et al. (2015). The journal does not give permission for upload and reuse of images, so you should refer to the article online to view these."
   },
   {
-    "objectID": "logbook/posts/2024_09_24/index.html",
-    "href": "logbook/posts/2024_09_24/index.html",
-    "title": "Day 2",
+    "objectID": "evaluation/scope.html#within-scope",
+    "href": "evaluation/scope.html#within-scope",
+    "title": "Scope",
+    "section": "Within scope",
+    "text": "Within scope\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n“Fig. 5. Pareto fronts for tri-objective Model (2). Experiments were run with a population of 100 and 50 generations. The computational time for obtaining each Pareto front was 6.5 h. The title of each grid corresponds to the percentage of Pre-Screened Designees.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 6\n\n\n\n\n\n“Fig. 6. Stafﬁng levels of a sample of solutions. The Dispensing Station needs more resources regardless of the percentage of Pre-Screened Designees. The title of each grid represents the throughput of the solution in forms per hour.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 7\n\n\n\n\n\n“Fig. 7. Pareto fronts for bi-objective Model (2). Experiments were run with a population of 50 and for 25 generations. The computational time for each Pareto was 1.6 h. The title of each grid corresponds to the percentage of Pre-Screened Designees.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 8\n\n\n\n\n\n“Fig. 8. Pareto fronts for analyzing the impact of the population and generations parameters. Each grid has two numbers in parenthesis: the population size and the number of generations. The objectives are: minimize waiting time, maximize throughput and minimize staff members.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 9\n\n\n\n\n\n“Fig. 9. Pareto fronts for analyzing the impact of constraining the maximum number of Line Managers. The name of each grid corresponds to the maximum number of Line Managers allowed.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 10\n\n\n\n\n\n“Fig. 10. Impact of replications of the Discrete Event Simulation for modeling the movement of Designees inside the PODs.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n“Table 3 Conﬁdence intervals. Waiting times are in minutes.” Hernandez et al. (2015)\nScope: To reproduce the Python columns, but not relevant to reproduce the Arena columns.\n\n\n\n\n\n\n\n\n\nTable 4\n\n\n\n\n\n“Table 4 Stafﬁng levels and associated throughput.” Hernandez et al. (2015)"
+  },
+  {
+    "objectID": "evaluation/scope.html#outside-scope",
+    "href": "evaluation/scope.html#outside-scope",
+    "title": "Scope",
+    "section": "Outside scope",
+    "text": "Outside scope\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n“Fig. 1. Illustration of the concept of Pareto Efﬁciency. Blue points are non- dominated (i.e. efﬁcient) and red points are dominated. For example, point a is dominated because there is another point with the same number of staff members but with higher throughput (indicated by the dashed line). With the Pareto front decision makers can select the trade-off solution that best meets their criteria. (For interpretation of the references to color in this ﬁgure legend, the reader is referred to the web version of this article.)” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 1\n\n\n\n\n\n“Table 1 Number of forms per Designee.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n“Fig. 2. Architecture of the simulation. There are four inputs (left), one control parameter (top) and three outputs (right). The objective of the simulation is to change the stafﬁng levels (control parameter) in order to explore the trade-off solutions.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 3\n\n\n\n\n\n“Fig. 3. Systems architecture of the proposed framework. There are three main components: a custom program based on Python that performs the optimization (top left), an Arena (http://www.arenasimulation.com/) model used to verify the results obtained by the Python program (top right) and an R program used to generate publication quality plots of the results (bottom).” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n“Fig. 4. Network representation of the ﬂow of Designees inside the POD. Designees follow one of the multiple paths inside the POD.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 2\n\n\n\n\n\n“Table 2 Service time.” Hernandez et al. (2015)"
+  },
+  {
+    "objectID": "quarto_site/study_publication.html",
+    "href": "quarto_site/study_publication.html",
+    "title": "Publication",
     "section": "",
-    "text": "Note\n\n\n\nSet-up and troubleshooting environment. Total time used: 2h 18m (5.8%)"
+    "text": "Hernandez et al. (2015)"
   },
   {
-    "objectID": "logbook/posts/2024_09_24/index.html#archive-on-zenodo",
-    "href": "logbook/posts/2024_09_24/index.html#archive-on-zenodo",
-    "title": "Day 2",
-    "section": "09.20-09.26: Archive on Zenodo",
-    "text": "09.20-09.26: Archive on Zenodo\nConsensus on the proposed scope was acquired on 23 September, with Tom agreeing with the proposal. Hence, now archived the repository on Zenodo."
+    "objectID": "quarto_site/study_publication.html#code-and-data",
+    "href": "quarto_site/study_publication.html#code-and-data",
+    "title": "Publication",
+    "section": "Code and data",
+    "text": "Code and data\nView at: https://github.com/ivihernandez/staff-allocation/tree/master"
   },
   {
-    "objectID": "logbook/posts/2024_09_24/index.html#look-over-code-and-create-environment",
-    "href": "logbook/posts/2024_09_24/index.html#look-over-code-and-create-environment",
-    "title": "Day 2",
-    "section": "09.55-10.07: Look over code and create environment",
-    "text": "09.55-10.07: Look over code and create environment\nThere is a very minimal readme, but looking over the scripts, I’m assuming main.py will be a good starting point, just from the name.\nThe plots look to be from r-plots/plotting_staff_results.r.\nDoesn’t appear to be any environment management/versions in the repository but this is detailed in the paper in Figure 3…\n\nPython 2.7 with inspyred 1.0 and simpy 2.3.1\nR 2.15.3 with ggplot 0.9.3\n\nI created a simple python environment just with the three dependencies:\nname: hernandez2015\nchannels:\n  - defaults\n  - conda-forge\ndependencies:\n  - inspyred=1.0\n  - python=2.7\n  - simpy=2.3.1\nThis was built using mamba:\nmamba env create --name hernandez2015 --file environment.yml\nThis had an error:\nPackagesNotFoundError: The following packages are not available from current channels:\n\n  - simpy=2.3.1*\nConda-forge just has SimPy 3.0.13 to 4.1.1. However, PyPi have releases back to 2.0.1, so I switched this to pip install:\nname: hernandez2015\nchannels:\n  - defaults\n  - conda-forge\ndependencies:\n  - inspyred=1.0\n  - pip\n  - python=2.7\n  - pip:\n    - simpy==2.3.1\nThis built quickly and successfully."
-  },
-  {
-    "objectID": "logbook/posts/2024_09_24/index.html#troubleshooting-environment",
-    "href": "logbook/posts/2024_09_24/index.html#troubleshooting-environment",
-    "title": "Day 2",
-    "section": "10.24-11.37: Troubleshooting environment",
-    "text": "10.24-11.37: Troubleshooting environment\n\nUse of Python 2.7 in VSCode\nI selected this environment as the interpreter in VSCode then attempted to run main.py, but it had an error stating it was an invalid environment:\nAn Invalid Python interpreter is selected, please try changing it to enable features such as IntelliSense, linting, and debugging. See output for more details regarding why the interpreter is invalid.\nI tried clearing the workspace interpreter setting, but when trying to select environment again in VSCode, it won’t show the python 2.7 environment in the drop-down list. Based on this forum, it appears that the VSCode python extension dropped support for python 2.7. One comments suggests switching the Python language server to Jedi. To do this:\n\nCtrl + Shift + P\nUser Settings\nSelect Workspace Tab\nSearch Python Language Server\nChange from “Default” to “Jedi”\n\nHowever, it still complained this was an invalid python interpreter, so I reverted this back. Other suggestions were to switch the VSCode Python extension to either:\n\nPre-release version\nPinned to 2022.2\n\nI tried switching to the pre-release version in the Extensions tab, and this worked in allowing me to use Python 2.7 environment. The downside of this is that I will/may want to switch it back for other projects.\n\n\nmyutils\nOn attempting to run main.py, it had an error when importing ExperimentRunner:\nFile \"/home/amy/Documents/stars/stars-reproduce-hernandez-2015/reproduction/ExperimentRunner.py\", line 14, in &lt;module&gt;\n  import myutils\nImportError: No module named myutils\nFrom the script, I can see that myutils/ is a sister folder, and not included in this repository. I can see that it is imported by:\n\nExperimentRunner.py\nResultsAnalyzer.py\nStaffAllocationProblem.py\n\nThere is only one line of code that specifies that a function is from myutils, which is in StaffAllocationProblem.py:\n\n#capacities = myutils.boundingFunction(capacities, self.boundingParameters)\n\nHowever, as that is commented out, it actually might be possible that myutils/ is not actually needed. I tried commenting out all attempts to import myutils in all scripts, then re-ran.\n\n\nnumpy and python\nThere was then an error:\nImportError: No module named numpy\nWe want to attempt to backdate it. Looking at the other known dates…\n\ninspyred=1.0 - released 4 April 2012 (with 1.0.1 on 25 July 2015)\npython=2.7 - released 4 July 2010 to 20 April 2020 (depending on date)\nsimpy==2.3.1 - released 11 October 2013 (with 3.0 on 11 October 2013)\n\nHence, it appears I’ll also want to backdate python, as just setting to 2.7 defaulted to 2.7.18, but that wouldn’t have been possible based on the publication dates. Dates:\n\nArticle received 23 September 2014\nArticle revised 6 February 2015\nArticle accepted 22 February 2015\nLast commit to GitHub (prior to license) 10 December 2013\n\nWill choose versions that are on or prior to 10 December 2013. Hence, for the python version:\n\nPython 2.7.6 (10 November 2013, 2.7.7 31 May 2014)\nNumpy 1.8.0 (30 October 2013, 1.8.1 25 March 2014)\n\nNumpy was set to install from pypi, as conda didn’t support a version that old.\nDeleted and rebuilt:\nmamba remove -n hernandez2015 --all\nmamba env create --name hernandez2015 --file environment.yml\nHowever, had error:\nPackagesNotFoundError: The following packages are not available from current channels:\n\n  - python=2.7.6*\n\nCurrent channels:\n\n  - https://repo.anaconda.com/pkgs/main/linux-64\n  - https://repo.anaconda.com/pkgs/r/linux-64\n  - https://conda.anaconda.org/conda-forge/linux-64\n\nTo search for alternate channels that may provide the conda package you're\nlooking for, navigate to\n\n    https://anaconda.org\nChecking the two python channels it lists:\n\nhttps://repo.anaconda.com/pkgs/main/linux-64/ I can see they have 2.7.13 onwards.\nhttps://conda.anaconda.org/conda-forge/linux-64/, but looking directly at python on conda-forge, I can see they have 2.6.9 or leap up to 2.7.12\n\nMy options are either to:\n\nUse Python 2.6.9 - not ideal, as know they were 2.7\nLook for another conda channel that includes 2.7.6 - however, we are using the default conda channels, and others can be more personal uploads and so on\nUse a more recent Python version - chose this option, and switched to 2.7.12, which was the oldest 2.7 version supported on these channels (2.7.12 is 26 June 2016)\n\n\n\nscipy\nThen missing scipy, which based on released history, I chose 0.13.2 (8 December 2013, 0.13.3 4 February 2014). As a version this old wasn’t on conda, I used pypi. Add to environment.yml then updated:\nmamba env update --file environment.yml --prune\n\n\nnsga2 and myutils\nThen had error that it was missing nsga2. This doesn’t appear to be a public package. It is only imported in ExperimentRunner.py, which lists it under “Ivan’s imports”, indicating it is a personal package/script. It uses a single function: nsga2.nsga2_integer(). As there was no mention of it in this repository, I tried looking at Ivan’s other GitHub repositories.\nThere I found myutils which contains nsga2.py, https://github.com/ivihernandez/myutils. However, this did not have a license, so I am not presently able to download this repository. I sent a message to Ivan to see if he would be happy to likewise add a license to that repository. I also undid the changes I’d made to comment myutils.\nIvan Hernandez later kindly responded to this, adding an open license to the repository."
-  },
-  {
-    "objectID": "logbook/posts/2024_09_24/index.html#timings",
-    "href": "logbook/posts/2024_09_24/index.html#timings",
-    "title": "Day 2",
-    "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 47\n\n# Times from today\ntimes = [\n    ('09.20', '09.26'),\n    ('09.55', '10.07'),\n    ('10.24', '11.37')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 91m, or 1h 31m\nTotal used to date: 138m, or 2h 18m\nTime remaining: 2262m, or 37h 42m\nUsed 5.8% of 40 hours max"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Reproducing Hernandez et al. 2015",
-    "section": "",
-    "text": "This book captures the reproduction of:\n\nHernandez, I., Ramirez-Marquez, J., Starr, D., McKay, R., Guthartz, S., Motherwell, M., Barcellona, J. Optimal staffing strategies for points of dispensing. Computers & Industrial Engineering 83 (2015). https://doi.org/10.1016/j.cie.2015.02.015.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
-  },
-  {
-    "objectID": "index.html#about",
-    "href": "index.html#about",
-    "title": "Reproducing Hernandez et al. 2015",
-    "section": "",
-    "text": "This book captures the reproduction of:\n\nHernandez, I., Ramirez-Marquez, J., Starr, D., McKay, R., Guthartz, S., Motherwell, M., Barcellona, J. Optimal staffing strategies for points of dispensing. Computers & Industrial Engineering 83 (2015). https://doi.org/10.1016/j.cie.2015.02.015.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
-  },
-  {
-    "objectID": "index.html#project-team",
-    "href": "index.html#project-team",
-    "title": "Reproducing Hernandez et al. 2015",
-    "section": "Project team",
-    "text": "Project team\n\nConducting this reproduction:\n\nAmy Heather \n\nProviding support during the reproduction:\n\nThomas Monks \nAlison Harper \n\nOther members of the team on STARS:\n\nNavonil Mustafee \nAndrew Mayne"
-  },
-  {
-    "objectID": "index.html#protocol",
-    "href": "index.html#protocol",
-    "title": "Reproducing Hernandez et al. 2015",
-    "section": "Protocol",
-    "text": "Protocol\nThe protocol for this work is summarised in the diagram below and archived on Zenodo:\n\nHeather, A., Monks, T., Harper, A., Mustafee, N., & Mayne, A. (2024). Protocol for assessing the computational reproducibility of discrete-event simulation models on STARS. Zenodo. https://doi.org/10.5281/zenodo.12179846.\n\n\n\n\nWorkflow for computational reproducibility assessment"
-  },
-  {
-    "objectID": "index.html#citation",
-    "href": "index.html#citation",
-    "title": "Reproducing Hernandez et al. 2015",
-    "section": "Citation",
-    "text": "Citation\nAPA:\nHeather A., Monks T., Harper A. (2024). STARS: Computational reproducibility of Hernandez et al. 2015 (version 0.1.0). URL: https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015\nSee CITATION.cff and citation_bibtex.bib for alternative formats."
-  },
-  {
-    "objectID": "index.html#license",
-    "href": "index.html#license",
-    "title": "Reproducing Hernandez et al. 2015",
-    "section": "License",
-    "text": "License\nSee License page."
-  },
-  {
-    "objectID": "logbook/posts/2024_09_25/index.html",
-    "href": "logbook/posts/2024_09_25/index.html",
-    "title": "Day 3",
-    "section": "",
-    "text": "Note\n\n\n\nX. Total time used: Xh Xm (X%)"
-  },
-  {
-    "objectID": "logbook/posts/2024_09_25/index.html#troubleshooting-environment",
-    "href": "logbook/posts/2024_09_25/index.html#troubleshooting-environment",
-    "title": "Day 3",
-    "section": "09.26-09.55: Troubleshooting environment",
-    "text": "09.26-09.55: Troubleshooting environment\n\nmyutils\nCopied https://github.com/ivihernandez/myutils into original_study/ and reproduction/.\nThen ran main.py, but error when importing ExperimentRunner.py for import myutils: ImportError: No module named myutils. Tried tweaking the imports with no luck, so went with a simple solution of keeping myutils.py alongside the other scripts, rather than in reproduction/myutils/myutils.py.\nThen realised it was because I was running from the parent folder, so switched that and it resolved the issue\n\n\nmatplotlib and networkx\nThen found was missing matplotlib and networkx. Alike yesterday, choosing versions on or prior to 10 December 2013…\n\nMatplotlib 1.3.1 (21 October 2013, 1.4.0 26 August 2014)\nNetworkx 1.8.1 (4 August 2013, 1.9 22 June 2014)\n\nNeither of these were on conda so installed from pypi"
-  },
-  {
-    "objectID": "logbook/posts/2024_09_25/index.html#running-main.py",
-    "href": "logbook/posts/2024_09_25/index.html#running-main.py",
-    "title": "Day 3",
-    "section": "09.56-10.06, 10.32-11.03, 11.11-11.27: Running main.py",
-    "text": "09.56-10.06, 10.32-11.03, 11.11-11.27: Running main.py\nThe file main.py is now able to run, and prints that programme has started and Experiment Runner 1.\nWe can see that main.py is looping through the files in experiments-to-run:\n\nfrom os import listdir\nfrom os.path import isfile, join\n\nmypath = '../../../reproduction/experiments-to-run'\nexperimentFiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]\n\nexperimentFiles\n\n['80-prescreened.txt',\n '10-prescreened.txt',\n '20-prescreened.txt',\n '50-prescreened.txt',\n '30-prescreened.txt',\n '60-prescreened.txt',\n '40-prescreened.txt',\n '90-prescreened.txt',\n '70-prescreened.txt']\n\n\nFor each, it runs:\n\nParameterReader\nExperimentRunner\nSolutionWriter\n\nFrom the article, I anticipate that this could take a long time to run, and I’d ideally try to make sure I can run a “mini” version successfully first, before then exploring whether I need more computational power to run in full. To do this, I made test_run.ipynb, which requried adding ipykernel to the environment. However, this would not work, stating it needed updated versions, so it appears this is not supported for Python 2.7.\n\n\n\n\n\n\nUnsupported versions and IDEs\n\n\n\nImpact of IDEs - with VSCode being an issue in running 2.7. From a google, I can see likewise that Jupyter Notebook and JupterLab no longer support Python 2.7 (since 2020).\n\nRunning a mini version\nIn a case like this, if I were reusing the code for a new purpose, I might look to upgrade to Python 3+. However, for the sake of the reproduction, for now, sticking with 2.7. However, that brings limitations, like being unable to run notebooks, and having to use a pre-release version of the Python extension in VSCode to run the .py files.\n\n\n\nHence, I just made a test_run.py without the loop. I had a brief look into the documentation for the evolutionary algorithms with inspyred, looking at the parameters being input and whether I could lower these so I can do a temporary run.\n\nruns=1 - already minimal\npopulation=100 - used for popSize, so might also help if lower? This presentation mentions popsize 10 being faster than 100 or 500.\ngenerations=5 - used for max_generations, so might help to lower to 1, just for test-run?\n\nReducing population to 10 and generations to 1 it ran in 42 seconds on my machine. This created a folder in reproduction/ with the current date and time. It contained the experiment txt file, and six results txt files.\n\nComparing to paper\nThe nine files in experiments-to-run align with Figure 5, which has nine grids where percentage of pre-screened is 10 to 90%. These were run with a population of 100 and 50 generations. It has a stated computational time of 6.5 hours. Hence, I will need to adjust the parameters in main.py in order to run with 50 generations (and not 5).\nThe plots include staff members, throughput and waiting times. This lines up with the results.txt files, which contain columns for four different staff members, and then columns with throughput and time.\n\n\nRun with population 100 and 5 generations\nRunning one of the scenarios (30% pre-screened) with parameters as in the code by default (100 and 5) took 22 minutes on my machine. This produced 23 results sheets (as summarised then in results.txt)"
-  },
-  {
-    "objectID": "logbook/posts/2024_09_25/index.html#x-setting-up-r",
-    "href": "logbook/posts/2024_09_25/index.html#x-setting-up-r",
-    "title": "Day 3",
-    "section": "11.48-X: Setting up R",
-    "text": "11.48-X: Setting up R\nAnalysis of the results was performed in R, and there is one R file provided: plotting_staff_results.r. This looks to have some of the code required, but not all (for example, no imports/pre-processing of txt files).\nI set up an R project and an renv."
-  },
-  {
-    "objectID": "logbook/posts/2024_09_25/index.html#timings",
-    "href": "logbook/posts/2024_09_25/index.html#timings",
-    "title": "Day 3",
-    "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 138\n\n# Times from today\ntimes = [\n    ('09.26', '09.55'),\n    ('09.56', '10.06'),\n    ('10.32', '11.03'),\n    ('11.11', '11.27')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 86m, or 1h 26m\nTotal used to date: 224m, or 3h 44m\nTime remaining: 2176m, or 36h 16m\nUsed 9.3% of 40 hours max"
+    "objectID": "quarto_site/study_publication.html#journal-article",
+    "href": "quarto_site/study_publication.html#journal-article",
+    "title": "Publication",
+    "section": "Journal article",
+    "text": "Journal article\nThe article does not provide permissions to reshare, so cannot be uploaded.\nIf you wish to view this article, please navigate to: https://doi.org/10.1016/j.cie.2015.02.015."
   },
   {
     "objectID": "logbook/posts/2024_09_20/index.html",
@@ -315,115 +280,129 @@
     "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 0\n\n# Times from today\ntimes = [\n    ('14.38', '14.52'),\n    ('14.57', '14.58'),\n    ('15.00', '15.08'),\n    ('15.10', '15.34')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 47m, or 0h 47m\nTotal used to date: 47m, or 0h 47m\nTime remaining: 2353m, or 39h 13m\nUsed 2.0% of 40 hours max"
   },
   {
-    "objectID": "evaluation/reproduction_success.html",
-    "href": "evaluation/reproduction_success.html",
-    "title": "Reproduction success",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Reproducing Hernandez et al. 2015",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nOf the X items in the scope, X% (X out of X) were considered to be successfully reproduced.\nAs cited throughout, images on this page are sourced from"
+    "text": "This book captures the reproduction of:\n\nHernandez, I., Ramirez-Marquez, J., Starr, D., McKay, R., Guthartz, S., Motherwell, M., Barcellona, J. Optimal staffing strategies for points of dispensing. Computers & Industrial Engineering 83 (2015). https://doi.org/10.1016/j.cie.2015.02.015.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
   },
   {
-    "objectID": "evaluation/reproduction_success.html#time-to-completion",
-    "href": "evaluation/reproduction_success.html#time-to-completion",
-    "title": "Reproduction success",
-    "section": "Time-to-completion",
-    "text": "Time-to-completion\n\n\n\n\n\n\n\n\n\ntime\nitem\necdf\nhours\n\n\n\n\n0\n0.0\nStart\n0.0\n0.000000\n\n\n1\n100.0\nNaN\n0.0\n1.666667\n\n\n2\n100.0\nIn-text result 1\n12.5\n1.666667\n\n\n3\n200.0\nNaN\n12.5\n3.333333\n\n\n4\n200.0\nIn-text result 2\n25.0\n3.333333\n\n\n5\n300.0\nNaN\n25.0\n5.000000\n\n\n6\n300.0\nFigure 5\n37.5\n5.000000\n\n\n7\n400.0\nNaN\n37.5\n6.666667\n\n\n8\n400.0\nFigure 2\nNaN\n6.666667\n\n\n9\nNaN\nNaN\nNaN\nNaN\n\n\n10\nNaN\nFigure 3\n62.5\nNaN\n\n\n11\nNaN\nNaN\n62.5\nNaN\n\n\n12\nNaN\nFigure 4\n75.0\nNaN\n\n\n13\nNaN\nNaN\n75.0\nNaN\n\n\n14\nNaN\nSupplementary figure\n87.5\nNaN\n\n\n15\nNaN\nNaN\n87.5\nNaN\n\n\n16\nNaN\nIn-text result 3\n100.0\nNaN\n\n\n17\nNaN\nNaN\n100.0\nNaN\n\n\n\n\n\n\n\nNon-interactive plot:\n\n\n\n\n\n\n\n\n\nInteractive plot:"
-  },
-  {
-    "objectID": "evaluation/reproduction_success.html#figure-x",
-    "href": "evaluation/reproduction_success.html#figure-x",
-    "title": "Reproduction success",
-    "section": "Figure X",
-    "text": "Figure X\nConsensus: Not reproduced / Successfully reproduced\nOriginal (citation):\n\nReproduction:"
-  },
-  {
-    "objectID": "evaluation/artefacts.html",
-    "href": "evaluation/artefacts.html",
-    "title": "STARS framework",
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Reproducing Hernandez et al. 2015",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nThis page evaluates the extent to which the original study meets the recommendations from the STARS framework for the sharing of code and associated materials from discrete-event simulation models (Monks, Harper, and Mustafee (2024)).\nOf the 8 essential STARS components:\n\n\nX were met fully (✅)\nX was met partially (🟡)\nX was not met (❌)\n\nOf the 5 optional STARS components:\n\n\nX was met fully (✅)\nX were not met (❌)\n\n\n\n\n\n\n\n\n\n\n\nComponent\nDescription\nMet by study?\nEvidence/location\n\n\n\n\nEssential components\n\n\n\n\n\nOpen license\nFree and open-source software (FOSS) license (e.g. MIT, GNU Public License (GPL))\n\n\n\n\nDependency management\nSpecify software libraries, version numbers and sources (e.g. dependency management tools like virtualenv, conda, poetry)\n\n\n\n\nFOSS model\nCoded in FOSS language (e.g. R, Julia, Python)\n\n\n\n\nMinimum documentation\nMinimal instructions (e.g. in README) that overview (a) what model does, (b) how to install and run model to obtain results, and (c) how to vary parameters to run new experiments\n\n\n\n\nORCID\nORCID for each study author\n\n\n\n\nCitation information\nInstructions on how to cite the research artefact (e.g. CITATION.cff file)\n\n\n\n\nRemote code repository\nCode available in a remote code repository (e.g. GitHub, GitLab, BitBucket)\n\n\n\n\nOpen science archive\nCode stored in an open science archive with FORCE11 compliant citation and guaranteed persistance of digital artefacts (e.g. Figshare, Zenodo, the Open Science Framework (OSF), and the Computational Modeling in the Social and Ecological Sciences Network (CoMSES Net))\n\n\n\n\nOptional components\n\n\n\n\n\nEnhanced documentation\nOpen and high quality documentation on how the model is implemented and works (e.g. via notebooks and markdown files, brought together using software like Quarto and Jupyter Book). Suggested content includes:• Plain english summary of project and model• Clarifying license• Citation instructions• Contribution instructions• Model installation instructions• Structured code walk through of model• Documentation of modelling cycle using TRACE• Annotated simulation reporting guidelines• Clear description of model validation including its intended purpose\n\n\n\n\nDocumentation hosting\nHost documentation (e.g. with GitHub pages, GitLab pages, BitBucket Cloud, Quarto Pub)\n\n\n\n\nOnline coding environment\nProvide an online environment where users can run and change code (e.g. BinderHub, Google Colaboratory, Deepnote)\n\n\n\n\nModel interface\nProvide web application interface to the model so it is accessible to less technical simulation users\n\n\n\n\nWeb app hosting\nHost web app online (e.g. Streamlit Community Cloud, ShinyApps hosting)\n\n\n\n\n\n\n\n\n\nReferences\n\nMonks, Thomas, Alison Harper, and Navonil Mustafee. 2024. “Towards Sharing Tools and Artefacts for Reusable Simulations in Healthcare.” Journal of Simulation 0 (0): 1–20. https://doi.org/10.1080/17477778.2024.2347882."
+    "text": "This book captures the reproduction of:\n\nHernandez, I., Ramirez-Marquez, J., Starr, D., McKay, R., Guthartz, S., Motherwell, M., Barcellona, J. Optimal staffing strategies for points of dispensing. Computers & Industrial Engineering 83 (2015). https://doi.org/10.1016/j.cie.2015.02.015.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
   },
   {
-    "objectID": "evaluation/scope.html",
-    "href": "evaluation/scope.html",
-    "title": "Scope",
+    "objectID": "index.html#project-team",
+    "href": "index.html#project-team",
+    "title": "Reproducing Hernandez et al. 2015",
+    "section": "Project team",
+    "text": "Project team\n\nConducting this reproduction:\n\nAmy Heather \n\nProviding support during the reproduction:\n\nThomas Monks \nAlison Harper \n\nOther members of the team on STARS:\n\nNavonil Mustafee \nAndrew Mayne"
+  },
+  {
+    "objectID": "index.html#protocol",
+    "href": "index.html#protocol",
+    "title": "Reproducing Hernandez et al. 2015",
+    "section": "Protocol",
+    "text": "Protocol\nThe protocol for this work is summarised in the diagram below and archived on Zenodo:\n\nHeather, A., Monks, T., Harper, A., Mustafee, N., & Mayne, A. (2024). Protocol for assessing the computational reproducibility of discrete-event simulation models on STARS. Zenodo. https://doi.org/10.5281/zenodo.12179846.\n\n\n\n\nWorkflow for computational reproducibility assessment"
+  },
+  {
+    "objectID": "index.html#citation",
+    "href": "index.html#citation",
+    "title": "Reproducing Hernandez et al. 2015",
+    "section": "Citation",
+    "text": "Citation\nAPA:\nHeather A., Monks T., Harper A. (2024). STARS: Computational reproducibility of Hernandez et al. 2015 (version 0.1.0). URL: https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015\nSee CITATION.cff and citation_bibtex.bib for alternative formats."
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Reproducing Hernandez et al. 2015",
+    "section": "License",
+    "text": "License\nSee License page."
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html",
+    "href": "quarto_site/reproduction_readme.html",
+    "title": "README for reproduction",
     "section": "",
-    "text": "This page outlines the parts of the journal article which we will attempt to reproduce from Hernandez et al. (2015). The journal does not give permission for upload and reuse of images, so you should refer to the article online to view these."
+    "text": "Please note: This is a template README and has not yet been completed\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\n\nTBC\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\nTBC\n\n\n\n\nTBC\n\n\n\nTBC"
   },
   {
-    "objectID": "evaluation/scope.html#within-scope",
-    "href": "evaluation/scope.html#within-scope",
-    "title": "Scope",
-    "section": "Within scope",
-    "text": "Within scope\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n“Fig. 5. Pareto fronts for tri-objective Model (2). Experiments were run with a population of 100 and 50 generations. The computational time for obtaining each Pareto front was 6.5 h. The title of each grid corresponds to the percentage of Pre-Screened Designees.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 6\n\n\n\n\n\n“Fig. 6. Stafﬁng levels of a sample of solutions. The Dispensing Station needs more resources regardless of the percentage of Pre-Screened Designees. The title of each grid represents the throughput of the solution in forms per hour.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 7\n\n\n\n\n\n“Fig. 7. Pareto fronts for bi-objective Model (2). Experiments were run with a population of 50 and for 25 generations. The computational time for each Pareto was 1.6 h. The title of each grid corresponds to the percentage of Pre-Screened Designees.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 8\n\n\n\n\n\n“Fig. 8. Pareto fronts for analyzing the impact of the population and generations parameters. Each grid has two numbers in parenthesis: the population size and the number of generations. The objectives are: minimize waiting time, maximize throughput and minimize staff members.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 9\n\n\n\n\n\n“Fig. 9. Pareto fronts for analyzing the impact of constraining the maximum number of Line Managers. The name of each grid corresponds to the maximum number of Line Managers allowed.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 10\n\n\n\n\n\n“Fig. 10. Impact of replications of the Discrete Event Simulation for modeling the movement of Designees inside the PODs.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n“Table 3 Conﬁdence intervals. Waiting times are in minutes.” Hernandez et al. (2015)\nScope: To reproduce the Python columns, but not relevant to reproduce the Arena columns.\n\n\n\n\n\n\n\n\n\nTable 4\n\n\n\n\n\n“Table 4 Stafﬁng levels and associated throughput.” Hernandez et al. (2015)"
-  },
-  {
-    "objectID": "evaluation/scope.html#outside-scope",
-    "href": "evaluation/scope.html#outside-scope",
-    "title": "Scope",
-    "section": "Outside scope",
-    "text": "Outside scope\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n“Fig. 1. Illustration of the concept of Pareto Efﬁciency. Blue points are non- dominated (i.e. efﬁcient) and red points are dominated. For example, point a is dominated because there is another point with the same number of staff members but with higher throughput (indicated by the dashed line). With the Pareto front decision makers can select the trade-off solution that best meets their criteria. (For interpretation of the references to color in this ﬁgure legend, the reader is referred to the web version of this article.)” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 1\n\n\n\n\n\n“Table 1 Number of forms per Designee.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n“Fig. 2. Architecture of the simulation. There are four inputs (left), one control parameter (top) and three outputs (right). The objective of the simulation is to change the stafﬁng levels (control parameter) in order to explore the trade-off solutions.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 3\n\n\n\n\n\n“Fig. 3. Systems architecture of the proposed framework. There are three main components: a custom program based on Python that performs the optimization (top left), an Arena (http://www.arenasimulation.com/) model used to verify the results obtained by the Python program (top right) and an R program used to generate publication quality plots of the results (bottom).” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n“Fig. 4. Network representation of the ﬂow of Designees inside the POD. Designees follow one of the multiple paths inside the POD.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 2\n\n\n\n\n\n“Table 2 Service time.” Hernandez et al. (2015)"
-  },
-  {
-    "objectID": "evaluation/reproduction_report.html",
-    "href": "evaluation/reproduction_report.html",
-    "title": "Summary report",
+    "objectID": "quarto_site/reproduction_readme.html#model-summary",
+    "href": "quarto_site/reproduction_readme.html#model-summary",
+    "title": "README for reproduction",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed"
+    "text": "TBC"
   },
   {
-    "objectID": "evaluation/reproduction_report.html#study",
-    "href": "evaluation/reproduction_report.html#study",
-    "title": "Summary report",
-    "section": "Study",
-    "text": "Study\n\n[Authors]. [Title]. [Journal] [Volume], [Edition] ([Year]). &lt;[URL]&gt;.\n\n[Paragraph summarising model]"
-  },
-  {
-    "objectID": "evaluation/reproduction_report.html#computational-reproducibility",
-    "href": "evaluation/reproduction_report.html#computational-reproducibility",
-    "title": "Summary report",
-    "section": "Computational reproducibility",
-    "text": "Computational reproducibility\nSuccessfully reproduced X out of X (X%) of items from the scope in Xh Xm (X%).\nRequired troubleshooting:\n\n[List of required changes to code]\n\n\nItem XItem YFigure 4\n\n\n[One sentence description of item X]\n[Display side-by-side] \n\n\n[Set-up as for Item X]\n\n\n[Set-up as for Item X]"
-  },
-  {
-    "objectID": "evaluation/reproduction_report.html#evaluation-against-guidelines",
-    "href": "evaluation/reproduction_report.html#evaluation-against-guidelines",
-    "title": "Summary report",
-    "section": "Evaluation against guidelines",
-    "text": "Evaluation against guidelines\n\n\n                                                \n\n\nContext: The original study repository was evaluated against criteria from journal badges relating to how open and reproducible the model is and against guidance for sharing artefacts from the STARS framework. The original study article and supplementary materials (excluding code) were evaluated against reporting guidelines for DES models: STRESS-DES, and guidelines adapted from ISPOR-SDM."
-  },
-  {
-    "objectID": "quarto_site/study_publication.html",
-    "href": "quarto_site/study_publication.html",
-    "title": "Publication",
+    "objectID": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
+    "href": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
+    "title": "README for reproduction",
     "section": "",
-    "text": "Hernandez et al. (2015)"
+    "text": "TBC"
   },
   {
-    "objectID": "quarto_site/study_publication.html#code-and-data",
-    "href": "quarto_site/study_publication.html#code-and-data",
-    "title": "Publication",
-    "section": "Code and data",
-    "text": "Code and data\nView at: https://github.com/ivihernandez/staff-allocation/tree/master"
-  },
-  {
-    "objectID": "quarto_site/study_publication.html#journal-article",
-    "href": "quarto_site/study_publication.html#journal-article",
-    "title": "Publication",
-    "section": "Journal article",
-    "text": "Journal article\nThe article does not provide permissions to reshare, so cannot be uploaded.\nIf you wish to view this article, please navigate to: https://doi.org/10.1016/j.cie.2015.02.015."
-  },
-  {
-    "objectID": "CHANGELOG.html",
-    "href": "CHANGELOG.html",
-    "title": "Changelog",
+    "objectID": "quarto_site/reproduction_readme.html#reproducing-these-results",
+    "href": "quarto_site/reproduction_readme.html#reproducing-these-results",
+    "title": "README for reproduction",
     "section": "",
-    "text": "All notable changes to this project will be documented in this file.\nThe format is based on Keep a Changelog, and this project adheres to Semantic Versioning. Dates formatted as YYYY-MM-DD as per ISO standard.\n\n\nSet up repository and defined scope of reproduction.\n\n\n\nCode from original study\nPlanned scope for reproduction\n\n\n\n\n\nModified template to be about Hernandez et al. 2015"
+    "text": "TBC\n\n\n\nTBC\n\n\n\nTBC"
   },
   {
-    "objectID": "CHANGELOG.html#v0.1.0---2024.09.24",
-    "href": "CHANGELOG.html#v0.1.0---2024.09.24",
-    "title": "Changelog",
+    "objectID": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
+    "href": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
+    "title": "README for reproduction",
     "section": "",
-    "text": "Set up repository and defined scope of reproduction.\n\n\n\nCode from original study\nPlanned scope for reproduction\n\n\n\n\n\nModified template to be about Hernandez et al. 2015"
+    "text": "TBC"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#citation",
+    "href": "quarto_site/reproduction_readme.html#citation",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "TBC"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#license",
+    "href": "quarto_site/reproduction_readme.html#license",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "TBC"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_24/index.html",
+    "href": "logbook/posts/2024_09_24/index.html",
+    "title": "Day 2",
+    "section": "",
+    "text": "Note\n\n\n\nSet-up and troubleshooting environment. Total time used: 2h 18m (5.8%)"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_24/index.html#archive-on-zenodo",
+    "href": "logbook/posts/2024_09_24/index.html#archive-on-zenodo",
+    "title": "Day 2",
+    "section": "09.20-09.26: Archive on Zenodo",
+    "text": "09.20-09.26: Archive on Zenodo\nConsensus on the proposed scope was acquired on 23 September, with Tom agreeing with the proposal. Hence, now archived the repository on Zenodo."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_24/index.html#look-over-code-and-create-environment",
+    "href": "logbook/posts/2024_09_24/index.html#look-over-code-and-create-environment",
+    "title": "Day 2",
+    "section": "09.55-10.07: Look over code and create environment",
+    "text": "09.55-10.07: Look over code and create environment\nThere is a very minimal readme, but looking over the scripts, I’m assuming main.py will be a good starting point, just from the name.\nThe plots look to be from r-plots/plotting_staff_results.r.\nDoesn’t appear to be any environment management/versions in the repository but this is detailed in the paper in Figure 3…\n\nPython 2.7 with inspyred 1.0 and simpy 2.3.1\nR 2.15.3 with ggplot 0.9.3\n\nI created a simple python environment just with the three dependencies:\nname: hernandez2015\nchannels:\n  - defaults\n  - conda-forge\ndependencies:\n  - inspyred=1.0\n  - python=2.7\n  - simpy=2.3.1\nThis was built using mamba:\nmamba env create --name hernandez2015 --file environment.yml\nThis had an error:\nPackagesNotFoundError: The following packages are not available from current channels:\n\n  - simpy=2.3.1*\nConda-forge just has SimPy 3.0.13 to 4.1.1. However, PyPi have releases back to 2.0.1, so I switched this to pip install:\nname: hernandez2015\nchannels:\n  - defaults\n  - conda-forge\ndependencies:\n  - inspyred=1.0\n  - pip\n  - python=2.7\n  - pip:\n    - simpy==2.3.1\nThis built quickly and successfully."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_24/index.html#troubleshooting-environment",
+    "href": "logbook/posts/2024_09_24/index.html#troubleshooting-environment",
+    "title": "Day 2",
+    "section": "10.24-11.37: Troubleshooting environment",
+    "text": "10.24-11.37: Troubleshooting environment\n\nUse of Python 2.7 in VSCode\nI selected this environment as the interpreter in VSCode then attempted to run main.py, but it had an error stating it was an invalid environment:\nAn Invalid Python interpreter is selected, please try changing it to enable features such as IntelliSense, linting, and debugging. See output for more details regarding why the interpreter is invalid.\nI tried clearing the workspace interpreter setting, but when trying to select environment again in VSCode, it won’t show the python 2.7 environment in the drop-down list. Based on this forum, it appears that the VSCode python extension dropped support for python 2.7. One comments suggests switching the Python language server to Jedi. To do this:\n\nCtrl + Shift + P\nUser Settings\nSelect Workspace Tab\nSearch Python Language Server\nChange from “Default” to “Jedi”\n\nHowever, it still complained this was an invalid python interpreter, so I reverted this back. Other suggestions were to switch the VSCode Python extension to either:\n\nPre-release version\nPinned to 2022.2\n\nI tried switching to the pre-release version in the Extensions tab, and this worked in allowing me to use Python 2.7 environment. The downside of this is that I will/may want to switch it back for other projects.\n\n\nmyutils\nOn attempting to run main.py, it had an error when importing ExperimentRunner:\nFile \"/home/amy/Documents/stars/stars-reproduce-hernandez-2015/reproduction/ExperimentRunner.py\", line 14, in &lt;module&gt;\n  import myutils\nImportError: No module named myutils\nFrom the script, I can see that myutils/ is a sister folder, and not included in this repository. I can see that it is imported by:\n\nExperimentRunner.py\nResultsAnalyzer.py\nStaffAllocationProblem.py\n\nThere is only one line of code that specifies that a function is from myutils, which is in StaffAllocationProblem.py:\n\n#capacities = myutils.boundingFunction(capacities, self.boundingParameters)\n\nHowever, as that is commented out, it actually might be possible that myutils/ is not actually needed. I tried commenting out all attempts to import myutils in all scripts, then re-ran.\n\n\nnumpy and python\nThere was then an error:\nImportError: No module named numpy\nWe want to attempt to backdate it. Looking at the other known dates…\n\ninspyred=1.0 - released 4 April 2012 (with 1.0.1 on 25 July 2015)\npython=2.7 - released 4 July 2010 to 20 April 2020 (depending on date)\nsimpy==2.3.1 - released 11 October 2013 (with 3.0 on 11 October 2013)\n\nHence, it appears I’ll also want to backdate python, as just setting to 2.7 defaulted to 2.7.18, but that wouldn’t have been possible based on the publication dates. Dates:\n\nArticle received 23 September 2014\nArticle revised 6 February 2015\nArticle accepted 22 February 2015\nLast commit to GitHub (prior to license) 10 December 2013\n\nWill choose versions that are on or prior to 10 December 2013. Hence, for the python version:\n\nPython 2.7.6 (10 November 2013, 2.7.7 31 May 2014)\nNumpy 1.8.0 (30 October 2013, 1.8.1 25 March 2014)\n\nNumpy was set to install from pypi, as conda didn’t support a version that old.\nDeleted and rebuilt:\nmamba remove -n hernandez2015 --all\nmamba env create --name hernandez2015 --file environment.yml\nHowever, had error:\nPackagesNotFoundError: The following packages are not available from current channels:\n\n  - python=2.7.6*\n\nCurrent channels:\n\n  - https://repo.anaconda.com/pkgs/main/linux-64\n  - https://repo.anaconda.com/pkgs/r/linux-64\n  - https://conda.anaconda.org/conda-forge/linux-64\n\nTo search for alternate channels that may provide the conda package you're\nlooking for, navigate to\n\n    https://anaconda.org\nChecking the two python channels it lists:\n\nhttps://repo.anaconda.com/pkgs/main/linux-64/ I can see they have 2.7.13 onwards.\nhttps://conda.anaconda.org/conda-forge/linux-64/, but looking directly at python on conda-forge, I can see they have 2.6.9 or leap up to 2.7.12\n\nMy options are either to:\n\nUse Python 2.6.9 - not ideal, as know they were 2.7\nLook for another conda channel that includes 2.7.6 - however, we are using the default conda channels, and others can be more personal uploads and so on\nUse a more recent Python version - chose this option, and switched to 2.7.12, which was the oldest 2.7 version supported on these channels (2.7.12 is 26 June 2016)\n\n\n\nscipy\nThen missing scipy, which based on released history, I chose 0.13.2 (8 December 2013, 0.13.3 4 February 2014). As a version this old wasn’t on conda, I used pypi. Add to environment.yml then updated:\nmamba env update --file environment.yml --prune\n\n\nnsga2 and myutils\nThen had error that it was missing nsga2. This doesn’t appear to be a public package. It is only imported in ExperimentRunner.py, which lists it under “Ivan’s imports”, indicating it is a personal package/script. It uses a single function: nsga2.nsga2_integer(). As there was no mention of it in this repository, I tried looking at Ivan’s other GitHub repositories.\nThere I found myutils which contains nsga2.py, https://github.com/ivihernandez/myutils. However, this did not have a license, so I am not presently able to download this repository. I sent a message to Ivan to see if he would be happy to likewise add a license to that repository. I also undid the changes I’d made to comment myutils.\nIvan Hernandez later kindly responded to this, adding an open license to the repository."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_24/index.html#timings",
+    "href": "logbook/posts/2024_09_24/index.html#timings",
+    "title": "Day 2",
+    "section": "Timings",
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 47\n\n# Times from today\ntimes = [\n    ('09.20', '09.26'),\n    ('09.55', '10.07'),\n    ('10.24', '11.37')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 91m, or 1h 31m\nTotal used to date: 138m, or 2h 18m\nTime remaining: 2262m, or 37h 42m\nUsed 5.8% of 40 hours max"
   }
 ]
