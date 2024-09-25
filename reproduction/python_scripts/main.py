@@ -32,7 +32,7 @@ def load_modules_manually():
 def main():
     load_modules_manually()
     #sys.exit()
-    mypath = r'./experiments-to-run'
+    mypath = r'../inputs'
     experimentFiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
     
     seeds = [123, 456, 789]
@@ -43,7 +43,11 @@ def main():
         experimentRunner.run(runs=1,
                              population=100,
                              generations=5)
-        solutionWriter = SolutionWriter.SolutionWriter(join(mypath,experimentFile),experimentRunner)
+        solutionWriter = SolutionWriter.SolutionWriter(
+            join(mypath,experimentFile), experimentRunner,
+            folderName=(
+                '../python_outputs/experiment1/prescreen' +
+                str(int(parameterReader.parameters['preScreenedPercentage']*100))))
         solutionWriter.dumpSolution()
         #solutionWriter.dumpResultsAnalyzer()
     

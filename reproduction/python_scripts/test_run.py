@@ -9,7 +9,7 @@ import ExperimentRunner
 
 startTime = datetime.datetime.now()
 
-mypath = r'./experiments-to-run'
+mypath = r'../inputs'
 experimentFiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 seeds = [123, 456, 789]
 
@@ -26,12 +26,16 @@ experimentRunner = ExperimentRunner.ExperimentRunner(seeds, parameterReader)
 print(vars(experimentRunner))
 
 print('Experiment runner')
-experimentRunner.run(runs=1, population=100, generations=5)
+experimentRunner.run(runs=1, population=10, generations=1)
 endTime = datetime.datetime.now()
 print 'time elapsed =', endTime - startTime
 
 print('Solution writer')
-solutionWriter = SolutionWriter.SolutionWriter(join(mypath,experimentFile),experimentRunner)
+solutionWriter = SolutionWriter.SolutionWriter(
+    experimentFilePath=join(mypath,experimentFile),
+    experimentRunner=experimentRunner,
+    folderName=('../python_outputs/experiment1/prescreen' +
+                str(int(parameterReader.parameters['preScreenedPercentage']*100))))
 endTime = datetime.datetime.now()
 print 'time elapsed =', endTime - startTime
 

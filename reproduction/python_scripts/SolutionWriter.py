@@ -10,21 +10,29 @@ import ntpath
 import shutil
 import time
 import os
+
+
 class SolutionWriter:
-    def __init__(self, experimentFilePath, experimentRunner):
+
+    def __init__(self, experimentFilePath, experimentRunner, folderName=None):
         """
             @param experimentFilePath: path to the file that generated the results 
             @param experimentRunner: object that contains the results of the experiment
+            @param folderName: string with path to folder to save results into (optional, defaults to date+time)
              
         """
         self.experimentFilePath = experimentFilePath
         self.experimentRunner = experimentRunner
+        if folderName:
+            self.folderName = folderName
+        else:
+            self.folderName = time.strftime("../python_outputs/%a %d %b %Y %H %M %S", time.gmtime())
+
     def dumpResultsAnalyzer(self):
-        folderName = time.strftime("%a %d %b %Y %H %M %S", time.gmtime())
-        #os.mkdir(folderName)
+        #os.mkdir(self.folderName)
         experimentFileName = os.path.basename(self.experimentFilePath)
-        #print folderName, experimentFileName
-        destinationFilePath = os.path.join(folderName, experimentFileName)
+        #print self.folderName, experimentFileName
+        destinationFilePath = os.path.join(self.folderName, experimentFileName)
         
         #copy original experiment
         #shutil.copy(self.experimentFilePath, destinationFilePath)
@@ -36,7 +44,7 @@ class SolutionWriter:
         index = 1
         for solution in pareto:
             resultsFile = 'results-' + str(index) + '.txt'
-            filePareto = open(os.path.join(folderName, resultsFile), 'w')
+            filePareto = open(os.path.join(self.folderName, resultsFile), 'w')
             fitness = solution.fitness
             values = fitness.values
             resultsString = str(values)
@@ -46,20 +54,19 @@ class SolutionWriter:
             filePareto.write(resultsString)
             filePareto.close()
             index = index + 1
+
     def dumpSolution(self):
-        #folderName = datetime.datetime.now()
-        folderName = time.strftime("%a %d %b %Y %H %M %S", time.gmtime())
-        os.mkdir(folderName)
+        os.makedirs(self.folderName)
         experimentFileName = os.path.basename(self.experimentFilePath)
         #print folderName, experimentFileName
-        destinationFilePath = os.path.join(folderName, experimentFileName)
+        destinationFilePath = os.path.join(self.folderName, experimentFileName)
         
         #copy original experiment
         shutil.copy(self.experimentFilePath, destinationFilePath)
         #copy results
         
         resultsFile = 'results.txt'
-        filePareto = open(os.path.join(folderName, resultsFile), 'w')
+        filePareto = open(os.path.join(self.folderName, resultsFile), 'w')
         pareto = self.experimentRunner.get_pareto()
         firstLine = ""
         firstLine += 'greeter'
