@@ -199,6 +199,8 @@ Then had error that it was missing nsga2. This doesn't appear to be a public pac
 
 There I found `myutils` which contains `nsga2.py`, <https://github.com/ivihernandez/myutils>. However, this did not have a license, so I am not presently able to download this repository. I sent a message to Ivan to see if he would be happy to likewise add a license to that repository. I also undid the changes I'd made to comment `myutils`.
 
+Ivan Hernandez later kindly responded to this, adding an open license to the repository.
+
 ## Timings
 
 ```{python}
