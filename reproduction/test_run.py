@@ -26,7 +26,7 @@ experimentRunner = ExperimentRunner.ExperimentRunner(seeds, parameterReader)
 print(vars(experimentRunner))
 
 print('Experiment runner')
-experimentRunner.run(runs=1, population=100, generations=5)
+experimentRunner.run(runs=1, population=10, generations=1)
 endTime = datetime.datetime.now()
 print 'time elapsed =', endTime - startTime
 
