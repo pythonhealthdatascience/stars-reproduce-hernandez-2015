@@ -345,7 +345,7 @@ ImportError: No module named myutils</code></pre>
 <li><code>StaffAllocationProblem.py</code></li>
 </ul>
 <p>There is only one line of code that specifies that a function is from myutils, which is in <code>StaffAllocationProblem.py</code>:</p>
-<div id="d2f45fa2" class="cell" data-execution_count="1">
+<div id="2cbea895" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#capacities = myutils.boundingFunction(capacities, self.boundingParameters)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>However, as that is commented out, it actually might be possible that <code>myutils/</code> is not actually needed. I tried commenting out all attempts to import <code>myutils</code> in all scripts, then re-ran.</p>
@@ -412,11 +412,12 @@ looking for, navigate to
 <h3 class="anchored" data-anchor-id="nsga2-and-myutils">nsga2 and myutils</h3>
 <p>Then had error that it was missing nsga2. This doesn’t appear to be a public package. It is only imported in <code>ExperimentRunner.py</code>, which lists it under “Ivan’s imports”, indicating it is a personal package/script. It uses a single function: <code>nsga2.nsga2_integer()</code>. As there was no mention of it in this repository, I tried looking at <a href="https://github.com/ivihernandez?tab=repositories">Ivan’s other GitHub repositories</a>.</p>
 <p>There I found <code>myutils</code> which contains <code>nsga2.py</code>, <a href="https://github.com/ivihernandez/myutils" class="uri">https://github.com/ivihernandez/myutils</a>. However, this did not have a license, so I am not presently able to download this repository. I sent a message to Ivan to see if he would be happy to likewise add a license to that repository. I also undid the changes I’d made to comment <code>myutils</code>.</p>
+<p>Ivan Hernandez later kindly responded to this, adding an open license to the repository.</p>
 </section>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="639c9395" class="cell" data-execution_count="2">
+<div id="b2d86daf" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
