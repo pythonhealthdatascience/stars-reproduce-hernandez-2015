@@ -10,6 +10,7 @@ import inspyred
 import random
 import sys
 #ivan's imports
+sys.path.append('./myutils')
 import myutils
 import SimulatorRunner
 import nsga2
