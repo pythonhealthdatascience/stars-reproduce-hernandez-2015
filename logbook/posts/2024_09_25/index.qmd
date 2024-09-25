@@ -35,17 +35,7 @@ Neither of these were on conda so installed from pypi
 
 The file `main.py` is now able to run, and prints that programme has started and `Experiment Runner 1`.
 
-We can see that `main.py` is looping through the files in `experiments-to-run`:
-
-```{python}
-from os import listdir
-from os.path import isfile, join
-
-mypath = '../../../reproduction/experiments-to-run'
-experimentFiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-
-experimentFiles
-```
+We can see that `main.py` is looping through the files in `experiments-to-run` (which I later renamed `inputs`).
 
 For each, it runs:
 
