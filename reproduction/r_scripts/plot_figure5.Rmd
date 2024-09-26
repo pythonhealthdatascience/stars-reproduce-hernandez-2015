@@ -6,32 +6,57 @@ This notebook reproduces Figure 5, which uses the results from Experiment 1.
 library(ggplot2)
 ```
 
+## Import results
+
 ```{r}
-# Import test run result
-result <- read.delim("../python_outputs/experiment1/prescreen30/results.txt")
-result2 <- read.delim("../python_outputs/testrun_100pop_5gen/results.txt")
+# Get path to each scenario sub-folder within the base folder
+base_folder <- "../python_outputs/experiment1"
+subfolders <- list.dirs(base_folder, recursive = FALSE, full.names = TRUE)
 
-# Add column with prescreened condition (just examples, not actual necessarily)
-result$prescreened = 30
-result2$prescreened = 40
+# Initialise empty lists
+result_list <- list()
+times <- list()
 
-# Combine into single dataframe
-results <- do.call(rbind, list(result, result2))
+# Loop through the scenario sub-folders
+for (folder_path in subfolders) {
+
+  # Extract the final folder name from the path
+  folder_name <- basename(folder_path)
+
+  # Save results.txt, and add the scenario 
+  result_list[[folder_name]] <- read.delim(file.path(folder_path, "results.txt"))
+  result_list[[folder_name]]$scenario <- folder_name
+  
+  # Save time.txt
+  times[[folder_name]] <- readLines(file.path(folder_path, "time.txt"), warn=FALSE)
+}
 ```
 
 ```{r}
-values <- results
-values$forms <- values$throughput*3.2
-values <- values[with(values, order(-resources,-forms)),]
+# Combine into single dataframe
+results <- do.call(rbind, result_list)
+rownames(results) <- NULL
+
+# Add forms
+results$forms <- results$throughput*3.2
+
+results
+```
+
+```{r}
+# Reorder
+values <- results[with(results, order(-resources,-forms)),]
 values
 ```
+
+## Create Figure 5
 
 Plot staff against throughput, faceted by pre-screened percentage.
 
 ```{r}
 fig5 <- ggplot(data=values) + 
   geom_point(aes(x=resources, y=forms, size=time), alpha=0.7) +
-  facet_wrap(~prescreened) +
+  facet_wrap(~scenario) +
   labs(size="Waiting Time (minutes)") + xlab("Staff Members") + ylab("Throughput (forms per hour)") +
   theme(axis.title.y = element_text( face='bold')) + theme(axis.title.x = element_text( face='bold')) +
   theme_bw(18) +
@@ -40,4 +65,10 @@ fig5 <- ggplot(data=values) +
 ggsave("../r_outputs/figure5.png")
 
 fig5
+```
+
+## Show times for experiment 1
+
+```{r}
+times
 ```
