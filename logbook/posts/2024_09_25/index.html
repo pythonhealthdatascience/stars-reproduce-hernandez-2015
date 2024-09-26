@@ -361,6 +361,7 @@ renv::snapshot()</code></pre>
 </section>
 <section id="test-run-of-provided-r-code-on-dummy-data" class="level2">
 <h2 class="anchored" data-anchor-id="test-run-of-provided-r-code-on-dummy-data">13.24-13.48: Test run of provided R code on dummy data</h2>
+<p>Set <code>test_run.py</code> to run with the parameters as in the paper (but by 5pm it was still running and I had to end it).</p>
 <p>Installed R markdown dependencies into <code>renv</code>. However, had to run <code>renv::snapshot(packages=c("ggplot2", "rmarkdown"))</code> else it tried to drop things from the lockfile. I ran <code>renv::settings$snapshot.type("all")</code> and that resolved the issue.</p>
 <p>I made some dummy data to run through the functions in <code>plotting_staff_results.r</code>. They include <code>melt()</code>, which seems likely to be from <code>reshape</code>/<code>reshape2</code> so I add that to the environment, although these functions didn’t seem to work as provided, as there was something not right in <code>melt()</code>.</p>
 <p>For now, focussed on finding closest to Figure 5, which looks to be “#staff vs throughopu, faceting by prescreened”. This gives a good starting point.</p>
@@ -378,7 +379,7 @@ renv::snapshot()</code></pre>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="23bf9508" class="cell" data-execution_count="1">
+<div id="29eafc59" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
