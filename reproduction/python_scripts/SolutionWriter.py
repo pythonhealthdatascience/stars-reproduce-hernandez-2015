@@ -56,7 +56,8 @@ class SolutionWriter:
             index = index + 1
 
     def dumpSolution(self):
-        os.makedirs(self.folderName)
+        if not os.path.exists(self.folderName):
+            os.makedirs(self.folderName)
         experimentFileName = os.path.basename(self.experimentFilePath)
         #print folderName, experimentFileName
         destinationFilePath = os.path.join(self.folderName, experimentFileName)
