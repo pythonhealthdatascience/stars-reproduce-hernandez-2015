@@ -77,11 +77,18 @@
     "text": "09.47-09.48, 10.00-10.05: Re-ran to confirm that results were consistent between runs\nThis was to check that provided seeds ensured consistency. At the same time, tweaked how time was output. Indeed, consistent between runs, which is great and really helpful that this was already set up by the author.\nTotal run time for the 9 scenarios was 7 minutes."
   },
   {
+    "objectID": "logbook/posts/2024_09_26/index.html#creating-figure-6",
+    "href": "logbook/posts/2024_09_26/index.html#creating-figure-6",
+    "title": "Day 4",
+    "section": "11.48-12.00, 13.11-13.37: Creating Figure 6",
+    "text": "11.48-12.00, 13.11-13.37: Creating Figure 6\nThere is some code in plotting_staff_results.r for “barplot staff, stratified by prescreened”, which appears relevant to Figure 6.\nI installed reshape2 to melt the data.\nAs before, this function gave a great starting point to get matching figure, although it did require more work this time to get it more similar to the article.\n\nChanging facet wrap to throughput\nArticle appears to plot ascending throughput, and perhaps a subsample\nWhen add fill colour by pre-screen, realise that it’s including multiple rows in the same plot. This doesn’t appear to be the case in the original. They also don’t have any consecutive graphs with the same throughput. Hence, it appears I’d maybe need to remove duplicates with same throughput? I tried this and it looked like it maybe is heading in the right direction"
+  },
+  {
     "objectID": "logbook/posts/2024_09_26/index.html#timings",
     "href": "logbook/posts/2024_09_26/index.html#timings",
     "title": "Day 4",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 297\n\n# Times from today\ntimes = [\n    ('09.08', '09.22'),\n    ('09.32', '09.46'),\n    ('09.47', '09.48'),\n    ('10.00', '10.05')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 34m, or 0h 34m\nTotal used to date: 331m, or 5h 31m\nTime remaining: 2069m, or 34h 29m\nUsed 13.8% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 297\n\n# Times from today\ntimes = [\n    ('09.08', '09.22'),\n    ('09.32', '09.46'),\n    ('09.47', '09.48'),\n    ('10.00', '10.05'),\n    ('11.48', '12.00'),\n    ('13.11', '13.37')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 72m, or 1h 12m\nTotal used to date: 369m, or 6h 9m\nTime remaining: 2031m, or 33h 51m\nUsed 15.4% of 40 hours max"
   },
   {
     "objectID": "logbook/posts/2024_09_20/index.html",
