@@ -238,6 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#run-and-plot-all-9-scenarios-from-experiment-1-with-mini-version-of-parameters" id="toc-run-and-plot-all-9-scenarios-from-experiment-1-with-mini-version-of-parameters" class="nav-link active" data-scroll-target="#run-and-plot-all-9-scenarios-from-experiment-1-with-mini-version-of-parameters">09.08-09.22, 09.32-09.46: Run and plot all 9 scenarios from experiment 1, with mini version of parameters</a></li>
   <li><a href="#re-ran-to-confirm-that-results-were-consistent-between-runs" id="toc-re-ran-to-confirm-that-results-were-consistent-between-runs" class="nav-link" data-scroll-target="#re-ran-to-confirm-that-results-were-consistent-between-runs">09.47-09.48, 10.00-10.05: Re-ran to confirm that results were consistent between runs</a></li>
   <li><a href="#creating-figure-6" id="toc-creating-figure-6" class="nav-link" data-scroll-target="#creating-figure-6">11.48-12.00, 13.11-13.37: Creating Figure 6</a></li>
+  <li><a href="#running-on-remote-machine" id="toc-running-on-remote-machine" class="nav-link" data-scroll-target="#running-on-remote-machine">14.30-14.47: Running on remote machine</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_09_26/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -259,7 +260,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>X. Total time used: Xh Xm (X%)</p>
+<p>Created Figures 5 and 6 from mini-run, and started trying to setup to run on remote machine. Total time used: 6h 26m (16.1%)</p>
 </div>
 </div>
 <section id="run-and-plot-all-9-scenarios-from-experiment-1-with-mini-version-of-parameters" class="level2">
@@ -289,31 +290,59 @@ Note
 <li>When add fill colour by pre-screen, realise that it’s including multiple rows in the same plot. This doesn’t appear to be the case in the original. They also don’t have any consecutive graphs with the same throughput. Hence, it appears I’d maybe need to remove duplicates with same throughput? I tried this and it looked like it maybe is heading in the right direction</li>
 </ul>
 </section>
+<section id="running-on-remote-machine" class="level2">
+<h2 class="anchored" data-anchor-id="running-on-remote-machine">14.30-14.47: Running on remote machine</h2>
+<p>Cloned and built environment on remote machine (more computational power than my local machine, but not HPC). Had to install conda -</p>
+<pre><code>wget https://repo.anaconda.com/miniconda/Miniconda3-py39_24.7.1-0-Linux-x86_64.sh
+bash Miniconda3-py39_24.7.1-0-Linux-x86_64.sh</code></pre>
+<pre><code>source ~/miniconda3/bin/activate
+conda activate hernandez2015</code></pre>
+<pre><code>python -m Experiment1</code></pre>
+<p>However, this had an error:</p>
+<pre><code>...
+13, in &lt;module&gt;
+    import ExperimentRunner
+  File "ExperimentRunner.py", line 15, in &lt;module&gt;
+    import SimulatorRunner
+  File "SimulatorRunner.py", line 11, in &lt;module&gt;
+    import PODSimulation
+  File "PODSimulation.py", line 13, in &lt;module&gt;
+    import SimPy.SimPlot as simplot
+  File "/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py", line 68, in &lt;module&gt;
+    class SimPlot(object):
+  File "/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py", line 69, in SimPlot
+    def __init__(self, root = Tk()):
+  File "/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/lib-tk/Tkinter.py", line 1815, in __init__
+    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)
+_tkinter.TclError: no display name and no $DISPLAY environment variable</code></pre>
+<p>This is likely related to me working in a terminal-only set-up, with Tkinter wanting access to a display for GUI operations. <code>echo $DISPLAY</code> returned blank. Tried setting to <code>export DISPLAY=:0.0</code> but then just an error <code>_tkinter.TclError: couldn't connect to display ":0.0"</code>.</p>
+</section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="07d1744f" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">297</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.08'</span>, <span class="st">'09.22'</span>),</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.32'</span>, <span class="st">'09.46'</span>),</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.47'</span>, <span class="st">'09.48'</span>),</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.00'</span>, <span class="st">'10.05'</span>),</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.48'</span>, <span class="st">'12.00'</span>),</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.11'</span>, <span class="st">'13.37'</span>)]</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="afbcb3ce" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">297</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.08'</span>, <span class="st">'09.22'</span>),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.32'</span>, <span class="st">'09.46'</span>),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.47'</span>, <span class="st">'09.48'</span>),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.00'</span>, <span class="st">'10.05'</span>),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.48'</span>, <span class="st">'12.00'</span>),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.11'</span>, <span class="st">'13.37'</span>),</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'14.30'</span>, <span class="st">'14.47'</span>)]</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 72m, or 1h 12m
-Total used to date: 369m, or 6h 9m
-Time remaining: 2031m, or 33h 51m
-Used 15.4% of 40 hours max</code></pre>
+<pre><code>Time spent today: 89m, or 1h 29m
+Total used to date: 386m, or 6h 26m
+Time remaining: 2014m, or 33h 34m
+Used 16.1% of 40 hours max</code></pre>
 </div>
 </div>
 
