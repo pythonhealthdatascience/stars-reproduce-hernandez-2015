@@ -1,9 +1,11 @@
-# Figure 5
+# Experiement 1
 
-This notebook reproduces Figure 5, which uses the results from Experiment 1.
+This notebook reproduces the figures from experiment 1: Figure 5 and 6.
 
 ```{r}
+library(dplyr)
 library(ggplot2)
+library(reshape2)
 ```
 
 ## Import results
@@ -43,18 +45,12 @@ results$forms <- results$throughput*3.2
 results
 ```
 
-```{r}
-# Reorder
-values <- results[with(results, order(-resources,-forms)),]
-values
-```
-
 ## Create Figure 5
 
 Plot staff against throughput, faceted by pre-screened percentage.
 
 ```{r}
-fig5 <- ggplot(data=values) + 
+fig5 <- ggplot(data=results) + 
   geom_point(aes(x=resources, y=forms, size=time), alpha=0.7) +
   facet_wrap(~scenario) +
   labs(size="Waiting Time (minutes)") + xlab("Staff Members") + ylab("Throughput (forms per hour)") +
@@ -65,6 +61,51 @@ fig5 <- ggplot(data=values) +
 ggsave("../r_outputs/figure5.png", width = 10 , height = 10)
 
 fig5
+```
+
+## Create Figure 6
+
+```{r}
+values <- results %>%
+  # Full labels
+  rename("Line Manager" = greeter,
+         "Screener" = screener,
+         "Dispenser" = dispenser,
+         "Med. Eval" = medic) %>%
+  # Round throughput to nearest whole number
+  mutate(throughput = round(throughput)) %>%
+  # Order by throughput, and remove duplicate rows so just one remains
+  arrange(throughput) %>%
+  filter(!duplicated(throughput))
+ 
+# Sort results by resources and forms (descending)
+#values <- values[with(values, order(-resources,-forms)),]
+values
+```
+
+```{r}
+melted <- melt(values, id=c('resources','throughput','time','scenario','forms')) %>%
+  mutate(prescreen = as.numeric(gsub('[^0-9.]', '', scenario)),
+         throughput = round(throughput))
+
+melted
+```
+
+```{r}
+fig6 <- ggplot(data=melted) +
+  geom_bar(stat='identity',aes(x=variable, y=value, fill=prescreen)) +
+  xlab("Staff Type") +
+  ylab("Number of staff") +
+  theme(axis.title.y = element_text( face='bold')) +
+  theme(axis.title.x = element_text( face='bold')) +
+  scale_fill_gradient2(low = "white", high = "#363737") +
+  theme_bw(18) +
+  facet_wrap(~round(throughput)) +
+  theme(axis.text.x=element_text(angle=90))
+
+ggsave("../r_outputs/figure6.png", width = 10 , height = 10)
+
+fig6
 ```
 
 ## Show times for experiment 1
