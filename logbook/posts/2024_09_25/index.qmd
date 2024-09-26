@@ -107,6 +107,8 @@ Altered `SolutionWriter.py` so that the:
 
 ## 13.24-13.48: Test run of provided R code on dummy data
 
+Set `test_run.py` to run with the parameters as in the paper (but by 5pm it was still running and I had to end it).
+
 Installed R markdown dependencies into `renv`. However, had to run `renv::snapshot(packages=c("ggplot2", "rmarkdown"))` else it tried to drop things from the lockfile. I ran `renv::settings$snapshot.type("all")` and that resolved the issue.
 
 I made some dummy data to run through the functions in `plotting_staff_results.r`. They include `melt()`, which seems likely to be from `reshape`/`reshape2` so I add that to the environment, although these functions didn't seem to work as provided, as there was something not right in `melt()`.
