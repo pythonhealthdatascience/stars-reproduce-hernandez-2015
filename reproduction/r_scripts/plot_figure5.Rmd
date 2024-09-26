@@ -70,5 +70,12 @@ fig5
 ## Show times for experiment 1
 
 ```{r}
-times
+# Convert the times to difftime objects
+times_converted <- lapply(times, function(x) {
+  as.numeric(strptime(x, format="%H:%M:%OS")) - as.numeric(strptime("0:00:00", format="%H:%M:%OS"))
+})
+
+# Sum the times
+total_time <- sum(unlist(times_converted))
+print(paste0(round(total_time), " sec, ", round(total_time/60), " min"))
 ```

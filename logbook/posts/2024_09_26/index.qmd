@@ -1,0 +1,47 @@
+---
+title: "Day 4"
+author: "Amy Heather"
+date: "2024-09-26"
+categories: [reproduce]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+X. Total time used: Xh Xm (X%)
+
+:::
+
+## 09.08-09.22, 09.32-09.46: Run and plot all 9 scenarios from experiment 1, with mini version of parameters
+
+Modified `main.py` into `Experiment1.py`. Changed so it saves the time for each experiment run to txt (as important to record this, but could potentially get lost if just print to screen, when we start running larger numbers).
+
+Ran all with 10 population and 1 generation. Wrote code to identify and loop through importing the results from experiment1/ folder.
+
+![Figure 5 from 10 pop 1 gen](figure5.png)
+
+## 09.47-09.48, 10.00-10.05: Re-ran to confirm that results were consistent between runs
+
+This was to check that provided seeds ensured consistency. At the same time, tweaked how time was output. Indeed, **consistent between runs**, which is great and really helpful that this was already set up by the author.
+
+Total run time for the 9 scenarios was 7 minutes.
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 297
+
+# Times from today
+times = [
+    ('09.08', '09.22'),
+    ('09.32', '09.46'),
+    ('09.47', '09.48'),
+    ('10.00', '10.05')]
+
+calculate_times(used_to_date, times)
+```

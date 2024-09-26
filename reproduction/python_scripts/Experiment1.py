@@ -49,4 +49,4 @@ for experimentFile in experimentFiles:
     # End timer and save time for that result
     endTime = datetime.datetime.now()
     with open(os.path.join(scenarioFolder, "time.txt"), "w") as text_file:
-        text_file.write("Run time: {0}".format(endTime - startTime))
+        text_file.write("{0}".format(endTime - startTime))
