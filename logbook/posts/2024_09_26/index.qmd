@@ -26,6 +26,18 @@ This was to check that provided seeds ensured consistency. At the same time, twe
 
 Total run time for the 9 scenarios was 7 minutes.
 
+## 11.48-12.00, 13.11-13.37: Creating Figure 6
+
+There is some code in `plotting_staff_results.r` for "barplot staff, stratified by prescreened", which appears relevant to Figure 6.
+
+I installed `reshape2` to melt the data.
+
+As before, this function gave a great starting point to get matching figure, although it did require more work this time to get it more similar to the article.
+
+* Changing facet wrap to throughput
+* Article appears to plot ascending throughput, and perhaps a subsample
+* When add fill colour by pre-screen, realise that it's including multiple rows in the same plot. This doesn't appear to be the case in the original. They also don't have any consecutive graphs with the same throughput. Hence, it appears I'd maybe need to remove duplicates with same throughput? I tried this and it looked like it maybe is heading in the right direction
+
 ## Timings
 
 ```{python}
@@ -41,7 +53,9 @@ times = [
     ('09.08', '09.22'),
     ('09.32', '09.46'),
     ('09.47', '09.48'),
-    ('10.00', '10.05')]
+    ('10.00', '10.05'),
+    ('11.48', '12.00'),
+    ('13.11', '13.37')]
 
 calculate_times(used_to_date, times)
 ```
