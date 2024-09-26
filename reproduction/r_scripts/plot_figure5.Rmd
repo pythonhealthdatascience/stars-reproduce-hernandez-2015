@@ -62,7 +62,7 @@ fig5 <- ggplot(data=values) +
   theme_bw(18) +
   theme(legend.position="top")
 
-ggsave("../r_outputs/figure5.png")
+ggsave("../r_outputs/figure5.png", width = 10 , height = 10)
 
 fig5
 ```
