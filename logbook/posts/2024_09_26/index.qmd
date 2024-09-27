@@ -8,7 +8,7 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-X. Total time used: Xh Xm (X%)
+Created Figures 5 and 6 from mini-run, and started trying to setup to run on remote machine. Total time used: 6h 26m (16.1%)
 
 :::
 
@@ -38,6 +38,47 @@ As before, this function gave a great starting point to get matching figure, alt
 * Article appears to plot ascending throughput, and perhaps a subsample
 * When add fill colour by pre-screen, realise that it's including multiple rows in the same plot. This doesn't appear to be the case in the original. They also don't have any consecutive graphs with the same throughput. Hence, it appears I'd maybe need to remove duplicates with same throughput? I tried this and it looked like it maybe is heading in the right direction
 
+## 14.30-14.47: Running on remote machine
+
+Cloned and built environment on remote machine (more computational power than my local machine, but not HPC). Had to install conda -
+
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-py39_24.7.1-0-Linux-x86_64.sh
+bash Miniconda3-py39_24.7.1-0-Linux-x86_64.sh
+```
+
+```
+source ~/miniconda3/bin/activate
+conda activate hernandez2015
+```
+
+```
+python -m Experiment1
+```
+
+However, this had an error:
+
+```
+...
+13, in <module>
+    import ExperimentRunner
+  File "ExperimentRunner.py", line 15, in <module>
+    import SimulatorRunner
+  File "SimulatorRunner.py", line 11, in <module>
+    import PODSimulation
+  File "PODSimulation.py", line 13, in <module>
+    import SimPy.SimPlot as simplot
+  File "/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py", line 68, in <module>
+    class SimPlot(object):
+  File "/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py", line 69, in SimPlot
+    def __init__(self, root = Tk()):
+  File "/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/lib-tk/Tkinter.py", line 1815, in __init__
+    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)
+_tkinter.TclError: no display name and no $DISPLAY environment variable
+```
+
+This is likely related to me working in a terminal-only set-up, with Tkinter wanting access to a display for GUI operations. `echo $DISPLAY` returned blank. Tried setting to `export DISPLAY=:0.0` but then just an error `_tkinter.TclError: couldn't connect to display ":0.0"`.
+
 ## Timings
 
 ```{python}
@@ -55,7 +96,8 @@ times = [
     ('09.47', '09.48'),
     ('10.00', '10.05'),
     ('11.48', '12.00'),
-    ('13.11', '13.37')]
+    ('13.11', '13.37'),
+    ('14.30', '14.47')]
 
 calculate_times(used_to_date, times)
 ```
