@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Amy Heather">
-<meta name="dcterms.date" content="2024-09-26">
+<meta name="dcterms.date" content="2024-09-27">
 
-<title>Day 4 – Reproducing Hernandez et al.&nbsp;2015</title>
+<title>Day 5 – Reproducing Hernandez et al.&nbsp;2015</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -199,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Day 4</h1>
+      <h1 class="title">Day 5</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">reproduce</div>
               </div>
@@ -219,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 26, 2024</p>
+        <p class="date">September 27, 2024</p>
       </div>
     </div>
     
@@ -235,13 +235,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#run-and-plot-all-9-scenarios-from-experiment-1-with-mini-version-of-parameters" id="toc-run-and-plot-all-9-scenarios-from-experiment-1-with-mini-version-of-parameters" class="nav-link active" data-scroll-target="#run-and-plot-all-9-scenarios-from-experiment-1-with-mini-version-of-parameters">09.08-09.22, 09.32-09.46: Run and plot all 9 scenarios from experiment 1, with mini version of parameters</a></li>
-  <li><a href="#re-ran-to-confirm-that-results-were-consistent-between-runs" id="toc-re-ran-to-confirm-that-results-were-consistent-between-runs" class="nav-link" data-scroll-target="#re-ran-to-confirm-that-results-were-consistent-between-runs">09.47-09.48, 10.00-10.05: Re-ran to confirm that results were consistent between runs</a></li>
-  <li><a href="#creating-figure-6" id="toc-creating-figure-6" class="nav-link" data-scroll-target="#creating-figure-6">11.48-12.00, 13.11-13.37: Creating Figure 6</a></li>
-  <li><a href="#running-on-remote-machine" id="toc-running-on-remote-machine" class="nav-link" data-scroll-target="#running-on-remote-machine">14.30-14.47: Running on remote machine</a></li>
+  <li><a href="#resuming-attempt-to-run-on-remote-machine" id="toc-resuming-attempt-to-run-on-remote-machine" class="nav-link active" data-scroll-target="#resuming-attempt-to-run-on-remote-machine">09.51-09.57, 10.52-10.55: Resuming attempt to run on remote machine</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_09_26/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_09_27/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -260,51 +257,12 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Created Figures 5 and 6 from mini-run, and started trying to setup to run on remote machine. Total time used: 6h 26m (16.1%)</p>
+<p>X. Total time used: Xh Xm (X%)</p>
 </div>
 </div>
-<section id="run-and-plot-all-9-scenarios-from-experiment-1-with-mini-version-of-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="run-and-plot-all-9-scenarios-from-experiment-1-with-mini-version-of-parameters">09.08-09.22, 09.32-09.46: Run and plot all 9 scenarios from experiment 1, with mini version of parameters</h2>
-<p>Modified <code>main.py</code> into <code>Experiment1.py</code>. Changed so it saves the time for each experiment run to txt (as important to record this, but could potentially get lost if just print to screen, when we start running larger numbers).</p>
-<p>Ran all with 10 population and 1 generation. Wrote code to identify and loop through importing the results from experiment1/ folder.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figure5.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 5 from 10 pop 1 gen</figcaption>
-</figure>
-</div>
-</section>
-<section id="re-ran-to-confirm-that-results-were-consistent-between-runs" class="level2">
-<h2 class="anchored" data-anchor-id="re-ran-to-confirm-that-results-were-consistent-between-runs">09.47-09.48, 10.00-10.05: Re-ran to confirm that results were consistent between runs</h2>
-<p>This was to check that provided seeds ensured consistency. At the same time, tweaked how time was output. Indeed, <strong>consistent between runs</strong>, which is great and really helpful that this was already set up by the author.</p>
-<p>Total run time for the 9 scenarios was 7 minutes.</p>
-</section>
-<section id="creating-figure-6" class="level2">
-<h2 class="anchored" data-anchor-id="creating-figure-6">11.48-12.00, 13.11-13.37: Creating Figure 6</h2>
-<p>There is some code in <code>plotting_staff_results.r</code> for “barplot staff, stratified by prescreened”, which appears relevant to Figure 6.</p>
-<p>I installed <code>reshape2</code> to melt the data.</p>
-<p>As before, this function gave a great starting point to get matching figure, although it did require more work this time to get it more similar to the article.</p>
-<ul>
-<li>Changing facet wrap to throughput</li>
-<li>Article appears to plot ascending throughput, and perhaps a subsample</li>
-<li>When add fill colour by pre-screen, realise that it’s including multiple rows in the same plot. This doesn’t appear to be the case in the original. They also don’t have any consecutive graphs with the same throughput. Hence, it appears I’d maybe need to remove duplicates with same throughput? I tried this and it looked like it maybe is heading in the right direction</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figure6.png" class="img-fluid figure-img"></p>
-<figcaption>Figure 6 from 10 pop 1 gen</figcaption>
-</figure>
-</div>
-</section>
-<section id="running-on-remote-machine" class="level2">
-<h2 class="anchored" data-anchor-id="running-on-remote-machine">14.30-14.47: Running on remote machine</h2>
-<p>Cloned and built environment on remote machine (more computational power than my local machine, but not HPC). Had to install conda -</p>
-<pre><code>wget https://repo.anaconda.com/miniconda/Miniconda3-py39_24.7.1-0-Linux-x86_64.sh
-bash Miniconda3-py39_24.7.1-0-Linux-x86_64.sh</code></pre>
-<pre><code>source ~/miniconda3/bin/activate
-conda activate hernandez2015</code></pre>
-<pre><code>python -m Experiment1</code></pre>
-<p>However, this had an error:</p>
+<section id="resuming-attempt-to-run-on-remote-machine" class="level2">
+<h2 class="anchored" data-anchor-id="resuming-attempt-to-run-on-remote-machine">09.51-09.57, 10.52-10.55: Resuming attempt to run on remote machine</h2>
+<p>As left off yesterday, getting error:</p>
 <pre><code>...
 13, in &lt;module&gt;
     import ExperimentRunner
@@ -321,34 +279,34 @@ conda activate hernandez2015</code></pre>
   File "/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/lib-tk/Tkinter.py", line 1815, in __init__
     self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)
 _tkinter.TclError: no display name and no $DISPLAY environment variable</code></pre>
-<p>This is likely related to me working in a terminal-only set-up, with Tkinter wanting access to a display for GUI operations. <code>echo $DISPLAY</code> returned blank. Tried setting to <code>export DISPLAY=:0.0</code> but then just an error <code>_tkinter.TclError: couldn't connect to display ":0.0"</code>.</p>
+<p>This is related to import of <code>simpy.simplot</code>, but as simplot isn’t used anywhere, I tried commenting out this import in <code>PODSimulation.py</code>. This resolved the error!</p>
+<p>The original was population 100 and 50 generations. I anticipate this will be very long, so working up to it…</p>
+<p>10 population, 1 generation: just a few minutes</p>
+<p><img src="figure5_10pop_1gen.png" class="img-fluid" alt="fig5 10 pop 1 gen"> <img src="figure6_10pop_1gen.png" class="img-fluid" alt="fig6 10 pop 1 gen"></p>
+<p>100 population, 1 generation: 37 minutes</p>
+<p><img src="figure5_100pop_1gen.png" class="img-fluid" alt="fig5 100 pop 1 gen"> <img src="figure6_100pop_1gen.png" class="img-fluid" alt="fig6 100 pop 1 gen"></p>
+<p>But seems will be important to try and run with the full version - particularly as Figure 9 is an experiment of that impact of that.</p>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="b1fbca66" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">297</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.08'</span>, <span class="st">'09.22'</span>),</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.32'</span>, <span class="st">'09.46'</span>),</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.47'</span>, <span class="st">'09.48'</span>),</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.00'</span>, <span class="st">'10.05'</span>),</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.48'</span>, <span class="st">'12.00'</span>),</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.11'</span>, <span class="st">'13.37'</span>),</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'14.30'</span>, <span class="st">'14.47'</span>)]</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4a947e44" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">386</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.51'</span>, <span class="st">'09.57'</span>)]</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 89m, or 1h 29m
-Total used to date: 386m, or 6h 26m
-Time remaining: 2014m, or 33h 34m
-Used 16.1% of 40 hours max</code></pre>
+<pre><code>Time spent today: 6m, or 0h 6m
+Total used to date: 392m, or 6h 32m
+Time remaining: 2008m, or 33h 28m
+Used 16.3% of 40 hours max</code></pre>
 </div>
 </div>
 
@@ -800,7 +758,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </a>
   </li>  
 </ul>
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_09_26/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_09_27/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
