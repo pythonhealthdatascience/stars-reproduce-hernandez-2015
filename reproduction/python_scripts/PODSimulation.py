@@ -10,7 +10,7 @@ from collections import defaultdict
 import operator
 #non standard imports
 import SimPy.Simulation as simpy
-import SimPy.SimPlot as simplot
+# import SimPy.SimPlot as simplot
 import numpy
 import math
 from scipy import stats
