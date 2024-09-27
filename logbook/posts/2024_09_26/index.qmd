@@ -38,6 +38,8 @@ As before, this function gave a great starting point to get matching figure, alt
 * Article appears to plot ascending throughput, and perhaps a subsample
 * When add fill colour by pre-screen, realise that it's including multiple rows in the same plot. This doesn't appear to be the case in the original. They also don't have any consecutive graphs with the same throughput. Hence, it appears I'd maybe need to remove duplicates with same throughput? I tried this and it looked like it maybe is heading in the right direction
 
+![Figure 6 from 10 pop 1 gen](figure6.png)
+
 ## 14.30-14.47: Running on remote machine
 
 Cloned and built environment on remote machine (more computational power than my local machine, but not HPC). Had to install conda -

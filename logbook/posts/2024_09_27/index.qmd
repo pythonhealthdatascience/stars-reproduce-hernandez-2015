@@ -1,0 +1,69 @@
+---
+title: "Day 5"
+author: "Amy Heather"
+date: "2024-09-27"
+categories: [reproduce]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+X. Total time used: Xh Xm (X%)
+
+:::
+
+## 09.51-09.57, 10.52-10.55: Resuming attempt to run on remote machine
+
+As left off yesterday, getting error:
+
+```
+...
+13, in <module>
+    import ExperimentRunner
+  File "ExperimentRunner.py", line 15, in <module>
+    import SimulatorRunner
+  File "SimulatorRunner.py", line 11, in <module>
+    import PODSimulation
+  File "PODSimulation.py", line 13, in <module>
+    import SimPy.SimPlot as simplot
+  File "/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py", line 68, in <module>
+    class SimPlot(object):
+  File "/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py", line 69, in SimPlot
+    def __init__(self, root = Tk()):
+  File "/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/lib-tk/Tkinter.py", line 1815, in __init__
+    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)
+_tkinter.TclError: no display name and no $DISPLAY environment variable
+```
+
+This is related to import of `simpy.simplot`, but as simplot isn't used anywhere, I tried commenting out this import in `PODSimulation.py`. This resolved the error!
+
+The original was population 100 and 50 generations. I anticipate this will be very long, so working up to it...
+
+10 population, 1 generation: just a few minutes
+
+![fig5 10 pop 1 gen](figure5_10pop_1gen.png)
+![fig6 10 pop 1 gen](figure6_10pop_1gen.png)
+
+100 population, 1 generation: 37 minutes
+
+![fig5 100 pop 1 gen](figure5_100pop_1gen.png)
+![fig6 100 pop 1 gen](figure6_100pop_1gen.png)
+
+But seems will be important to try and run with the full version - particularly as Figure 9 is an experiment of that impact of that.
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 386
+
+# Times from today
+times = [
+    ('09.51', '09.57')]
+
+calculate_times(used_to_date, times)
+```
