@@ -390,13 +390,13 @@ self.lowerBounds = [3, 3, 3, 3]
 self.upperBounds = [8, 8, 25, 8] 
 #self.upperBounds = [1, 60, 60, 5]</code></pre>
 <p>This sets lower boundaries for the greeter and medic, but much higher for the screener and dispenser. Looking at the range of numbers of greeter, screener, dispenser and medic in <code>results-3-object-domh-data</code>…</p>
-<div id="ec7772a4" class="cell" data-execution_count="1">
+<div id="8d268e04" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Import results from results-3-object-domh-data</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.read_csv(<span class="st">'combined.txt'</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="6437481b" class="cell" data-execution_count="2">
+<div id="3f4c4a94" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>combined[<span class="st">'greeter'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>count    479.000000
@@ -410,7 +410,7 @@ max       46.000000
 Name: greeter, dtype: float64</code></pre>
 </div>
 </div>
-<div id="2e8161bc" class="cell" data-execution_count="3">
+<div id="6d4f18c0" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>combined[<span class="st">'screener'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>count    479.000000
@@ -424,7 +424,7 @@ max       59.000000
 Name: screener, dtype: float64</code></pre>
 </div>
 </div>
-<div id="f062b352" class="cell" data-execution_count="4">
+<div id="becfcdb8" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>combined[<span class="st">'dispenser'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>count    479.000000
@@ -438,7 +438,7 @@ max       60.000000
 Name: dispenser, dtype: float64</code></pre>
 </div>
 </div>
-<div id="79ab91ec" class="cell" data-execution_count="5">
+<div id="4d747892" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>combined[<span class="st">'medic'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>count    479.000000
@@ -501,7 +501,7 @@ self.objectiveTypes = [False, True, False]</code></pre>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="4656cc26" class="cell" data-execution_count="6">
+<div id="4915a194" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
