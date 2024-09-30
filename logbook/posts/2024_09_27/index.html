@@ -235,7 +235,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#resuming-attempt-to-run-on-remote-machine" id="toc-resuming-attempt-to-run-on-remote-machine" class="nav-link active" data-scroll-target="#resuming-attempt-to-run-on-remote-machine">09.51-09.57, 10.52-10.55: Resuming attempt to run on remote machine</a></li>
+  <li><a href="#resuming-attempt-to-run-on-remote-machine" id="toc-resuming-attempt-to-run-on-remote-machine" class="nav-link active" data-scroll-target="#resuming-attempt-to-run-on-remote-machine">09.51-09.57, 10.52-10.55, 11.00-11.06: Resuming attempt to run on remote machine</a></li>
+  <li><a href="#results-from-pre-screen-10-with-full-set-up" id="toc-results-from-pre-screen-10-with-full-set-up" class="nav-link" data-scroll-target="#results-from-pre-screen-10-with-full-set-up">16.40-16.49: Results from pre-screen 10 with full set-up</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_09_27/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -257,11 +258,11 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>X. Total time used: Xh Xm (X%)</p>
+<p>Running one scenario (of nine from experiment 1) with 100 generations 50 populations 3 runs, which took 5 and a half hours, but results do not match. Total time used: Xh Xm (X%)</p>
 </div>
 </div>
 <section id="resuming-attempt-to-run-on-remote-machine" class="level2">
-<h2 class="anchored" data-anchor-id="resuming-attempt-to-run-on-remote-machine">09.51-09.57, 10.52-10.55: Resuming attempt to run on remote machine</h2>
+<h2 class="anchored" data-anchor-id="resuming-attempt-to-run-on-remote-machine">09.51-09.57, 10.52-10.55, 11.00-11.06: Resuming attempt to run on remote machine</h2>
 <p>As left off yesterday, getting error:</p>
 <pre><code>...
 13, in &lt;module&gt;
@@ -286,10 +287,20 @@ _tkinter.TclError: no display name and no $DISPLAY environment variable</code></
 <p>100 population, 1 generation: 37 minutes</p>
 <p><img src="figure5_100pop_1gen.png" class="img-fluid" alt="fig5 100 pop 1 gen"> <img src="figure6_100pop_1gen.png" class="img-fluid" alt="fig6 100 pop 1 gen"></p>
 <p>But seems will be important to try and run with the full version - particularly as Figure 9 is an experiment of that impact of that.</p>
+<p>Also realised that default in script was <code>runs=1</code> but paper mentions they “perform three simulation runs to obtain reliable estimates”.</p>
+</section>
+<section id="results-from-pre-screen-10-with-full-set-up" class="level2">
+<h2 class="anchored" data-anchor-id="results-from-pre-screen-10-with-full-set-up">16.40-16.49: Results from pre-screen 10 with full set-up</h2>
+<p>With 100 population, 50 generation and 3 runs, I only had time to run one scenario on the remote machine. It took 327 minutes, or <strong>5.45 hours</strong>.</p>
+<p>Results alongside/combined with 1 gen results:</p>
+<p><img src="figure5_100pop_50gen_alongside_1gen.png" class="img-fluid"> <img src="figure6_100pop_50gen_alongside_1gen.png" class="img-fluid"></p>
+<p>Results from 50 gen alone:</p>
+<p><img src="figure5_100pop_50gen_prescreen10.png" class="img-fluid"> <img src="figure6_100pop_50gen_prescreen10.png" class="img-fluid"></p>
+<p>Unfortunately though, the results from the run with popuation 100 50 generation 3 run for pre-screen 10 do not look the same as those in the paper - with fewer points, and very different X and Y axises. I’m presuming it would be worth <strong>double-checking parameters for the model are correct</strong>.</p>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="83774f60" class="cell" data-execution_count="1">
+<div id="2a498c13" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -299,14 +310,17 @@ _tkinter.TclError: no display name and no $DISPLAY environment variable</code></
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.51'</span>, <span class="st">'09.57'</span>)]</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.51'</span>, <span class="st">'09.57'</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.52'</span>, <span class="st">'10.55'</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.00'</span>, <span class="st">'11.06'</span>),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.40'</span>, <span class="st">'16.49'</span>)]</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 6m, or 0h 6m
-Total used to date: 392m, or 6h 32m
-Time remaining: 2008m, or 33h 28m
-Used 16.3% of 40 hours max</code></pre>
+<pre><code>Time spent today: 24m, or 0h 24m
+Total used to date: 410m, or 6h 50m
+Time remaining: 1990m, or 33h 10m
+Used 17.1% of 40 hours max</code></pre>
 </div>
 </div>
 

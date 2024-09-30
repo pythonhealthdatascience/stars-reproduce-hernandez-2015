@@ -11,7 +11,7 @@
     "href": "evaluation/reproduction_success.html#time-to-completion",
     "title": "Reproduction success",
     "section": "Time-to-completion",
-    "text": "Time-to-completion\n\n\n\n\n\n\n\n\n\ntime\nitem\necdf\nhours\n\n\n\n\n0\n0.0\nStart\n0.0\n0.000000\n\n\n1\n100.0\nNaN\n0.0\n1.666667\n\n\n2\n100.0\nIn-text result 1\n12.5\n1.666667\n\n\n3\n200.0\nNaN\n12.5\n3.333333\n\n\n4\n200.0\nIn-text result 2\n25.0\n3.333333\n\n\n5\n300.0\nNaN\n25.0\n5.000000\n\n\n6\n300.0\nFigure 5\n37.5\n5.000000\n\n\n7\n400.0\nNaN\n37.5\n6.666667\n\n\n8\n400.0\nFigure 2\nNaN\n6.666667\n\n\n9\nNaN\nNaN\nNaN\nNaN\n\n\n10\nNaN\nFigure 3\n62.5\nNaN\n\n\n11\nNaN\nNaN\n62.5\nNaN\n\n\n12\nNaN\nFigure 4\n75.0\nNaN\n\n\n13\nNaN\nNaN\n75.0\nNaN\n\n\n14\nNaN\nSupplementary figure\n87.5\nNaN\n\n\n15\nNaN\nNaN\n87.5\nNaN\n\n\n16\nNaN\nIn-text result 3\n100.0\nNaN\n\n\n17\nNaN\nNaN\n100.0\nNaN\n\n\n\n\n\n\n\nNon-interactive plot:\n\n\n\n\n\n\n\n\n\nInteractive plot:"
+    "text": "Time-to-completion\n\n\n\n\n\n\n\n\n\ntime\nitem\necdf\nhours\n\n\n\n\n0\n0.0\nStart\n0.0\n0.0\n\n\n1\nNaN\nNaN\n0.0\nNaN\n\n\n2\nNaN\nFigure 5\n12.5\nNaN\n\n\n3\nNaN\nNaN\n12.5\nNaN\n\n\n4\nNaN\nFigure 6\n25.0\nNaN\n\n\n5\nNaN\nNaN\n25.0\nNaN\n\n\n6\nNaN\nFigure 7\n37.5\nNaN\n\n\n7\nNaN\nNaN\n37.5\nNaN\n\n\n8\nNaN\nFigure 8\n50.0\nNaN\n\n\n9\nNaN\nNaN\n50.0\nNaN\n\n\n10\nNaN\nFigure 9\n62.5\nNaN\n\n\n11\nNaN\nNaN\n62.5\nNaN\n\n\n12\nNaN\nFigure 10\n75.0\nNaN\n\n\n13\nNaN\nNaN\n75.0\nNaN\n\n\n14\nNaN\nTable 3\n87.5\nNaN\n\n\n15\nNaN\nNaN\n87.5\nNaN\n\n\n16\nNaN\nTable 4\n100.0\nNaN\n\n\n17\nNaN\nNaN\n100.0\nNaN\n\n\n\n\n\n\n\nNon-interactive plot:\n\n\n\n\n\n\n\n\n\nInteractive plot:"
   },
   {
     "objectID": "evaluation/reproduction_success.html#figure-x",
@@ -60,21 +60,28 @@
     "href": "logbook/posts/2024_09_27/index.html",
     "title": "Day 5",
     "section": "",
-    "text": "Note\n\n\n\nX. Total time used: Xh Xm (X%)"
+    "text": "Note\n\n\n\nRunning one scenario (of nine from experiment 1) with 100 generations 50 populations 3 runs, which took 5 and a half hours, but results do not match. Total time used: Xh Xm (X%)"
   },
   {
     "objectID": "logbook/posts/2024_09_27/index.html#resuming-attempt-to-run-on-remote-machine",
     "href": "logbook/posts/2024_09_27/index.html#resuming-attempt-to-run-on-remote-machine",
     "title": "Day 5",
-    "section": "09.51-09.57, 10.52-10.55: Resuming attempt to run on remote machine",
-    "text": "09.51-09.57, 10.52-10.55: Resuming attempt to run on remote machine\nAs left off yesterday, getting error:\n...\n13, in &lt;module&gt;\n    import ExperimentRunner\n  File \"ExperimentRunner.py\", line 15, in &lt;module&gt;\n    import SimulatorRunner\n  File \"SimulatorRunner.py\", line 11, in &lt;module&gt;\n    import PODSimulation\n  File \"PODSimulation.py\", line 13, in &lt;module&gt;\n    import SimPy.SimPlot as simplot\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py\", line 68, in &lt;module&gt;\n    class SimPlot(object):\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py\", line 69, in SimPlot\n    def __init__(self, root = Tk()):\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/lib-tk/Tkinter.py\", line 1815, in __init__\n    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)\n_tkinter.TclError: no display name and no $DISPLAY environment variable\nThis is related to import of simpy.simplot, but as simplot isn’t used anywhere, I tried commenting out this import in PODSimulation.py. This resolved the error!\nThe original was population 100 and 50 generations. I anticipate this will be very long, so working up to it…\n10 population, 1 generation: just a few minutes\n \n100 population, 1 generation: 37 minutes\n \nBut seems will be important to try and run with the full version - particularly as Figure 9 is an experiment of that impact of that."
+    "section": "09.51-09.57, 10.52-10.55, 11.00-11.06: Resuming attempt to run on remote machine",
+    "text": "09.51-09.57, 10.52-10.55, 11.00-11.06: Resuming attempt to run on remote machine\nAs left off yesterday, getting error:\n...\n13, in &lt;module&gt;\n    import ExperimentRunner\n  File \"ExperimentRunner.py\", line 15, in &lt;module&gt;\n    import SimulatorRunner\n  File \"SimulatorRunner.py\", line 11, in &lt;module&gt;\n    import PODSimulation\n  File \"PODSimulation.py\", line 13, in &lt;module&gt;\n    import SimPy.SimPlot as simplot\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py\", line 68, in &lt;module&gt;\n    class SimPlot(object):\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py\", line 69, in SimPlot\n    def __init__(self, root = Tk()):\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/lib-tk/Tkinter.py\", line 1815, in __init__\n    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)\n_tkinter.TclError: no display name and no $DISPLAY environment variable\nThis is related to import of simpy.simplot, but as simplot isn’t used anywhere, I tried commenting out this import in PODSimulation.py. This resolved the error!\nThe original was population 100 and 50 generations. I anticipate this will be very long, so working up to it…\n10 population, 1 generation: just a few minutes\n \n100 population, 1 generation: 37 minutes\n \nBut seems will be important to try and run with the full version - particularly as Figure 9 is an experiment of that impact of that.\nAlso realised that default in script was runs=1 but paper mentions they “perform three simulation runs to obtain reliable estimates”."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_27/index.html#results-from-pre-screen-10-with-full-set-up",
+    "href": "logbook/posts/2024_09_27/index.html#results-from-pre-screen-10-with-full-set-up",
+    "title": "Day 5",
+    "section": "16.40-16.49: Results from pre-screen 10 with full set-up",
+    "text": "16.40-16.49: Results from pre-screen 10 with full set-up\nWith 100 population, 50 generation and 3 runs, I only had time to run one scenario on the remote machine. It took 327 minutes, or 5.45 hours.\nResults alongside/combined with 1 gen results:\n \nResults from 50 gen alone:\n \nUnfortunately though, the results from the run with popuation 100 50 generation 3 run for pre-screen 10 do not look the same as those in the paper - with fewer points, and very different X and Y axises. I’m presuming it would be worth double-checking parameters for the model are correct."
   },
   {
     "objectID": "logbook/posts/2024_09_27/index.html#timings",
     "href": "logbook/posts/2024_09_27/index.html#timings",
     "title": "Day 5",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 386\n\n# Times from today\ntimes = [\n    ('09.51', '09.57')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 6m, or 0h 6m\nTotal used to date: 392m, or 6h 32m\nTime remaining: 2008m, or 33h 28m\nUsed 16.3% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 386\n\n# Times from today\ntimes = [\n    ('09.51', '09.57'),\n    ('10.52', '10.55'),\n    ('11.00', '11.06'),\n    ('16.40', '16.49')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 24m, or 0h 24m\nTotal used to date: 410m, or 6h 50m\nTime remaining: 1990m, or 33h 10m\nUsed 17.1% of 40 hours max"
   },
   {
     "objectID": "logbook/posts/2024_09_25/index.html",
