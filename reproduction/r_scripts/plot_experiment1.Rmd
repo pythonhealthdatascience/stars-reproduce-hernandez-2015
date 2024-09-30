@@ -13,7 +13,7 @@ library(reshape2)
 ```{r}
 # Get path to each scenario sub-folder within the base folder
 # base_folder <- "../python_outputs/experiment1"
-base_folder <- "../python_outputs_original/results-3-obj-dohmh-data"
+base_folder <- "../python_outputs_original/results-3-obj-bounded-dohmh-data"
 subfolders <- list.dirs(base_folder, recursive = FALSE, full.names = TRUE)
 ```
 
@@ -48,13 +48,6 @@ results$forms <- results$throughput*3.2
 results
 ```
 
-TEMP: For `combined.txt`
-
-```{r}
-results <- read.delim(file.path(base_folder, "combined.txt"))
-results$forms <- results$throughput*3.2
-```
-
 ## Create Figure 5
 
 Plot staff against throughput, faceted by pre-screened percentage.
@@ -64,7 +57,7 @@ fig5 <- ggplot(data=results) +
   geom_point(aes(x=resources, y=forms, size=time), alpha=0.7) +
   #scale_x_continuous(limits=c(0, 150)) +
   #scale_y_continuous(limits=c(0, 12000), breaks=seq(0, 12000, 3000)) +
-  facet_wrap(~prescreened) +
+  facet_wrap(~scenario) +
   labs(size="Waiting Time (minutes)") + xlab("Staff Members") + ylab("Throughput (forms per hour)") +
   theme(axis.title.y = element_text( face='bold')) + theme(axis.title.x = element_text( face='bold')) +
   theme_bw(18) +
@@ -96,8 +89,8 @@ values
 ```
 
 ```{r}
-melted <- melt(values, id=c('resources','forms','time','prescreened', 'throughput')) %>%
-  mutate(prescreen = as.numeric(gsub('[^0-9.]', '', prescreened)),
+melted <- melt(values, id=c('resources','forms','time','scenario', 'throughput')) %>%
+  mutate(prescreen = as.numeric(gsub('[^0-9.]', '', scenario)),
          forms = round(forms))
 
 melted
@@ -110,11 +103,9 @@ melted %>% filter(forms >= 11498, forms <= 11710) %>% arrange(forms)
 melted %>% filter(throughput >= 11498, throughput <= 11710)
 ```
 
-Plot only results where forms is in rrange of plots in the article.
-
 ```{r}
-fig6 <- ggplot(data=melted %>% filter(forms >= 11498 & forms <= 11710)) +
-  geom_bar(stat='identity',aes(x=variable, y=value, fill=prescreened)) +
+fig6 <- ggplot(data=melted) +
+  geom_bar(stat='identity',aes(x=variable, y=value, fill=prescreen)) +
   xlab("Staff Type") +
   ylab("Number of staff") +
   theme(axis.title.y = element_text( face='bold')) +
