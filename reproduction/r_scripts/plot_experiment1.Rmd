@@ -14,7 +14,15 @@ library(reshape2)
 # Get path to each scenario sub-folder within the base folder
 base_folder <- "../python_outputs/experiment1"
 subfolders <- list.dirs(base_folder, recursive = FALSE, full.names = TRUE)
+```
 
+TEMPORARY: Restrict to just prescreen10 (as that was the only one I had time to run in a day).
+
+```{r}
+subfolders <- subfolders[1]
+```
+
+```{r}
 # Initialise empty lists
 result_list <- list()
 times <- list()
