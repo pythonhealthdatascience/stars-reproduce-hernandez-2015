@@ -8,11 +8,11 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-X. Total time used: Xh Xm (X%)
+Running one scenario (of nine from experiment 1) with 100 generations 50 populations 3 runs, which took 5 and a half hours, but results do not match. Total time used: Xh Xm (X%)
 
 :::
 
-## 09.51-09.57, 10.52-10.55: Resuming attempt to run on remote machine
+## 09.51-09.57, 10.52-10.55, 11.00-11.06: Resuming attempt to run on remote machine
 
 As left off yesterday, getting error:
 
@@ -51,6 +51,24 @@ The original was population 100 and 50 generations. I anticipate this will be ve
 
 But seems will be important to try and run with the full version - particularly as Figure 9 is an experiment of that impact of that.
 
+Also realised that default in script was `runs=1` but paper mentions they "perform three simulation runs to obtain reliable estimates".
+
+## 16.40-16.49: Results from pre-screen 10 with full set-up
+
+With 100 population, 50 generation and 3 runs, I only had time to run one scenario on the remote machine. It took 327 minutes, or **5.45 hours**.
+
+Results alongside/combined with 1 gen results:
+
+![](figure5_100pop_50gen_alongside_1gen.png)
+![](figure6_100pop_50gen_alongside_1gen.png)
+
+Results from 50 gen alone:
+
+![](figure5_100pop_50gen_prescreen10.png)
+![](figure6_100pop_50gen_prescreen10.png)
+
+Unfortunately though, the results from the run with popuation 100 50 generation 3 run for pre-screen 10 do not look the same as those in the paper - with fewer points, and very different X and Y axises. I'm presuming it would be worth **double-checking parameters for the model are correct**.
+
 ## Timings
 
 ```{python}
@@ -63,7 +81,10 @@ used_to_date = 386
 
 # Times from today
 times = [
-    ('09.51', '09.57')]
+    ('09.51', '09.57'),
+    ('10.52', '10.55'),
+    ('11.00', '11.06'),
+    ('16.40', '16.49')]
 
 calculate_times(used_to_date, times)
 ```
