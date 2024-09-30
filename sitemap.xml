@@ -2,70 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/evaluation/reproduction_success.html</loc>
-    <lastmod>2024-09-30T09:30:18.479Z</lastmod>
+    <lastmod>2024-09-30T09:33:02.687Z</lastmod>
   </url>
   <url>
     <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/evaluation/badges.html</loc>
-    <lastmod>2024-09-30T09:30:18.479Z</lastmod>
+    <lastmod>2024-09-30T09:33:02.687Z</lastmod>
   </url>
   <url>
     <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/quarto_site/license.html</loc>
-    <lastmod>2024-09-30T09:30:18.533Z</lastmod>
+    <lastmod>2024-09-30T09:33:02.749Z</lastmod>
   </url>
   <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/logbook/posts/2024_09_27/index.html</loc>
-    <lastmod>2024-09-30T09:30:18.492Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/logbook/posts/2024_09_25/index.html</loc>
-    <lastmod>2024-09-30T09:30:18.480Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/evaluation/reproduction_report.html</loc>
-    <lastmod>2024-09-30T09:30:18.479Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/logbook/logbook.html</loc>
-    <lastmod>2024-09-30T09:30:18.480Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/evaluation/reporting.html</loc>
-    <lastmod>2024-09-30T09:30:18.479Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/evaluation/artefacts.html</loc>
-    <lastmod>2024-09-30T09:30:18.479Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/evaluation/reflections.html</loc>
-    <lastmod>2024-09-30T09:30:18.479Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/evaluation/scope.html</loc>
-    <lastmod>2024-09-30T09:30:18.479Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/quarto_site/study_publication.html</loc>
-    <lastmod>2024-09-30T09:30:18.539Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/logbook/posts/2024_09_20/index.html</loc>
-    <lastmod>2024-09-30T09:30:18.480Z</lastmod>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/logbook/posts/2024_09_30/index.html</loc>
+    <lastmod>2024-09-30T09:33:02.708Z</lastmod>
   </url>
   <url>
     <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/logbook/posts/2024_09_26/index.html</loc>
-    <lastmod>2024-09-30T09:30:18.482Z</lastmod>
+    <lastmod>2024-09-30T09:33:02.690Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/logbook/posts/2024_09_20/index.html</loc>
+    <lastmod>2024-09-30T09:33:02.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/quarto_site/study_publication.html</loc>
+    <lastmod>2024-09-30T09:33:02.754Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/evaluation/scope.html</loc>
+    <lastmod>2024-09-30T09:33:02.687Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/evaluation/reflections.html</loc>
+    <lastmod>2024-09-30T09:33:02.687Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/evaluation/artefacts.html</loc>
+    <lastmod>2024-09-30T09:33:02.687Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/evaluation/reporting.html</loc>
+    <lastmod>2024-09-30T09:33:02.687Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/logbook/logbook.html</loc>
+    <lastmod>2024-09-30T09:33:02.687Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/evaluation/reproduction_report.html</loc>
+    <lastmod>2024-09-30T09:33:02.687Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/logbook/posts/2024_09_25/index.html</loc>
+    <lastmod>2024-09-30T09:33:02.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/logbook/posts/2024_09_27/index.html</loc>
+    <lastmod>2024-09-30T09:33:02.699Z</lastmod>
   </url>
   <url>
     <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/index.html</loc>
-    <lastmod>2024-09-30T09:30:18.480Z</lastmod>
+    <lastmod>2024-09-30T09:33:02.687Z</lastmod>
   </url>
   <url>
     <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/quarto_site/reproduction_readme.html</loc>
-    <lastmod>2024-09-30T09:30:18.534Z</lastmod>
+    <lastmod>2024-09-30T09:33:02.749Z</lastmod>
   </url>
   <url>
     <loc>https://pythonhealthdatascience.github.io/stars-reproduce-hernandez-2015/logbook/posts/2024_09_24/index.html</loc>
-    <lastmod>2024-09-30T09:30:18.480Z</lastmod>
+    <lastmod>2024-09-30T09:33:02.688Z</lastmod>
   </url>
 </urlset>
