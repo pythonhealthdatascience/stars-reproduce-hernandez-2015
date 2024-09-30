@@ -13,7 +13,7 @@ library(reshape2)
 ```{r}
 # Get path to each scenario sub-folder within the base folder
 # base_folder <- "../python_outputs/experiment1"
-base_folder <- "../python_outputs_original/results-3-obj-bounded-dohmh-data"
+base_folder <- "../python_outputs_original/results-2-obj-bounded-dohmh-data"
 subfolders <- list.dirs(base_folder, recursive = FALSE, full.names = TRUE)
 ```
 
