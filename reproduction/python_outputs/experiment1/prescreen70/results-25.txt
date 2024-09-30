@@ -1,0 +1,42 @@
+[109, 1901.3333333333333, 24.425088542569334]simulation time: 60
+capacities: [54, 14, 30, 11]
+total resources: 109
+Number In
+Average	Half Width
+11964.6666667	179.412918303
+
+Number Out
+Average	Half Width
+1901.33333333	100.729325233
+
+Waiting Time
+Average	Half Width
+24.4250885426	0.487336241462
+
+Waiting times (minutes), half width
+Name	Average	Half Width
+dispenser	0.0130643492867	0.0220545925358
+greeter	24.4120241933	0.484998858717
+medic	0.0	0.0
+screener	0.0	0.0
+
+Number waiting
+Name	Average	Half Width
+dispenser	0.425818538416	0.739616130543
+greeter	4967.44127581	92.1417683341
+medic	0.0	0.0
+screener	0.0	0.0
+
+Utilization (Beta test)
+Name	Average	Half Width
+dispenser	0.785397468403	0.0859800163899
+greeter	0.997849494045	0.000245611830775
+medic	0.0554912556218	0.0476237251234
+screener	0.215419818236	0.0223968826876
+
+Number seized
+Name	Average	Half Width
+dispenser	1928.0	101.333333337
+greeter	1986.33333333	104.419182255
+medic	5.0	3.51310124289
+screener	592.333333333	17.2504042928
