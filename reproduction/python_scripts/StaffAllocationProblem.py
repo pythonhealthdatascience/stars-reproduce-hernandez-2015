@@ -37,9 +37,11 @@ class StaffAllocationProblem():
         
         
         # greeter, screener, dispenser, medic
-        self.lowerBounds = [3, 3, 3, 3]
-        self.upperBounds = [8, 8, 25, 8] 
+        #self.lowerBounds = [3, 3, 3, 3]
+        #self.upperBounds = [8, 8, 25, 8] 
         #self.upperBounds = [1, 60, 60, 5]
+        self.lowerBounds = [1, 1, 1, 1]
+        self.upperBounds = [60, 60, 60, 60]
         
         #self.bounder = inspyred.ec.Bounder(1, 4)
         self.bounder = inspyred.ec.Bounder(self.lowerBounds, self.upperBounds)
