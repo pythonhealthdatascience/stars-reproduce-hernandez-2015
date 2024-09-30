@@ -31,7 +31,7 @@ for experimentFile in experimentFiles:
     # Run the analysis
     parameterReader = ParameterReader.ParameterReader(join(mypath,experimentFile))
     experimentRunner = ExperimentRunner.ExperimentRunner(seeds, parameterReader)
-    experimentRunner.run(runs=1,
+    experimentRunner.run(runs=3,
                          population=100,
                          generations=5)
 
