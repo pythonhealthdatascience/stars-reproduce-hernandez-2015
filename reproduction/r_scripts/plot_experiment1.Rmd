@@ -12,8 +12,7 @@ library(reshape2)
 
 ```{r}
 # Get path to each scenario sub-folder within the base folder
-# base_folder <- "../python_outputs/experiment1"
-base_folder <- "../python_outputs_original/results-2-obj-bounded-dohmh-data"
+base_folder <- "../python_outputs/experiment1"
 subfolders <- list.dirs(base_folder, recursive = FALSE, full.names = TRUE)
 ```
 
@@ -33,7 +32,7 @@ for (folder_path in subfolders) {
   result_list[[folder_name]]$scenario <- folder_name
   
   # Save time.txt
-  # times[[folder_name]] <- readLines(file.path(folder_path, "time.txt"), warn=FALSE)
+  times[[folder_name]] <- readLines(file.path(folder_path, "time.txt"), warn=FALSE)
 }
 ```
 
