@@ -235,7 +235,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#troubleshooting-experiment-1-mismatch" id="toc-troubleshooting-experiment-1-mismatch" class="nav-link active" data-scroll-target="#troubleshooting-experiment-1-mismatch">09.20-09.24, 09.40-10.30: Troubleshooting experiment 1 mismatch</a>
+  <li><a href="#troubleshooting-experiment-1-mismatch" id="toc-troubleshooting-experiment-1-mismatch" class="nav-link active" data-scroll-target="#troubleshooting-experiment-1-mismatch">09.20-09.24, 09.40-10.30, 10.45-11.03: Troubleshooting experiment 1 mismatch</a>
   <ul class="collapse">
   <li><a href="#plotting-original-results" id="toc-plotting-original-results" class="nav-link" data-scroll-target="#plotting-original-results">Plotting original results</a></li>
   </ul></li>
@@ -264,7 +264,7 @@ Note
 </div>
 </div>
 <section id="troubleshooting-experiment-1-mismatch" class="level2">
-<h2 class="anchored" data-anchor-id="troubleshooting-experiment-1-mismatch">09.20-09.24, 09.40-10.30: Troubleshooting experiment 1 mismatch</h2>
+<h2 class="anchored" data-anchor-id="troubleshooting-experiment-1-mismatch">09.20-09.24, 09.40-10.30, 10.45-11.03: Troubleshooting experiment 1 mismatch</h2>
 <p>Trying to work out why the run with matching conditions for pre-screen 10 didn’t give a result matching the article. It had far fewer points, and the X and Y axis scale was much smaller. If adjust the axis limits to match the article, it becomes yet more obvious!</p>
 <p><img src="figure5_axis.png" class="img-fluid"></p>
 <p>I tried to check whether this was the bi-objective or tri-objective model (it should be tri-objective for Experiment 1), but couldn’t find any mention of this in the code, nor spot where or how I would change the code for this.</p>
@@ -315,28 +315,81 @@ Reflection
 <p>None of forms were in range of article so plot all.</p>
 <p><img src="figure6_original_3_bounded.png" class="img-fluid"></p>
 </section>
+<section id="results.txt-from-results-2-obj-bounded-dohmh-data" class="level4">
+<h4 class="anchored" data-anchor-id="results.txt-from-results-2-obj-bounded-dohmh-data"><code>results.txt</code> from <code>results-2-obj-bounded-dohmh-data/</code></h4>
+<p>Although we don’t expect this to match up (as bi-objective data), I also plot this, just to help check if it indicates that I am using the bi-objective model, or if my current results look more similar to those above.</p>
+<p><img src="figure5_original_2_bounded.png" class="img-fluid"></p>
+<p>None of forms were in range of article so plot all.</p>
+<p><img src="figure6_original_2_bounded.png" class="img-fluid"></p>
+</section>
+<section id="reflections-from-making-these-plots" class="level4">
+<h4 class="anchored" data-anchor-id="reflections-from-making-these-plots">Reflections from making these plots</h4>
+<p>From these plots, it appears I am currently running something similar to <code>results-3-obj-bounded-dohmh-data</code>, as opposed to <code>results-3-object-domh-data</code>, as the former has similar X and Y axis scales to me, whilst the latter has similar to the paper.</p>
+<p>The results from <code>results-2-obj-bounded-dohmh-data/</code> look different to both.</p>
+</section>
+<section id="investigating-how-the-data-might-be-bounded-in-current-run" class="level4">
+<h4 class="anchored" data-anchor-id="investigating-how-the-data-might-be-bounded-in-current-run">Investigating how the data might be “bounded” in current run</h4>
+<p>Looking over the repository to try and understand what being “bounded” refers to, I can see there are bounds in <code>StaffAllocationProblem()</code> for the greeter, screener, dispenser and medic. These get set to <code>self.boundingParameters</code>.</p>
+<pre><code># greeter, screener, dispenser, medic
+self.lowerBounds = [3, 3, 3, 3]
+self.upperBounds = [8, 8, 25, 8] 
+#self.upperBounds = [1, 60, 60, 5]
+        
+#self.bounder = inspyred.ec.Bounder(1, 4)
+self.bounder = inspyred.ec.Bounder(self.lowerBounds, self.upperBounds)
+self.seeds = seeds
+self.boundingParameters = {}
+self.boundingParameters['lowerBounds'] = self.lowerBounds
+self.boundingParameters['upperBounds'] = self.upperBounds</code></pre>
+<p>These would be used in <code>evaluator()</code> but the line is commented out, so not presently:</p>
+<pre><code>#capacities = myutils.boundingFunction(capacities, self.boundingParameters)</code></pre>
+<p>However, they are currently used in <code>generator()</code>:</p>
+<pre><code>greeters = random.randint(self.lowerBounds[0], self.upperBounds[0])
+screeners = random.randint(self.lowerBounds[1], self.upperBounds[1])
+dispensers = random.randint(self.lowerBounds[2], self.upperBounds[2])
+medics = random.randint(self.lowerBounds[3], self.upperBounds[3])</code></pre>
+<p>This is then used by <code>ea.evolve()</code> in <code>nsga2.py</code>. It takes the parameter <code>bounder=problem.bounder</code>. Problem is set in <code>main.py</code>/<code>Experiment1.py</code> as:</p>
+<pre><code>problem = StaffAllocationProblem.StaffAllocationProblem(seeds=self.seeds,
+                                                        parameterReader=self.parameterReader)</code></pre>
+<p>I double-checked the article for any mention of this bounding but didn’t find anything.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reflection
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Missing description of this bounding in article or repository (as far as I can see), that would’ve explained if I did or did not need it for the article.</p>
+</div>
+</div>
+</section>
 </section>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="3923626c" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">410</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.24'</span>)]</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f44358b4" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">410</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.24'</span>),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.40'</span>, <span class="st">'10.30'</span>),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.45'</span>, <span class="st">'11.03'</span>)]</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 4m, or 0h 4m
-Total used to date: 414m, or 6h 54m
-Time remaining: 1986m, or 33h 6m
-Used 17.2% of 40 hours max</code></pre>
+<pre><code>Time spent today: 72m, or 1h 12m
+Total used to date: 482m, or 8h 2m
+Time remaining: 1918m, or 31h 58m
+Used 20.1% of 40 hours max</code></pre>
 </div>
 </div>
 
