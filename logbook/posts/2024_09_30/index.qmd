@@ -8,7 +8,7 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-X. Total time used: Xh Xm (X%)
+Identifying and addressing bounding issue for experiment 1. Total time used: 9h 7m (22.8%)
 
 :::
 
@@ -131,7 +131,7 @@ I double-checked the article for any mention of this bounding but didn't find an
 Missing description of this bounding in article or repository (as far as I can see), that would've explained if  I did or did not need it for the article.
 :::
 
-## 11.11-11.26, 11.37-X: Removing "bounding" of results
+## 11.11-11.26, 11.37-11.56: Removing "bounding" of results
 
 ### Altering bounding
 
@@ -185,6 +185,21 @@ Hence, it seems reasonable to assume we could try a model with lower bounds all 
 Classes really nice way of organising, although ideally, any parameters might be changing could be external to classes (although this might just be an exception - will have to wait and see).
 :::
 
+### Plotting results from 10 pop 1 gen 1 run, now unbounded
+
+This is starting to look more promising...
+
+![](figure5_unbounded_10pop_1gen_1run.png)
+![](figure6_unbounded_10pop_1gen_1run.png)
+
+Then tried running with 100 pop 5 gen 1 run. Ran on remote machine:
+
+```
+source ~/miniconda3/bin/activate
+conda activate hernandez2015
+python -m Experiment1
+```
+
 ### Observation about bi-objective and tri-objective code
 
 Whilst looking into this, I also spotted what I think might be the way to alter between bi-objective and tri-objective, in `StaffAllocationProblem()`:
@@ -210,14 +225,59 @@ self.objectiveTypes = [False, True, False]
 
 Hence, this is currently set-up as the tri-objective model - although then, it is unclear how to alter to bi-objective - perhaps just by shortening the list?
 
-### Plotting results from 10 pop 1 gen 1 run, now unbounded
+I looked at the commit history in the original repository and can see that a previous version of `StaffAllocationProblem.py` had:
 
-This is starting to look more promising...
+```
+#minimize resources, maximize throughput
+self.objectiveTypes = [False, True]
+```
 
-![](figure5_unbounded_10pop_1gen_1run.png)
-![](figure6_unbounded_10pop_1gen_1run.png)
+This was then changed in the latest commit to:
 
-Then tried running with 100 pop 5 gen 1 run.
+```
+#minimize resources, maximize throughput, minimize time
+self.objectiveTypes = [False, True, False]
+```
+
+::: {.callout-tip}
+## Reflection
+
+For this, it was difficult to identify how to change the code for the paper scenario, instructions for that would have been handy.
+:::
+
+## 14.12-14.17, 15.50-16.11, 16.15-16.20: Results from 100 pop 5 gen 1 run "unbounded"
+
+It is beginning to look more similar to the original, although y axis still quite different, so think may just need to try on full settings.
+
+![](figure5_100pop_5gen_1run_unbounded.png)
+![](figure6_100pop_5gen_1run_unbounded.png)
+
+First though, tried re-running with 3 runs with one of the scenarios, to see how the results for that scenario altered. Indeed, they ended up different, and it took 3x as long (unsurprisingly). It gathered more points (similar to article)- although y axis scale is still quite different. Notably, changing from 10 pop and 1 generation to 100 pop and 5 generations hasn't altered that. Hence, I am wary to spend hours trying one scenario with 100 pop 50 gen 3 run, as I think there might be another parameter not quite right here.
+
+![](figure5_prescreen1050_3run.png)
+![](figure6_prescreen1050_3run.png)
+
+Given that the boundaries of the resources had a big impact previously, I had a look at what my range of boundaries looked like, compared to the results in the repository.
+
+```{python}
+bounds = pd.read_csv("combined_100pop_5gen_1or3run.csv")
+```
+```{python}
+bounds['greeter'].describe()
+```
+```{python}
+bounds['screener'].describe()
+```
+```{python}
+bounds['dispenser'].describe()
+```
+```{python}
+bounds['medic'].describe()
+```
+
+The results are different, although I wouldn't feel confident that it were due to the bounds themselves - moreso that the average and SD of the tries were quite different, with the original having higher averages.
+
+Hence, I'm wondering if actually, it may be due to number of generations leading to premature convergence or similar, so will try that as next solution.
 
 ## Timings
 
@@ -233,7 +293,12 @@ used_to_date = 410
 times = [
     ('09.20', '09.24'),
     ('09.40', '10.30'),
-    ('10.45', '11.03')]
+    ('10.45', '11.03'),
+    ('11.11', '11.26'),
+    ('11.37', '11.56'),
+    ('14.12', '14.17'),
+    ('15.50', '16.11'),
+    ('16.15', '16.20')]
 
 calculate_times(used_to_date, times)
 ```
