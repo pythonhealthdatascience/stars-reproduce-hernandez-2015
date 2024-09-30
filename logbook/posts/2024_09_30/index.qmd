@@ -43,7 +43,7 @@ To test whether there is any issue in my plotting, I will try using this data wi
 Handy that results were provided in the repository, enabling this type of check on the code I am using.
 :::
 
-#### `results.txt` from `results-3-obj-dohmh-data/`
+### `results.txt` from `results-3-obj-dohmh-data/`
 
 ![](figure5_original_3.png)
 
@@ -51,7 +51,7 @@ Just plot the ones with forms in range from Figure 6 from article.
 
 ![](figure6_original_3.png)
 
-#### `combined.txt` from `results-3-obj-dohmh-data/`
+### `combined.txt` from `results-3-obj-dohmh-data/`
 
 ![](figure5_original_3_combined.png)
 
@@ -59,7 +59,7 @@ Just plot the ones with forms in range from Figure 6 from article.
 
 ![](figure6_original_3_combined.png)
 
-#### `results.txt` from `results-3-obj-bounded-dohmh-data/`
+### `results.txt` from `results-3-obj-bounded-dohmh-data/`
 
 ![](figure5_original_3_bounded.png)
 
@@ -67,7 +67,7 @@ None of forms were in range of article so plot all.
 
 ![](figure6_original_3_bounded.png)
 
-#### `results.txt` from `results-2-obj-bounded-dohmh-data/`
+### `results.txt` from `results-2-obj-bounded-dohmh-data/`
 
 Although we don't expect this to match up (as bi-objective data), I also plot this, just to help check if it indicates that I am using the bi-objective model, or if my current results look more similar to those above.
 
@@ -77,13 +77,13 @@ None of forms were in range of article so plot all.
 
 ![](figure6_original_2_bounded.png)
 
-#### Reflections from making these plots
+### Reflections from making these plots
 
 From these plots, it appears I am currently running something similar to `results-3-obj-bounded-dohmh-data`, as opposed to `results-3-object-domh-data`, as the former has similar X and Y axis scales to me, whilst the latter has similar to the paper.
 
-The results from `results-2-obj-bounded-dohmh-data/` look different to both.
+The results from `results-2-obj-bounded-dohmh-data/` look different to both - assuming same logic, the bi-objective results like Figure 7 are unbounded in the article.
 
-#### Investigating how the data might be "bounded" in current run
+### Investigating how the data might be "bounded" in current run
 
 Looking over the repository to try and understand what being "bounded" refers to, I can see there are bounds in `StaffAllocationProblem()` for the greeter, screener, dispenser and medic. These get set to `self.boundingParameters`.
 
@@ -130,6 +130,94 @@ I double-checked the article for any mention of this bounding but didn't find an
 
 Missing description of this bounding in article or repository (as far as I can see), that would've explained if  I did or did not need it for the article.
 :::
+
+## 11.11-11.26, 11.37-X: Removing "bounding" of results
+
+### Altering bounding
+
+It appears that `generator()` requires some sort of boundaries. There was a commented out line:
+
+```
+# greeter, screener, dispenser, medic
+self.lowerBounds = [3, 3, 3, 3]
+self.upperBounds = [8, 8, 25, 8] 
+#self.upperBounds = [1, 60, 60, 5]
+```
+
+This sets lower boundaries for the greeter and medic, but much higher for the screener and dispenser. Looking at the range of numbers of greeter, screener, dispenser and medic in `results-3-object-domh-data`...
+
+```{python}
+import pandas as pd
+
+# Import results from results-3-object-domh-data
+combined = pd.read_csv('combined.txt', sep='\t')
+```
+```{python}
+combined['greeter'].describe()
+```
+```{python}
+combined['screener'].describe()
+```
+```{python}
+combined['dispenser'].describe()
+```
+```{python}
+combined['medic'].describe()
+```
+
+Comparing the min and max of these against those boundaries mentioned above...
+
+```
+# greeter, screener, dispenser, medic
+self.lowerBounds = [3, 3, 3, 3]
+observed...        [1, 1, 1, 1]
+
+self.upperBounds  = [8, 8, 25, 8] 
+#self.upperBounds = [1, 60, 60, 5]
+observed...         [46, 59, 60, 58]
+```
+
+Hence, it seems reasonable to assume we could try a model with lower bounds all 1 and upper bounds all 60. I tried running this initially with 10 population 1 generation 1 run.
+
+::: {.callout-tip}
+## Reflection
+
+Classes really nice way of organising, although ideally, any parameters might be changing could be external to classes (although this might just be an exception - will have to wait and see).
+:::
+
+### Observation about bi-objective and tri-objective code
+
+Whilst looking into this, I also spotted what I think might be the way to alter between bi-objective and tri-objective, in `StaffAllocationProblem()`:
+
+```
+self.maximize = True
+#minimize Waiting time, minimize Resources, maximize throughput  
+#minimize resources, maximize throughput, minimize time
+self.objectiveTypes = [False, True, False]
+```
+
+We know from the paper that we have:
+
+* Bi-objective model: minimise number of staff, maximise throughput
+* Tri-objective model: minimise number of staff, maximise throughput, minimise waiting time
+
+So, if maximise is true, then the current objective would be:
+
+```
+self.objectiveTypes = [False, True, False]
+              ...[minimise, maximise, minimise]
+```
+
+Hence, this is currently set-up as the tri-objective model - although then, it is unclear how to alter to bi-objective - perhaps just by shortening the list?
+
+### Plotting results from 10 pop 1 gen 1 run, now unbounded
+
+This is starting to look more promising...
+
+![](figure5_unbounded_10pop_1gen_1run.png)
+![](figure6_unbounded_10pop_1gen_1run.png)
+
+Then tried running with 100 pop 5 gen 1 run.
 
 ## Timings
 
