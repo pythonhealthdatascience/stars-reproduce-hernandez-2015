@@ -238,6 +238,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#troubleshooting-experiment-1-mismatch" id="toc-troubleshooting-experiment-1-mismatch" class="nav-link active" data-scroll-target="#troubleshooting-experiment-1-mismatch">09.20-09.24, 09.40-10.30, 10.45-11.03: Troubleshooting experiment 1 mismatch</a>
   <ul class="collapse">
   <li><a href="#plotting-original-results" id="toc-plotting-original-results" class="nav-link" data-scroll-target="#plotting-original-results">Plotting original results</a></li>
+  <li><a href="#results.txt-from-results-3-obj-dohmh-data" id="toc-results.txt-from-results-3-obj-dohmh-data" class="nav-link" data-scroll-target="#results.txt-from-results-3-obj-dohmh-data"><code>results.txt</code> from <code>results-3-obj-dohmh-data/</code></a></li>
+  <li><a href="#combined.txt-from-results-3-obj-dohmh-data" id="toc-combined.txt-from-results-3-obj-dohmh-data" class="nav-link" data-scroll-target="#combined.txt-from-results-3-obj-dohmh-data"><code>combined.txt</code> from <code>results-3-obj-dohmh-data/</code></a></li>
+  <li><a href="#results.txt-from-results-3-obj-bounded-dohmh-data" id="toc-results.txt-from-results-3-obj-bounded-dohmh-data" class="nav-link" data-scroll-target="#results.txt-from-results-3-obj-bounded-dohmh-data"><code>results.txt</code> from <code>results-3-obj-bounded-dohmh-data/</code></a></li>
+  <li><a href="#results.txt-from-results-2-obj-bounded-dohmh-data" id="toc-results.txt-from-results-2-obj-bounded-dohmh-data" class="nav-link" data-scroll-target="#results.txt-from-results-2-obj-bounded-dohmh-data"><code>results.txt</code> from <code>results-2-obj-bounded-dohmh-data/</code></a></li>
+  <li><a href="#reflections-from-making-these-plots" id="toc-reflections-from-making-these-plots" class="nav-link" data-scroll-target="#reflections-from-making-these-plots">Reflections from making these plots</a></li>
+  <li><a href="#investigating-how-the-data-might-be-bounded-in-current-run" id="toc-investigating-how-the-data-might-be-bounded-in-current-run" class="nav-link" data-scroll-target="#investigating-how-the-data-might-be-bounded-in-current-run">Investigating how the data might be “bounded” in current run</a></li>
+  </ul></li>
+  <li><a href="#x-removing-bounding-of-results" id="toc-x-removing-bounding-of-results" class="nav-link" data-scroll-target="#x-removing-bounding-of-results">11.11-11.26, 11.37-X: Removing “bounding” of results</a>
+  <ul class="collapse">
+  <li><a href="#altering-bounding" id="toc-altering-bounding" class="nav-link" data-scroll-target="#altering-bounding">Altering bounding</a></li>
+  <li><a href="#observation-about-bi-objective-and-tri-objective-code" id="toc-observation-about-bi-objective-and-tri-objective-code" class="nav-link" data-scroll-target="#observation-about-bi-objective-and-tri-objective-code">Observation about bi-objective and tri-objective code</a></li>
+  <li><a href="#plotting-results-from-10-pop-1-gen-1-run-now-unbounded" id="toc-plotting-results-from-10-pop-1-gen-1-run-now-unbounded" class="nav-link" data-scroll-target="#plotting-results-from-10-pop-1-gen-1-run-now-unbounded">Plotting results from 10 pop 1 gen 1 run, now unbounded</a></li>
   </ul></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
@@ -297,38 +309,39 @@ Reflection
 <p>Handy that results were provided in the repository, enabling this type of check on the code I am using.</p>
 </div>
 </div>
-<section id="results.txt-from-results-3-obj-dohmh-data" class="level4">
-<h4 class="anchored" data-anchor-id="results.txt-from-results-3-obj-dohmh-data"><code>results.txt</code> from <code>results-3-obj-dohmh-data/</code></h4>
+</section>
+<section id="results.txt-from-results-3-obj-dohmh-data" class="level3">
+<h3 class="anchored" data-anchor-id="results.txt-from-results-3-obj-dohmh-data"><code>results.txt</code> from <code>results-3-obj-dohmh-data/</code></h3>
 <p><img src="figure5_original_3.png" class="img-fluid"></p>
 <p>Just plot the ones with forms in range from Figure 6 from article.</p>
 <p><img src="figure6_original_3.png" class="img-fluid"></p>
 </section>
-<section id="combined.txt-from-results-3-obj-dohmh-data" class="level4">
-<h4 class="anchored" data-anchor-id="combined.txt-from-results-3-obj-dohmh-data"><code>combined.txt</code> from <code>results-3-obj-dohmh-data/</code></h4>
+<section id="combined.txt-from-results-3-obj-dohmh-data" class="level3">
+<h3 class="anchored" data-anchor-id="combined.txt-from-results-3-obj-dohmh-data"><code>combined.txt</code> from <code>results-3-obj-dohmh-data/</code></h3>
 <p><img src="figure5_original_3_combined.png" class="img-fluid"></p>
 <p>Just plot the ones with forms in range from Figure 6 from article.</p>
 <p><img src="figure6_original_3_combined.png" class="img-fluid"></p>
 </section>
-<section id="results.txt-from-results-3-obj-bounded-dohmh-data" class="level4">
-<h4 class="anchored" data-anchor-id="results.txt-from-results-3-obj-bounded-dohmh-data"><code>results.txt</code> from <code>results-3-obj-bounded-dohmh-data/</code></h4>
+<section id="results.txt-from-results-3-obj-bounded-dohmh-data" class="level3">
+<h3 class="anchored" data-anchor-id="results.txt-from-results-3-obj-bounded-dohmh-data"><code>results.txt</code> from <code>results-3-obj-bounded-dohmh-data/</code></h3>
 <p><img src="figure5_original_3_bounded.png" class="img-fluid"></p>
 <p>None of forms were in range of article so plot all.</p>
 <p><img src="figure6_original_3_bounded.png" class="img-fluid"></p>
 </section>
-<section id="results.txt-from-results-2-obj-bounded-dohmh-data" class="level4">
-<h4 class="anchored" data-anchor-id="results.txt-from-results-2-obj-bounded-dohmh-data"><code>results.txt</code> from <code>results-2-obj-bounded-dohmh-data/</code></h4>
+<section id="results.txt-from-results-2-obj-bounded-dohmh-data" class="level3">
+<h3 class="anchored" data-anchor-id="results.txt-from-results-2-obj-bounded-dohmh-data"><code>results.txt</code> from <code>results-2-obj-bounded-dohmh-data/</code></h3>
 <p>Although we don’t expect this to match up (as bi-objective data), I also plot this, just to help check if it indicates that I am using the bi-objective model, or if my current results look more similar to those above.</p>
 <p><img src="figure5_original_2_bounded.png" class="img-fluid"></p>
 <p>None of forms were in range of article so plot all.</p>
 <p><img src="figure6_original_2_bounded.png" class="img-fluid"></p>
 </section>
-<section id="reflections-from-making-these-plots" class="level4">
-<h4 class="anchored" data-anchor-id="reflections-from-making-these-plots">Reflections from making these plots</h4>
+<section id="reflections-from-making-these-plots" class="level3">
+<h3 class="anchored" data-anchor-id="reflections-from-making-these-plots">Reflections from making these plots</h3>
 <p>From these plots, it appears I am currently running something similar to <code>results-3-obj-bounded-dohmh-data</code>, as opposed to <code>results-3-object-domh-data</code>, as the former has similar X and Y axis scales to me, whilst the latter has similar to the paper.</p>
-<p>The results from <code>results-2-obj-bounded-dohmh-data/</code> look different to both.</p>
+<p>The results from <code>results-2-obj-bounded-dohmh-data/</code> look different to both - assuming same logic, the bi-objective results like Figure 7 are unbounded in the article.</p>
 </section>
-<section id="investigating-how-the-data-might-be-bounded-in-current-run" class="level4">
-<h4 class="anchored" data-anchor-id="investigating-how-the-data-might-be-bounded-in-current-run">Investigating how the data might be “bounded” in current run</h4>
+<section id="investigating-how-the-data-might-be-bounded-in-current-run" class="level3">
+<h3 class="anchored" data-anchor-id="investigating-how-the-data-might-be-bounded-in-current-run">Investigating how the data might be “bounded” in current run</h3>
 <p>Looking over the repository to try and understand what being “bounded” refers to, I can see there are bounds in <code>StaffAllocationProblem()</code> for the greeter, screener, dispenser and medic. These get set to <code>self.boundingParameters</code>.</p>
 <pre><code># greeter, screener, dispenser, medic
 self.lowerBounds = [3, 3, 3, 3]
@@ -367,24 +380,142 @@ Reflection
 </div>
 </section>
 </section>
+<section id="x-removing-bounding-of-results" class="level2">
+<h2 class="anchored" data-anchor-id="x-removing-bounding-of-results">11.11-11.26, 11.37-X: Removing “bounding” of results</h2>
+<section id="altering-bounding" class="level3">
+<h3 class="anchored" data-anchor-id="altering-bounding">Altering bounding</h3>
+<p>It appears that <code>generator()</code> requires some sort of boundaries. There was a commented out line:</p>
+<pre><code># greeter, screener, dispenser, medic
+self.lowerBounds = [3, 3, 3, 3]
+self.upperBounds = [8, 8, 25, 8] 
+#self.upperBounds = [1, 60, 60, 5]</code></pre>
+<p>This sets lower boundaries for the greeter and medic, but much higher for the screener and dispenser. Looking at the range of numbers of greeter, screener, dispenser and medic in <code>results-3-object-domh-data</code>…</p>
+<div id="a87208a7" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Import results from results-3-object-domh-data</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.read_csv(<span class="st">'combined.txt'</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="fff3efe2" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>combined[<span class="st">'greeter'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>count    479.000000
+mean      13.764092
+std        8.185652
+min        1.000000
+25%        7.000000
+50%       15.000000
+75%       20.000000
+max       46.000000
+Name: greeter, dtype: float64</code></pre>
+</div>
+</div>
+<div id="44f4ce47" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>combined[<span class="st">'screener'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>count    479.000000
+mean      17.532359
+std       13.318535
+min        1.000000
+25%        6.000000
+50%       13.000000
+75%       26.000000
+max       59.000000
+Name: screener, dtype: float64</code></pre>
+</div>
+</div>
+<div id="8b103f4f" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>combined[<span class="st">'dispenser'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>count    479.000000
+mean      45.970772
+std       15.036329
+min        1.000000
+25%       38.000000
+50%       52.000000
+75%       58.000000
+max       60.000000
+Name: dispenser, dtype: float64</code></pre>
+</div>
+</div>
+<div id="8f11d371" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>combined[<span class="st">'medic'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>count    479.000000
+mean       8.995825
+std        8.239104
+min        1.000000
+25%        5.000000
+50%        6.000000
+75%       11.000000
+max       58.000000
+Name: medic, dtype: float64</code></pre>
+</div>
+</div>
+<p>Comparing the min and max of these against those boundaries mentioned above…</p>
+<pre><code># greeter, screener, dispenser, medic
+self.lowerBounds = [3, 3, 3, 3]
+observed...        [1, 1, 1, 1]
+
+self.upperBounds  = [8, 8, 25, 8] 
+#self.upperBounds = [1, 60, 60, 5]
+observed...         [46, 59, 60, 58]</code></pre>
+<p>Hence, it seems reasonable to assume we could try a model with lower bounds all 1 and upper bounds all 60. I tried running this initially with 10 population 1 generation 1 run.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reflection
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Classes really nice way of organising, although ideally, any parameters might be changing could be external to classes (although this might just be an exception - will have to wait and see).</p>
+</div>
+</div>
+</section>
+<section id="observation-about-bi-objective-and-tri-objective-code" class="level3">
+<h3 class="anchored" data-anchor-id="observation-about-bi-objective-and-tri-objective-code">Observation about bi-objective and tri-objective code</h3>
+<p>Whilst looking into this, I also spotted what I think might be the way to alter between bi-objective and tri-objective, in <code>StaffAllocationProblem()</code>:</p>
+<pre><code>self.maximize = True
+#minimize Waiting time, minimize Resources, maximize throughput  
+#minimize resources, maximize throughput, minimize time
+self.objectiveTypes = [False, True, False]</code></pre>
+<p>We know from the paper that we have:</p>
+<ul>
+<li>Bi-objective model: minimise number of staff, maximise throughput</li>
+<li>Tri-objective model: minimise number of staff, maximise throughput, minimise waiting time</li>
+</ul>
+<p>So, if maximise is true, then the current objective would be:</p>
+<pre><code>self.objectiveTypes = [False, True, False]
+              ...[minimise, maximise, minimise]</code></pre>
+<p>Hence, this is currently set-up as the tri-objective model - although then, it is unclear how to alter to bi-objective - perhaps just by shortening the list?</p>
+</section>
+<section id="plotting-results-from-10-pop-1-gen-1-run-now-unbounded" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-results-from-10-pop-1-gen-1-run-now-unbounded">Plotting results from 10 pop 1 gen 1 run, now unbounded</h3>
+<p>This is starting to look more promising…</p>
+<p><img src="figure5_unbounded_10pop_1gen_1run.png" class="img-fluid"> <img src="figure6_unbounded_10pop_1gen_1run.png" class="img-fluid"></p>
+<p>Then tried running with 100 pop 5 gen 1 run.</p>
+</section>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="f44358b4" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">410</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.24'</span>),</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.40'</span>, <span class="st">'10.30'</span>),</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.45'</span>, <span class="st">'11.03'</span>)]</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="dfb6c40e" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">410</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.24'</span>),</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.40'</span>, <span class="st">'10.30'</span>),</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.45'</span>, <span class="st">'11.03'</span>)]</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time spent today: 72m, or 1h 12m
 Total used to date: 482m, or 8h 2m
