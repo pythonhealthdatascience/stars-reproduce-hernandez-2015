@@ -245,12 +245,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reflections-from-making-these-plots" id="toc-reflections-from-making-these-plots" class="nav-link" data-scroll-target="#reflections-from-making-these-plots">Reflections from making these plots</a></li>
   <li><a href="#investigating-how-the-data-might-be-bounded-in-current-run" id="toc-investigating-how-the-data-might-be-bounded-in-current-run" class="nav-link" data-scroll-target="#investigating-how-the-data-might-be-bounded-in-current-run">Investigating how the data might be “bounded” in current run</a></li>
   </ul></li>
-  <li><a href="#x-removing-bounding-of-results" id="toc-x-removing-bounding-of-results" class="nav-link" data-scroll-target="#x-removing-bounding-of-results">11.11-11.26, 11.37-X: Removing “bounding” of results</a>
+  <li><a href="#removing-bounding-of-results" id="toc-removing-bounding-of-results" class="nav-link" data-scroll-target="#removing-bounding-of-results">11.11-11.26, 11.37-11.56: Removing “bounding” of results</a>
   <ul class="collapse">
   <li><a href="#altering-bounding" id="toc-altering-bounding" class="nav-link" data-scroll-target="#altering-bounding">Altering bounding</a></li>
-  <li><a href="#observation-about-bi-objective-and-tri-objective-code" id="toc-observation-about-bi-objective-and-tri-objective-code" class="nav-link" data-scroll-target="#observation-about-bi-objective-and-tri-objective-code">Observation about bi-objective and tri-objective code</a></li>
   <li><a href="#plotting-results-from-10-pop-1-gen-1-run-now-unbounded" id="toc-plotting-results-from-10-pop-1-gen-1-run-now-unbounded" class="nav-link" data-scroll-target="#plotting-results-from-10-pop-1-gen-1-run-now-unbounded">Plotting results from 10 pop 1 gen 1 run, now unbounded</a></li>
+  <li><a href="#observation-about-bi-objective-and-tri-objective-code" id="toc-observation-about-bi-objective-and-tri-objective-code" class="nav-link" data-scroll-target="#observation-about-bi-objective-and-tri-objective-code">Observation about bi-objective and tri-objective code</a></li>
   </ul></li>
+  <li><a href="#results-from-100-pop-5-gen-1-run-unbounded" id="toc-results-from-100-pop-5-gen-1-run-unbounded" class="nav-link" data-scroll-target="#results-from-100-pop-5-gen-1-run-unbounded">14.12-14.17, 15.50-16.11, 16.15-16.20: Results from 100 pop 5 gen 1 run “unbounded”</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_09_30/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -272,7 +273,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>X. Total time used: Xh Xm (X%)</p>
+<p>Identifying and addressing bounding issue for experiment 1. Total time used: 9h 7m (22.8%)</p>
 </div>
 </div>
 <section id="troubleshooting-experiment-1-mismatch" class="level2">
@@ -380,8 +381,8 @@ Reflection
 </div>
 </section>
 </section>
-<section id="x-removing-bounding-of-results" class="level2">
-<h2 class="anchored" data-anchor-id="x-removing-bounding-of-results">11.11-11.26, 11.37-X: Removing “bounding” of results</h2>
+<section id="removing-bounding-of-results" class="level2">
+<h2 class="anchored" data-anchor-id="removing-bounding-of-results">11.11-11.26, 11.37-11.56: Removing “bounding” of results</h2>
 <section id="altering-bounding" class="level3">
 <h3 class="anchored" data-anchor-id="altering-bounding">Altering bounding</h3>
 <p>It appears that <code>generator()</code> requires some sort of boundaries. There was a commented out line:</p>
@@ -390,13 +391,13 @@ self.lowerBounds = [3, 3, 3, 3]
 self.upperBounds = [8, 8, 25, 8] 
 #self.upperBounds = [1, 60, 60, 5]</code></pre>
 <p>This sets lower boundaries for the greeter and medic, but much higher for the screener and dispenser. Looking at the range of numbers of greeter, screener, dispenser and medic in <code>results-3-object-domh-data</code>…</p>
-<div id="8d268e04" class="cell" data-execution_count="1">
+<div id="ca507b35" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Import results from results-3-object-domh-data</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>combined <span class="op">=</span> pd.read_csv(<span class="st">'combined.txt'</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="3f4c4a94" class="cell" data-execution_count="2">
+<div id="0f6f65a0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>combined[<span class="st">'greeter'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>count    479.000000
@@ -410,7 +411,7 @@ max       46.000000
 Name: greeter, dtype: float64</code></pre>
 </div>
 </div>
-<div id="6d4f18c0" class="cell" data-execution_count="3">
+<div id="b54a4deb" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>combined[<span class="st">'screener'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>count    479.000000
@@ -424,7 +425,7 @@ max       59.000000
 Name: screener, dtype: float64</code></pre>
 </div>
 </div>
-<div id="becfcdb8" class="cell" data-execution_count="4">
+<div id="ed6f24cf" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>combined[<span class="st">'dispenser'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>count    479.000000
@@ -438,7 +439,7 @@ max       60.000000
 Name: dispenser, dtype: float64</code></pre>
 </div>
 </div>
-<div id="4d747892" class="cell" data-execution_count="5">
+<div id="60de5bac" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>combined[<span class="st">'medic'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>count    479.000000
@@ -475,6 +476,15 @@ Reflection
 </div>
 </div>
 </section>
+<section id="plotting-results-from-10-pop-1-gen-1-run-now-unbounded" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-results-from-10-pop-1-gen-1-run-now-unbounded">Plotting results from 10 pop 1 gen 1 run, now unbounded</h3>
+<p>This is starting to look more promising…</p>
+<p><img src="figure5_unbounded_10pop_1gen_1run.png" class="img-fluid"> <img src="figure6_unbounded_10pop_1gen_1run.png" class="img-fluid"></p>
+<p>Then tried running with 100 pop 5 gen 1 run. Ran on remote machine:</p>
+<pre><code>source ~/miniconda3/bin/activate
+conda activate hernandez2015
+python -m Experiment1</code></pre>
+</section>
 <section id="observation-about-bi-objective-and-tri-objective-code" class="level3">
 <h3 class="anchored" data-anchor-id="observation-about-bi-objective-and-tri-objective-code">Observation about bi-objective and tri-objective code</h3>
 <p>Whilst looking into this, I also spotted what I think might be the way to alter between bi-objective and tri-objective, in <code>StaffAllocationProblem()</code>:</p>
@@ -491,36 +501,123 @@ self.objectiveTypes = [False, True, False]</code></pre>
 <pre><code>self.objectiveTypes = [False, True, False]
               ...[minimise, maximise, minimise]</code></pre>
 <p>Hence, this is currently set-up as the tri-objective model - although then, it is unclear how to alter to bi-objective - perhaps just by shortening the list?</p>
+<p>I looked at the commit history in the original repository and can see that a previous version of <code>StaffAllocationProblem.py</code> had:</p>
+<pre><code>#minimize resources, maximize throughput
+self.objectiveTypes = [False, True]</code></pre>
+<p>This was then changed in the latest commit to:</p>
+<pre><code>#minimize resources, maximize throughput, minimize time
+self.objectiveTypes = [False, True, False]</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reflection
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For this, it was difficult to identify how to change the code for the paper scenario, instructions for that would have been handy.</p>
+</div>
+</div>
 </section>
-<section id="plotting-results-from-10-pop-1-gen-1-run-now-unbounded" class="level3">
-<h3 class="anchored" data-anchor-id="plotting-results-from-10-pop-1-gen-1-run-now-unbounded">Plotting results from 10 pop 1 gen 1 run, now unbounded</h3>
-<p>This is starting to look more promising…</p>
-<p><img src="figure5_unbounded_10pop_1gen_1run.png" class="img-fluid"> <img src="figure6_unbounded_10pop_1gen_1run.png" class="img-fluid"></p>
-<p>Then tried running with 100 pop 5 gen 1 run.</p>
 </section>
+<section id="results-from-100-pop-5-gen-1-run-unbounded" class="level2">
+<h2 class="anchored" data-anchor-id="results-from-100-pop-5-gen-1-run-unbounded">14.12-14.17, 15.50-16.11, 16.15-16.20: Results from 100 pop 5 gen 1 run “unbounded”</h2>
+<p>It is beginning to look more similar to the original, although y axis still quite different, so think may just need to try on full settings.</p>
+<p><img src="figure5_100pop_5gen_1run_unbounded.png" class="img-fluid"> <img src="figure6_100pop_5gen_1run_unbounded.png" class="img-fluid"></p>
+<p>First though, tried re-running with 3 runs with one of the scenarios, to see how the results for that scenario altered. Indeed, they ended up different, and it took 3x as long (unsurprisingly). It gathered more points (similar to article)- although y axis scale is still quite different. Notably, changing from 10 pop and 1 generation to 100 pop and 5 generations hasn’t altered that. Hence, I am wary to spend hours trying one scenario with 100 pop 50 gen 3 run, as I think there might be another parameter not quite right here.</p>
+<p><img src="figure5_prescreen1050_3run.png" class="img-fluid"> <img src="figure6_prescreen1050_3run.png" class="img-fluid"></p>
+<p>Given that the boundaries of the resources had a big impact previously, I had a look at what my range of boundaries looked like, compared to the results in the repository.</p>
+<div id="f09a0500" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>bounds <span class="op">=</span> pd.read_csv(<span class="st">"combined_100pop_5gen_1or3run.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="3c524afa" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>bounds[<span class="st">'greeter'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>count    416.000000
+mean      39.173077
+std       16.694097
+min        1.000000
+25%       29.000000
+50%       42.000000
+75%       54.000000
+max       60.000000
+Name: greeter, dtype: float64</code></pre>
+</div>
+</div>
+<div id="a8c5ca15" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>bounds[<span class="st">'screener'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>count    416.000000
+mean      11.329327
+std        7.984606
+min        1.000000
+25%        6.000000
+50%       10.000000
+75%       14.000000
+max       54.000000
+Name: screener, dtype: float64</code></pre>
+</div>
+</div>
+<div id="31cda08b" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>bounds[<span class="st">'dispenser'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>count    416.000000
+mean      23.819712
+std       10.380180
+min        2.000000
+25%       16.000000
+50%       21.000000
+75%       30.000000
+max       58.000000
+Name: dispenser, dtype: float64</code></pre>
+</div>
+</div>
+<div id="6dc6d752" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>bounds[<span class="st">'medic'</span>].describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>count    416.000000
+mean       6.139423
+std        4.580186
+min        1.000000
+25%        3.000000
+50%        6.000000
+75%        7.000000
+max       47.000000
+Name: medic, dtype: float64</code></pre>
+</div>
+</div>
+<p>The results are different, although I wouldn’t feel confident that it were due to the bounds themselves - moreso that the average and SD of the tries were quite different, with the original having higher averages.</p>
+<p>Hence, I’m wondering if actually, it may be due to number of generations leading to premature convergence or similar, so will try that as next solution.</p>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="4915a194" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">410</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.24'</span>),</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.40'</span>, <span class="st">'10.30'</span>),</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.45'</span>, <span class="st">'11.03'</span>)]</span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f1e72f57" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">410</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.24'</span>),</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.40'</span>, <span class="st">'10.30'</span>),</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.45'</span>, <span class="st">'11.03'</span>),</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.11'</span>, <span class="st">'11.26'</span>),</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.37'</span>, <span class="st">'11.56'</span>),</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'14.12'</span>, <span class="st">'14.17'</span>),</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.50'</span>, <span class="st">'16.11'</span>),</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.15'</span>, <span class="st">'16.20'</span>)]</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 72m, or 1h 12m
-Total used to date: 482m, or 8h 2m
-Time remaining: 1918m, or 31h 58m
-Used 20.1% of 40 hours max</code></pre>
+<pre><code>Time spent today: 137m, or 2h 17m
+Total used to date: 547m, or 9h 7m
+Time remaining: 1853m, or 30h 53m
+Used 22.8% of 40 hours max</code></pre>
 </div>
 </div>
 
