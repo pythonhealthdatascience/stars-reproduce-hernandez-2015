@@ -8,7 +8,7 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-Running one scenario (of nine from experiment 1) with 100 generations 50 populations 3 runs, which took 5 and a half hours, but results do not match. Total time used: Xh Xm (X%)
+Running one scenario (of nine from experiment 1) with 100 generations 50 populations 3 runs, which took 5 and a half hours, but results do not match. Total time used: 6h 50m (17.1%)
 
 :::
 

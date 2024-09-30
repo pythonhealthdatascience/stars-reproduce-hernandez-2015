@@ -1,0 +1,85 @@
+---
+title: "Day 6"
+author: "Amy Heather"
+date: "2024-09-30"
+categories: [reproduce]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+X. Total time used: Xh Xm (X%)
+
+:::
+
+## 09.20-09.24, 09.40-10.30: Troubleshooting experiment 1 mismatch
+
+Trying to work out why the run with matching conditions for pre-screen 10 didn't give a result matching the article. It had far fewer points, and the X and Y axis scale was much smaller. If adjust the axis limits to match the article, it becomes yet more obvious!
+
+![](figure5_axis.png)
+
+I tried to check whether this was the bi-objective or tri-objective model (it should be tri-objective for Experiment 1), but couldn't find any mention of this in the code, nor spot where or how I would change the code for this.
+
+I had a look in the [original repository](https://github.com/ivihernandez/staff-allocation), looking for clues. It had folders with results:
+
+* `results-2-obj-bounded-dohmh-data`
+* `results-3-obj-bounded-dohmh-data`
+* `results-3-obj-dohmh-data`
+* `old-results` (which I disregarded)
+
+Regarding these names:
+
+* "DOHMH" stands for the NYC Department of Health and Mental Hygiene.
+* I'm assuming that "2-obj" and "3-obj" refers to it being bi-objective and tri-objective models.
+* I'm not certain what "bounded" refers to.
+
+### Plotting original results
+
+To test whether there is any issue in my plotting, I will try using this data within my plotting functions, so I copied it into `reproduction/`, and renamed the folders from run dates to the prescreen parameter used. The folder `results-3-obj-bounded-dohmh-data` included `combined.txt` which combined all the pre-screened scenarios into one table (with a prescreen column).
+
+::: {.callout-tip}
+## Reflection
+
+Handy that results were provided in the repository, enabling this type of check on the code I am using.
+:::
+
+#### `results.txt` from `results-3-obj-dohmh-data/`
+
+![](figure5_original_3.png)
+
+Just plot the ones with forms in range from Figure 6 from article.
+
+![](figure6_original_3.png)
+
+#### `combined.txt` from `results-3-obj-dohmh-data/`
+
+![](figure5_original_3_combined.png)
+
+Just plot the ones with forms in range from Figure 6 from article.
+
+![](figure6_original_3_combined.png)
+
+#### `results.txt` from `results-3-obj-bounded-dohmh-data/`
+
+![](figure5_original_3_bounded.png)
+
+None of forms were in range of article so plot all.
+
+![](figure6_original_3_bounded.png)
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 410
+
+# Times from today
+times = [
+    ('09.20', '09.24')]
+
+calculate_times(used_to_date, times)
+```
