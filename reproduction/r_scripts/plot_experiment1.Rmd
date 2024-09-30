@@ -101,9 +101,14 @@ Check filter on forms v.s. throughput.
 melted %>% filter(forms >= 11498, forms <= 11710) %>% arrange(forms)
 melted %>% filter(throughput >= 11498, throughput <= 11710)
 ```
+Too many to just include all, so just chose a subset of that...
 
 ```{r}
-fig6 <- ggplot(data=melted) +
+melted %>% filter(prescreen == 10 | prescreen == 50) %>% arrange(forms)
+```
+
+```{r}
+fig6 <- ggplot(data=melted %>% filter(prescreen == 10 | prescreen == 50)) +
   geom_bar(stat='identity',aes(x=variable, y=value, fill=prescreen)) +
   xlab("Staff Type") +
   ylab("Number of staff") +
