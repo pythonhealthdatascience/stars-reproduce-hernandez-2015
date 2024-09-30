@@ -12,7 +12,7 @@ X. Total time used: Xh Xm (X%)
 
 :::
 
-## 09.20-09.24, 09.40-10.30: Troubleshooting experiment 1 mismatch
+## 09.20-09.24, 09.40-10.30, 10.45-11.03: Troubleshooting experiment 1 mismatch
 
 Trying to work out why the run with matching conditions for pre-screen 10 didn't give a result matching the article. It had far fewer points, and the X and Y axis scale was much smaller. If adjust the axis limits to match the article, it becomes yet more obvious!
 
@@ -67,6 +67,70 @@ None of forms were in range of article so plot all.
 
 ![](figure6_original_3_bounded.png)
 
+#### `results.txt` from `results-2-obj-bounded-dohmh-data/`
+
+Although we don't expect this to match up (as bi-objective data), I also plot this, just to help check if it indicates that I am using the bi-objective model, or if my current results look more similar to those above.
+
+![](figure5_original_2_bounded.png)
+
+None of forms were in range of article so plot all.
+
+![](figure6_original_2_bounded.png)
+
+#### Reflections from making these plots
+
+From these plots, it appears I am currently running something similar to `results-3-obj-bounded-dohmh-data`, as opposed to `results-3-object-domh-data`, as the former has similar X and Y axis scales to me, whilst the latter has similar to the paper.
+
+The results from `results-2-obj-bounded-dohmh-data/` look different to both.
+
+#### Investigating how the data might be "bounded" in current run
+
+Looking over the repository to try and understand what being "bounded" refers to, I can see there are bounds in `StaffAllocationProblem()` for the greeter, screener, dispenser and medic. These get set to `self.boundingParameters`.
+
+```
+# greeter, screener, dispenser, medic
+self.lowerBounds = [3, 3, 3, 3]
+self.upperBounds = [8, 8, 25, 8] 
+#self.upperBounds = [1, 60, 60, 5]
+        
+#self.bounder = inspyred.ec.Bounder(1, 4)
+self.bounder = inspyred.ec.Bounder(self.lowerBounds, self.upperBounds)
+self.seeds = seeds
+self.boundingParameters = {}
+self.boundingParameters['lowerBounds'] = self.lowerBounds
+self.boundingParameters['upperBounds'] = self.upperBounds
+```
+
+These would be used in `evaluator()` but the line is commented out, so not presently:
+  
+```
+#capacities = myutils.boundingFunction(capacities, self.boundingParameters)
+```
+
+However, they are currently used in `generator()`:
+
+```
+greeters = random.randint(self.lowerBounds[0], self.upperBounds[0])
+screeners = random.randint(self.lowerBounds[1], self.upperBounds[1])
+dispensers = random.randint(self.lowerBounds[2], self.upperBounds[2])
+medics = random.randint(self.lowerBounds[3], self.upperBounds[3])
+```
+
+This is then used by `ea.evolve()` in `nsga2.py`. It takes the parameter `bounder=problem.bounder`. Problem is set in `main.py`/`Experiment1.py` as:
+
+```
+problem = StaffAllocationProblem.StaffAllocationProblem(seeds=self.seeds,
+                                                        parameterReader=self.parameterReader)
+```
+
+I double-checked the article for any mention of this bounding but didn't find anything.
+
+::: {.callout-tip}
+## Reflection
+
+Missing description of this bounding in article or repository (as far as I can see), that would've explained if  I did or did not need it for the article.
+:::
+
 ## Timings
 
 ```{python}
@@ -79,7 +143,9 @@ used_to_date = 410
 
 # Times from today
 times = [
-    ('09.20', '09.24')]
+    ('09.20', '09.24'),
+    ('09.40', '10.30'),
+    ('10.45', '11.03')]
 
 calculate_times(used_to_date, times)
 ```
