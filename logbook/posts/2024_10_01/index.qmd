@@ -1,0 +1,102 @@
+---
+title: "Day 7"
+author: "Amy Heather"
+date: "2024-10-01"
+categories: [reproduce]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+Troubleshooting Experiment 1: trying a long run, expanding boundaries further, and cross-checking parameters between article and code. Total time used: 10h 6m (25.2%)
+
+:::
+
+## 09.15-09.17, 11.40-11.45: Troubleshooting Figure 5
+
+Running one scenario with 100 population 50 generation 1 run on remote machine.
+
+```
+source ~/miniconda3/bin/activate
+conda activate hernandez2015
+python -m Experiment1
+```
+
+Below, you can see the result from this for prescreen10 (top left). The others are all 100 population 5 generation from 1 run or 3 runs for prescreen50. As you can see, this unfortunately has no impact on the Y axis, and just the density of points.
+
+![](figure5_prescreen10_100_50_1.png)
+
+Below is Figure 6 from prescreen10, just showing examples where forms > 6000.
+
+![](figure6_prescreen10_100_50_1.png)
+
+## 12.07-12.14, 15.54-16.01: Expanding boundaries further
+
+I tried running with boundaries of 1-100 (rather than 1-60). Ran 100 population 5 generation 1 run.
+
+Although this gets a more similar Y axis, the number of staff members became too high (so X axis becomes wrong), so that is not the solution.
+
+![](figure5_boundary100_100_5_1.png)
+
+Figure 6 (just showing forms > 10500)
+
+![](figure6_boundary100_100_5_1.png)
+
+## 16.02-16.28, 16.42-16.54: Checking other parameters
+
+I set the boundaries back to 1-60 (as that gave the correct range of staff members for Figures 5 and 6).
+
+Looking at Figure 6 in the article, the number of line managers was always fairly low, but I find that to be as high as dispensers - although, in Table 4 (which is a sample of results) they likewise find high numbers of line managers.
+
+I decided to go back over the paper, identifying all the model parameters mentioned, and make sure I could find these in the code and confirm they matched the paper.
+
+| Parameter | Code | Location in paper | Location in code |
+| --- | --- | --- | --- |
+| At screening station, 1% go to med eval and 99% to dispensing. At med eval station, 99% got to dispensing and 1% exit POD | <!----> | 4.1.1 Splits | <!----> | 
+| Number of forms per designee: 1 31.8%, 2 26.7%, 3 16.8%, 4 12.6%, 5 6.8%, 6 5.6% | <!----> | Table 1 | <!----> | 
+| Service time **line manager**: triangular, minimum = 0.029, maximum = 0.039, mode = 0.044 | ❌ `time = random.triangular(low=5/60.0, high=92/60.0, mode=23/60.0)`. Low 5/60 = 0.0833. High 92/60 = 1.533. Mode 23/60 = 0.3833. ✅? There is one **commented out** which has... Low 1.77/60 = 0.0295. Higher 2.66/60 = 0.044. Mode 2.38/60 = 0.0397. This would match the article, except maximum and mode the other way round. | Table 2 | `visit_greeter()` in `Customer.py` |
+| Service time **screening**: weibull, shape = 2.29, scale = 0.142 | ✅ `time = random.weibullvariate(alpha=0.142, beta=2.29)` | Table 2 | `visit_screener()` in `Customer.py` |
+| Service time **dispensing**: weibull, shape = 1, scale = 0.311 | ✅ `time = random.weibullvariate(alpha=0.311, beta=1)` | Table 2 | `visit_dispenser()` in `Customer.py` |
+| Service time **medical evaluation**: lognormal, logarithmic mean = 1.024, logarithmic stdev = 0.788 | ✅ `time = random.lognormvariate(mu=1.024, sigma=0.788) ` | Table 2 | `visit_medic()` in `Customer.py` |
+| Arrival rate 100 designess per minute per POD (following a Poisson distribution) | <!----> | 4.1.4 Arrival rate | <!----> | 
+| Three simulation runs | <!----> | 4.3 Processing | <!----> |
+| Number of staff members per station - mentions examples of where "*each station could have up to thirty staff members*" or "*for example 60*". We know it cannot be 30, but could reasonably assume to be 60 | <!----> | 3 Problem and 4.3 Processing | <!----> |
+| Forms per hour from code: forms is throughput x 3.2. **TODO: understand why this is... could check i am right by running simulation from table 4 with fixed parameters and check n forms processed matches...** | <!----> | `plotting_staff_results.R` | <!----> |
+| Default crossover rate 1.0 and n=1 | <!----> | 5 Experimental results | <!----> |
+| Experiment 1: tri-objective model, population 100, generations 50, pre-screened scenarios 10%, 20%, 30%... 90% | <!----> | 4.1.1 Splits and Figure 5 | <!----> |
+| Experiment 2: bi-objective model, population 50, generations 25, pre-screened scenarios 10%, 20%, 30%... 90% | <!----> | 4.1.1 Splits and Figure 7 | <!----> |
+| Experiment 3: tri-objective model, pre-screened percentage ??, (a) 100 pop 50 gen (b) 200 pop 100 gen (c) 50 pop 25 gen | <!----> | 5.3 Experiment 3 and Figure 8 | <!----> |
+| Experiment 4: tri-objective model, maximum line managers 1, 2 or 3 | <!----> | 5.4 Experiment 4 and Figure 9 | <!----> |
+| Experiment 5: 6 dispensing, 6 screening, 4 line manager, one medical evaluator, number of replications 1-7 | <!----> | 5.5 Experiment 5 and Figure 10 | <!----> |
+ 
+::: {.callout-tip}
+## Reflection
+
+Would've been handy if all parameters could have been mentioned in one place.
+:::
+
+Reflections:
+
+* Big difference in the line manager service times - this might explain it!
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 547
+
+# Times from today
+times = [
+    ('09.15', '09.17'),
+    ('11.40', '11.45'),
+    ('12.07', '12.14'),
+    ('15.54', '16.01'),
+    ('16.02', '16.28'),
+    ('16.42', '16.54')]
+
+calculate_times(used_to_date, times)
+```
