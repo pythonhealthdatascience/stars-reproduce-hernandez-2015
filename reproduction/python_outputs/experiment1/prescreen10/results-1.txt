@@ -1,6 +1,6 @@
-[13, 35.0, 27.000768596101217]simulation time: 60
-capacities: [1, 6, 5, 1]
-total resources: 13
+[25, 35.0, 27.000768596101217]simulation time: 60
+capacities: [1, 6, 7, 11]
+total resources: 25
 Number In
 Average	Half Width
 11975.3333333	85.5816588028
@@ -29,9 +29,9 @@ screener	0.0	0.0
 
 Utilization (Beta test)
 Name	Average	Half Width
-dispenser	0.0942751495479	0.0432431720767
+dispenser	0.0673393925342	0.0308879800548
 greeter	1.0	0.0
-medic	0.0391213535187	0.13743727567
+medic	0.00355648668352	0.0124942977882
 screener	0.0281187153633	0.0165732466371
 
 Number seized

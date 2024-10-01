@@ -1,42 +1,42 @@
-[20, 34.0, 27.1959135139917]simulation time: 60
-capacities: [1, 4, 13, 2]
-total resources: 20
+[51, 504.0, 27.541304484216298]simulation time: 60
+capacities: [14, 20, 9, 8]
+total resources: 51
 Number In
 Average	Half Width
-11962.0	87.0748441893
+11982.6666667	290.727848456
 
 Number Out
 Average	Half Width
-34.0	8.84111091273
+504.0	21.1759687489
 
 Waiting Time
 Average	Half Width
-27.195913514	6.3523736704
+27.5413044842	0.642139837887
 
 Waiting times (minutes), half width
 Name	Average	Half Width
-dispenser	0.0	0.0
-greeter	27.195913514	6.3523736704
-medic	0.0	0
+dispenser	0.0450960748906	0.0827100317874
+greeter	27.4962084093	0.585679554791
+medic	0.0	0.0
 screener	0.0	0.0
 
 Number waiting
 Name	Average	Half Width
-dispenser	0.0	0.0
-greeter	5970.96848443	132.23238023
+dispenser	0.403031352998	0.77790046122
+greeter	5728.06342194	112.9507827
 medic	0.0	0.0
 screener	0.0	0.0
 
 Utilization (Beta test)
 Name	Average	Half Width
-dispenser	0.0347506133029	0.00877746298747
-greeter	1.0	0.0
-medic	0.0	0.0
-screener	0.0308160812244	0.0191823770777
+dispenser	0.64872001068	0.106685648967
+greeter	0.999407926813	0.00014542339664
+medic	0.0229996921124	0.0273886406823
+screener	0.0763013786308	0.00319255883192
 
 Number seized
 Name	Average	Half Width
-dispenser	34.6666666667	6.52003996773
-greeter	35.6666666667	6.52003996773
-medic	0.0	0.0
-screener	21.3333333333	7.1231202018
+dispenser	511.333333333	24.1982159728
+greeter	528.666666667	27.01003999
+medic	3.33333333333	4.68413499052
+screener	308.0	15.8414509112
