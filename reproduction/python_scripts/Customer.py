@@ -115,8 +115,8 @@ class Customer(simpy.Process):
         self.monitors[name].observe(wait)
         GREETER_ENABLED = True
         if GREETER_ENABLED:
-            time = random.triangular(low=5/60.0, high=92/60.0, mode=23/60.0)
-            #time = random.triangular(low=1.77/60.0, high=2.66/60.0, mode=2.38/60.0)
+            #time = random.triangular(low=5/60.0, high=92/60.0, mode=23/60.0)
+            time = random.triangular(low=1.77/60.0, high=2.66/60.0, mode=2.38/60.0)
             tib = self.numberOfForms * time
         else:
             tib = 0
