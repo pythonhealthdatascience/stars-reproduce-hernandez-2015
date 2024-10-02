@@ -17,36 +17,48 @@ mypath = r'../inputs'
 experimentFiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
 # Path to save results
-experimentFolder = '../python_outputs/experiment1/prescreen'
+experimentFolder = '../python_outputs/experiment1'
 
 # Seeds for reproducibility
 seeds = [123, 456, 789]
 
-# Loop through each of the scenarios
-for experimentFile in experimentFiles:
 
-    # Start timer
-    startTime = datetime.datetime.now()
+def run_scenario(file):
+  '''
+  Run algorithm using the pre-screened percentage from the provided file.
 
-    # Run the analysis
+  Parameters:
+  ----------
+  file : string
+    Path to text file containing pre-screened percentage
+  '''
+  # Run the analysis
     parameterReader = ParameterReader.ParameterReader(join(mypath,experimentFile))
     experimentRunner = ExperimentRunner.ExperimentRunner(seeds, parameterReader)
     experimentRunner.run(runs=1,
-                         population=10,
-                         generations=1)
+                         population=100,
+                         generations=5)
 
     # Get the pre-screened percentage for that scenario and folder
     scenario = int(parameterReader.parameters['preScreenedPercentage']*100)
-    scenarioFolder = experimentFolder + str(scenario)
+    scenarioFolder = experimentFolder + '/prescreen' + str(scenario)
 
     # Save the results
     solutionWriter = SolutionWriter.SolutionWriter(
         join(mypath,experimentFile), experimentRunner,
         folderName=scenarioFolder)
     solutionWriter.dumpSolution()
-    #solutionWriter.dumpResultsAnalyzer()
 
-    # End timer and save time for that result
-    endTime = datetime.datetime.now()
-    with open(os.path.join(scenarioFolder, "time.txt"), "w") as text_file:
-        text_file.write("{0}".format(endTime - startTime))
+
+# Start timer
+startTime = datetime.datetime.now()
+
+# Loop through each of the scenarios
+for experimentFile in experimentFiles:
+    # Run the scenario
+    run_scenario(experimentFile)
+
+# End timer and save time for that result
+endTime = datetime.datetime.now()
+with open(os.path.join(experimentFolder, "time.txt"), "w") as text_file:
+  text_file.write("{0}".format(endTime - startTime))
