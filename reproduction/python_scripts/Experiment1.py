@@ -33,21 +33,21 @@ def run_scenario(file):
     Path to text file containing pre-screened percentage
   '''
   # Run the analysis
-    parameterReader = ParameterReader.ParameterReader(join(mypath,experimentFile))
-    experimentRunner = ExperimentRunner.ExperimentRunner(seeds, parameterReader)
-    experimentRunner.run(runs=1,
-                         population=100,
-                         generations=5)
+  parameterReader = ParameterReader.ParameterReader(join(mypath,experimentFile))
+  experimentRunner = ExperimentRunner.ExperimentRunner(seeds, parameterReader)
+  experimentRunner.run(runs=1,
+                       population=10,
+                       generations=1)
 
-    # Get the pre-screened percentage for that scenario and folder
-    scenario = int(parameterReader.parameters['preScreenedPercentage']*100)
-    scenarioFolder = experimentFolder + '/prescreen' + str(scenario)
+  # Get the pre-screened percentage for that scenario and folder
+  scenario = int(parameterReader.parameters['preScreenedPercentage']*100)
+  scenarioFolder = experimentFolder + '/prescreen' + str(scenario)
 
-    # Save the results
-    solutionWriter = SolutionWriter.SolutionWriter(
-        join(mypath,experimentFile), experimentRunner,
-        folderName=scenarioFolder)
-    solutionWriter.dumpSolution()
+  # Save the results
+  solutionWriter = SolutionWriter.SolutionWriter(
+      join(mypath,experimentFile), experimentRunner,
+      folderName=scenarioFolder)
+  solutionWriter.dumpSolution()
 
 
 # Start timer
