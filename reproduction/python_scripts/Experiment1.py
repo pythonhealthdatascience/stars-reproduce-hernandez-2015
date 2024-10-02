@@ -11,6 +11,7 @@ import os, sys
 import ParameterReader
 import SolutionWriter
 import ExperimentRunner
+from multiprocessing import Pool
 
 # Path to scenarios
 mypath = r'../inputs'
@@ -24,41 +25,48 @@ seeds = [123, 456, 789]
 
 
 def run_scenario(file):
-  '''
-  Run algorithm using the pre-screened percentage from the provided file.
+    '''
+    Run algorithm using the pre-screened percentage from the provided file.
 
-  Parameters:
-  ----------
-  file : string
-    Path to text file containing pre-screened percentage
-  '''
-  # Run the analysis
-  parameterReader = ParameterReader.ParameterReader(join(mypath,experimentFile))
-  experimentRunner = ExperimentRunner.ExperimentRunner(seeds, parameterReader)
-  experimentRunner.run(runs=1,
-                       population=10,
-                       generations=1)
+    Parameters:
+    ----------
+    file : string
+      Path to text file containing pre-screened percentage
+    '''
+    # Run the analysis
+    parameterReader = ParameterReader.ParameterReader(join(mypath,
+                                                           file))
+    experimentRunner = ExperimentRunner.ExperimentRunner(seeds,
+                                                         parameterReader)
+    experimentRunner.run(runs=1,
+                         population=10,
+                         generations=1)
 
-  # Get the pre-screened percentage for that scenario and folder
-  scenario = int(parameterReader.parameters['preScreenedPercentage']*100)
-  scenarioFolder = experimentFolder + '/prescreen' + str(scenario)
+    # Get the pre-screened percentage for that scenario and folder
+    scenario = int(parameterReader.parameters['preScreenedPercentage']*100)
+    scenarioFolder = experimentFolder + '/prescreen' + str(scenario)
 
-  # Save the results
-  solutionWriter = SolutionWriter.SolutionWriter(
-      join(mypath,experimentFile), experimentRunner,
-      folderName=scenarioFolder)
-  solutionWriter.dumpSolution()
+    # Save the results
+    solutionWriter = SolutionWriter.SolutionWriter(
+        join(mypath, file), experimentRunner,
+        folderName=scenarioFolder)
+    solutionWriter.dumpSolution()
 
 
 # Start timer
 startTime = datetime.datetime.now()
 
-# Loop through each of the scenarios
-for experimentFile in experimentFiles:
-    # Run the scenario
-    run_scenario(experimentFile)
+# Create a process pool that uses all CPUs
+pool = Pool()
+try:
+    # Map the run_scenario function to the experiment files
+    results = pool.map(run_scenario, experimentFiles)
+finally:
+    # Close the pool and wait for the worker processes to finish
+    pool.close()
+    pool.join()
 
 # End timer and save time for that result
 endTime = datetime.datetime.now()
 with open(os.path.join(experimentFolder, "time.txt"), "w") as text_file:
-  text_file.write("{0}".format(endTime - startTime))
+    text_file.write("{0}".format(endTime - startTime))
