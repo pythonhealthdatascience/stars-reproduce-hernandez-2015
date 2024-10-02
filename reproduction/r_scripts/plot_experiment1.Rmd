@@ -101,14 +101,9 @@ Check filter on forms v.s. throughput.
 melted %>% filter(forms >= 11498, forms <= 11710) %>% arrange(forms)
 melted %>% filter(throughput >= 11498, throughput <= 11710)
 ```
-Too many to just include all, so just chose a subset of that...
 
 ```{r}
-melted %>% filter(prescreen == 10 | prescreen == 50) %>% arrange(forms)
-```
-
-```{r}
-fig6 <- ggplot(data=melted %>% filter(forms > 10500)) +
+fig6 <- ggplot(data=melted %>% filter(forms >= 11498, forms <= 11710)) +
   geom_bar(stat='identity',aes(x=variable, y=value, fill=prescreen)) +
   xlab("Staff Type") +
   ylab("Number of staff") +
@@ -128,11 +123,11 @@ fig6
 
 ```{r}
 # Convert the times to difftime objects
-#times_converted <- lapply(times, function(x) {
-#  as.numeric(strptime(x, format="%H:%M:%OS")) - as.numeric(strptime("0:00:00", format="%H:%M:%OS"))
-#})
+times_converted <- lapply(times, function(x) {
+  as.numeric(strptime(x, format="%H:%M:%OS")) - as.numeric(strptime("0:00:00", format="%H:%M:%OS"))
+})
 
 # Sum the times
-#total_time <- sum(unlist(times_converted))
-#print(paste0(round(total_time), " sec, ", round(total_time/60), " min"))
+total_time <- sum(unlist(times_converted))
+print(paste0(round(total_time), " sec, ", round(total_time/60), " min"))
 ```
