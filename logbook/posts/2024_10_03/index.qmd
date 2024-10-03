@@ -1,0 +1,46 @@
+---
+title: "Day 9"
+author: "Amy Heather"
+date: "2024-10-03"
+categories: [reproduce]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+X. Total time used: Xh Xm (X%)
+
+:::
+
+## 09.05-09.08, 10.36-10.39, 15.23-X: Running all scenarios with 100 pop 50 gen 1 run
+
+I tried running all scenarios with 100 population 50 generations 1 run on the remote machine. However, about 90 minutes later, I noted the process had stopped running with the error:
+
+```
+client_loop: send disconnect: Broken pipe
+```
+
+Apparently this error indicates the sudden termination of a network connection, or a timeout for the SSH connection due to no activity. I know the latter shouldn't be the case as I've run commands for longer previously, so assuming it might have just been a network issue, I tried again, and this worked.
+
+Run time: 268 minutes = **4 hours 28 minutes** (in parallel on remote machine)
+
+![](figure5_100pop_50gen_1run.png)
+
+![](figure6_100pop_50gen_1run.png)
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 681
+
+# Times from today
+times = [
+    ('09.05', '09.08')]
+
+calculate_times(used_to_date, times)
+```

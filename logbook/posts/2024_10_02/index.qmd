@@ -8,7 +8,7 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-X. Total time used: Xh Xm (X%)
+Correcting a parameter, adding parallel processing, and experimenting with parameters to try and run similarly but more quickly. Total time used: 11h 21m (28.4%)
 
 :::
 
