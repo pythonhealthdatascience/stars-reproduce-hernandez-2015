@@ -17,6 +17,11 @@ subfolders <- list.dirs(base_folder, recursive = FALSE, full.names = TRUE)
 ```
 
 ```{r}
+# Import time
+time <- readLines(file.path(base_folder, "time.txt"), warn=FALSE)
+```
+
+```{r}
 # Initialise empty lists
 result_list <- list()
 times <- list()
@@ -30,9 +35,6 @@ for (folder_path in subfolders) {
   # Save results.txt, and add the scenario 
   result_list[[folder_name]] <- read.delim(file.path(folder_path, "results.txt"))
   result_list[[folder_name]]$scenario <- folder_name
-  
-  # Save time.txt
-  times[[folder_name]] <- readLines(file.path(folder_path, "time.txt"), warn=FALSE)
 }
 ```
 
@@ -43,8 +45,17 @@ rownames(results) <- NULL
 
 # Add forms
 results$forms <- results$throughput*3.2
+```
 
-results
+## Show times for experiment 1
+
+```{r}
+# Convert the times to difftime objects
+time_adj <- as.numeric(strptime(time, format="%H:%M:%OS")) - as.numeric(strptime("0:00:00", format="%H:%M:%OS"))
+
+# Sum the times
+total_time <- sum(unlist(time_adj))
+print(paste0(round(total_time), " sec, ", round(total_time/60), " min"))
 ```
 
 ## Create Figure 5
@@ -117,17 +128,4 @@ fig6 <- ggplot(data=melted %>% filter(forms >= 11498, forms <= 11710)) +
 ggsave("../r_outputs/figure6.png", width = 10 , height = 10)
 
 fig6
-```
-
-## Show times for experiment 1
-
-```{r}
-# Convert the times to difftime objects
-times_converted <- lapply(times, function(x) {
-  as.numeric(strptime(x, format="%H:%M:%OS")) - as.numeric(strptime("0:00:00", format="%H:%M:%OS"))
-})
-
-# Sum the times
-total_time <- sum(unlist(times_converted))
-print(paste0(round(total_time), " sec, ", round(total_time/60), " min"))
 ```
