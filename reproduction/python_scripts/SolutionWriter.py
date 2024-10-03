@@ -63,7 +63,7 @@ class SolutionWriter:
         destinationFilePath = os.path.join(self.folderName, experimentFileName)
         
         #copy original experiment
-        shutil.copy(self.experimentFilePath, destinationFilePath)
+        #shutil.copy(self.experimentFilePath, destinationFilePath)
         #copy results
         
         resultsFile = 'results.txt'
@@ -94,5 +94,5 @@ class SolutionWriter:
             filePareto.write(line + '\n')
         filePareto.close()
          
-        self.dumpResultsAnalyzer()
+        #self.dumpResultsAnalyzer()
         
