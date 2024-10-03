@@ -8,11 +8,11 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-X. Total time used: Xh Xm (X%)
+Continuing to tweak run parameters and model parameters. Figure 6 reproduced. Total time used: Xh Xm (X%)
 
 :::
 
-## 09.05-09.08, 10.36-10.39, 15.23-X: Running all scenarios with 100 pop 50 gen 1 run
+## 09.05-09.08, 10.36-10.39, 15.23-15.32: Running all scenarios with 100 pop 50 gen 1 run
 
 I tried running all scenarios with 100 population 50 generations 1 run on the remote machine. However, about 90 minutes later, I noted the process had stopped running with the error:
 
@@ -28,6 +28,8 @@ Run time: 268 minutes = **4 hours 28 minutes** (in parallel on remote machine)
 
 ![](figure6_100pop_50gen_1run.png)
 
+The Y axis for Figure 5 is, I would argue, still quite off. However, on reflection, I think it would be reasonable to mark Figure 6 as reproduced - within the reasonable margin of variability expected. Looking at a sample of results, in the same range as the original paper, we see the same broad result - dispenser is the highest bar. However, this will require further discussion as to whether others agree that it is reproduced.
+
 ## Timings
 
 ```{python}
@@ -40,7 +42,45 @@ used_to_date = 681
 
 # Times from today
 times = [
-    ('09.05', '09.08')]
+    ('09.05', '09.08'),
+    ('10.36', '10.39'),
+    ('15.23', '15.32')]
+
+calculate_times(used_to_date, times)
+```
+
+## 15.34-15.37, 15.50-: Troubleshooting Figure 5
+
+Tried first with shorter run but full population to see if it is similar enough for experimenting.
+
+Run time: **10 minutes**
+
+I found that Figure 5 was indeed appropriately similar to work from, as a rough guide, although Figure 6 is off, but as I felt that was reproduced when full run, that is not a concern.
+
+![](figure5_100pop_1gen_1run.png)
+
+![](figure6_100pop_1gen_1run.png)
+
+Then realised that, when I re-run each time, all the "individual" results .txt files don't necessarily update if they are less than before, and so decided - given we don't currently use these at all - to only save the `results.txt` file.
+
+(1) Shorter run with similar to full run results
+(2) Play with parameters as identified previously
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 681
+
+# Times from today
+times = [
+    ('09.05', '09.08'),
+    ('10.36', '10.39'),
+    ('15.23', '15.32')]
 
 calculate_times(used_to_date, times)
 ```
