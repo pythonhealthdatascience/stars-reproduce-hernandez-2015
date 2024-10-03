@@ -28,7 +28,9 @@ Run time: 268 minutes = **4 hours 28 minutes** (in parallel on remote machine)
 
 ![](figure6_100pop_50gen_1run.png)
 
-The Y axis for Figure 5 is, I would argue, still quite off. However, on reflection, I think it would be reasonable to mark Figure 6 as reproduced - within the reasonable margin of variability expected. Looking at a sample of results, in the same range as the original paper, we see the same broad result - dispenser is the highest bar. However, this will require further discussion as to whether others agree that it is reproduced.
+The Y axis for Figure 5 is, I would argue, still quite off. However, on reflection, I think it would be reasonable to mark Figure 6 as reproduced - within the reasonable margin of variability expected. Looking at a sample of results, in the same range as the original paper, we see the same broad result - dispenser is the highest bar.
+
+I discussed this with Tom and he agreed that, given the context of what is being plot (a small sample of specific results showing a general trend) - he felt it was reasonable to conclude this at this point.
 
 ## Timings
 
