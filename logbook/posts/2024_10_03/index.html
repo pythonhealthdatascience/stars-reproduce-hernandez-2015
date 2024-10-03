@@ -235,8 +235,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#x-running-all-scenarios-with-100-pop-50-gen-1-run" id="toc-x-running-all-scenarios-with-100-pop-50-gen-1-run" class="nav-link active" data-scroll-target="#x-running-all-scenarios-with-100-pop-50-gen-1-run">09.05-09.08, 10.36-10.39, 15.23-X: Running all scenarios with 100 pop 50 gen 1 run</a></li>
+  <li><a href="#running-all-scenarios-with-100-pop-50-gen-1-run" id="toc-running-all-scenarios-with-100-pop-50-gen-1-run" class="nav-link active" data-scroll-target="#running-all-scenarios-with-100-pop-50-gen-1-run">09.05-09.08, 10.36-10.39, 15.23-15.32: Running all scenarios with 100 pop 50 gen 1 run</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
+  <li><a href="#troubleshooting-figure-5" id="toc-troubleshooting-figure-5" class="nav-link" data-scroll-target="#troubleshooting-figure-5">15.34-15.37, 15.50-: Troubleshooting Figure 5</a></li>
+  <li><a href="#timings-1" id="toc-timings-1" class="nav-link" data-scroll-target="#timings-1">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_10_03/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -257,21 +259,23 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>X. Total time used: Xh Xm (X%)</p>
+<p>Continuing to tweak run parameters and model parameters. Figure 6 reproduced. Total time used: Xh Xm (X%)</p>
 </div>
 </div>
-<section id="x-running-all-scenarios-with-100-pop-50-gen-1-run" class="level2">
-<h2 class="anchored" data-anchor-id="x-running-all-scenarios-with-100-pop-50-gen-1-run">09.05-09.08, 10.36-10.39, 15.23-X: Running all scenarios with 100 pop 50 gen 1 run</h2>
+<section id="running-all-scenarios-with-100-pop-50-gen-1-run" class="level2">
+<h2 class="anchored" data-anchor-id="running-all-scenarios-with-100-pop-50-gen-1-run">09.05-09.08, 10.36-10.39, 15.23-15.32: Running all scenarios with 100 pop 50 gen 1 run</h2>
 <p>I tried running all scenarios with 100 population 50 generations 1 run on the remote machine. However, about 90 minutes later, I noted the process had stopped running with the error:</p>
 <pre><code>client_loop: send disconnect: Broken pipe</code></pre>
 <p>Apparently this error indicates the sudden termination of a network connection, or a timeout for the SSH connection due to no activity. I know the latter shouldn’t be the case as I’ve run commands for longer previously, so assuming it might have just been a network issue, I tried again, and this worked.</p>
 <p>Run time: 268 minutes = <strong>4 hours 28 minutes</strong> (in parallel on remote machine)</p>
 <p><img src="figure5_100pop_50gen_1run.png" class="img-fluid"></p>
 <p><img src="figure6_100pop_50gen_1run.png" class="img-fluid"></p>
+<p>The Y axis for Figure 5 is, I would argue, still quite off. However, on reflection, I think it would be reasonable to mark Figure 6 as reproduced - within the reasonable margin of variability expected. Looking at a sample of results, in the same range as the original paper, we see the same broad result - dispenser is the highest bar.</p>
+<p>I discussed this with Tom and he agreed that, given the context of what is being plot (a small sample of specific results showing a general trend) - he felt it was reasonable to conclude this at this point.</p>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="b0d2a33d" class="cell" data-execution_count="1">
+<div id="70265675" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -281,14 +285,54 @@ Note
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.05'</span>, <span class="st">'09.08'</span>)]</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.05'</span>, <span class="st">'09.08'</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.36'</span>, <span class="st">'10.39'</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.23'</span>, <span class="st">'15.32'</span>)]</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 3m, or 0h 3m
-Total used to date: 684m, or 11h 24m
-Time remaining: 1716m, or 28h 36m
-Used 28.5% of 40 hours max</code></pre>
+<pre><code>Time spent today: 15m, or 0h 15m
+Total used to date: 696m, or 11h 36m
+Time remaining: 1704m, or 28h 24m
+Used 29.0% of 40 hours max</code></pre>
+</div>
+</div>
+</section>
+<section id="troubleshooting-figure-5" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting-figure-5">15.34-15.37, 15.50-: Troubleshooting Figure 5</h2>
+<p>Tried first with shorter run but full population to see if it is similar enough for experimenting.</p>
+<p>Run time: <strong>10 minutes</strong></p>
+<p>I found that Figure 5 was indeed appropriately similar to work from, as a rough guide, although Figure 6 is off, but as I felt that was reproduced when full run, that is not a concern.</p>
+<p><img src="figure5_100pop_1gen_1run.png" class="img-fluid"></p>
+<p><img src="figure6_100pop_1gen_1run.png" class="img-fluid"></p>
+<p>Then realised that, when I re-run each time, all the “individual” results .txt files don’t necessarily update if they are less than before, and so decided - given we don’t currently use these at all - to only save the <code>results.txt</code> file.</p>
+<ol type="1">
+<li>Shorter run with similar to full run results</li>
+<li>Play with parameters as identified previously</li>
+</ol>
+</section>
+<section id="timings-1" class="level2">
+<h2 class="anchored" data-anchor-id="timings-1">Timings</h2>
+<div id="4932733f" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">681</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.05'</span>, <span class="st">'09.08'</span>),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.36'</span>, <span class="st">'10.39'</span>),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.23'</span>, <span class="st">'15.32'</span>)]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time spent today: 15m, or 0h 15m
+Total used to date: 696m, or 11h 36m
+Time remaining: 1704m, or 28h 24m
+Used 29.0% of 40 hours max</code></pre>
 </div>
 </div>
 
