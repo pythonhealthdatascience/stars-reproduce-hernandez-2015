@@ -25,7 +25,7 @@ from time_to_complete import process_times, success_static, success_interactive
 # TODO: Change to actual items and times for this project
 time_list = [
     [np.nan, 'Figure 5'],
-    [np.nan, 'Figure 6'],
+    [696, 'Figure 6'],
     [np.nan, 'Figure 7'],
     [np.nan, 'Figure 8'],
     [np.nan, 'Figure 9'],
