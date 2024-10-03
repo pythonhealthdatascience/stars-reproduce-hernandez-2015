@@ -39,8 +39,8 @@ def run_scenario(file):
     experimentRunner = ExperimentRunner.ExperimentRunner(seeds,
                                                          parameterReader)
     experimentRunner.run(runs=1,
-                         population=50,
-                         generations=25)
+                         population=100,
+                         generations=50)
 
     # Get the pre-screened percentage for that scenario and folder
     scenario = int(parameterReader.parameters['preScreenedPercentage']*100)
