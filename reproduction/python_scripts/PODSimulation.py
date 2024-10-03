@@ -29,7 +29,7 @@ class PODSimulation:
         """
         self.maxTime = 60# 24*60=1440 minutes
         self.maxNumber = 500000 #entities
-        self.meanTBA = 1/100  #mean time between arrivals, minutes btw entities
+        self.meanTBA = 1/float(100) #mean time between arrivals, minutes btw entities
         
         self.capacities = capacities
         self.parameterReader = parameterReader
