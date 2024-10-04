@@ -22,7 +22,7 @@ run_experiment(mypath=mypath,
                experimentFolder=experimentFolder,
                experimentFiles=experimentFiles,
                runs=1,
-               population=1,
-               generations=1,
+               population=50,
+               generations=25,
                # Minimise staff number, maximise throughput
                objectiveTypes=[False, True])
