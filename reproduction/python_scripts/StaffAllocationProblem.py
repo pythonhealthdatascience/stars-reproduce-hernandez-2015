@@ -23,11 +23,13 @@ class mylist(list):
     def get_results_analyzer(self):
         return self.resultsAnalyzer
 class StaffAllocationProblem():
-    def __init__(self, seeds, parameterReader):
-        self.maximize = True
+    def __init__(self, seeds, parameterReader, objectiveTypes):
+        # Defines whether it is a bi-objective or tri-objective model
+        # E.g. objective types [False, True, False]
         #minimize Waiting time, minimize Resources, maximize throughput  
         #minimize resources, maximize throughput, minimize time
-        self.objectiveTypes = [False, True, False]
+        self.maximize = True
+        self.objectiveTypes = objectiveTypes
         self.dimensions = 4 # greeter, screener, dispenser, medic
         #self.maxEmployeesPerStation = 45
         

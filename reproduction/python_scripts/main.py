@@ -10,7 +10,7 @@ from multiprocessing import Pool
 
 
 def run_scenario(mypath, experimentFolder, file, runs, population,
-                 generations):
+                 generations, objectiveTypes):
     '''
     Run algorithm using the pre-screened percentage from the provided file.
 
@@ -28,6 +28,8 @@ def run_scenario(mypath, experimentFolder, file, runs, population,
         Size of population
     generations : integer
         Number of generations
+    objectiveTypes : list
+        List of booleans which define whether maximise/minimise 2/3 objectives
     '''
     # Seeds for reproducibility
     seeds = [123, 456, 789]
@@ -36,7 +38,8 @@ def run_scenario(mypath, experimentFolder, file, runs, population,
     parameterReader = ParameterReader.ParameterReader(join(mypath,
                                                            file))
     experimentRunner = ExperimentRunner.ExperimentRunner(seeds,
-                                                         parameterReader)
+                                                         parameterReader,
+                                                         objectiveTypes)
     experimentRunner.run(runs=runs,
                          population=population,
                          generations=generations)
@@ -65,7 +68,7 @@ def wrapper(d):
 
 
 def run_experiment(mypath, experimentFolder, experimentFiles, runs, population,
-                   generations):
+                   generations, objectiveTypes):
     '''
     Run set of scenarios using parallel processing, and record time elapsed
 
@@ -86,6 +89,8 @@ def run_experiment(mypath, experimentFolder, experimentFiles, runs, population,
     generations : integer
         Number of generations to run algorithm for, which determines how long
         algorithm will evolve for solutions
+    objectiveTypes : list
+        List of booleans which define whether maximise/minimise 2/3 objectives
     '''
     # Start timer
     startTime = datetime.datetime.now()
@@ -97,7 +102,8 @@ def run_experiment(mypath, experimentFolder, experimentFiles, runs, population,
          'file': file,
          'runs': runs,
          'population': population,
-         'generations': generations}
+         'generations': generations,
+         'objectiveTypes': objectiveTypes}
         for file in experimentFiles
     ]
 

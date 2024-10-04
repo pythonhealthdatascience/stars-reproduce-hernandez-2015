@@ -1,7 +1,7 @@
-# Experiment 1 (Figure 5 and 6)
-# Tri-objective model + alter percentage of pre-screened (10%, 20%, 30%... 90%)
+# Experiment 2 (Figure 7)
+# Bi-objective model + alter percentage of pre-screened (10%, 20%, 30%... 90%)
 
-# Run time: 4 hours 28 minutes
+# Run time: TODO add runtime
 # (Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux)
 
 from os import listdir
@@ -15,15 +15,14 @@ mypath = r'../inputs'
 experimentFiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
 # Path to save results
-experimentFolder = '../python_outputs/experiment1'
+experimentFolder = '../python_outputs/experiment2'
 
 # Run experiment
 run_experiment(mypath=mypath,
                experimentFolder=experimentFolder,
                experimentFiles=experimentFiles,
-               # Amendment from paper: 1 run instead of 3
                runs=1,
-               population=100,
-               generations=50,
-               # Minimise staff number, maximise throughput, minimise wait time
-               objectiveTypes=[False, True, False])
+               population=1,
+               generations=1,
+               # Minimise staff number, maximise throughput
+               objectiveTypes=[False, True])

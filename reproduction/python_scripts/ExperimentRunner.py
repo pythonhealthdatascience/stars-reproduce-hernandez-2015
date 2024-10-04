@@ -17,20 +17,27 @@ import nsga2
 import psda
 import StaffAllocationProblem
 
+
 class ExperimentRunner:
-    def __init__(self, seeds, parameterReader):
+
+    def __init__(self, seeds, parameterReader, objectiveTypes):
         self.archiver = inspyred.ec.archivers.best_archiver
         self.seeds = seeds
-        
         self.prng = random.Random()
         self.prng.seed(seeds[0])
         self.parameterReader = parameterReader
+        # Defines whether it is a bi-objective or tri-objective model
+        self.objectiveTypes = objectiveTypes
+
     def run(self, runs, population, generations):
         solutions = []#store several solutions
         totalPopulation = []#store the population for the final pareto
         myArchive = []#store the pareto of the several runs
-        problem = StaffAllocationProblem.StaffAllocationProblem(seeds=self.seeds,
-                                                                parameterReader=self.parameterReader)
+        problem = StaffAllocationProblem.StaffAllocationProblem(
+            seeds=self.seeds,
+            parameterReader=self.parameterReader,
+            objectiveTypes=self.objectiveTypes)
+
         for i in xrange(1, runs + 1):
             print "Experiment Runner", i
             sol = nsga2.nsga2_integer(prng=self.prng,
