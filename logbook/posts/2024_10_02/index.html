@@ -237,6 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#continuing-to-check-parameters" id="toc-continuing-to-check-parameters" class="nav-link active" data-scroll-target="#continuing-to-check-parameters">09.14-09.47: Continuing to check parameters</a></li>
   <li><a href="#corrected-line-manager-service-times" id="toc-corrected-line-manager-service-times" class="nav-link" data-scroll-target="#corrected-line-manager-service-times">13.15-13.25: Corrected line manager service times</a></li>
+  <li><a href="#adding-parallel-processing" id="toc-adding-parallel-processing" class="nav-link" data-scroll-target="#adding-parallel-processing">13.26-13.35, 13.44-14.03, 15.17-15.21: Adding parallel processing</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_10_02/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -399,7 +400,10 @@ Reflection
 <p>Figure 5:</p>
 <p><img src="figure5_10pop_1gen_1run.png" class="img-fluid"></p>
 <p>Figure 6:</p>
-<p><img src="figure6_10pop_1gen_1run.png" class="img-fluid"> ## 13.26-13.35, 13.44-14.03, 15.17-15.21: Adding parallel processing</p>
+<p><img src="figure6_10pop_1gen_1run.png" class="img-fluid"></p>
+</section>
+<section id="adding-parallel-processing" class="level2">
+<h2 class="anchored" data-anchor-id="adding-parallel-processing">13.26-13.35, 13.44-14.03, 15.17-15.21: Adding parallel processing</h2>
 <p>I tried switching the loop in <code>Experiment1.py</code> into a parallel loop, to speed up the run time.</p>
 <p>First, I just changed it to a function with a loop.</p>
 <p>I ran this with the same parameters as above (10 pop 1 gen 1 run) to confirm the results didn’t change at all due to the parallel processing and, indeed, they remained the same, so this is successfully implemented. The only change was - as expected - to the times files, which is now a single file.</p>
@@ -427,7 +431,7 @@ Reflection
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="f12b6656" class="cell" data-execution_count="1">
+<div id="1b5f1e13" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>

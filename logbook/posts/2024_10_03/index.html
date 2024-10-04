@@ -237,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#running-all-scenarios-with-100-pop-50-gen-1-run" id="toc-running-all-scenarios-with-100-pop-50-gen-1-run" class="nav-link active" data-scroll-target="#running-all-scenarios-with-100-pop-50-gen-1-run">09.05-09.08, 10.36-10.39, 15.23-15.32: Running all scenarios with 100 pop 50 gen 1 run</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
-  <li><a href="#troubleshooting-figure-5" id="toc-troubleshooting-figure-5" class="nav-link" data-scroll-target="#troubleshooting-figure-5">15.34-15.37, 15.50-: Troubleshooting Figure 5</a></li>
+  <li><a href="#troubleshooting-figure-5" id="toc-troubleshooting-figure-5" class="nav-link" data-scroll-target="#troubleshooting-figure-5">15.34-15.37, 15.50-16.25, 16.30-16.41, 16.46-16.57: Troubleshooting Figure 5</a></li>
   <li><a href="#timings-1" id="toc-timings-1" class="nav-link" data-scroll-target="#timings-1">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_10_03/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -259,7 +259,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Continuing to tweak run parameters and model parameters. Figure 6 reproduced. Total time used: Xh Xm (X%)</p>
+<p>Continuing to tweak run parameters and model parameters. Figure 6 reproduced, but Figure 5 not, with no further ideas on troubleshooting for it. Total time used: 12h 36m (31.5%)</p>
 </div>
 </div>
 <section id="running-all-scenarios-with-100-pop-50-gen-1-run" class="level2">
@@ -275,7 +275,7 @@ Note
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="1a440667" class="cell" data-execution_count="1">
+<div id="677035a2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -299,40 +299,76 @@ Used 29.0% of 40 hours max</code></pre>
 </div>
 </section>
 <section id="troubleshooting-figure-5" class="level2">
-<h2 class="anchored" data-anchor-id="troubleshooting-figure-5">15.34-15.37, 15.50-: Troubleshooting Figure 5</h2>
+<h2 class="anchored" data-anchor-id="troubleshooting-figure-5">15.34-15.37, 15.50-16.25, 16.30-16.41, 16.46-16.57: Troubleshooting Figure 5</h2>
 <p>Tried first with shorter run but full population to see if it is similar enough for experimenting.</p>
 <p>Run time: <strong>10 minutes</strong></p>
 <p>I found that Figure 5 was indeed appropriately similar to work from, as a rough guide, although Figure 6 is off, but as I felt that was reproduced when full run, that is not a concern.</p>
 <p><img src="figure5_100pop_1gen_1run.png" class="img-fluid"></p>
 <p><img src="figure6_100pop_1gen_1run.png" class="img-fluid"></p>
-<p>Then realised that, when I re-run each time, all the “individual” results .txt files don’t necessarily update if they are less than before, and so decided - given we don’t currently use these at all - to only save the <code>results.txt</code> file.</p>
-<ol type="1">
-<li>Shorter run with similar to full run results</li>
-<li>Play with parameters as identified previously</li>
-</ol>
+<p>Then realised that, when I re-run each time, all the “individual” results .txt files don’t necessarily update if they are less than before, and so decided - given we don’t currently use these at all - to only save the <code>results.txt</code> file. This was <strong>very easy</strong> to do due to the structure of the code - I just had to comment out <code>self.dumpResultsAnalyzer()</code> in <code>SolutionWriter.py</code>. I also prevented it from outputting a copy of the scenario, which invovled commenting out <code>shutil.copy(self.experimentFilePath, destinationFilePath)</code>.</p>
+<p>I then tried addressing one of the other identified parameters from yesterday, which was the arrival rate in <code>PODSimulation()</code>. In the article they state it was 100 per minute, but the code had it set to 200 per minute:</p>
+<pre><code>1/200.0#1/float(115)</code></pre>
+<p>I changed this to <code>1/100</code> and ran it again, but had an error:</p>
+<pre><code>ZeroDivisionError: float division by zero</code></pre>
+<p>This then ran, with run time: <strong>5 minutes</strong></p>
+<p>This mainly seemed to impact wait times, which now ranged from 10-40 (instead of 20-60). Given the original article had wait times of 20-60, I’m suspicious that this parameter could’ve potentially been correct in the code (or that it could’ve been the commented out parameter, 1/115).</p>
+<p><img src="figure5_fix_arrivals.png" class="img-fluid"></p>
+<p>Unfortunately, there was nothing else I’d identified from looking over the article, beyond some parameters I’d been unable to find in the code.</p>
+<p>I looked over the code, trying to spot parameters that had been commented out (as this was the case of ones I’d fixed before). I did spot something in <code>PODSimulation.py</code>:</p>
+<pre><code>#capacities = [1,1,1,1]
+capacities = [4, 6, 6, 1]</code></pre>
+<p>These were the capacities of each greeter, screener, dispenser and medic, it appeared. I tried switching to [1,1,1,1]. However, this had <strong>no impact</strong> on the output result, so I returned it to as it was.</p>
+<p>I then spotted the code that sets the number of forms in <code>Customer.py</code>:</p>
+<pre><code>if (p &gt;= 0) and (p &lt;0.318):
+    numberOfForms = 1
+elif (p &gt;= 0.318) and (p &lt; 0.586):
+    numberOfForms = 2
+elif (p &gt;= 0.586) and (p &lt; 0.749):
+    numberOfForms = 3
+elif (p &gt;= 0.749) and (p &lt; 0.875):
+    numberOfForms = 4
+elif (p &gt;= 0.875) and (p &lt; 0.943):
+    numberOfForms = 5
+else:
+    numberOfForms = 6</code></pre>
+<p>This matches up relatively closely with the article “1 31.8%, 2 26.7%, 3 16.8%, 4 12.6%, 5 6.8%, 6 5.6%”</p>
+<div id="4f6b4d83" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [<span class="fl">0.318</span>, <span class="fl">0.586</span><span class="op">-</span><span class="fl">0.318</span>, <span class="fl">0.749</span><span class="op">-</span><span class="fl">0.586</span>, <span class="fl">0.875</span><span class="op">-</span><span class="fl">0.749</span>, <span class="fl">0.943</span><span class="op">-</span><span class="fl">0.875</span>, <span class="dv">1</span><span class="op">-</span><span class="fl">0.943</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>[ <span class="bu">round</span>(elem<span class="op">*</span><span class="dv">100</span>, <span class="dv">2</span>) <span class="cf">for</span> elem <span class="kw">in</span> values ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>[31.8, 26.8, 16.3, 12.6, 6.8, 5.7]</code></pre>
+</div>
+</div>
+<p>Whilst this is used in calculations for other outcomes, I don’t think we are able to directly access this result - it is not in <code>results.txt</code> and instead the provided code just multiplied throughput by 3.2. They state that throughput is households per hour.</p>
+<p>It appears a bit tricky to get the forms directly and, given it is not already done, I am asssuming this implemention is correct.</p>
+<p>At this point, I have no further ideas on why I have been unable to get matching results for this. My last resort would be to run it with the arrival rate fix at a higher number of generations (but I’m not convinced that was actually a fix, given the impact on waiting times).</p>
 </section>
 <section id="timings-1" class="level2">
 <h2 class="anchored" data-anchor-id="timings-1">Timings</h2>
-<div id="c832bc72" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">681</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.05'</span>, <span class="st">'09.08'</span>),</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.36'</span>, <span class="st">'10.39'</span>),</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.23'</span>, <span class="st">'15.32'</span>)]</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3ed73232" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">681</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.05'</span>, <span class="st">'09.08'</span>),</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.36'</span>, <span class="st">'10.39'</span>),</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.23'</span>, <span class="st">'15.32'</span>),</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.34'</span>, <span class="st">'15.37'</span>),</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.50'</span>, <span class="st">'16.25'</span>),</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.30'</span>, <span class="st">'16.41'</span>),</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.46'</span>, <span class="st">'16.57'</span>)]</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 15m, or 0h 15m
-Total used to date: 696m, or 11h 36m
-Time remaining: 1704m, or 28h 24m
-Used 29.0% of 40 hours max</code></pre>
+<pre><code>Time spent today: 75m, or 1h 15m
+Total used to date: 756m, or 12h 36m
+Time remaining: 1644m, or 27h 24m
+Used 31.5% of 40 hours max</code></pre>
 </div>
 </div>
 
