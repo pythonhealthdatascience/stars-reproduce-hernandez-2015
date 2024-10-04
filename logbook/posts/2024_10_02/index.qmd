@@ -66,6 +66,7 @@ Figure 5:
 Figure 6:
 
 ![](figure6_10pop_1gen_1run.png)
+
 ## 13.26-13.35, 13.44-14.03, 15.17-15.21: Adding parallel processing
 
 I tried switching the loop in `Experiment1.py` into a parallel loop, to speed up the run time.
