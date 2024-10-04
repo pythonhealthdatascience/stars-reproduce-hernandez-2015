@@ -10,7 +10,7 @@ from multiprocessing import Pool
 
 
 def run_scenario(mypath, experimentFolder, file, runs, population,
-                 generations, objectiveTypes):
+                 generations, objectiveTypes, solutionpath=None):
     '''
     Run algorithm using the pre-screened percentage from the provided file.
 
@@ -30,6 +30,8 @@ def run_scenario(mypath, experimentFolder, file, runs, population,
         Number of generations
     objectiveTypes : list
         List of booleans which define whether maximise/minimise 2/3 objectives
+    solutionpath : string
+        Optional, path to save solution to
     '''
     # Seeds for reproducibility
     seeds = [123, 456, 789]
@@ -48,10 +50,15 @@ def run_scenario(mypath, experimentFolder, file, runs, population,
     scenario = int(parameterReader.parameters['preScreenedPercentage']*100)
     scenarioFolder = experimentFolder + '/prescreen' + str(scenario)
 
-    # Save the results
+    # Save the results - either using name of prescreen scenario, or custom path
+    if solutionpath is None:
+        folderName = scenarioFolder
+    else:
+        folderName = solutionpath
     solutionWriter = SolutionWriter.SolutionWriter(
-        os.path.join(mypath, file), experimentRunner,
-        folderName=scenarioFolder)
+        experimentFilePath=join(mypath, file),
+        experimentRunner=experimentRunner,
+        folderName=folderName)
     solutionWriter.dumpSolution()
 
 
@@ -68,7 +75,7 @@ def wrapper(d):
 
 
 def run_experiment(mypath, experimentFolder, experimentFiles, runs, population,
-                   generations, objectiveTypes):
+                   generations, objectiveTypes, solutionpath=None):
     '''
     Run set of scenarios using parallel processing, and record time elapsed
 
@@ -91,6 +98,8 @@ def run_experiment(mypath, experimentFolder, experimentFiles, runs, population,
         algorithm will evolve for solutions
     objectiveTypes : list
         List of booleans which define whether maximise/minimise 2/3 objectives
+    solutionpath : string
+        Optional, path to save solution to
     '''
     # Start timer
     startTime = datetime.datetime.now()
@@ -103,7 +112,8 @@ def run_experiment(mypath, experimentFolder, experimentFiles, runs, population,
          'runs': runs,
          'population': population,
          'generations': generations,
-         'objectiveTypes': objectiveTypes}
+         'objectiveTypes': objectiveTypes,
+         'solutionpath': solutionpath}
         for file in experimentFiles
     ]
 
