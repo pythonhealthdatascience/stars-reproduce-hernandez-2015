@@ -1,6 +1,6 @@
-# Experiment 1
+# Create figures
 
-This notebook reproduces the figures from experiment 1: Figure 5 and 6.
+This notebook reproduces the figures from Hernandez et al. 2015.
 
 ```{r}
 library(dplyr)
