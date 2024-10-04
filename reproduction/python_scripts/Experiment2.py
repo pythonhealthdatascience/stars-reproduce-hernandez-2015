@@ -1,7 +1,7 @@
 # Experiment 2 (Figure 7)
 # Bi-objective model + alter percentage of pre-screened (10%, 20%, 30%... 90%)
 
-# Run time: TODO add runtime
+# Run time: 58 minutes
 # (Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux)
 
 from os import listdir
