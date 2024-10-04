@@ -8,80 +8,121 @@ library(ggplot2)
 library(reshape2)
 ```
 
-## Import results
+## Functions
 
 ```{r}
-# Get path to each scenario sub-folder within the base folder
-base_folder <- "../python_outputs/experiment1"
-subfolders <- list.dirs(base_folder, recursive = FALSE, full.names = TRUE)
-```
+import <- function(base_folder) {
+  #' Import all `results.txt` files and the `times.txt` file from the
+  #' sub-folders of the specified base folder.
+  #' 
+  #' @param base_folder string, path to experiment folder
 
-```{r}
-# Import time
-time <- readLines(file.path(base_folder, "time.txt"), warn=FALSE)
-```
+  # Import time
+  time <- readLines(file.path(base_folder, "time.txt"), warn=FALSE)
 
-```{r}
-# Initialise empty lists
-result_list <- list()
-times <- list()
+  # Get path to each scenario sub-folder within the base folder
+  subfolders <- list.dirs(base_folder, recursive = FALSE, full.names = TRUE)
 
-# Loop through the scenario sub-folders
-for (folder_path in subfolders) {
+  # Initialise empty list
+  result_list <- list()
+  
+  # Loop through the scenario sub-folders
+  for (folder_path in subfolders) {
+  
+    # Extract the final folder name from the path
+    folder_name <- basename(folder_path)
+  
+    # Save results.txt, and add the scenario 
+    result_list[[folder_name]] <- read.delim(file.path(folder_path,
+                                                       "results.txt"))
+    result_list[[folder_name]]$scenario <- folder_name
+  }
 
-  # Extract the final folder name from the path
-  folder_name <- basename(folder_path)
+  # Combine into single dataframe
+  results <- do.call(rbind, result_list)
+  rownames(results) <- NULL
+  
+  # Add forms
+  results$forms <- results$throughput*3.2
 
-  # Save results.txt, and add the scenario 
-  result_list[[folder_name]] <- read.delim(file.path(folder_path, "results.txt"))
-  result_list[[folder_name]]$scenario <- folder_name
+  # Return the results table and the time
+  return(list(results = results, time = time))
 }
 ```
 
 ```{r}
-# Combine into single dataframe
-results <- do.call(rbind, result_list)
-rownames(results) <- NULL
+run_time <- function(time) {
+  #' Print the run time in seconds and minutes
+  #' 
+  #' @param time string, time (e.g. "0:05:17.186109")
 
-# Add forms
-results$forms <- results$throughput*3.2
+  # Convert the times to difftime objects
+  time_adj <- (as.numeric(strptime(time, format="%H:%M:%OS")) - 
+               as.numeric(strptime("0:00:00", format="%H:%M:%OS")))
+  
+  # Sum the times
+  total_time <- sum(unlist(time_adj))
+
+  # Find time in seconds, or minutes, or hours and minutes
+  sec <- paste0(round(total_time), " sec")
+  min <- paste0(round(total_time/60), " mins")
+  hour_min <- paste0(floor(total_time / 3600), " hours ",
+                     floor((total_time %% 3600) / 60), " mins")
+  
+  # Print result
+  print(paste0(sec, ", or ", min, ", or ", hour_min))
+}
 ```
 
-## Show times for experiment 1
-
 ```{r}
-# Convert the times to difftime objects
-time_adj <- as.numeric(strptime(time, format="%H:%M:%OS")) - as.numeric(strptime("0:00:00", format="%H:%M:%OS"))
+plot_scatter <- function(data, savepath){
+  #' Creates scatter plot of staff members against throughput with size of dots
+  #' indicating wait time, and plots for each pre-screening scenario
+  #' 
+  #' @param data dataframe with results from model run
+  #' @param savepath string, path to save figure to
 
-# Sum the times
-total_time <- sum(unlist(time_adj))
-print(paste0(round(total_time), " sec, ", round(total_time/60), " min"))
+  fig <- ggplot(data=data) + 
+    geom_point(aes(x=resources, y=forms, size=time), alpha=0.7) +
+    #scale_x_continuous(limits=c(0, 150)) +
+    scale_y_continuous(limits=c(0, 16000), breaks=seq(0, 16000, 3000)) +
+    facet_wrap(~scenario) +
+    labs(size="Waiting Time (minutes)") + xlab("Staff Members") + ylab("Throughput (forms per hour)") +
+    theme(axis.title.y = element_text( face='bold')) + theme(axis.title.x = element_text( face='bold')) +
+    theme_bw(18) +
+    theme(legend.position="top")
+  
+  ggsave(savepath, width = 10 , height = 10)
+}
 ```
 
-## Create Figure 5
+## Import results
 
-Plot staff against throughput, faceted by pre-screened percentage.
+Import results for each experiment.
 
 ```{r}
-fig5 <- ggplot(data=results) + 
-  geom_point(aes(x=resources, y=forms, size=time), alpha=0.7) +
-  #scale_x_continuous(limits=c(0, 150)) +
-  #scale_y_continuous(limits=c(0, 12000), breaks=seq(0, 12000, 3000)) +
-  facet_wrap(~scenario) +
-  labs(size="Waiting Time (minutes)") + xlab("Staff Members") + ylab("Throughput (forms per hour)") +
-  theme(axis.title.y = element_text( face='bold')) + theme(axis.title.x = element_text( face='bold')) +
-  theme_bw(18) +
-  theme(legend.position="top")
-
-ggsave("../r_outputs/figure5.png", width = 10 , height = 10)
-
-fig5
+exp1 <- import("../python_outputs/experiment1")
+exp2 <- import("../python_outputs/experiment2")
 ```
 
-## Create Figure 6
+## Experiment 1
+
+### Run time
 
 ```{r}
-values <- results %>%
+run_time(exp1$time)
+```
+
+### Figure 5
+
+```{r}
+plot_scatter(exp1$results, "../r_outputs/figure5.png")
+```
+
+### Figure 6
+
+```{r}
+values <- exp1$results %>%
   # Full labels
   rename("Line Manager" = greeter,
          "Screener" = screener,
@@ -128,4 +169,18 @@ fig6 <- ggplot(data=melted %>% filter(forms >= 11498, forms <= 11710)) +
 ggsave("../r_outputs/figure6.png", width = 10 , height = 10)
 
 fig6
+```
+
+## Experiment 2
+
+### Run time
+
+```{r}
+run_time(exp2$time)
+```
+
+### Figure 7
+
+```{r}
+plot_scatter(exp2$results, "../r_outputs/figure7.png")
 ```
