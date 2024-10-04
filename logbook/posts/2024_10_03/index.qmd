@@ -8,7 +8,7 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-Continuing to tweak run parameters and model parameters. Figure 6 reproduced. Total time used: Xh Xm (X%)
+Continuing to tweak run parameters and model parameters. Figure 6 reproduced, but Figure 5 not, with no further ideas on troubleshooting for it. Total time used: 12h 36m (31.5%)
 
 :::
 
@@ -51,7 +51,7 @@ times = [
 calculate_times(used_to_date, times)
 ```
 
-## 15.34-15.37, 15.50-: Troubleshooting Figure 5
+## 15.34-15.37, 15.50-16.25, 16.30-16.41, 16.46-16.57: Troubleshooting Figure 5
 
 Tried first with shorter run but full population to see if it is similar enough for experimenting.
 
@@ -63,10 +63,66 @@ I found that Figure 5 was indeed appropriately similar to work from, as a rough 
 
 ![](figure6_100pop_1gen_1run.png)
 
-Then realised that, when I re-run each time, all the "individual" results .txt files don't necessarily update if they are less than before, and so decided - given we don't currently use these at all - to only save the `results.txt` file.
+Then realised that, when I re-run each time, all the "individual" results .txt files don't necessarily update if they are less than before, and so decided - given we don't currently use these at all - to only save the `results.txt` file. This was **very easy** to do due to the structure of the code - I just had to comment out `self.dumpResultsAnalyzer()` in `SolutionWriter.py`. I also prevented it from outputting a copy of the scenario, which invovled commenting out `shutil.copy(self.experimentFilePath, destinationFilePath)`.
 
-(1) Shorter run with similar to full run results
-(2) Play with parameters as identified previously
+I then tried addressing one of the other identified parameters from yesterday, which was the arrival rate in `PODSimulation()`. In the article they state it was 100 per minute, but the code had it set to 200 per minute:
+
+```
+1/200.0#1/float(115)
+```
+
+I changed this to `1/100` and ran it again, but had an error:
+
+```
+ZeroDivisionError: float division by zero
+```
+
+This then ran, with run time: **5 minutes**
+
+This mainly seemed to impact wait times, which now ranged from 10-40 (instead of 20-60). Given the original article had wait times of 20-60, I'm suspicious that this parameter could've potentially been correct in the code (or that it could've been the commented out parameter, 1/115).
+
+![](figure5_fix_arrivals.png)
+
+Unfortunately, there was nothing else I'd identified from looking over the article, beyond some parameters I'd been unable to find in the code.
+
+I looked over the code, trying to spot parameters that had been commented out (as this was the case of ones I'd fixed before). I did spot something in `PODSimulation.py`:
+
+```
+#capacities = [1,1,1,1]
+capacities = [4, 6, 6, 1]
+```
+
+These were the capacities of each greeter, screener, dispenser and medic, it appeared. I tried switching to [1,1,1,1]. However, this had **no impact** on the output result, so I returned it to as it was.
+
+I then spotted the code that sets the number of forms in `Customer.py`:
+
+```
+if (p >= 0) and (p <0.318):
+    numberOfForms = 1
+elif (p >= 0.318) and (p < 0.586):
+    numberOfForms = 2
+elif (p >= 0.586) and (p < 0.749):
+    numberOfForms = 3
+elif (p >= 0.749) and (p < 0.875):
+    numberOfForms = 4
+elif (p >= 0.875) and (p < 0.943):
+    numberOfForms = 5
+else:
+    numberOfForms = 6
+```
+
+This matches up relatively closely with the article "1 31.8%, 2 26.7%, 3 16.8%, 4 12.6%, 5 6.8%, 6 5.6%"
+
+```{python}
+values = [0.318, 0.586-0.318, 0.749-0.586, 0.875-0.749, 0.943-0.875, 1-0.943]
+[ round(elem*100, 2) for elem in values ]
+```
+
+Whilst this is used in calculations for other outcomes, I don't think we are able to directly access this result - it is not in `results.txt` and instead the provided code just multiplied throughput by 3.2. They state that throughput is households per hour.
+
+It appears a bit tricky to get the forms directly and, given it is not already done, I am asssuming this implemention is correct.
+
+At this point, I have no further ideas on why I have been unable to get matching results for this. My last resort would be to run it with the arrival rate fix at a higher number of generations (but I'm not convinced that was actually a fix, given the impact on waiting times).
 
 ## Timings
 
@@ -82,7 +138,11 @@ used_to_date = 681
 times = [
     ('09.05', '09.08'),
     ('10.36', '10.39'),
-    ('15.23', '15.32')]
+    ('15.23', '15.32'),
+    ('15.34', '15.37'),
+    ('15.50', '16.25'),
+    ('16.30', '16.41'),
+    ('16.46', '16.57')]
 
 calculate_times(used_to_date, times)
 ```
