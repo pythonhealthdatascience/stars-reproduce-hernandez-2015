@@ -1,2 +1,0 @@
-greeter	screener	dispenser	medic	resources	throughput	time
-4	6	6	1	17	459.333333333	64.8206655188
