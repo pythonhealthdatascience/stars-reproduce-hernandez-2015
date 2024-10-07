@@ -8,11 +8,11 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-X. Total time used: Xh Xm (X%)
+Tried but could not reproduced Figure 7 (same issue as Figure 5), and wrote script to run Experiment 3. Total time used: 14h 18m (35.8%)
 
 :::
 
-## 09.29-10.06: Experiment 2 (Figure 7)
+## 09.29-10.06, 10.15-10.27, 11.40-12.05: Experiment 2 (Figure 7)
 
 Having concluded with Figure 5 (not reproduced) and Figure 6 (reproduced) from Experiment 1, I now explored reproducing Figure 7. This is very similar to Figure 5, but ran with the bi-objective model.
 
@@ -38,11 +38,36 @@ self.objectiveTypes = [False, True]
 I want to do this from **my main/Experiment `.py`** file rather than **directly** in `StaffAllocationProblem.py`. I made amendments:
 
 1. To `Experiment1.py`, converting it to `main.py` and then having seperate scripts for each experiment.
-2. TBC
+2. To `ExperimentRunner.py` which calls `StaffAllocationProblem()`, so it can input bi or tri-objective
 
-TODO: I then ran it with the specified 50 population 25 generations (but with 1 run instead of 3, so expect to have less dense points), with parallel processing on the remote machine.
+I then ran it with the specified 50 population 25 generations (but with 1 run instead of 3, so expect to have less dense points), with parallel processing on the remote machine.
 
-Run time:
+Run time: **58 minutes**
+
+I amended the plotting `.Rmd` file, renaming it to **create_figures.Rmd** and amending the code so the same functions could be used to plot Figure 7 as Figure 5.
+
+I also set the Experiment1 results back to those when I had run with 100pop 50gen 1run prior to the arrival rate amendment.
+
+Unsurprisingly, as I had found for Figure 5, I am seeing the same issue here - that the result is very similar, except for the Y axis scale, with my results going much higher than the original.
+
+I have no further troubleshooting suggestions, as this is just like Figure 5, but with the amendment of one parameter, so I will consider this likewise not able to reproduce.
+
+![](figure7.png)
+
+## 12.10-12.33, 16.39-16.44: Experiment 3 (Figure 8)
+
+Experiment 3 is the tri-objective model, with (a) 100 pop 50 gen (b) 200 pop 100 gen (c) 50 pop 25 gen. It doesn't specify a pre-screened percentage. so I'm presuming it will be the default from the code which, `if parameterReader == None`, then `self. preScreened Percentage = 0.1`.
+
+I set up Experiment3.py, and had to amend main.py to enable these scenarios, as it was set up assuming the scenarios were pre-screening, whilst this is varying something else. I set this to then run on the remote machine. However, it was not finished by the end of the day - and then realised that this should not have been surprising, as the paper states that the 200 / 100 scenario took **27 hours**.
+
+Given that I am at a standstill for resolving issues in Figures 5 and 7, I anticipate it likely to be the case likewise for Figure 8. Hence, I think a reasonable strategy for this would be to attempt to other two scenarios from this figure and, if those do not match up to the paper, do not also need to try the long scenario, as there is nothing to gain, since it would be "not reproduced" either way.
+
+::: {.callout-tip}
+## Reflection
+
+Figures 5 and 7 are not reproduced, but Figure 6 is, but that is in a large part related to the nature of what is being plot (given 5 and 6 are from the same results). So that impacts reproducibility.
+
+:::
 
 ## Timings
 
@@ -56,7 +81,11 @@ used_to_date = 756
 
 # Times from today
 times = [
-    ('09.29', '10.06')]
+    ('09.29', '10.06'),
+    ('10.15', '10.27'),
+    ('11.40', '12.05'),
+    ('12.10', '12.33'),
+    ('16.39', '16.44')]
 
 calculate_times(used_to_date, times)
 ```
