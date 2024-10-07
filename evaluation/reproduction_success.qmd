@@ -4,15 +4,7 @@ echo: False
 bibliography: ../quarto_site/references.bib
 ---
 
-<!-- TODO: Remove this warning once completed assessment -->
-**Please note: This is a template page and has not yet been completed**
-
-<!-- TODO: Use skeleton to create page describing reproduction success. If it is subjective (e.g. comparing figures), be sure to explain how you decided that the figure was now successfully reproduced or not -->
-
-Of the X items in the scope, X% (X out of X) were considered to be **successfully reproduced**.
-
-As cited throughout, images on this page are sourced from
-<!-- Add @reference -->
+Of the 8 items in the scope, 12.5% (1 out of 8) were considered to be **successfully reproduced**.
 
 ## Time-to-completion
 
@@ -48,15 +40,61 @@ Interactive plot:
 success_interactive(times_df)
 ```
 
-## Figure X
+## Figure 5
 
-**Consensus: Not reproduced / Successfully reproduced**
+<!--TODO: Add consensus
+**Consensus: Not reproduced / Successfully reproduced**-->
 
-Original (citation):
+![](../reproduction/r_outputs/figure5.png)
 
-<!-- Image, e.g.
-![](../original_study/fig2.jpg){width=80% fig-align="center" .lightbox} -->
+## Figure 6
 
-Reproduction:
+**Consensus: Successfully reproduced**
 
-<!-- Image -->
+![](../reproduction/r_outputs/figure6.png)
+
+## Figure 7
+
+<!--TODO: Add consensus
+**Consensus: Not reproduced / Successfully reproduced**-->
+
+![](../reproduction/r_outputs/figure7.png)
+
+## Figure 8
+
+<!--TODO: Add consensus
+**Consensus: Not reproduced / Successfully reproduced**-->
+
+![](../reproduction/r_outputs/figure8.png)
+
+## Figure 9
+
+<!--TODO: Add consensus
+**Consensus: Not reproduced / Successfully reproduced**-->
+
+![](../reproduction/r_outputs/figure9.png)
+
+## Figure 10
+
+<!--TODO: Add consensus
+**Consensus: Not reproduced / Successfully reproduced**-->
+
+![](../reproduction/r_outputs/figure10.png)
+
+## Table 3
+
+<!--TODO: Add consensus
+**Consensus: Not reproduced / Successfully reproduced**-->
+
+```{python}
+pd.read_csv('../reproduction/r_outputs/table3.csv')
+```
+
+## Table 4
+
+<!--TODO: Add consensus
+**Consensus: Not reproduced / Successfully reproduced**-->
+
+```{python}
+pd.read_csv('../reproduction/r_outputs/table4.csv')
+```
