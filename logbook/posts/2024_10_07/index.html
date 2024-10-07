@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -102,6 +102,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -239,6 +242,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#experiment-5" id="toc-experiment-5" class="nav-link" data-scroll-target="#experiment-5">10.09-10.14, 10.18-10.28: Experiment 5</a></li>
   <li><a href="#processing-experiment-4" id="toc-processing-experiment-4" class="nav-link" data-scroll-target="#processing-experiment-4">10.51-10.57: Processing Experiment 4</a></li>
   <li><a href="#troubleshooting-experiment-5" id="toc-troubleshooting-experiment-5" class="nav-link" data-scroll-target="#troubleshooting-experiment-5">11.09-11.55, 11.57-12.10, 12.14-12.24: Troubleshooting Experiment 5</a></li>
+  <li><a href="#appendix-a.1-table-3" id="toc-appendix-a.1-table-3" class="nav-link" data-scroll-target="#appendix-a.1-table-3">13.21-13.51, 13.58-14.27: Appendix A.1 (Table 3)</a></li>
+  <li><a href="#appendix-a.2-table-4" id="toc-appendix-a.2-table-4" class="nav-link" data-scroll-target="#appendix-a.2-table-4">14.29-14.38: Appendix A.2 (Table 4)</a></li>
+  <li><a href="#final-look-over" id="toc-final-look-over" class="nav-link" data-scroll-target="#final-look-over">14.49-14.57: Final look over</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_10_07/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -271,7 +277,7 @@ conda activate hernandez2015
 python -m Experiment3</code></pre>
 <p>I checked the results, and - unsurprisingly, given previous - these are similar but differ from the article.</p>
 <p><img src="figure8.png" class="img-fluid"></p>
-<p>Once this finished, it had a run time of: <strong>TODO: ADD RUN TIME</strong></p>
+<p>Once this finished, it had a run time of: 3 hours 13 minutes</p>
 </section>
 <section id="experiment-4" class="level2">
 <h2 class="anchored" data-anchor-id="experiment-4">09.36-09.41, 09.50-10.07: Experiment 4</h2>
@@ -374,34 +380,602 @@ self.monitors[name] = simpy.Monitor(name=name, ylab=ylab)</code></pre>
 <p>And, alike I have found for other figures, I see a similar pattern in the results, although different values on the axises.</p>
 <p><img src="figure10.png" class="img-fluid"></p>
 </section>
+<section id="appendix-a.1-table-3" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-a.1-table-3">13.21-13.51, 13.58-14.27: Appendix A.1 (Table 3)</h2>
+<p>Appendix A.1 shows mean and confidence intervals for several different metrics. It is run with:</p>
+<ul>
+<li>10% pre-screened</li>
+<li>4 line manager</li>
+<li>6 dispensing</li>
+<li>6 screening</li>
+<li>1 medical</li>
+</ul>
+<p>Each with twenty replications. Hence, it appears this just directly uses the segment of code I had previously identified in <code>PODSimulation.py</code> and adapted for Experiment 5. These return average and half-width (which, as from <a href="https://www.ncss.com/wp-content/themes/ncss/pdf/Procedures/PASS/Confidence_Intervals_for_One_Mean_with_Tolerance_Probability.pdf">this source</a>, understand that the distance from mean to edge of confidence interval can be called the precision, margin of error or half-width).</p>
+<p>It appears to have all the metrics needed, so all I needed to do was convert it into a table. From <code>def __str__</code> I could see what components were used to make the printed output, and so what I needed for the table.</p>
+<p>Add pandas to environment so could output a dataframe, although had to find one that was compatible with numpy 1.8.0, which meant using pandas from pip as condas doesn’t go back that far. It took a long time to install the pip dependencies, and then had module errors of <code>ImportError: No module named dateutil.tz</code>, though unresolved with install of <code>python-dateutil</code>, and so I decided to just output to csv and process in R.</p>
+<p>However, I then started getting an error when importing <code>myutils</code>: <code>ImportError: matplotlib requires dateutil</code>. I think this probably resulted from my adding <code>python-dateutil</code> and then just pruning environment, so I deleted it and rebuilt it.</p>
+<p>Run time: 10 seconds</p>
+<p>Again however, this differed from the original.</p>
+<div id="c853443a" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'table3.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Estimate</th>
+<th data-quarto-table-cell-role="th">Avg</th>
+<th data-quarto-table-cell-role="th">LowerBound</th>
+<th data-quarto-table-cell-role="th">UpperBound</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Wait time</td>
+<td>66.66</td>
+<td>63.75</td>
+<td>69.57</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>No. in (Designees)</td>
+<td>11979.15</td>
+<td>11935.90</td>
+<td>12022.40</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>No. out (Designees)</td>
+<td>473.20</td>
+<td>458.87</td>
+<td>487.53</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Dispensing wait time</td>
+<td>18.84</td>
+<td>18.33</td>
+<td>19.35</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Line mngr. wait time</td>
+<td>23.73</td>
+<td>23.60</td>
+<td>23.86</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Med. eval. wait time</td>
+<td>9.06</td>
+<td>6.05</td>
+<td>12.06</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Screening wait time</td>
+<td>15.04</td>
+<td>14.79</td>
+<td>15.29</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Dispensing no. waiting</td>
+<td>434.81</td>
+<td>423.35</td>
+<td>446.27</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Line mngr. no. waiting</td>
+<td>4733.55</td>
+<td>4705.73</td>
+<td>4761.38</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Med. eval. no. waiting</td>
+<td>2.19</td>
+<td>1.42</td>
+<td>2.96</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Screening no. waiting</td>
+<td>569.06</td>
+<td>560.52</td>
+<td>577.61</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="appendix-a.2-table-4" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-a.2-table-4">14.29-14.38: Appendix A.2 (Table 4)</h2>
+<p>Table 4 is described as being results with line manager and 10% pre-screened. Hence, I’m assuming it’s just the pre-screen 10 results from Experiment 1?</p>
+<p>These have 255 rows though, so I’m then assuming it’s just the first 40 rows.</p>
+<p>It doesn’t appear reproduced, with quite different results, which was as I expected, given prior results.</p>
+<div id="b5942f9b" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> pd.read_csv(<span class="st">'exp1_prescreen10.txt'</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(res.shape)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>res.head(<span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(255, 7)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">greeter</th>
+<th data-quarto-table-cell-role="th">screener</th>
+<th data-quarto-table-cell-role="th">dispenser</th>
+<th data-quarto-table-cell-role="th">medic</th>
+<th data-quarto-table-cell-role="th">resources</th>
+<th data-quarto-table-cell-role="th">throughput</th>
+<th data-quarto-table-cell-role="th">time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>4</td>
+<td>1</td>
+<td>14</td>
+<td>1</td>
+<td>20</td>
+<td>435.000000</td>
+<td>52.355130</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>4</td>
+<td>1</td>
+<td>14</td>
+<td>3</td>
+<td>22</td>
+<td>435.666667</td>
+<td>51.441467</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>7</td>
+<td>1</td>
+<td>14</td>
+<td>1</td>
+<td>23</td>
+<td>650.000000</td>
+<td>46.791091</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>8</td>
+<td>1</td>
+<td>14</td>
+<td>1</td>
+<td>24</td>
+<td>669.666667</td>
+<td>48.432571</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>7</td>
+<td>1</td>
+<td>14</td>
+<td>3</td>
+<td>25</td>
+<td>647.000000</td>
+<td>46.533784</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>4</td>
+<td>6</td>
+<td>14</td>
+<td>1</td>
+<td>25</td>
+<td>1046.000000</td>
+<td>53.590160</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>9</td>
+<td>1</td>
+<td>14</td>
+<td>2</td>
+<td>26</td>
+<td>752.333333</td>
+<td>43.787625</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>4</td>
+<td>6</td>
+<td>14</td>
+<td>2</td>
+<td>26</td>
+<td>1048.333333</td>
+<td>46.674927</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>5</td>
+<td>6</td>
+<td>14</td>
+<td>1</td>
+<td>26</td>
+<td>1058.333333</td>
+<td>61.717741</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>9</td>
+<td>1</td>
+<td>14</td>
+<td>3</td>
+<td>27</td>
+<td>753.666667</td>
+<td>43.688801</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>4</td>
+<td>6</td>
+<td>14</td>
+<td>3</td>
+<td>27</td>
+<td>1096.666667</td>
+<td>45.042496</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>4</td>
+<td>6</td>
+<td>14</td>
+<td>4</td>
+<td>28</td>
+<td>1073.666667</td>
+<td>44.577338</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>8</td>
+<td>6</td>
+<td>14</td>
+<td>1</td>
+<td>29</td>
+<td>1103.000000</td>
+<td>60.900434</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>4</td>
+<td>6</td>
+<td>14</td>
+<td>6</td>
+<td>30</td>
+<td>1073.333333</td>
+<td>44.503737</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>16</td>
+<td>1</td>
+<td>14</td>
+<td>1</td>
+<td>32</td>
+<td>1079.666667</td>
+<td>35.059892</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>4</td>
+<td>10</td>
+<td>14</td>
+<td>4</td>
+<td>32</td>
+<td>1103.333333</td>
+<td>43.141365</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>8</td>
+<td>6</td>
+<td>14</td>
+<td>4</td>
+<td>32</td>
+<td>1111.666667</td>
+<td>48.838884</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>8</td>
+<td>6</td>
+<td>14</td>
+<td>5</td>
+<td>33</td>
+<td>1107.666667</td>
+<td>48.787158</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>4</td>
+<td>10</td>
+<td>14</td>
+<td>6</td>
+<td>34</td>
+<td>1094.000000</td>
+<td>42.299897</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>4</td>
+<td>6</td>
+<td>25</td>
+<td>1</td>
+<td>36</td>
+<td>1347.666667</td>
+<td>46.158593</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>4</td>
+<td>6</td>
+<td>25</td>
+<td>2</td>
+<td>37</td>
+<td>1351.666667</td>
+<td>41.018076</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>5</td>
+<td>6</td>
+<td>25</td>
+<td>1</td>
+<td>37</td>
+<td>1436.666667</td>
+<td>50.700946</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>4</td>
+<td>6</td>
+<td>25</td>
+<td>3</td>
+<td>38</td>
+<td>1371.666667</td>
+<td>38.838681</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>5</td>
+<td>6</td>
+<td>25</td>
+<td>2</td>
+<td>38</td>
+<td>1449.000000</td>
+<td>42.375245</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>4</td>
+<td>6</td>
+<td>25</td>
+<td>4</td>
+<td>39</td>
+<td>1371.000000</td>
+<td>38.189643</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>5</td>
+<td>6</td>
+<td>25</td>
+<td>3</td>
+<td>39</td>
+<td>1432.666667</td>
+<td>42.123040</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>7</td>
+<td>6</td>
+<td>25</td>
+<td>1</td>
+<td>39</td>
+<td>1546.666667</td>
+<td>45.183401</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>5</td>
+<td>6</td>
+<td>25</td>
+<td>4</td>
+<td>40</td>
+<td>1433.000000</td>
+<td>39.702079</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>7</td>
+<td>6</td>
+<td>25</td>
+<td>2</td>
+<td>40</td>
+<td>1545.333333</td>
+<td>42.707594</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>4</td>
+<td>10</td>
+<td>25</td>
+<td>1</td>
+<td>40</td>
+<td>1876.000000</td>
+<td>43.735103</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30</td>
+<td>4</td>
+<td>6</td>
+<td>25</td>
+<td>6</td>
+<td>41</td>
+<td>1373.666667</td>
+<td>38.180682</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>4</td>
+<td>10</td>
+<td>25</td>
+<td>2</td>
+<td>41</td>
+<td>1877.666667</td>
+<td>38.542261</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>4</td>
+<td>10</td>
+<td>27</td>
+<td>1</td>
+<td>42</td>
+<td>2055.000000</td>
+<td>43.479165</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">33</td>
+<td>4</td>
+<td>10</td>
+<td>25</td>
+<td>4</td>
+<td>43</td>
+<td>1862.000000</td>
+<td>31.677448</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">34</td>
+<td>4</td>
+<td>10</td>
+<td>27</td>
+<td>2</td>
+<td>43</td>
+<td>2045.666667</td>
+<td>37.892850</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">35</td>
+<td>4</td>
+<td>10</td>
+<td>25</td>
+<td>5</td>
+<td>44</td>
+<td>1909.000000</td>
+<td>31.112816</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">36</td>
+<td>4</td>
+<td>10</td>
+<td>27</td>
+<td>3</td>
+<td>44</td>
+<td>2006.333333</td>
+<td>35.759831</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">37</td>
+<td>18</td>
+<td>1</td>
+<td>25</td>
+<td>1</td>
+<td>45</td>
+<td>1322.333333</td>
+<td>30.449133</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">38</td>
+<td>4</td>
+<td>10</td>
+<td>25</td>
+<td>6</td>
+<td>45</td>
+<td>1915.333333</td>
+<td>31.019967</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">39</td>
+<td>4</td>
+<td>10</td>
+<td>27</td>
+<td>4</td>
+<td>45</td>
+<td>2045.333333</td>
+<td>32.732751</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="final-look-over" class="level2">
+<h2 class="anchored" data-anchor-id="final-look-over">14.49-14.57: Final look over</h2>
+<p>I looked over the code again, trying to spot anything I could alter to help resolve discrepancy, but had no further ideas. I doubled checked the capacities in <code>PODSimulation.py</code> but was satisified these were coming from the provided inputs.</p>
+<p>With no further ideas, I will stop at this point, and get (a) consensus from another team member on reproduction success, and (b) message the author to inform them and ask for suggestions if wish (although being quite aware that this was a very long time ago for them, so shouldn’t imagine that would be appropriate in this case).</p>
+<p>Time at this point: 1061 minutes.</p>
+</section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="4ffe9992" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">858</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.35'</span>),</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.36'</span>, <span class="st">'09.41'</span>),</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.50'</span>, <span class="st">'10.07'</span>),</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.09'</span>, <span class="st">'10.14'</span>),</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.18'</span>, <span class="st">'10.28'</span>),</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.51'</span>, <span class="st">'10.57'</span>),</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.09'</span>, <span class="st">'11.55'</span>),</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.57'</span>, <span class="st">'12.10'</span>),</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'12.14'</span>, <span class="st">'12.24'</span>)]</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="305df76b" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">858</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.35'</span>),</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.36'</span>, <span class="st">'09.41'</span>),</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.50'</span>, <span class="st">'10.07'</span>),</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.09'</span>, <span class="st">'10.14'</span>),</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.18'</span>, <span class="st">'10.28'</span>),</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.51'</span>, <span class="st">'10.57'</span>),</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.09'</span>, <span class="st">'11.55'</span>),</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.57'</span>, <span class="st">'12.10'</span>),</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'12.14'</span>, <span class="st">'12.24'</span>),</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.21'</span>, <span class="st">'13.51'</span>),</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.58'</span>, <span class="st">'14.27'</span>),</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'14.29'</span>, <span class="st">'14.38'</span>),</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'14.49'</span>, <span class="st">'14.57'</span>)]</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 127m, or 2h 7m
-Total used to date: 985m, or 16h 25m
-Time remaining: 1415m, or 23h 35m
-Used 41.0% of 40 hours max</code></pre>
+<pre><code>Time spent today: 203m, or 3h 23m
+Total used to date: 1061m, or 17h 41m
+Time remaining: 1339m, or 22h 19m
+Used 44.2% of 40 hours max</code></pre>
 </div>
 </div>
 

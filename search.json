@@ -35,62 +35,6 @@
     "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 410\n\n# Times from today\ntimes = [\n    ('09.20', '09.24'),\n    ('09.40', '10.30'),\n    ('10.45', '11.03'),\n    ('11.11', '11.26'),\n    ('11.37', '11.56'),\n    ('14.12', '14.17'),\n    ('15.50', '16.11'),\n    ('16.15', '16.20')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 137m, or 2h 17m\nTotal used to date: 547m, or 9h 7m\nTime remaining: 1853m, or 30h 53m\nUsed 22.8% of 40 hours max"
   },
   {
-    "objectID": "evaluation/reproduction_success.html",
-    "href": "evaluation/reproduction_success.html",
-    "title": "Reproduction success",
-    "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nOf the X items in the scope, X% (X out of X) were considered to be successfully reproduced.\nAs cited throughout, images on this page are sourced from"
-  },
-  {
-    "objectID": "evaluation/reproduction_success.html#time-to-completion",
-    "href": "evaluation/reproduction_success.html#time-to-completion",
-    "title": "Reproduction success",
-    "section": "Time-to-completion",
-    "text": "Time-to-completion\n\n\n\n\n\n\n\n\n\ntime\nitem\necdf\nhours\n\n\n\n\n0\n0.0\nStart\n0.0\n0.0\n\n\n1\n696.0\nNaN\n0.0\n11.6\n\n\n2\n696.0\nFigure 6\n12.5\n11.6\n\n\n3\nNaN\nNaN\n12.5\nNaN\n\n\n4\nNaN\nFigure 5\n25.0\nNaN\n\n\n5\nNaN\nNaN\n25.0\nNaN\n\n\n6\nNaN\nFigure 7\n37.5\nNaN\n\n\n7\nNaN\nNaN\n37.5\nNaN\n\n\n8\nNaN\nFigure 8\n50.0\nNaN\n\n\n9\nNaN\nNaN\n50.0\nNaN\n\n\n10\nNaN\nFigure 9\n62.5\nNaN\n\n\n11\nNaN\nNaN\n62.5\nNaN\n\n\n12\nNaN\nFigure 10\n75.0\nNaN\n\n\n13\nNaN\nNaN\n75.0\nNaN\n\n\n14\nNaN\nTable 3\n87.5\nNaN\n\n\n15\nNaN\nNaN\n87.5\nNaN\n\n\n16\nNaN\nTable 4\n100.0\nNaN\n\n\n17\nNaN\nNaN\n100.0\nNaN\n\n\n\n\n\n\n\nNon-interactive plot:\n\n\n\n\n\n\n\n\n\nInteractive plot:"
-  },
-  {
-    "objectID": "evaluation/reproduction_success.html#figure-x",
-    "href": "evaluation/reproduction_success.html#figure-x",
-    "title": "Reproduction success",
-    "section": "Figure X",
-    "text": "Figure X\nConsensus: Not reproduced / Successfully reproduced\nOriginal (citation):\n\nReproduction:"
-  },
-  {
-    "objectID": "evaluation/badges.html",
-    "href": "evaluation/badges.html",
-    "title": "Journal badges",
-    "section": "",
-    "text": "Please note: This is a template page and has not yet been completed, so all criteria are currently set as unmet (❌)\nThis page evaluates the extent to which the author-published research artefacts meet the criteria of badges related to reproducibility from various organisations and journals.\nCaveat: Please note that these criteria are based on available information about each badge online, and that we have likely differences in our procedure (e.g. allowed troubleshooting for execution and reproduction, not under tight time pressure to complete). Moreover, we focus only on reproduction of the discrete-event simulation, and not on other aspects of the article. We cannot guarantee that the badges below would have been awarded in practice by these journals."
-  },
-  {
-    "objectID": "evaluation/badges.html#criteria",
-    "href": "evaluation/badges.html#criteria",
-    "title": "Journal badges",
-    "section": "Criteria",
-    "text": "Criteria\n\n\nCode\nfrom IPython.display import display, Markdown\nimport numpy as np\nimport pandas as pd\n\n# Criteria and their definitions\ncriteria = {\n    'archive': 'Stored in a permanent archive that is publicly and openly accessible',\n    'id': 'Has a persistent identifier',\n    'license': 'Includes an open license',\n    'relevant': '''Artefacts are relevant to and contribute to the article's results''',\n    'complete': 'Complete set of materials shared (as would be needed to fully reproduce article)',\n    'structure': 'Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)',\n    'documentation_sufficient': 'Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)',\n    'documentation_careful': 'Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)',\n    # This criteria is kept seperate to documentation_careful, as it specifically requires a README file\n    'documentation_readme': 'Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript',\n    'execute': 'Scripts can be successfully executed',\n    'regenerated': 'Independent party regenerated results using the authors research artefacts',\n    'hour': 'Reproduced within approximately one hour (excluding compute time)',\n}\n\n# Evaluation for this study\n# TODO: Complete evaluate for each criteria\neval = pd.Series({\n    'archive': 0,\n    'id': 0,\n    'license': 0,\n    'relevant': 0,\n    'complete': 0,\n    'structure': 0,\n    'documentation_sufficient': 0,\n    'documentation_careful': 0,\n    'documentation_readme': 0,\n    'execute': 0,\n    'regenerated': 0,\n    'hour': 0,\n})\n\n# Get list of criteria met (True/False) overall\neval_list = list(eval)\n\n# Define function for creating the markdown formatted list of criteria met\ndef create_criteria_list(criteria_dict):\n    '''\n    Creates a string which contains a Markdown formatted list with icons to\n    indicate whether each criteria was met\n\n    Parameters:\n    -----------\n    criteria_dict : dict\n        Dictionary where keys are the criteria (variable name) and values are\n        Boolean (True/False of whether this study met the criteria)\n\n    Returns:\n    --------\n    formatted_list : string\n        Markdown formatted list\n    '''\n    callout_icon = {True: '✅',\n                    False: '❌'}\n    # Create list with...\n    formatted_list = ''.join([\n        '* ' +\n        callout_icon[eval[key]] + # Icon based on whether it met criteria\n        ' ' +\n        value + # Full text description of criteria\n        '\\n' for key, value in criteria_dict.items()])\n    return(formatted_list)\n\n# Define groups of criteria\ncriteria_share_how = ['archive', 'id', 'license']\ncriteria_share_what = ['relevant', 'complete']\ncriteria_doc_struc = ['structure', 'documentation_sufficient', 'documentation_careful', 'documentation_readme']\ncriteria_run = ['execute', 'regenerated', 'hour']\n\n# Create text section\ndisplay(Markdown(f'''\nTo assess whether the author's materials met the requirements of each badge, a list of criteria was produced. Between each badge (and between categories of badge), there is often alot of overlap in criteria.\n\nThis study met **{sum(eval_list)} of the {len(eval_list)}** unique criteria items. These were as follows:\n\nCriteria related to how artefacts are shared -\n\n{create_criteria_list({k: criteria[k] for k in criteria_share_how})}\n\nCriteria related to what artefacts are shared -\n\n{create_criteria_list({k: criteria[k] for k in criteria_share_what})}\n\nCriteria related to the structure and documentation of the artefacts -\n\n{create_criteria_list({k: criteria[k] for k in criteria_doc_struc})}\n\nCriteria related to running and reproducing results -\n\n{create_criteria_list({k: criteria[k] for k in criteria_run})}\n'''))\n\n\nTo assess whether the author’s materials met the requirements of each badge, a list of criteria was produced. Between each badge (and between categories of badge), there is often alot of overlap in criteria.\nThis study met 0 of the 12 unique criteria items. These were as follows:\nCriteria related to how artefacts are shared -\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n❌ Includes an open license\n\nCriteria related to what artefacts are shared -\n\n❌ Artefacts are relevant to and contribute to the article’s results\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n\nCriteria related to the structure and documentation of the artefacts -\n\n❌ Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n❌ Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)\n❌ Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript\n\nCriteria related to running and reproducing results -\n\n❌ Scripts can be successfully executed\n❌ Independent party regenerated results using the authors research artefacts\n❌ Reproduced within approximately one hour (excluding compute time)"
-  },
-  {
-    "objectID": "evaluation/badges.html#badges",
-    "href": "evaluation/badges.html#badges",
-    "title": "Journal badges",
-    "section": "Badges",
-    "text": "Badges\n\n\nCode\n# Full badge names\nbadge_names = {\n    # Open objects\n    'open_niso': 'NISO \"Open Research Objects (ORO)\"',\n    'open_niso_all': 'NISO \"Open Research Objects - All (ORO-A)\"',\n    'open_acm': 'ACM \"Artifacts Available\"',\n    'open_cos': 'COS \"Open Code\"',\n    'open_ieee': 'IEEE \"Code Available\"',\n    # Object review\n    'review_acm_functional': 'ACM \"Artifacts Evaluated - Functional\"',\n    'review_acm_reusable': 'ACM \"Artifacts Evaluated - Reusable\"',\n    'review_ieee': 'IEEE \"Code Reviewed\"',\n    # Results reproduced\n    'reproduce_niso': 'NISO \"Results Reproduced (ROR-R)\"',\n    'reproduce_acm': 'ACM \"Results Reproduced\"',\n    'reproduce_ieee': 'IEEE \"Code Reproducible\"',\n    'reproduce_psy': 'Psychological Science \"Computational Reproducibility\"'\n}\n\n# Criteria required by each badge\nbadges = {\n    # Open objects\n    'open_niso': ['archive', 'id', 'license'],\n    'open_niso_all': ['archive', 'id', 'license', 'complete'],\n    'open_acm': ['archive', 'id'],\n    'open_cos': ['archive', 'id', 'license', 'complete', 'documentation_sufficient'],\n    'open_ieee': ['complete'],\n    # Object review\n    'review_acm_functional': ['documentation_sufficient', 'relevant', 'complete', 'execute'],\n    'review_acm_reusable': ['documentation_sufficient', 'documentation_careful', 'relevant', 'complete', 'execute', 'structure'],\n    'review_ieee': ['complete', 'execute'],\n    # Results reproduced\n    'reproduce_niso': ['regenerated'],\n    'reproduce_acm': ['regenerated'],\n    'reproduce_ieee': ['regenerated'],\n    'reproduce_psy': ['regenerated', 'hour', 'structure', 'documentation_readme'],\n}\n\n# Identify which badges would be awarded based on criteria\n# Get list of badges met (True/False) overall\naward = {}\nfor badge in badges:\n    award[badge] = all([eval[key] == 1 for key in badges[badge]])\naward_list = list(award.values())\n\n# Write introduction\n# Get list of badges met (True/False) by category\naward_open = [v for k,v in award.items() if k.startswith('open_')]\naward_review = [v for k,v in award.items() if k.startswith('review_')]\naward_reproduce = [v for k,v in award.items() if k.startswith('reproduce_')]\n\n# Create and display text for introduction\ndisplay(Markdown(f'''\nIn total, the original study met the criteria for **{sum(award_list)} of the {len(award_list)} badges**. This included:\n\n* **{sum(award_open)} of the {len(award_open)}** “open objects” badges\n* **{sum(award_review)} of the {len(award_review)}** “object review” badges\n* **{sum(award_reproduce)} of the {len(award_reproduce)}** “reproduced” badges\n'''))\n\n# Make function that creates collapsible callouts for each badge\ndef create_badge_callout(award_dict):\n    '''\n    Displays Markdown callouts created for each badge in the dictionary, showing\n    whether the criteria for that badge was met.\n\n    Parameters:\n    -----------\n    award_dict : dict\n        Dictionary where key is badge (as variable name), and value is Boolean\n        (whether badge is awarded)\n    '''\n    callout_appearance = {True: 'tip',\n                          False: 'warning'}\n    callout_icon = {True: '✅',\n                    False: '❌'}\n    callout_text = {True: 'Meets all criteria:',\n                    False: 'Does not meet all criteria:'}\n\n    for key, value in award_dict.items():\n        # Create Markdown list with...\n        criteria_list = ''.join([\n            '* ' +\n            callout_icon[eval[k]] + # Icon based on whether it met criteria\n            ' ' +\n            criteria[k] + # Full text description of criteria\n            '\\n' for k in badges[key]])\n        # Create the callout and display it\n        display(Markdown(f'''\n::: {{.callout-{callout_appearance[value]} appearance=\"minimal\" collapse=true}}\n\n## {callout_icon[value]} {badge_names[key]}\n\n{callout_text[value]}\n\n{criteria_list}\n:::\n'''))\n\n# Create badge functions with introductions and callouts\ndisplay(Markdown('''\n### \"Open objects\" badges\n\nThese badges relate to research artefacts being made openly available.\n'''))\ncreate_badge_callout({k: v for (k, v) in award.items() if k.startswith('open_')})\n\ndisplay(Markdown('''\n### \"Object review\" badges\n\nThese badges relate to the research artefacts being reviewed against criteria of the badge issuer.\n'''))\ncreate_badge_callout({k: v for (k, v) in award.items() if k.startswith('review_')})\n\ndisplay(Markdown('''\n### \"Reproduced\" badges\n\nThese badges relate to an independent party regenerating the reuslts of the article using the author objects.\n'''))\ncreate_badge_callout({k: v for (k, v) in award.items() if k.startswith('reproduce_')})\n\n\nIn total, the original study met the criteria for 0 of the 12 badges. This included:\n\n0 of the 5 “open objects” badges\n0 of the 3 “object review” badges\n0 of the 4 “reproduced” badges\n\n\n\n“Open objects” badges\nThese badges relate to research artefacts being made openly available.\n\n\n\n\n\n\n\n\n❌ NISO “Open Research Objects (ORO)”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n❌ Includes an open license\n\n\n\n\n\n\n\n\n\n\n\n\n❌ NISO “Open Research Objects - All (ORO-A)”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n❌ Includes an open license\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n\n\n\n\n\n\n\n\n\n\n\n\n❌ ACM “Artifacts Available”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n\n\n\n\n\n\n\n\n\n\n\n\n❌ COS “Open Code”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n❌ Includes an open license\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n\n\n\n\n\n\n\n\n\n\n\n\n❌ IEEE “Code Available”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n\n\n\n\n\n\n“Object review” badges\nThese badges relate to the research artefacts being reviewed against criteria of the badge issuer.\n\n\n\n\n\n\n\n\n❌ ACM “Artifacts Evaluated - Functional”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n❌ Artefacts are relevant to and contribute to the article’s results\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n❌ Scripts can be successfully executed\n\n\n\n\n\n\n\n\n\n\n\n\n❌ ACM “Artifacts Evaluated - Reusable”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n❌ Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)\n❌ Artefacts are relevant to and contribute to the article’s results\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n❌ Scripts can be successfully executed\n❌ Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)\n\n\n\n\n\n\n\n\n\n\n\n\n❌ IEEE “Code Reviewed”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n❌ Scripts can be successfully executed\n\n\n\n\n\n\n“Reproduced” badges\nThese badges relate to an independent party regenerating the reuslts of the article using the author objects.\n\n\n\n\n\n\n\n\n❌ NISO “Results Reproduced (ROR-R)”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Independent party regenerated results using the authors research artefacts\n\n\n\n\n\n\n\n\n\n\n\n\n❌ ACM “Results Reproduced”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Independent party regenerated results using the authors research artefacts\n\n\n\n\n\n\n\n\n\n\n\n\n❌ IEEE “Code Reproducible”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Independent party regenerated results using the authors research artefacts\n\n\n\n\n\n\n\n\n\n\n\n\n❌ Psychological Science “Computational Reproducibility”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Independent party regenerated results using the authors research artefacts\n❌ Reproduced within approximately one hour (excluding compute time)\n❌ Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)\n❌ Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript"
-  },
-  {
-    "objectID": "evaluation/badges.html#sources",
-    "href": "evaluation/badges.html#sources",
-    "title": "Journal badges",
-    "section": "Sources",
-    "text": "Sources\nNational Information Standards Organisation (NISO) (NISO Reproducibility Badging and Definitions Working Group (2021))\n\n“Open Research Objects (ORO)”\n“Open Research Objects - All (ORO-A)”\n“Results Reproduced (ROR-R)”\n\nAssociation for Computing Machinery (ACM) (Association for Computing Machinery (ACM) (2020))\n\n“Artifacts Available”\n“Artifacts Evaluated - Functional”\n“Artifacts Evaluated - Resuable”\n“Results Reproduced”\n\nCenter for Open Science (COS) (Blohowiak et al. (2023))\n\n“Open Code”\n\nInstitute of Electrical and Electronics Engineers (IEEE) (Institute of Electrical and Electronics Engineers (IEEE) (n.d.))\n\n“Code Available”\n“Code Reviewed”\n“Code Reproducible”\n\nPsychological Science (Hardwicke and Vazire (2023) and Association for Psychological Science (APS) (2023))\n\n“Computational Reproducibility”"
-  },
-  {
-    "objectID": "quarto_site/license.html",
-    "href": "quarto_site/license.html",
-    "title": "Open Source License",
-    "section": "",
-    "text": "This repository is licensed under the [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\nMIT License\nCopyright (c) 2024 STARS Project Team\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n\n\nThis is aligned with the original study, who shared their code under [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\n\n[Embedded license]\n\n\n\n\nThe original study was published in the journal “[Journal name]”. They distributed the article under [Add more details about license]\n\n\n\n\n\n\nView copyright statement from journal"
-  },
-  {
     "objectID": "logbook/posts/2024_10_07/index.html",
     "href": "logbook/posts/2024_10_07/index.html",
     "title": "Day 11",
@@ -102,7 +46,7 @@
     "href": "logbook/posts/2024_10_07/index.html#running-and-processing-experiment-3",
     "title": "Day 11",
     "section": "09.20-09.35: Running and processing Experiment 3",
-    "text": "09.20-09.35: Running and processing Experiment 3\nWas going to alter Experiment 3 to just do the two shorter scenarios, but then realised those had finished on Friday, and the process had only remained running for the longer scenario. However, the timings were missing, as that would have been done once all completed. Hence, still amended the script to just run two, and then set these to run, as I need to know the times.\nsource ~/miniconda3/bin/activate\nconda activate hernandez2015\npython -m Experiment3\nI checked the results, and - unsurprisingly, given previous - these are similar but differ from the article.\n\nOnce this finished, it had a run time of: TODO: ADD RUN TIME"
+    "text": "09.20-09.35: Running and processing Experiment 3\nWas going to alter Experiment 3 to just do the two shorter scenarios, but then realised those had finished on Friday, and the process had only remained running for the longer scenario. However, the timings were missing, as that would have been done once all completed. Hence, still amended the script to just run two, and then set these to run, as I need to know the times.\nsource ~/miniconda3/bin/activate\nconda activate hernandez2015\npython -m Experiment3\nI checked the results, and - unsurprisingly, given previous - these are similar but differ from the article.\n\nOnce this finished, it had a run time of: 3 hours 13 minutes"
   },
   {
     "objectID": "logbook/posts/2024_10_07/index.html#experiment-4",
@@ -133,11 +77,158 @@
     "text": "11.09-11.55, 11.57-12.10, 12.14-12.24: Troubleshooting Experiment 5\nRun time: 41 minutes\nHowever, the result from each was identical. I’m wondering if I changed the right thing? Looking at PODSimulation.py they have option of amending capacities:\n########################\nname = 'greeter'\nn = 0\nself.resources[name] = simpy.Resource(capacity=capacities[n], \n                                        name=name,\n                                        monitored=True)\nself.monitors[name] = simpy.Monitor(name=name, ylab=ylab)\n\n########################\nname = 'screener'\nn = 1\nself.resources[name] = simpy.Resource(capacity=capacities[n], \n                                        name=name,\n                                        monitored=True)\nself.monitors[name] = simpy.Monitor(name=name, ylab=ylab)\n\n########################        \nname = 'dispenser'\nn = 2\nself.resources[name] = simpy.Resource(capacity=capacities[n], \n                                        name=name,\n                                        monitored=True)        \nself.monitors[name] = simpy.Monitor(name=name, ylab=ylab)\n\n########################\nname = 'medic'\nn = 3\nself.resources[name] = simpy.Resource(capacity=capacities[n], \n                                        name=name,\n                                        monitored=True)\nself.monitors[name] = simpy.Monitor(name=name, ylab=ylab)\nThis seems to imply there are 0 greeters, 1 screener, 2 dispensers and 3 medics.\nI’m wondering if perhaps I shouldn’t be running this like I have done so far, which is by searching through candidate solutions, given that this should only be the result of running the discrete event simulation? I completely changed Experiment5.py to run PODSimulation() directly. I borrowed code from StaffAllocationProblem.py.\nRunning this manually, I found I could get the same result (459.333333 throughoutput, 64.820665 time).\nThen, in PODSimulation.py, I stumbled across the code that looks like it was designed to run this experiment:\nif __name__ == '__main__':\n    #greeter, screener, dispenser, medic\n    \n    startTime = datetime.datetime.now()\n    print \"program started:\", startTime\n    #capacities = [1,1,1,1]\n    capacities = [4, 6, 6, 1]\n    \n    seeds = get_20_seeds()\n    #seeds = [123]\n    simulations = []\n    for seed in seeds:\n        simul = PODSimulation(capacities)\n        simul.model(seed)\n        simulations.append(simul)\n    resultsAnalyzer = ResultsAnalyzer.ResultsAnalyzer(simulations)\n    resultsAnalyzer.show_results()\n    endTime = datetime.datetime.now()\n    print \"program finished:\", endTime \n    print \"simulation length: \", endTime - startTime\nI copied this into Experiment5.py, adapting it so that it saved the individual results to a file (rather than printing average results), and so it saved the time to a file too. To get individual results took a bit of work to figure out.\nFrom StaffAllocationProblem.py, we know throughput = simulatorRunner.get_processed_count().\nIn SimulatorRunner.py, we see that:\ndef get_processed_count(self):\n        return self.avgProcessedCount\nAnd -\nself.avgProcessedCount = self.resultsAnalyzer.get_avg_total_number_out()\nFrom ResultsAnalyzer.py, we can see that:\ndef get_avg_total_number_out(self):\n        return self.avgTotalNumberOut\nAnd -\nself.avgTotalNumberOut += simul.get_number_out() / float(n)\nWhere self.n = len(simulations).\nHence, to get the throughput per simulation, we just need simul.get_number_out(). I saved this to .txt.\nRun time: 8 seconds\nI checked plotting_staff_results.r but it didn’t seem to have any code for this figure, so I wrote some to produce the figure.\nAnd, alike I have found for other figures, I see a similar pattern in the results, although different values on the axises."
   },
   {
+    "objectID": "logbook/posts/2024_10_07/index.html#appendix-a.1-table-3",
+    "href": "logbook/posts/2024_10_07/index.html#appendix-a.1-table-3",
+    "title": "Day 11",
+    "section": "13.21-13.51, 13.58-14.27: Appendix A.1 (Table 3)",
+    "text": "13.21-13.51, 13.58-14.27: Appendix A.1 (Table 3)\nAppendix A.1 shows mean and confidence intervals for several different metrics. It is run with:\n\n10% pre-screened\n4 line manager\n6 dispensing\n6 screening\n1 medical\n\nEach with twenty replications. Hence, it appears this just directly uses the segment of code I had previously identified in PODSimulation.py and adapted for Experiment 5. These return average and half-width (which, as from this source, understand that the distance from mean to edge of confidence interval can be called the precision, margin of error or half-width).\nIt appears to have all the metrics needed, so all I needed to do was convert it into a table. From def __str__ I could see what components were used to make the printed output, and so what I needed for the table.\nAdd pandas to environment so could output a dataframe, although had to find one that was compatible with numpy 1.8.0, which meant using pandas from pip as condas doesn’t go back that far. It took a long time to install the pip dependencies, and then had module errors of ImportError: No module named dateutil.tz, though unresolved with install of python-dateutil, and so I decided to just output to csv and process in R.\nHowever, I then started getting an error when importing myutils: ImportError: matplotlib requires dateutil. I think this probably resulted from my adding python-dateutil and then just pruning environment, so I deleted it and rebuilt it.\nRun time: 10 seconds\nAgain however, this differed from the original.\n\nimport pandas as pd\n\npd.read_csv('table3.csv')\n\n\n\n\n\n\n\n\nEstimate\nAvg\nLowerBound\nUpperBound\n\n\n\n\n0\nWait time\n66.66\n63.75\n69.57\n\n\n1\nNo. in (Designees)\n11979.15\n11935.90\n12022.40\n\n\n2\nNo. out (Designees)\n473.20\n458.87\n487.53\n\n\n3\nDispensing wait time\n18.84\n18.33\n19.35\n\n\n4\nLine mngr. wait time\n23.73\n23.60\n23.86\n\n\n5\nMed. eval. wait time\n9.06\n6.05\n12.06\n\n\n6\nScreening wait time\n15.04\n14.79\n15.29\n\n\n7\nDispensing no. waiting\n434.81\n423.35\n446.27\n\n\n8\nLine mngr. no. waiting\n4733.55\n4705.73\n4761.38\n\n\n9\nMed. eval. no. waiting\n2.19\n1.42\n2.96\n\n\n10\nScreening no. waiting\n569.06\n560.52\n577.61"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_07/index.html#appendix-a.2-table-4",
+    "href": "logbook/posts/2024_10_07/index.html#appendix-a.2-table-4",
+    "title": "Day 11",
+    "section": "14.29-14.38: Appendix A.2 (Table 4)",
+    "text": "14.29-14.38: Appendix A.2 (Table 4)\nTable 4 is described as being results with line manager and 10% pre-screened. Hence, I’m assuming it’s just the pre-screen 10 results from Experiment 1?\nThese have 255 rows though, so I’m then assuming it’s just the first 40 rows.\nIt doesn’t appear reproduced, with quite different results, which was as I expected, given prior results.\n\nres = pd.read_csv('exp1_prescreen10.txt', sep='\\t')\n\nprint(res.shape)\n\nres.head(40)\n\n(255, 7)\n\n\n\n\n\n\n\n\n\ngreeter\nscreener\ndispenser\nmedic\nresources\nthroughput\ntime\n\n\n\n\n0\n4\n1\n14\n1\n20\n435.000000\n52.355130\n\n\n1\n4\n1\n14\n3\n22\n435.666667\n51.441467\n\n\n2\n7\n1\n14\n1\n23\n650.000000\n46.791091\n\n\n3\n8\n1\n14\n1\n24\n669.666667\n48.432571\n\n\n4\n7\n1\n14\n3\n25\n647.000000\n46.533784\n\n\n5\n4\n6\n14\n1\n25\n1046.000000\n53.590160\n\n\n6\n9\n1\n14\n2\n26\n752.333333\n43.787625\n\n\n7\n4\n6\n14\n2\n26\n1048.333333\n46.674927\n\n\n8\n5\n6\n14\n1\n26\n1058.333333\n61.717741\n\n\n9\n9\n1\n14\n3\n27\n753.666667\n43.688801\n\n\n10\n4\n6\n14\n3\n27\n1096.666667\n45.042496\n\n\n11\n4\n6\n14\n4\n28\n1073.666667\n44.577338\n\n\n12\n8\n6\n14\n1\n29\n1103.000000\n60.900434\n\n\n13\n4\n6\n14\n6\n30\n1073.333333\n44.503737\n\n\n14\n16\n1\n14\n1\n32\n1079.666667\n35.059892\n\n\n15\n4\n10\n14\n4\n32\n1103.333333\n43.141365\n\n\n16\n8\n6\n14\n4\n32\n1111.666667\n48.838884\n\n\n17\n8\n6\n14\n5\n33\n1107.666667\n48.787158\n\n\n18\n4\n10\n14\n6\n34\n1094.000000\n42.299897\n\n\n19\n4\n6\n25\n1\n36\n1347.666667\n46.158593\n\n\n20\n4\n6\n25\n2\n37\n1351.666667\n41.018076\n\n\n21\n5\n6\n25\n1\n37\n1436.666667\n50.700946\n\n\n22\n4\n6\n25\n3\n38\n1371.666667\n38.838681\n\n\n23\n5\n6\n25\n2\n38\n1449.000000\n42.375245\n\n\n24\n4\n6\n25\n4\n39\n1371.000000\n38.189643\n\n\n25\n5\n6\n25\n3\n39\n1432.666667\n42.123040\n\n\n26\n7\n6\n25\n1\n39\n1546.666667\n45.183401\n\n\n27\n5\n6\n25\n4\n40\n1433.000000\n39.702079\n\n\n28\n7\n6\n25\n2\n40\n1545.333333\n42.707594\n\n\n29\n4\n10\n25\n1\n40\n1876.000000\n43.735103\n\n\n30\n4\n6\n25\n6\n41\n1373.666667\n38.180682\n\n\n31\n4\n10\n25\n2\n41\n1877.666667\n38.542261\n\n\n32\n4\n10\n27\n1\n42\n2055.000000\n43.479165\n\n\n33\n4\n10\n25\n4\n43\n1862.000000\n31.677448\n\n\n34\n4\n10\n27\n2\n43\n2045.666667\n37.892850\n\n\n35\n4\n10\n25\n5\n44\n1909.000000\n31.112816\n\n\n36\n4\n10\n27\n3\n44\n2006.333333\n35.759831\n\n\n37\n18\n1\n25\n1\n45\n1322.333333\n30.449133\n\n\n38\n4\n10\n25\n6\n45\n1915.333333\n31.019967\n\n\n39\n4\n10\n27\n4\n45\n2045.333333\n32.732751"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_07/index.html#final-look-over",
+    "href": "logbook/posts/2024_10_07/index.html#final-look-over",
+    "title": "Day 11",
+    "section": "14.49-14.57: Final look over",
+    "text": "14.49-14.57: Final look over\nI looked over the code again, trying to spot anything I could alter to help resolve discrepancy, but had no further ideas. I doubled checked the capacities in PODSimulation.py but was satisified these were coming from the provided inputs.\nWith no further ideas, I will stop at this point, and get (a) consensus from another team member on reproduction success, and (b) message the author to inform them and ask for suggestions if wish (although being quite aware that this was a very long time ago for them, so shouldn’t imagine that would be appropriate in this case).\nTime at this point: 1061 minutes."
+  },
+  {
     "objectID": "logbook/posts/2024_10_07/index.html#timings",
     "href": "logbook/posts/2024_10_07/index.html#timings",
     "title": "Day 11",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 858\n\n# Times from today\ntimes = [\n    ('09.20', '09.35'),\n    ('09.36', '09.41'),\n    ('09.50', '10.07'),\n    ('10.09', '10.14'),\n    ('10.18', '10.28'),\n    ('10.51', '10.57'),\n    ('11.09', '11.55'),\n    ('11.57', '12.10'),\n    ('12.14', '12.24')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 127m, or 2h 7m\nTotal used to date: 985m, or 16h 25m\nTime remaining: 1415m, or 23h 35m\nUsed 41.0% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 858\n\n# Times from today\ntimes = [\n    ('09.20', '09.35'),\n    ('09.36', '09.41'),\n    ('09.50', '10.07'),\n    ('10.09', '10.14'),\n    ('10.18', '10.28'),\n    ('10.51', '10.57'),\n    ('11.09', '11.55'),\n    ('11.57', '12.10'),\n    ('12.14', '12.24'),\n    ('13.21', '13.51'),\n    ('13.58', '14.27'),\n    ('14.29', '14.38'),\n    ('14.49', '14.57')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 203m, or 3h 23m\nTotal used to date: 1061m, or 17h 41m\nTime remaining: 1339m, or 22h 19m\nUsed 44.2% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_24/index.html",
+    "href": "logbook/posts/2024_09_24/index.html",
+    "title": "Day 2",
+    "section": "",
+    "text": "Note\n\n\n\nSet-up and troubleshooting environment. Total time used: 2h 18m (5.8%)"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_24/index.html#archive-on-zenodo",
+    "href": "logbook/posts/2024_09_24/index.html#archive-on-zenodo",
+    "title": "Day 2",
+    "section": "09.20-09.26: Archive on Zenodo",
+    "text": "09.20-09.26: Archive on Zenodo\nConsensus on the proposed scope was acquired on 23 September, with Tom agreeing with the proposal. Hence, now archived the repository on Zenodo."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_24/index.html#look-over-code-and-create-environment",
+    "href": "logbook/posts/2024_09_24/index.html#look-over-code-and-create-environment",
+    "title": "Day 2",
+    "section": "09.55-10.07: Look over code and create environment",
+    "text": "09.55-10.07: Look over code and create environment\nThere is a very minimal readme, but looking over the scripts, I’m assuming main.py will be a good starting point, just from the name.\nThe plots look to be from r-plots/plotting_staff_results.r.\nDoesn’t appear to be any environment management/versions in the repository but this is detailed in the paper in Figure 3…\n\nPython 2.7 with inspyred 1.0 and simpy 2.3.1\nR 2.15.3 with ggplot 0.9.3\n\nI created a simple python environment just with the three dependencies:\nname: hernandez2015\nchannels:\n  - defaults\n  - conda-forge\ndependencies:\n  - inspyred=1.0\n  - python=2.7\n  - simpy=2.3.1\nThis was built using mamba:\nmamba env create --name hernandez2015 --file environment.yml\nThis had an error:\nPackagesNotFoundError: The following packages are not available from current channels:\n\n  - simpy=2.3.1*\nConda-forge just has SimPy 3.0.13 to 4.1.1. However, PyPi have releases back to 2.0.1, so I switched this to pip install:\nname: hernandez2015\nchannels:\n  - defaults\n  - conda-forge\ndependencies:\n  - inspyred=1.0\n  - pip\n  - python=2.7\n  - pip:\n    - simpy==2.3.1\nThis built quickly and successfully."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_24/index.html#troubleshooting-environment",
+    "href": "logbook/posts/2024_09_24/index.html#troubleshooting-environment",
+    "title": "Day 2",
+    "section": "10.24-11.37: Troubleshooting environment",
+    "text": "10.24-11.37: Troubleshooting environment\n\nUse of Python 2.7 in VSCode\nI selected this environment as the interpreter in VSCode then attempted to run main.py, but it had an error stating it was an invalid environment:\nAn Invalid Python interpreter is selected, please try changing it to enable features such as IntelliSense, linting, and debugging. See output for more details regarding why the interpreter is invalid.\nI tried clearing the workspace interpreter setting, but when trying to select environment again in VSCode, it won’t show the python 2.7 environment in the drop-down list. Based on this forum, it appears that the VSCode python extension dropped support for python 2.7. One comments suggests switching the Python language server to Jedi. To do this:\n\nCtrl + Shift + P\nUser Settings\nSelect Workspace Tab\nSearch Python Language Server\nChange from “Default” to “Jedi”\n\nHowever, it still complained this was an invalid python interpreter, so I reverted this back. Other suggestions were to switch the VSCode Python extension to either:\n\nPre-release version\nPinned to 2022.2\n\nI tried switching to the pre-release version in the Extensions tab, and this worked in allowing me to use Python 2.7 environment. The downside of this is that I will/may want to switch it back for other projects.\n\n\nmyutils\nOn attempting to run main.py, it had an error when importing ExperimentRunner:\nFile \"/home/amy/Documents/stars/stars-reproduce-hernandez-2015/reproduction/ExperimentRunner.py\", line 14, in &lt;module&gt;\n  import myutils\nImportError: No module named myutils\nFrom the script, I can see that myutils/ is a sister folder, and not included in this repository. I can see that it is imported by:\n\nExperimentRunner.py\nResultsAnalyzer.py\nStaffAllocationProblem.py\n\nThere is only one line of code that specifies that a function is from myutils, which is in StaffAllocationProblem.py:\n\n#capacities = myutils.boundingFunction(capacities, self.boundingParameters)\n\nHowever, as that is commented out, it actually might be possible that myutils/ is not actually needed. I tried commenting out all attempts to import myutils in all scripts, then re-ran.\n\n\nnumpy and python\nThere was then an error:\nImportError: No module named numpy\nWe want to attempt to backdate it. Looking at the other known dates…\n\ninspyred=1.0 - released 4 April 2012 (with 1.0.1 on 25 July 2015)\npython=2.7 - released 4 July 2010 to 20 April 2020 (depending on date)\nsimpy==2.3.1 - released 11 October 2013 (with 3.0 on 11 October 2013)\n\nHence, it appears I’ll also want to backdate python, as just setting to 2.7 defaulted to 2.7.18, but that wouldn’t have been possible based on the publication dates. Dates:\n\nArticle received 23 September 2014\nArticle revised 6 February 2015\nArticle accepted 22 February 2015\nLast commit to GitHub (prior to license) 10 December 2013\n\nWill choose versions that are on or prior to 10 December 2013. Hence, for the python version:\n\nPython 2.7.6 (10 November 2013, 2.7.7 31 May 2014)\nNumpy 1.8.0 (30 October 2013, 1.8.1 25 March 2014)\n\nNumpy was set to install from pypi, as conda didn’t support a version that old.\nDeleted and rebuilt:\nmamba remove -n hernandez2015 --all\nmamba env create --name hernandez2015 --file environment.yml\nHowever, had error:\nPackagesNotFoundError: The following packages are not available from current channels:\n\n  - python=2.7.6*\n\nCurrent channels:\n\n  - https://repo.anaconda.com/pkgs/main/linux-64\n  - https://repo.anaconda.com/pkgs/r/linux-64\n  - https://conda.anaconda.org/conda-forge/linux-64\n\nTo search for alternate channels that may provide the conda package you're\nlooking for, navigate to\n\n    https://anaconda.org\nChecking the two python channels it lists:\n\nhttps://repo.anaconda.com/pkgs/main/linux-64/ I can see they have 2.7.13 onwards.\nhttps://conda.anaconda.org/conda-forge/linux-64/, but looking directly at python on conda-forge, I can see they have 2.6.9 or leap up to 2.7.12\n\nMy options are either to:\n\nUse Python 2.6.9 - not ideal, as know they were 2.7\nLook for another conda channel that includes 2.7.6 - however, we are using the default conda channels, and others can be more personal uploads and so on\nUse a more recent Python version - chose this option, and switched to 2.7.12, which was the oldest 2.7 version supported on these channels (2.7.12 is 26 June 2016)\n\n\n\nscipy\nThen missing scipy, which based on released history, I chose 0.13.2 (8 December 2013, 0.13.3 4 February 2014). As a version this old wasn’t on conda, I used pypi. Add to environment.yml then updated:\nmamba env update --file environment.yml --prune\n\n\nnsga2 and myutils\nThen had error that it was missing nsga2. This doesn’t appear to be a public package. It is only imported in ExperimentRunner.py, which lists it under “Ivan’s imports”, indicating it is a personal package/script. It uses a single function: nsga2.nsga2_integer(). As there was no mention of it in this repository, I tried looking at Ivan’s other GitHub repositories.\nThere I found myutils which contains nsga2.py, https://github.com/ivihernandez/myutils. However, this did not have a license, so I am not presently able to download this repository. I sent a message to Ivan to see if he would be happy to likewise add a license to that repository. I also undid the changes I’d made to comment myutils.\nIvan Hernandez later kindly responded to this, adding an open license to the repository."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_24/index.html#timings",
+    "href": "logbook/posts/2024_09_24/index.html#timings",
+    "title": "Day 2",
+    "section": "Timings",
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 47\n\n# Times from today\ntimes = [\n    ('09.20', '09.26'),\n    ('09.55', '10.07'),\n    ('10.24', '11.37')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 91m, or 1h 31m\nTotal used to date: 138m, or 2h 18m\nTime remaining: 2262m, or 37h 42m\nUsed 5.8% of 40 hours max"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html",
+    "href": "quarto_site/reproduction_readme.html",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "Please note: This is a template README and has not yet been completed\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\n\nTBC\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\nTBC\n\n\n\n\nTBC\n\n\n\nTBC"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#model-summary",
+    "href": "quarto_site/reproduction_readme.html#model-summary",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "TBC"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
+    "href": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "TBC"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#reproducing-these-results",
+    "href": "quarto_site/reproduction_readme.html#reproducing-these-results",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "TBC\n\n\n\nTBC\n\n\n\nTBC"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
+    "href": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "TBC"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#citation",
+    "href": "quarto_site/reproduction_readme.html#citation",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "TBC"
+  },
+  {
+    "objectID": "quarto_site/reproduction_readme.html#license",
+    "href": "quarto_site/reproduction_readme.html#license",
+    "title": "README for reproduction",
+    "section": "",
+    "text": "TBC"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Reproducing Hernandez et al. 2015",
+    "section": "",
+    "text": "This book captures the reproduction of:\n\nHernandez, I., Ramirez-Marquez, J., Starr, D., McKay, R., Guthartz, S., Motherwell, M., Barcellona, J. Optimal staffing strategies for points of dispensing. Computers & Industrial Engineering 83 (2015). https://doi.org/10.1016/j.cie.2015.02.015.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Reproducing Hernandez et al. 2015",
+    "section": "",
+    "text": "This book captures the reproduction of:\n\nHernandez, I., Ramirez-Marquez, J., Starr, D., McKay, R., Guthartz, S., Motherwell, M., Barcellona, J. Optimal staffing strategies for points of dispensing. Computers & Industrial Engineering 83 (2015). https://doi.org/10.1016/j.cie.2015.02.015.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
+  },
+  {
+    "objectID": "index.html#project-team",
+    "href": "index.html#project-team",
+    "title": "Reproducing Hernandez et al. 2015",
+    "section": "Project team",
+    "text": "Project team\n\nConducting this reproduction:\n\nAmy Heather \n\nProviding support during the reproduction:\n\nThomas Monks \nAlison Harper \n\nOther members of the team on STARS:\n\nNavonil Mustafee \nAndrew Mayne"
+  },
+  {
+    "objectID": "index.html#protocol",
+    "href": "index.html#protocol",
+    "title": "Reproducing Hernandez et al. 2015",
+    "section": "Protocol",
+    "text": "Protocol\nThe protocol for this work is summarised in the diagram below and archived on Zenodo:\n\nHeather, A., Monks, T., Harper, A., Mustafee, N., & Mayne, A. (2024). Protocol for assessing the computational reproducibility of discrete-event simulation models on STARS. Zenodo. https://doi.org/10.5281/zenodo.12179846.\n\n\n\n\nWorkflow for computational reproducibility assessment"
+  },
+  {
+    "objectID": "index.html#citation",
+    "href": "index.html#citation",
+    "title": "Reproducing Hernandez et al. 2015",
+    "section": "Citation",
+    "text": "Citation\nAPA:\nHeather A., Monks T., Harper A. (2024). STARS: Computational reproducibility of Hernandez et al. 2015 (version 0.1.0). URL: https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015\nSee CITATION.cff and citation_bibtex.bib for alternative formats."
+  },
+  {
+    "objectID": "index.html#license",
+    "href": "index.html#license",
+    "title": "Reproducing Hernandez et al. 2015",
+    "section": "License",
+    "text": "License\nSee License page."
   },
   {
     "objectID": "logbook/posts/2024_10_02/index.html",
@@ -532,130 +623,39 @@
     "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 756\n\n# Times from today\ntimes = [\n    ('09.29', '10.06'),\n    ('10.15', '10.27'),\n    ('11.40', '12.05'),\n    ('12.10', '12.33'),\n    ('16.39', '16.44')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 102m, or 1h 42m\nTotal used to date: 858m, or 14h 18m\nTime remaining: 1542m, or 25h 42m\nUsed 35.8% of 40 hours max"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Reproducing Hernandez et al. 2015",
+    "objectID": "quarto_site/license.html",
+    "href": "quarto_site/license.html",
+    "title": "Open Source License",
     "section": "",
-    "text": "This book captures the reproduction of:\n\nHernandez, I., Ramirez-Marquez, J., Starr, D., McKay, R., Guthartz, S., Motherwell, M., Barcellona, J. Optimal staffing strategies for points of dispensing. Computers & Industrial Engineering 83 (2015). https://doi.org/10.1016/j.cie.2015.02.015.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
+    "text": "This repository is licensed under the [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\nMIT License\nCopyright (c) 2024 STARS Project Team\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n\n\nThis is aligned with the original study, who shared their code under [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\n\n[Embedded license]\n\n\n\n\nThe original study was published in the journal “[Journal name]”. They distributed the article under [Add more details about license]\n\n\n\n\n\n\nView copyright statement from journal"
   },
   {
-    "objectID": "index.html#about",
-    "href": "index.html#about",
-    "title": "Reproducing Hernandez et al. 2015",
+    "objectID": "evaluation/badges.html",
+    "href": "evaluation/badges.html",
+    "title": "Journal badges",
     "section": "",
-    "text": "This book captures the reproduction of:\n\nHernandez, I., Ramirez-Marquez, J., Starr, D., McKay, R., Guthartz, S., Motherwell, M., Barcellona, J. Optimal staffing strategies for points of dispensing. Computers & Industrial Engineering 83 (2015). https://doi.org/10.1016/j.cie.2015.02.015.\n\nUse the navigation bar above to view:\n\nOriginal study - the original study article and associated artefacts.\nReproduction - code and documentation from reproduction of the model.\nEvaluation - describes model reproduction success and compares original study against guidelines for sharing research, criteria for journal reproducibility guidelines, and article reporting guidelines.\nLogbook - chronological entries detailing reproduction work.\nSummary - summary of the computational reproducibility assessment."
+    "text": "Please note: This is a template page and has not yet been completed, so all criteria are currently set as unmet (❌)\nThis page evaluates the extent to which the author-published research artefacts meet the criteria of badges related to reproducibility from various organisations and journals.\nCaveat: Please note that these criteria are based on available information about each badge online, and that we have likely differences in our procedure (e.g. allowed troubleshooting for execution and reproduction, not under tight time pressure to complete). Moreover, we focus only on reproduction of the discrete-event simulation, and not on other aspects of the article. We cannot guarantee that the badges below would have been awarded in practice by these journals."
   },
   {
-    "objectID": "index.html#project-team",
-    "href": "index.html#project-team",
-    "title": "Reproducing Hernandez et al. 2015",
-    "section": "Project team",
-    "text": "Project team\n\nConducting this reproduction:\n\nAmy Heather \n\nProviding support during the reproduction:\n\nThomas Monks \nAlison Harper \n\nOther members of the team on STARS:\n\nNavonil Mustafee \nAndrew Mayne"
+    "objectID": "evaluation/badges.html#criteria",
+    "href": "evaluation/badges.html#criteria",
+    "title": "Journal badges",
+    "section": "Criteria",
+    "text": "Criteria\n\n\nCode\nfrom IPython.display import display, Markdown\nimport numpy as np\nimport pandas as pd\n\n# Criteria and their definitions\ncriteria = {\n    'archive': 'Stored in a permanent archive that is publicly and openly accessible',\n    'id': 'Has a persistent identifier',\n    'license': 'Includes an open license',\n    'relevant': '''Artefacts are relevant to and contribute to the article's results''',\n    'complete': 'Complete set of materials shared (as would be needed to fully reproduce article)',\n    'structure': 'Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)',\n    'documentation_sufficient': 'Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)',\n    'documentation_careful': 'Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)',\n    # This criteria is kept seperate to documentation_careful, as it specifically requires a README file\n    'documentation_readme': 'Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript',\n    'execute': 'Scripts can be successfully executed',\n    'regenerated': 'Independent party regenerated results using the authors research artefacts',\n    'hour': 'Reproduced within approximately one hour (excluding compute time)',\n}\n\n# Evaluation for this study\n# TODO: Complete evaluate for each criteria\neval = pd.Series({\n    'archive': 0,\n    'id': 0,\n    'license': 0,\n    'relevant': 0,\n    'complete': 0,\n    'structure': 0,\n    'documentation_sufficient': 0,\n    'documentation_careful': 0,\n    'documentation_readme': 0,\n    'execute': 0,\n    'regenerated': 0,\n    'hour': 0,\n})\n\n# Get list of criteria met (True/False) overall\neval_list = list(eval)\n\n# Define function for creating the markdown formatted list of criteria met\ndef create_criteria_list(criteria_dict):\n    '''\n    Creates a string which contains a Markdown formatted list with icons to\n    indicate whether each criteria was met\n\n    Parameters:\n    -----------\n    criteria_dict : dict\n        Dictionary where keys are the criteria (variable name) and values are\n        Boolean (True/False of whether this study met the criteria)\n\n    Returns:\n    --------\n    formatted_list : string\n        Markdown formatted list\n    '''\n    callout_icon = {True: '✅',\n                    False: '❌'}\n    # Create list with...\n    formatted_list = ''.join([\n        '* ' +\n        callout_icon[eval[key]] + # Icon based on whether it met criteria\n        ' ' +\n        value + # Full text description of criteria\n        '\\n' for key, value in criteria_dict.items()])\n    return(formatted_list)\n\n# Define groups of criteria\ncriteria_share_how = ['archive', 'id', 'license']\ncriteria_share_what = ['relevant', 'complete']\ncriteria_doc_struc = ['structure', 'documentation_sufficient', 'documentation_careful', 'documentation_readme']\ncriteria_run = ['execute', 'regenerated', 'hour']\n\n# Create text section\ndisplay(Markdown(f'''\nTo assess whether the author's materials met the requirements of each badge, a list of criteria was produced. Between each badge (and between categories of badge), there is often alot of overlap in criteria.\n\nThis study met **{sum(eval_list)} of the {len(eval_list)}** unique criteria items. These were as follows:\n\nCriteria related to how artefacts are shared -\n\n{create_criteria_list({k: criteria[k] for k in criteria_share_how})}\n\nCriteria related to what artefacts are shared -\n\n{create_criteria_list({k: criteria[k] for k in criteria_share_what})}\n\nCriteria related to the structure and documentation of the artefacts -\n\n{create_criteria_list({k: criteria[k] for k in criteria_doc_struc})}\n\nCriteria related to running and reproducing results -\n\n{create_criteria_list({k: criteria[k] for k in criteria_run})}\n'''))\n\n\nTo assess whether the author’s materials met the requirements of each badge, a list of criteria was produced. Between each badge (and between categories of badge), there is often alot of overlap in criteria.\nThis study met 0 of the 12 unique criteria items. These were as follows:\nCriteria related to how artefacts are shared -\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n❌ Includes an open license\n\nCriteria related to what artefacts are shared -\n\n❌ Artefacts are relevant to and contribute to the article’s results\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n\nCriteria related to the structure and documentation of the artefacts -\n\n❌ Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n❌ Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)\n❌ Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript\n\nCriteria related to running and reproducing results -\n\n❌ Scripts can be successfully executed\n❌ Independent party regenerated results using the authors research artefacts\n❌ Reproduced within approximately one hour (excluding compute time)"
   },
   {
-    "objectID": "index.html#protocol",
-    "href": "index.html#protocol",
-    "title": "Reproducing Hernandez et al. 2015",
-    "section": "Protocol",
-    "text": "Protocol\nThe protocol for this work is summarised in the diagram below and archived on Zenodo:\n\nHeather, A., Monks, T., Harper, A., Mustafee, N., & Mayne, A. (2024). Protocol for assessing the computational reproducibility of discrete-event simulation models on STARS. Zenodo. https://doi.org/10.5281/zenodo.12179846.\n\n\n\n\nWorkflow for computational reproducibility assessment"
+    "objectID": "evaluation/badges.html#badges",
+    "href": "evaluation/badges.html#badges",
+    "title": "Journal badges",
+    "section": "Badges",
+    "text": "Badges\n\n\nCode\n# Full badge names\nbadge_names = {\n    # Open objects\n    'open_niso': 'NISO \"Open Research Objects (ORO)\"',\n    'open_niso_all': 'NISO \"Open Research Objects - All (ORO-A)\"',\n    'open_acm': 'ACM \"Artifacts Available\"',\n    'open_cos': 'COS \"Open Code\"',\n    'open_ieee': 'IEEE \"Code Available\"',\n    # Object review\n    'review_acm_functional': 'ACM \"Artifacts Evaluated - Functional\"',\n    'review_acm_reusable': 'ACM \"Artifacts Evaluated - Reusable\"',\n    'review_ieee': 'IEEE \"Code Reviewed\"',\n    # Results reproduced\n    'reproduce_niso': 'NISO \"Results Reproduced (ROR-R)\"',\n    'reproduce_acm': 'ACM \"Results Reproduced\"',\n    'reproduce_ieee': 'IEEE \"Code Reproducible\"',\n    'reproduce_psy': 'Psychological Science \"Computational Reproducibility\"'\n}\n\n# Criteria required by each badge\nbadges = {\n    # Open objects\n    'open_niso': ['archive', 'id', 'license'],\n    'open_niso_all': ['archive', 'id', 'license', 'complete'],\n    'open_acm': ['archive', 'id'],\n    'open_cos': ['archive', 'id', 'license', 'complete', 'documentation_sufficient'],\n    'open_ieee': ['complete'],\n    # Object review\n    'review_acm_functional': ['documentation_sufficient', 'relevant', 'complete', 'execute'],\n    'review_acm_reusable': ['documentation_sufficient', 'documentation_careful', 'relevant', 'complete', 'execute', 'structure'],\n    'review_ieee': ['complete', 'execute'],\n    # Results reproduced\n    'reproduce_niso': ['regenerated'],\n    'reproduce_acm': ['regenerated'],\n    'reproduce_ieee': ['regenerated'],\n    'reproduce_psy': ['regenerated', 'hour', 'structure', 'documentation_readme'],\n}\n\n# Identify which badges would be awarded based on criteria\n# Get list of badges met (True/False) overall\naward = {}\nfor badge in badges:\n    award[badge] = all([eval[key] == 1 for key in badges[badge]])\naward_list = list(award.values())\n\n# Write introduction\n# Get list of badges met (True/False) by category\naward_open = [v for k,v in award.items() if k.startswith('open_')]\naward_review = [v for k,v in award.items() if k.startswith('review_')]\naward_reproduce = [v for k,v in award.items() if k.startswith('reproduce_')]\n\n# Create and display text for introduction\ndisplay(Markdown(f'''\nIn total, the original study met the criteria for **{sum(award_list)} of the {len(award_list)} badges**. This included:\n\n* **{sum(award_open)} of the {len(award_open)}** “open objects” badges\n* **{sum(award_review)} of the {len(award_review)}** “object review” badges\n* **{sum(award_reproduce)} of the {len(award_reproduce)}** “reproduced” badges\n'''))\n\n# Make function that creates collapsible callouts for each badge\ndef create_badge_callout(award_dict):\n    '''\n    Displays Markdown callouts created for each badge in the dictionary, showing\n    whether the criteria for that badge was met.\n\n    Parameters:\n    -----------\n    award_dict : dict\n        Dictionary where key is badge (as variable name), and value is Boolean\n        (whether badge is awarded)\n    '''\n    callout_appearance = {True: 'tip',\n                          False: 'warning'}\n    callout_icon = {True: '✅',\n                    False: '❌'}\n    callout_text = {True: 'Meets all criteria:',\n                    False: 'Does not meet all criteria:'}\n\n    for key, value in award_dict.items():\n        # Create Markdown list with...\n        criteria_list = ''.join([\n            '* ' +\n            callout_icon[eval[k]] + # Icon based on whether it met criteria\n            ' ' +\n            criteria[k] + # Full text description of criteria\n            '\\n' for k in badges[key]])\n        # Create the callout and display it\n        display(Markdown(f'''\n::: {{.callout-{callout_appearance[value]} appearance=\"minimal\" collapse=true}}\n\n## {callout_icon[value]} {badge_names[key]}\n\n{callout_text[value]}\n\n{criteria_list}\n:::\n'''))\n\n# Create badge functions with introductions and callouts\ndisplay(Markdown('''\n### \"Open objects\" badges\n\nThese badges relate to research artefacts being made openly available.\n'''))\ncreate_badge_callout({k: v for (k, v) in award.items() if k.startswith('open_')})\n\ndisplay(Markdown('''\n### \"Object review\" badges\n\nThese badges relate to the research artefacts being reviewed against criteria of the badge issuer.\n'''))\ncreate_badge_callout({k: v for (k, v) in award.items() if k.startswith('review_')})\n\ndisplay(Markdown('''\n### \"Reproduced\" badges\n\nThese badges relate to an independent party regenerating the reuslts of the article using the author objects.\n'''))\ncreate_badge_callout({k: v for (k, v) in award.items() if k.startswith('reproduce_')})\n\n\nIn total, the original study met the criteria for 0 of the 12 badges. This included:\n\n0 of the 5 “open objects” badges\n0 of the 3 “object review” badges\n0 of the 4 “reproduced” badges\n\n\n\n“Open objects” badges\nThese badges relate to research artefacts being made openly available.\n\n\n\n\n\n\n\n\n❌ NISO “Open Research Objects (ORO)”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n❌ Includes an open license\n\n\n\n\n\n\n\n\n\n\n\n\n❌ NISO “Open Research Objects - All (ORO-A)”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n❌ Includes an open license\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n\n\n\n\n\n\n\n\n\n\n\n\n❌ ACM “Artifacts Available”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n\n\n\n\n\n\n\n\n\n\n\n\n❌ COS “Open Code”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Stored in a permanent archive that is publicly and openly accessible\n❌ Has a persistent identifier\n❌ Includes an open license\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n\n\n\n\n\n\n\n\n\n\n\n\n❌ IEEE “Code Available”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n\n\n\n\n\n\n“Object review” badges\nThese badges relate to the research artefacts being reviewed against criteria of the badge issuer.\n\n\n\n\n\n\n\n\n❌ ACM “Artifacts Evaluated - Functional”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n❌ Artefacts are relevant to and contribute to the article’s results\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n❌ Scripts can be successfully executed\n\n\n\n\n\n\n\n\n\n\n\n\n❌ ACM “Artifacts Evaluated - Reusable”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Artefacts are sufficiently documented (i.e. to understand how it works, to enable it to be run, including package versions)\n❌ Artefacts are carefully documented (more than sufficient - i.e. to the extent that reuse and repurposing is facilitated - e.g. changing parameters, reusing for own purpose)\n❌ Artefacts are relevant to and contribute to the article’s results\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n❌ Scripts can be successfully executed\n❌ Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)\n\n\n\n\n\n\n\n\n\n\n\n\n❌ IEEE “Code Reviewed”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Complete set of materials shared (as would be needed to fully reproduce article)\n❌ Scripts can be successfully executed\n\n\n\n\n\n\n“Reproduced” badges\nThese badges relate to an independent party regenerating the reuslts of the article using the author objects.\n\n\n\n\n\n\n\n\n❌ NISO “Results Reproduced (ROR-R)”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Independent party regenerated results using the authors research artefacts\n\n\n\n\n\n\n\n\n\n\n\n\n❌ ACM “Results Reproduced”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Independent party regenerated results using the authors research artefacts\n\n\n\n\n\n\n\n\n\n\n\n\n❌ IEEE “Code Reproducible”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Independent party regenerated results using the authors research artefacts\n\n\n\n\n\n\n\n\n\n\n\n\n❌ Psychological Science “Computational Reproducibility”\n\n\n\n\n\nDoes not meet all criteria:\n\n❌ Independent party regenerated results using the authors research artefacts\n❌ Reproduced within approximately one hour (excluding compute time)\n❌ Artefacts are well structured/organised (e.g. to the extent that reuse and repurposing is facilitated, adhering to norms and standards of research community)\n❌ Artefacts are clearly documented and accompanied by a README file with step-by-step instructions on how to reproduce results in the manuscript"
   },
   {
-    "objectID": "index.html#citation",
-    "href": "index.html#citation",
-    "title": "Reproducing Hernandez et al. 2015",
-    "section": "Citation",
-    "text": "Citation\nAPA:\nHeather A., Monks T., Harper A. (2024). STARS: Computational reproducibility of Hernandez et al. 2015 (version 0.1.0). URL: https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015\nSee CITATION.cff and citation_bibtex.bib for alternative formats."
-  },
-  {
-    "objectID": "index.html#license",
-    "href": "index.html#license",
-    "title": "Reproducing Hernandez et al. 2015",
-    "section": "License",
-    "text": "License\nSee License page."
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html",
-    "href": "quarto_site/reproduction_readme.html",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "Please note: This is a template README and has not yet been completed\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\n\nTBC\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\nTBC\n\n\n\n\nTBC\n\n\n\nTBC"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html#model-summary",
-    "href": "quarto_site/reproduction_readme.html#model-summary",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
-    "href": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html#reproducing-these-results",
-    "href": "quarto_site/reproduction_readme.html#reproducing-these-results",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC\n\n\n\nTBC\n\n\n\nTBC"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
-    "href": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html#citation",
-    "href": "quarto_site/reproduction_readme.html#citation",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC"
-  },
-  {
-    "objectID": "quarto_site/reproduction_readme.html#license",
-    "href": "quarto_site/reproduction_readme.html#license",
-    "title": "README for reproduction",
-    "section": "",
-    "text": "TBC"
-  },
-  {
-    "objectID": "logbook/posts/2024_09_24/index.html",
-    "href": "logbook/posts/2024_09_24/index.html",
-    "title": "Day 2",
-    "section": "",
-    "text": "Note\n\n\n\nSet-up and troubleshooting environment. Total time used: 2h 18m (5.8%)"
-  },
-  {
-    "objectID": "logbook/posts/2024_09_24/index.html#archive-on-zenodo",
-    "href": "logbook/posts/2024_09_24/index.html#archive-on-zenodo",
-    "title": "Day 2",
-    "section": "09.20-09.26: Archive on Zenodo",
-    "text": "09.20-09.26: Archive on Zenodo\nConsensus on the proposed scope was acquired on 23 September, with Tom agreeing with the proposal. Hence, now archived the repository on Zenodo."
-  },
-  {
-    "objectID": "logbook/posts/2024_09_24/index.html#look-over-code-and-create-environment",
-    "href": "logbook/posts/2024_09_24/index.html#look-over-code-and-create-environment",
-    "title": "Day 2",
-    "section": "09.55-10.07: Look over code and create environment",
-    "text": "09.55-10.07: Look over code and create environment\nThere is a very minimal readme, but looking over the scripts, I’m assuming main.py will be a good starting point, just from the name.\nThe plots look to be from r-plots/plotting_staff_results.r.\nDoesn’t appear to be any environment management/versions in the repository but this is detailed in the paper in Figure 3…\n\nPython 2.7 with inspyred 1.0 and simpy 2.3.1\nR 2.15.3 with ggplot 0.9.3\n\nI created a simple python environment just with the three dependencies:\nname: hernandez2015\nchannels:\n  - defaults\n  - conda-forge\ndependencies:\n  - inspyred=1.0\n  - python=2.7\n  - simpy=2.3.1\nThis was built using mamba:\nmamba env create --name hernandez2015 --file environment.yml\nThis had an error:\nPackagesNotFoundError: The following packages are not available from current channels:\n\n  - simpy=2.3.1*\nConda-forge just has SimPy 3.0.13 to 4.1.1. However, PyPi have releases back to 2.0.1, so I switched this to pip install:\nname: hernandez2015\nchannels:\n  - defaults\n  - conda-forge\ndependencies:\n  - inspyred=1.0\n  - pip\n  - python=2.7\n  - pip:\n    - simpy==2.3.1\nThis built quickly and successfully."
-  },
-  {
-    "objectID": "logbook/posts/2024_09_24/index.html#troubleshooting-environment",
-    "href": "logbook/posts/2024_09_24/index.html#troubleshooting-environment",
-    "title": "Day 2",
-    "section": "10.24-11.37: Troubleshooting environment",
-    "text": "10.24-11.37: Troubleshooting environment\n\nUse of Python 2.7 in VSCode\nI selected this environment as the interpreter in VSCode then attempted to run main.py, but it had an error stating it was an invalid environment:\nAn Invalid Python interpreter is selected, please try changing it to enable features such as IntelliSense, linting, and debugging. See output for more details regarding why the interpreter is invalid.\nI tried clearing the workspace interpreter setting, but when trying to select environment again in VSCode, it won’t show the python 2.7 environment in the drop-down list. Based on this forum, it appears that the VSCode python extension dropped support for python 2.7. One comments suggests switching the Python language server to Jedi. To do this:\n\nCtrl + Shift + P\nUser Settings\nSelect Workspace Tab\nSearch Python Language Server\nChange from “Default” to “Jedi”\n\nHowever, it still complained this was an invalid python interpreter, so I reverted this back. Other suggestions were to switch the VSCode Python extension to either:\n\nPre-release version\nPinned to 2022.2\n\nI tried switching to the pre-release version in the Extensions tab, and this worked in allowing me to use Python 2.7 environment. The downside of this is that I will/may want to switch it back for other projects.\n\n\nmyutils\nOn attempting to run main.py, it had an error when importing ExperimentRunner:\nFile \"/home/amy/Documents/stars/stars-reproduce-hernandez-2015/reproduction/ExperimentRunner.py\", line 14, in &lt;module&gt;\n  import myutils\nImportError: No module named myutils\nFrom the script, I can see that myutils/ is a sister folder, and not included in this repository. I can see that it is imported by:\n\nExperimentRunner.py\nResultsAnalyzer.py\nStaffAllocationProblem.py\n\nThere is only one line of code that specifies that a function is from myutils, which is in StaffAllocationProblem.py:\n\n#capacities = myutils.boundingFunction(capacities, self.boundingParameters)\n\nHowever, as that is commented out, it actually might be possible that myutils/ is not actually needed. I tried commenting out all attempts to import myutils in all scripts, then re-ran.\n\n\nnumpy and python\nThere was then an error:\nImportError: No module named numpy\nWe want to attempt to backdate it. Looking at the other known dates…\n\ninspyred=1.0 - released 4 April 2012 (with 1.0.1 on 25 July 2015)\npython=2.7 - released 4 July 2010 to 20 April 2020 (depending on date)\nsimpy==2.3.1 - released 11 October 2013 (with 3.0 on 11 October 2013)\n\nHence, it appears I’ll also want to backdate python, as just setting to 2.7 defaulted to 2.7.18, but that wouldn’t have been possible based on the publication dates. Dates:\n\nArticle received 23 September 2014\nArticle revised 6 February 2015\nArticle accepted 22 February 2015\nLast commit to GitHub (prior to license) 10 December 2013\n\nWill choose versions that are on or prior to 10 December 2013. Hence, for the python version:\n\nPython 2.7.6 (10 November 2013, 2.7.7 31 May 2014)\nNumpy 1.8.0 (30 October 2013, 1.8.1 25 March 2014)\n\nNumpy was set to install from pypi, as conda didn’t support a version that old.\nDeleted and rebuilt:\nmamba remove -n hernandez2015 --all\nmamba env create --name hernandez2015 --file environment.yml\nHowever, had error:\nPackagesNotFoundError: The following packages are not available from current channels:\n\n  - python=2.7.6*\n\nCurrent channels:\n\n  - https://repo.anaconda.com/pkgs/main/linux-64\n  - https://repo.anaconda.com/pkgs/r/linux-64\n  - https://conda.anaconda.org/conda-forge/linux-64\n\nTo search for alternate channels that may provide the conda package you're\nlooking for, navigate to\n\n    https://anaconda.org\nChecking the two python channels it lists:\n\nhttps://repo.anaconda.com/pkgs/main/linux-64/ I can see they have 2.7.13 onwards.\nhttps://conda.anaconda.org/conda-forge/linux-64/, but looking directly at python on conda-forge, I can see they have 2.6.9 or leap up to 2.7.12\n\nMy options are either to:\n\nUse Python 2.6.9 - not ideal, as know they were 2.7\nLook for another conda channel that includes 2.7.6 - however, we are using the default conda channels, and others can be more personal uploads and so on\nUse a more recent Python version - chose this option, and switched to 2.7.12, which was the oldest 2.7 version supported on these channels (2.7.12 is 26 June 2016)\n\n\n\nscipy\nThen missing scipy, which based on released history, I chose 0.13.2 (8 December 2013, 0.13.3 4 February 2014). As a version this old wasn’t on conda, I used pypi. Add to environment.yml then updated:\nmamba env update --file environment.yml --prune\n\n\nnsga2 and myutils\nThen had error that it was missing nsga2. This doesn’t appear to be a public package. It is only imported in ExperimentRunner.py, which lists it under “Ivan’s imports”, indicating it is a personal package/script. It uses a single function: nsga2.nsga2_integer(). As there was no mention of it in this repository, I tried looking at Ivan’s other GitHub repositories.\nThere I found myutils which contains nsga2.py, https://github.com/ivihernandez/myutils. However, this did not have a license, so I am not presently able to download this repository. I sent a message to Ivan to see if he would be happy to likewise add a license to that repository. I also undid the changes I’d made to comment myutils.\nIvan Hernandez later kindly responded to this, adding an open license to the repository."
-  },
-  {
-    "objectID": "logbook/posts/2024_09_24/index.html#timings",
-    "href": "logbook/posts/2024_09_24/index.html#timings",
-    "title": "Day 2",
-    "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 47\n\n# Times from today\ntimes = [\n    ('09.20', '09.26'),\n    ('09.55', '10.07'),\n    ('10.24', '11.37')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 91m, or 1h 31m\nTotal used to date: 138m, or 2h 18m\nTime remaining: 2262m, or 37h 42m\nUsed 5.8% of 40 hours max"
+    "objectID": "evaluation/badges.html#sources",
+    "href": "evaluation/badges.html#sources",
+    "title": "Journal badges",
+    "section": "Sources",
+    "text": "Sources\nNational Information Standards Organisation (NISO) (NISO Reproducibility Badging and Definitions Working Group (2021))\n\n“Open Research Objects (ORO)”\n“Open Research Objects - All (ORO-A)”\n“Results Reproduced (ROR-R)”\n\nAssociation for Computing Machinery (ACM) (Association for Computing Machinery (ACM) (2020))\n\n“Artifacts Available”\n“Artifacts Evaluated - Functional”\n“Artifacts Evaluated - Resuable”\n“Results Reproduced”\n\nCenter for Open Science (COS) (Blohowiak et al. (2023))\n\n“Open Code”\n\nInstitute of Electrical and Electronics Engineers (IEEE) (Institute of Electrical and Electronics Engineers (IEEE) (n.d.))\n\n“Code Available”\n“Code Reviewed”\n“Code Reproducible”\n\nPsychological Science (Hardwicke and Vazire (2023) and Association for Psychological Science (APS) (2023))\n\n“Computational Reproducibility”"
   },
   {
     "objectID": "logbook/posts/2024_10_03/index.html",
@@ -691,5 +691,75 @@
     "title": "Day 9",
     "section": "Timings",
     "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 681\n\n# Times from today\ntimes = [\n    ('09.05', '09.08'),\n    ('10.36', '10.39'),\n    ('15.23', '15.32'),\n    ('15.34', '15.37'),\n    ('15.50', '16.25'),\n    ('16.30', '16.41'),\n    ('16.46', '16.57')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 75m, or 1h 15m\nTotal used to date: 756m, or 12h 36m\nTime remaining: 1644m, or 27h 24m\nUsed 31.5% of 40 hours max"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html",
+    "href": "evaluation/reproduction_success.html",
+    "title": "Reproduction success",
+    "section": "",
+    "text": "Of the 8 items in the scope, 12.5% (1 out of 8) were considered to be successfully reproduced."
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#time-to-completion",
+    "href": "evaluation/reproduction_success.html#time-to-completion",
+    "title": "Reproduction success",
+    "section": "Time-to-completion",
+    "text": "Time-to-completion\n\n\n\n\n\n\n\n\n\ntime\nitem\necdf\nhours\n\n\n\n\n0\n0.0\nStart\n0.0\n0.000000\n\n\n1\n696.0\nNaN\n0.0\n11.600000\n\n\n2\n696.0\nFigure 6\n12.5\n11.600000\n\n\n3\n1061.0\nNaN\n12.5\n17.683333\n\n\n4\n1061.0\nFigure 5\nNaN\n17.683333\n\n\n5\nNaN\nNaN\nNaN\nNaN\n\n\n6\nNaN\nFigure 7\n37.5\nNaN\n\n\n7\nNaN\nNaN\n37.5\nNaN\n\n\n8\nNaN\nFigure 8\n50.0\nNaN\n\n\n9\nNaN\nNaN\n50.0\nNaN\n\n\n10\nNaN\nFigure 9\n62.5\nNaN\n\n\n11\nNaN\nNaN\n62.5\nNaN\n\n\n12\nNaN\nFigure 10\n75.0\nNaN\n\n\n13\nNaN\nNaN\n75.0\nNaN\n\n\n14\nNaN\nTable 3\n87.5\nNaN\n\n\n15\nNaN\nNaN\n87.5\nNaN\n\n\n16\nNaN\nTable 4\n100.0\nNaN\n\n\n17\nNaN\nNaN\n100.0\nNaN\n\n\n\n\n\n\n\nNon-interactive plot:\n\n\n\n\n\n\n\n\n\nInteractive plot:"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#figure-5",
+    "href": "evaluation/reproduction_success.html#figure-5",
+    "title": "Reproduction success",
+    "section": "Figure 5",
+    "text": "Figure 5"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#figure-6",
+    "href": "evaluation/reproduction_success.html#figure-6",
+    "title": "Reproduction success",
+    "section": "Figure 6",
+    "text": "Figure 6\nConsensus: Successfully reproduced"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#figure-7",
+    "href": "evaluation/reproduction_success.html#figure-7",
+    "title": "Reproduction success",
+    "section": "Figure 7",
+    "text": "Figure 7"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#figure-8",
+    "href": "evaluation/reproduction_success.html#figure-8",
+    "title": "Reproduction success",
+    "section": "Figure 8",
+    "text": "Figure 8"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#figure-9",
+    "href": "evaluation/reproduction_success.html#figure-9",
+    "title": "Reproduction success",
+    "section": "Figure 9",
+    "text": "Figure 9"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#figure-10",
+    "href": "evaluation/reproduction_success.html#figure-10",
+    "title": "Reproduction success",
+    "section": "Figure 10",
+    "text": "Figure 10"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#table-3",
+    "href": "evaluation/reproduction_success.html#table-3",
+    "title": "Reproduction success",
+    "section": "Table 3",
+    "text": "Table 3\n\n\n\n\n\n\n\n\n\n\nEstimate\nAvg\nLowerBound\nUpperBound\n\n\n\n\n0\nWait time\n66.66\n63.75\n69.57\n\n\n1\nNo. in (Designees)\n11979.15\n11935.90\n12022.40\n\n\n2\nNo. out (Designees)\n473.20\n458.87\n487.53\n\n\n3\nDispensing wait time\n18.84\n18.33\n19.35\n\n\n4\nLine mngr. wait time\n23.73\n23.60\n23.86\n\n\n5\nMed. eval. wait time\n9.06\n6.05\n12.06\n\n\n6\nScreening wait time\n15.04\n14.79\n15.29\n\n\n7\nDispensing no. waiting\n434.81\n423.35\n446.27\n\n\n8\nLine mngr. no. waiting\n4733.55\n4705.73\n4761.38\n\n\n9\nMed. eval. no. waiting\n2.19\n1.42\n2.96\n\n\n10\nScreening no. waiting\n569.06\n560.52\n577.61"
+  },
+  {
+    "objectID": "evaluation/reproduction_success.html#table-4",
+    "href": "evaluation/reproduction_success.html#table-4",
+    "title": "Reproduction success",
+    "section": "Table 4",
+    "text": "Table 4\n\n\n\n\n\n\n\n\n\n\nLine Manager\nScreening\nDispensing\nMed. eval.\nTotal staff\nWait. time\nForms processed\n\n\n\n\n0\n4\n1\n14\n1\n20\n52\n1392\n\n\n1\n4\n1\n14\n3\n22\n51\n1394\n\n\n2\n7\n1\n14\n1\n23\n47\n2080\n\n\n3\n8\n1\n14\n1\n24\n48\n2143\n\n\n4\n7\n1\n14\n3\n25\n47\n2070\n\n\n5\n4\n6\n14\n1\n25\n54\n3347\n\n\n6\n9\n1\n14\n2\n26\n44\n2407\n\n\n7\n4\n6\n14\n2\n26\n47\n3355\n\n\n8\n5\n6\n14\n1\n26\n62\n3387\n\n\n9\n9\n1\n14\n3\n27\n44\n2412\n\n\n10\n4\n6\n14\n3\n27\n45\n3509\n\n\n11\n4\n6\n14\n4\n28\n45\n3436\n\n\n12\n8\n6\n14\n1\n29\n61\n3530\n\n\n13\n4\n6\n14\n6\n30\n45\n3435\n\n\n14\n16\n1\n14\n1\n32\n35\n3455\n\n\n15\n4\n10\n14\n4\n32\n43\n3531\n\n\n16\n8\n6\n14\n4\n32\n49\n3557\n\n\n17\n8\n6\n14\n5\n33\n49\n3545\n\n\n18\n4\n10\n14\n6\n34\n42\n3501\n\n\n19\n4\n6\n25\n1\n36\n46\n4313\n\n\n20\n4\n6\n25\n2\n37\n41\n4325\n\n\n21\n5\n6\n25\n1\n37\n51\n4597\n\n\n22\n4\n6\n25\n3\n38\n39\n4389\n\n\n23\n5\n6\n25\n2\n38\n42\n4637\n\n\n24\n4\n6\n25\n4\n39\n38\n4387\n\n\n25\n5\n6\n25\n3\n39\n42\n4585\n\n\n26\n7\n6\n25\n1\n39\n45\n4949\n\n\n27\n5\n6\n25\n4\n40\n40\n4586\n\n\n28\n7\n6\n25\n2\n40\n43\n4945\n\n\n29\n4\n10\n25\n1\n40\n44\n6003\n\n\n30\n4\n6\n25\n6\n41\n38\n4396\n\n\n31\n4\n10\n25\n2\n41\n39\n6009\n\n\n32\n4\n10\n27\n1\n42\n43\n6576\n\n\n33\n4\n10\n25\n4\n43\n32\n5958\n\n\n34\n4\n10\n27\n2\n43\n38\n6546\n\n\n35\n4\n10\n25\n5\n44\n31\n6109\n\n\n36\n4\n10\n27\n3\n44\n36\n6420\n\n\n37\n18\n1\n25\n1\n45\n30\n4231\n\n\n38\n4\n10\n25\n6\n45\n31\n6129\n\n\n39\n4\n10\n27\n4\n45\n33\n6545"
   }
 ]
