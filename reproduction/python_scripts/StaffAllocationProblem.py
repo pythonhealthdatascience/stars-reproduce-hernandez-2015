@@ -23,7 +23,8 @@ class mylist(list):
     def get_results_analyzer(self):
         return self.resultsAnalyzer
 class StaffAllocationProblem():
-    def __init__(self, seeds, parameterReader, objectiveTypes):
+    def __init__(self, seeds, parameterReader, objectiveTypes, upperBounds):
+
         # Defines whether it is a bi-objective or tri-objective model
         # E.g. objective types [False, True, False]
         #minimize Waiting time, minimize Resources, maximize throughput  
@@ -43,7 +44,7 @@ class StaffAllocationProblem():
         #self.upperBounds = [8, 8, 25, 8] 
         #self.upperBounds = [1, 60, 60, 5]
         self.lowerBounds = [1, 1, 1, 1]
-        self.upperBounds = [60, 60, 60, 60]
+        self.upperBounds = upperBounds
         
         #self.bounder = inspyred.ec.Bounder(1, 4)
         self.bounder = inspyred.ec.Bounder(self.lowerBounds, self.upperBounds)

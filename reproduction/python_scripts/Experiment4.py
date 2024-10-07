@@ -1,5 +1,5 @@
-# Experiment 3 (Figure 8)
-# Tri-objective model + (a) 100 pop 50 gen (b) 200 pop 100 gen (c) 50 pop 25 gen
+# Experiment 4 (Figure 9)
+# Tri-objective model with 1, 2 or 3 greeters/line managers
 
 # Run time: TODO add runtime
 # (Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux)
@@ -15,28 +15,25 @@ mypath = r'../inputs'
 file = '10-prescreened.txt'
 runs = 1
 objectiveTypes = [False, True, False]
-upperBounds = [60, 60, 60, 60]
+population = 50
+generations = 25
 
 # Path to save results
-experimentFolder = '../python_outputs/experiment3'
+experimentFolder = '../python_outputs/experiment4'
 
 # Scenarios to run for this experiment
 scenarios = [
     {
-        'population': 100,
-        'generations': 50,
-        'solutionpath': join(experimentFolder, '100pop50gen')
+        'upperBounds': [1, 60, 60, 60],
+        'solutionpath': join(experimentFolder, '1_line_manager')
     },
-    # Not included due to run time
-    # {
-    #     'population': 200,
-    #     'generations': 100,
-    #     'solutionpath': join(experimentFolder, '200pop100gen')
-    # },
     {
-        'population': 50,
-        'generations': 25,
-        'solutionpath': join(experimentFolder, '50pop25gen')
+        'upperBounds': [2, 60, 60, 60],
+        'solutionpath': join(experimentFolder, '2_line_managers')
+    },
+    {
+        'upperBounds': [3, 60, 60, 60],
+        'solutionpath': join(experimentFolder, '3_line_managers')
     }
 ]
 
@@ -49,11 +46,11 @@ params = [
      'experimentFolder': experimentFolder,
      'file': file,
      'runs': runs,
-     'population': scenario['population'],
-     'generations': scenario['generations'],
+     'population': population,
+     'generations': generations,
      'objectiveTypes': objectiveTypes,
      'solutionpath': scenario['solutionpath'],
-     'upperBounds': upperBounds}
+     'upperBounds': scenario['upperBounds']}
     for scenario in scenarios
 ]
 
