@@ -2,7 +2,7 @@
 # 6 dispensing, 6 screening, 4 line manager, 1 medical evaluator
 # Number of replications 20
 
-# Run time: TODO
+# Run time: 9 seconds
 # (Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux)
 
 from os.path import join
@@ -85,7 +85,7 @@ data = [
 ]
 
 # Save to csv
-with open(join(experimentFolder, 'results.txt'), 'w') as file:
+with open(join(experimentFolder, 'results.csv'), 'w') as file:
     writer = csv.writer(file)
     # Write header (optional)
     writer.writerow(['Estimate', 'Avg', 'HalfWidth'])
