@@ -1,7 +1,7 @@
 # Experiment 4 (Figure 9)
 # Tri-objective model with 1, 2 or 3 greeters/line managers
 
-# Run time: TODO add runtime
+# Run time: 37 minutes
 # (Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux)
 
 from os import listdir

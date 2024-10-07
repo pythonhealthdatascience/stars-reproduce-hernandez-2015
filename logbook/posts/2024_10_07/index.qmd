@@ -1,0 +1,203 @@
+---
+title: "Day 11"
+author: "Amy Heather"
+date: "2024-10-07s"
+categories: [reproduce]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+X. Total time used: Xh Xm (X%)
+
+:::
+
+## 09.20-09.35: Running and processing Experiment 3
+
+Was going to alter Experiment 3 to just do the two shorter scenarios, but then realised those had finished on Friday, and the process had only remained running for the longer scenario. However, the timings were missing, as that would have been done once all completed. Hence, still amended the script to just run two, and then set these to run, as I need to know the times.
+
+```
+source ~/miniconda3/bin/activate
+conda activate hernandez2015
+python -m Experiment3
+```
+
+I checked the results, and - unsurprisingly, given previous - these are similar but differ from the article.
+
+![](figure8.png)
+
+Once this finished, it had a run time of: **TODO: ADD RUN TIME**
+
+## 09.36-09.41, 09.50-10.07: Experiment 4
+
+Experiment 4 is the tri-objective with a maximum of 1, 2 or 3 line managers (known as greeters in the code) ran with population 50 and 25 generations. We set the upper bounds for the number of line managers in `StaffAllocationProblem.py`:
+
+```
+self.upperBounds = [60, 60, 60, 60]
+```
+
+Hence, I'm assuming I'll need to alter this to:
+
+```
+self.upperBounds = [1, 60, 60, 60]
+self.upperBounds = [2, 60, 60, 60]
+self.upperBounds = [3, 60, 60, 60]
+```
+
+To do so programmatically, I'll need to make this an input to the class `StaffAllocationProblem()`, and then likewise in `ExperimentRunner()` and `main.py` where it is called, alike how I did for `objectiveTypes`.
+
+## 10.09-10.14, 10.18-10.28: Experiment 5
+
+Experiment 5 has 6 dispensing, 6 sceening, 4 line manager and one medical. It then varies the number of replications from 1-7.
+
+To set staff numbers, I'm assuming I'll need to set `upperBounds` and `lowerBounds` to the same values, and so modified the code accordingly to allow input of lowerBounds.
+
+To set number of replications, I'm assuming this is referring to `runs`, as that is an input that was set up, and I have previously assumed that when it says to set to run three times, it is referring to that parameter.
+
+It doesn't state population and generations, but I'm assuming generations is 1 (as it's a fixed number of staff), and that population is 1000.
+
+## 10.51-10.57: Processing Experiment 4
+
+Run time: 37 minutes
+
+As observed for similar figures previously, although patterns are similar, the axis values differ sufficiently that this is not reproduced (e.g. 10-120 staff members instead of 10-70, and 2000-6000 throughput rather than 500-5000 throughput).
+
+![](figure9.png)
+
+## 11.09-11.55, 11.57-12.10, 12.14-12.24: Troubleshooting Experiment 5
+
+Run time: 41 minutes
+
+However, the result from each was identical. I'm wondering if I changed the right thing? Looking at `PODSimulation.py` they have option of amending capacities:
+
+```
+########################
+name = 'greeter'
+n = 0
+self.resources[name] = simpy.Resource(capacity=capacities[n], 
+                                        name=name,
+                                        monitored=True)
+self.monitors[name] = simpy.Monitor(name=name, ylab=ylab)
+
+########################
+name = 'screener'
+n = 1
+self.resources[name] = simpy.Resource(capacity=capacities[n], 
+                                        name=name,
+                                        monitored=True)
+self.monitors[name] = simpy.Monitor(name=name, ylab=ylab)
+
+########################        
+name = 'dispenser'
+n = 2
+self.resources[name] = simpy.Resource(capacity=capacities[n], 
+                                        name=name,
+                                        monitored=True)        
+self.monitors[name] = simpy.Monitor(name=name, ylab=ylab)
+
+########################
+name = 'medic'
+n = 3
+self.resources[name] = simpy.Resource(capacity=capacities[n], 
+                                        name=name,
+                                        monitored=True)
+self.monitors[name] = simpy.Monitor(name=name, ylab=ylab)
+```
+
+This seems to imply there are 0 greeters, 1 screener, 2 dispensers and 3 medics.
+
+I'm wondering if perhaps I shouldn't be running this like I have done so far, which is by searching through candidate solutions, given that this should only be the result of running the discrete event simulation? I completely changed `Experiment5.py` to run `PODSimulation()` directly. I borrowed code from `StaffAllocationProblem.py`.
+
+Running this manually, I found I could get the same result (459.333333 throughoutput, 64.820665 time).
+
+Then, in `PODSimulation.py`, I stumbled across the code that looks like it was designed to run this experiment:
+
+```
+if __name__ == '__main__':
+    #greeter, screener, dispenser, medic
+    
+    startTime = datetime.datetime.now()
+    print "program started:", startTime
+    #capacities = [1,1,1,1]
+    capacities = [4, 6, 6, 1]
+    
+    seeds = get_20_seeds()
+    #seeds = [123]
+    simulations = []
+    for seed in seeds:
+        simul = PODSimulation(capacities)
+        simul.model(seed)
+        simulations.append(simul)
+    resultsAnalyzer = ResultsAnalyzer.ResultsAnalyzer(simulations)
+    resultsAnalyzer.show_results()
+    endTime = datetime.datetime.now()
+    print "program finished:", endTime 
+    print "simulation length: ", endTime - startTime
+```
+
+I copied this into `Experiment5.py`, adapting it so that it saved the individual results to a file (rather than printing average results), and so it saved the time to a file too. To get individual results took a bit of work to figure out.
+
+From `StaffAllocationProblem.py`, we know `throughput = simulatorRunner.get_processed_count()`.
+
+In `SimulatorRunner.py`, we see that:
+
+```
+def get_processed_count(self):
+        return self.avgProcessedCount
+```
+
+And -
+
+```
+self.avgProcessedCount = self.resultsAnalyzer.get_avg_total_number_out()
+```
+
+From `ResultsAnalyzer.py`, we can see that:
+
+```
+def get_avg_total_number_out(self):
+        return self.avgTotalNumberOut
+```
+
+And -
+
+```
+self.avgTotalNumberOut += simul.get_number_out() / float(n)
+```
+
+Where `self.n = len(simulations)`.
+
+Hence, to get the throughput per simulation, we just need `simul.get_number_out()`. I saved this to `.txt`.
+
+**Run time:** 8 seconds
+
+I checked `plotting_staff_results.r` but it didn't seem to have any code for this figure, so I wrote some to produce the figure.
+
+And, alike I have found for other figures, I see a similar pattern in the results, although different values on the axises.
+
+![](figure10.png)
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 858
+
+# Times from today
+times = [
+    ('09.20', '09.35'),
+    ('09.36', '09.41'),
+    ('09.50', '10.07'),
+    ('10.09', '10.14'),
+    ('10.18', '10.28'),
+    ('10.51', '10.57'),
+    ('11.09', '11.55'),
+    ('11.57', '12.10'),
+    ('12.14', '12.24')]
+
+calculate_times(used_to_date, times)
+```
