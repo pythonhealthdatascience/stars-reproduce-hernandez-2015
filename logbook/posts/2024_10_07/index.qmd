@@ -221,9 +221,13 @@ print(res.shape)
 res.head(40)
 ```
 
-## 14.49-X: Last-ditch troubleshooting attempts
+## 14.49-14.57: Final look over
 
-I tried out some final tweaks and attempts to troubleshoot and resolve the discrepancy. I focused on `PODSimulation.py` as that is a simple/defined part of the analysis, and I can test it with Figure 10.
+I looked over the code again, trying to spot anything I could alter to help resolve discrepancy, but had no further ideas. I doubled checked the capacities in `PODSimulation.py` but was satisified these were coming from the provided inputs.
+
+With no further ideas, I will stop at this point, and get (a) consensus from another team member on reproduction success, and (b) message the author to inform them and ask for suggestions if wish (although being quite aware that this was a very long time ago for them, so shouldn't imagine that would be appropriate in this case).
+
+Time at this point: 1061 minutes.
 
 ## Timings
 
@@ -248,7 +252,8 @@ times = [
     ('12.14', '12.24'),
     ('13.21', '13.51'),
     ('13.58', '14.27'),
-    ('14.29', '14.38')]
+    ('14.29', '14.38'),
+    ('14.49', '14.57')]
 
 calculate_times(used_to_date, times)
 ```
