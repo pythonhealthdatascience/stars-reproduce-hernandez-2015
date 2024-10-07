@@ -26,7 +26,7 @@ I checked the results, and - unsurprisingly, given previous - these are similar 
 
 ![](figure8.png)
 
-Once this finished, it had a run time of: **TODO: ADD RUN TIME**
+Once this finished, it had a run time of: 3 hours 13 minutes
 
 ## 09.36-09.41, 09.50-10.07: Experiment 4
 
@@ -177,6 +177,54 @@ And, alike I have found for other figures, I see a similar pattern in the result
 
 ![](figure10.png)
 
+## 13.21-13.51, 13.58-14.27: Appendix A.1 (Table 3)
+
+Appendix A.1 shows mean and confidence intervals for several different metrics. It is run with:
+
+* 10% pre-screened
+* 4 line manager
+* 6 dispensing
+* 6 screening
+* 1 medical
+
+Each with twenty replications. Hence, it appears this just directly uses the segment of code I had previously identified in `PODSimulation.py` and adapted for Experiment 5. These return average and half-width (which, as from [this source](https://www.ncss.com/wp-content/themes/ncss/pdf/Procedures/PASS/Confidence_Intervals_for_One_Mean_with_Tolerance_Probability.pdf), understand that the distance from mean to edge of confidence interval can be called the precision, margin of error or half-width).
+
+It appears to have all the metrics needed, so all I needed to do was convert it into a table. From `def __str__` I could see what components were used to make the printed output, and so what I needed for the table.
+
+Add pandas to environment so could output a dataframe, although had to find one that was compatible with numpy 1.8.0, which meant using pandas from pip as condas doesn't go back that far. It took a long time to install the pip dependencies, and then had module errors of `ImportError: No module named dateutil.tz`, though unresolved with install of `python-dateutil`, and so I decided to just output to csv and process in R.
+
+However, I then started getting an error when importing `myutils`: `ImportError: matplotlib requires dateutil`. I think this probably resulted from my adding `python-dateutil` and then just pruning environment, so I deleted it and rebuilt it.
+
+Run time: 10 seconds
+
+Again however, this differed from the original.
+
+```{python}
+import pandas as pd
+
+pd.read_csv('table3.csv')
+```
+
+## 14.29-14.38: Appendix A.2 (Table 4)
+
+Table 4 is described as being results with line manager and 10% pre-screened. Hence, I'm assuming it's just the pre-screen 10 results from Experiment 1?
+
+These have 255 rows though, so I'm then assuming it's just the first 40 rows.
+
+It doesn't appear reproduced, with quite different results, which was as I expected, given prior results.
+
+```{python}
+res = pd.read_csv('exp1_prescreen10.txt', sep='\t')
+
+print(res.shape)
+
+res.head(40)
+```
+
+## 14.49-X: Last-ditch troubleshooting attempts
+
+I tried out some final tweaks and attempts to troubleshoot and resolve the discrepancy. I focused on `PODSimulation.py` as that is a simple/defined part of the analysis, and I can test it with Figure 10.
+
 ## Timings
 
 ```{python}
@@ -197,7 +245,10 @@ times = [
     ('10.51', '10.57'),
     ('11.09', '11.55'),
     ('11.57', '12.10'),
-    ('12.14', '12.24')]
+    ('12.14', '12.24'),
+    ('13.21', '13.51'),
+    ('13.58', '14.27'),
+    ('14.29', '14.38')]
 
 calculate_times(used_to_date, times)
 ```
