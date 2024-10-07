@@ -75,18 +75,19 @@ run_time <- function(time) {
 ```
 
 ```{r}
-plot_scatter <- function(data, savepath){
+plot_scatter <- function(data, savepath, nrow=NULL){
   #' Creates scatter plot of staff members against throughput with size of dots
   #' indicating wait time, and plots for each pre-screening scenario
   #' 
   #' @param data dataframe with results from model run
   #' @param savepath string, path to save figure to
+  #' @param nrow int, number of rows in plot, if NULL then will go with default
 
   fig <- ggplot(data=data) + 
     geom_point(aes(x=resources, y=forms, size=time), alpha=0.7) +
     #scale_x_continuous(limits=c(0, 150)) +
     scale_y_continuous(limits=c(0, 16000), breaks=seq(0, 16000, 3000)) +
-    facet_wrap(~scenario) +
+    facet_wrap(~scenario, nrow=nrow) +
     labs(size="Waiting Time (minutes)") + xlab("Staff Members") + ylab("Throughput (forms per hour)") +
     theme(axis.title.y = element_text( face='bold')) + theme(axis.title.x = element_text( face='bold')) +
     theme_bw(18) +
@@ -103,6 +104,7 @@ Import results for each experiment.
 ```{r}
 exp1 <- import("../python_outputs/experiment1")
 exp2 <- import("../python_outputs/experiment2")
+exp3 <- import("../python_outputs/experiment3")
 ```
 
 ## Experiment 1
@@ -183,4 +185,18 @@ run_time(exp2$time)
 
 ```{r}
 plot_scatter(exp2$results, "../r_outputs/figure7.png")
+```
+
+## Experiment 3
+
+### Run time
+
+```{r}
+# run_time(exp3$time)
+```
+
+### Figure 8
+
+```{r}
+plot_scatter(exp3$results, "../r_outputs/figure8.png", nrow=2)
 ```
