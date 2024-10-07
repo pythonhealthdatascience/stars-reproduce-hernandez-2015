@@ -1,5 +1,6 @@
-# Experiment 3 (Figure 8)
-# Tri-objective model + (a) 100 pop 50 gen (b) 200 pop 100 gen (c) 50 pop 25 gen
+# Experiment 5 (Figure 10)
+# Tri-objective model with 6 dispensing, 6 screening, 4 line manager,
+# one medical evaluator, number of replications 1-7
 
 # Run time: TODO add runtime
 # (Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux)
@@ -13,33 +14,24 @@ from main import wrapper
 # Set to default
 mypath = r'../inputs'
 file = '10-prescreened.txt'
-runs = 1
 objectiveTypes = [False, True, False]
-lowerBounds = [1, 1, 1, 1]
-upperBounds = [60, 60, 60, 60]
+population = 100
+generations = 1
+
+# Greeter, screener, dispenser, medic
+lowerBounds = [4, 6, 6, 1]
+upperBounds = [4, 6, 6, 1]
 
 # Path to save results
-experimentFolder = '../python_outputs/experiment3'
+experimentFolder = '../python_outputs/experiment5'
 
 # Scenarios to run for this experiment
-scenarios = [
-    {
-        'population': 100,
-        'generations': 50,
-        'solutionpath': join(experimentFolder, '100pop50gen')
-    },
-    # Not included due to run time
-    # {
-    #     'population': 200,
-    #     'generations': 100,
-    #     'solutionpath': join(experimentFolder, '200pop100gen')
-    # },
-    {
-        'population': 50,
-        'generations': 25,
-        'solutionpath': join(experimentFolder, '50pop25gen')
-    }
-]
+scenarios = []
+for i in range(1, 8):  # Loop from 1 to 7
+    scenarios.append({
+        'runs': i,
+        'solutionpath': join(experimentFolder, str(i) + 'run')
+    })
 
 # Start timer
 startTime = datetime.datetime.now()
@@ -49,9 +41,9 @@ params = [
     {'mypath': mypath,
      'experimentFolder': experimentFolder,
      'file': file,
-     'runs': runs,
-     'population': scenario['population'],
-     'generations': scenario['generations'],
+     'runs': scenario['runs'],
+     'population': population,
+     'generations': generations,
      'objectiveTypes': objectiveTypes,
      'solutionpath': scenario['solutionpath'],
      'lowerBounds': lowerBounds,

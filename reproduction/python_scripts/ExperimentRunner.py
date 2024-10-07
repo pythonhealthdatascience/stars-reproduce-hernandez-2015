@@ -20,7 +20,8 @@ import StaffAllocationProblem
 
 class ExperimentRunner:
 
-    def __init__(self, seeds, parameterReader, objectiveTypes, upperBounds):
+    def __init__(self, seeds, parameterReader, objectiveTypes,
+                 lowerBounds, upperBounds):
         self.archiver = inspyred.ec.archivers.best_archiver
         self.seeds = seeds
         self.prng = random.Random()
@@ -28,6 +29,8 @@ class ExperimentRunner:
         self.parameterReader = parameterReader
         # Defines whether it is a bi-objective or tri-objective model
         self.objectiveTypes = objectiveTypes
+        # Sets the minimum and maximum numbers of each staff type allowed
+        self.lowerBounds = lowerBounds
         self.upperBounds = upperBounds
 
     def run(self, runs, population, generations):
@@ -38,6 +41,7 @@ class ExperimentRunner:
             seeds=self.seeds,
             parameterReader=self.parameterReader,
             objectiveTypes=self.objectiveTypes,
+            lowerBounds=self.lowerBounds,
             upperBounds=self.upperBounds)
 
         for i in xrange(1, runs + 1):

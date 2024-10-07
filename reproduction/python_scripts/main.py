@@ -10,7 +10,8 @@ from multiprocessing import Pool
 
 
 def run_scenario(mypath, experimentFolder, file, runs, population,
-                 generations, objectiveTypes, upperBounds, solutionpath=None):
+                 generations, objectiveTypes, lowerBounds, upperBounds,
+                 solutionpath=None):
     '''
     Run algorithm using the pre-screened percentage from the provided file.
 
@@ -30,6 +31,9 @@ def run_scenario(mypath, experimentFolder, file, runs, population,
         Number of generations
     objectiveTypes : list
         List of booleans which define whether maximise/minimise 2/3 objectives
+    lowerBounds: list of int
+        Optional, minimum numbers of each staff type allowed - [greeter/line
+        manager, screener, dispenser, medic]
     upperBounds : list of int
         Maximum numbers of each staff type allowed - [greeter/line
         manager, screener, dispenser, medic]
@@ -45,6 +49,7 @@ def run_scenario(mypath, experimentFolder, file, runs, population,
     experimentRunner = ExperimentRunner.ExperimentRunner(seeds,
                                                          parameterReader,
                                                          objectiveTypes,
+                                                         lowerBounds,
                                                          upperBounds)
     experimentRunner.run(runs=runs,
                          population=population,
@@ -80,7 +85,7 @@ def wrapper(d):
 
 def run_experiment(mypath, experimentFolder, experimentFiles, runs, population,
                    generations, objectiveTypes, solutionpath=None,
-                   upperBounds=[60, 60, 60, 60]):
+                   lowerBounds=[1, 1, 1, 1], upperBounds=[60, 60, 60, 60]):
     '''
     Run set of scenarios using parallel processing, and record time elapsed
 
@@ -105,6 +110,9 @@ def run_experiment(mypath, experimentFolder, experimentFiles, runs, population,
         List of booleans which define whether maximise/minimise 2/3 objectives
     solutionpath : string
         Optional, path to save solution to
+    lowerBounds: list of int
+        Optional, minimum numbers of each staff type allowed - [greeter/line
+        manager, screener, dispenser, medic]
     upperBounds : list of int
         Optional, maximum numbers of each staff type allowed - [greeter/line
         manager, screener, dispenser, medic]
@@ -122,6 +130,7 @@ def run_experiment(mypath, experimentFolder, experimentFiles, runs, population,
          'generations': generations,
          'objectiveTypes': objectiveTypes,
          'solutionpath': solutionpath,
+         'lowerBounds': lowerBounds,
          'upperBounds': upperBounds}
         for file in experimentFiles
     ]

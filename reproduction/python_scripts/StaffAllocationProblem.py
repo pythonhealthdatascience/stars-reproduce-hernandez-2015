@@ -23,7 +23,8 @@ class mylist(list):
     def get_results_analyzer(self):
         return self.resultsAnalyzer
 class StaffAllocationProblem():
-    def __init__(self, seeds, parameterReader, objectiveTypes, upperBounds):
+    def __init__(self, seeds, parameterReader, objectiveTypes,
+                 lowerBounds, upperBounds):
 
         # Defines whether it is a bi-objective or tri-objective model
         # E.g. objective types [False, True, False]
@@ -43,7 +44,7 @@ class StaffAllocationProblem():
         #self.lowerBounds = [3, 3, 3, 3]
         #self.upperBounds = [8, 8, 25, 8] 
         #self.upperBounds = [1, 60, 60, 5]
-        self.lowerBounds = [1, 1, 1, 1]
+        self.lowerBounds = lowerBounds
         self.upperBounds = upperBounds
         
         #self.bounder = inspyred.ec.Bounder(1, 4)

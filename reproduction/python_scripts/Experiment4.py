@@ -17,6 +17,7 @@ runs = 1
 objectiveTypes = [False, True, False]
 population = 50
 generations = 25
+lowerBounds = [1, 1, 1, 1]
 
 # Path to save results
 experimentFolder = '../python_outputs/experiment4'
@@ -50,6 +51,7 @@ params = [
      'generations': generations,
      'objectiveTypes': objectiveTypes,
      'solutionpath': scenario['solutionpath'],
+     'lowerBounds': lowerBounds,
      'upperBounds': scenario['upperBounds']}
     for scenario in scenarios
 ]
