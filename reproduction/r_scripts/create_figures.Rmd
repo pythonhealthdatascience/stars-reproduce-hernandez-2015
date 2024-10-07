@@ -308,5 +308,26 @@ tab3 <- expa1$results %>%
   select(-HalfWidth) %>%
   mutate(across(where(is.numeric), round, 2))
 
-write.csv(tab3, "../r_outputs/table3.csv")
+write.csv(tab3, "../r_outputs/table3.csv", row.names=FALSE)
+```
+
+## Experiment for Appendix A.1
+
+### Table 4
+
+```{r}
+tab4 <- exp1$results %>%
+  filter(scenario == "prescreen10") %>%
+  select(greeter, screener, dispenser, medic, resources, time, forms) %>%
+  rename("Line Manager" = greeter,
+         "Screening" = screener,
+         "Dispensing" = dispenser,
+         "Med. eval." = medic,
+         "Total staff" = resources,
+         "Wait. time" = time,
+         "Forms processed" = forms) %>%
+  head(40) %>%
+  round()
+
+write.csv(tab4, "../r_outputs/table4.csv", row.names=FALSE)
 ```
