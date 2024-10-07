@@ -1,67 +1,39 @@
 # Experiment 5 (Figure 10)
-# Tri-objective model with 6 dispensing, 6 screening, 4 line manager,
-# one medical evaluator, number of replications 1-7
+# 6 dispensing, 6 screening, 4 line manager, 1 medical evaluator
+# Number of replications 1-7
 
 # Run time: TODO add runtime
 # (Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux)
 
-from os import listdir
-from os.path import isfile, join
-import datetime
-from multiprocessing import Pool
-from main import wrapper
+from os.path import join
+import sys
+sys.path.append('./myutils')
+import myutils
+import ParameterReader
+import SimulatorRunner
+import StaffAllocationProblem
 
-# Set to default
+# Set capacities
+capacities = [4, 6, 6, 1]
+
+# Seeds as in main.py
+seeds = [123, 456, 789]
+
+# Get pre-screening parameter as in main.py
 mypath = r'../inputs'
 file = '10-prescreened.txt'
-objectiveTypes = [False, True, False]
-population = 100
-generations = 1
+parameterReader = ParameterReader.ParameterReader(join(mypath, file))
 
-# Greeter, screener, dispenser, medic
-lowerBounds = [4, 6, 6, 1]
-upperBounds = [4, 6, 6, 1]
+# Code to run simulation as from StaffAllocationProblem.py
+simulatorRunner = SimulatorRunner.SimulatorRunner()
+simulatorRunner.run(seeds=seeds,
+                    capacities=capacities,
+                    parameterReader=parameterReader)
+time = simulatorRunner.get_avg_waiting_times()
+resources = simulatorRunner.get_resource_count()
+throughput = simulatorRunner.get_processed_count()
 
-# Path to save results
-experimentFolder = '../python_outputs/experiment5'
-
-# Scenarios to run for this experiment
-scenarios = []
-for i in range(1, 8):  # Loop from 1 to 7
-    scenarios.append({
-        'runs': i,
-        'solutionpath': join(experimentFolder, str(i) + 'run')
-    })
-
-# Start timer
-startTime = datetime.datetime.now()
-
-# Create parameter list for each experiment
-params = [
-    {'mypath': mypath,
-     'experimentFolder': experimentFolder,
-     'file': file,
-     'runs': scenario['runs'],
-     'population': population,
-     'generations': generations,
-     'objectiveTypes': objectiveTypes,
-     'solutionpath': scenario['solutionpath'],
-     'lowerBounds': lowerBounds,
-     'upperBounds': upperBounds}
-    for scenario in scenarios
-]
-
-# Create a process pool that uses all CPUs
-pool = Pool()
-try:
-    # Map the run_scenario function to the experiment files
-    results = pool.map(wrapper, params)
-finally:
-    # Close the pool and wait for the worker processes to finish
-    pool.close()
-    pool.join()
-
-# End timer and save time for that result
-endTime = datetime.datetime.now()
-with open(join(experimentFolder, "time.txt"), "w") as text_file:
-    text_file.write("{0}".format(endTime - startTime))
+# Print results
+print(time)
+print(resources)
+print(throughput)
