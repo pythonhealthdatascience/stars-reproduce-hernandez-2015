@@ -1,7 +1,7 @@
 # Experiment 3 (Figure 8)
 # Tri-objective model + (a) 100 pop 50 gen (b) 200 pop 100 gen (c) 50 pop 25 gen
 
-# Run time: TODO add runtime
+# Run time: 3 hours 13 minutes (to run 100/50 and 50/25)
 # (Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux)
 
 from os import listdir

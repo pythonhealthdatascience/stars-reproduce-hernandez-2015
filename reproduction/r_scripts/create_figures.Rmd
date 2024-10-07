@@ -107,7 +107,7 @@ Import results for each experiment.
 ```{r}
 exp1 <- import("../python_outputs/experiment1")
 exp2 <- import("../python_outputs/experiment2")
-#exp3 <- import("../python_outputs/experiment3")
+exp3 <- import("../python_outputs/experiment3")
 exp4 <- import("../python_outputs/experiment4")
 ```
 
@@ -214,13 +214,13 @@ plot_scatter(exp2$results, "../r_outputs/figure7.png")
 ### Run time
 
 ```{r}
-# run_time(exp3$time)
+run_time(exp3$time)
 ```
 
 ### Figure 8
 
 ```{r}
-# plot_scatter(exp3$results, "../r_outputs/figure8.png", nrow=2)
+plot_scatter(exp3$results, "../r_outputs/figure8.png", nrow=2)
 ```
 
 ## Experiment 4
