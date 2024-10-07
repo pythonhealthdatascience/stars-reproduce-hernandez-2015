@@ -91,284 +91,116 @@
     "text": "This repository is licensed under the [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\nMIT License\nCopyright (c) 2024 STARS Project Team\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n\n\nThis is aligned with the original study, who shared their code under [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\n\n[Embedded license]\n\n\n\n\nThe original study was published in the journal “[Journal name]”. They distributed the article under [Add more details about license]\n\n\n\n\n\n\nView copyright statement from journal"
   },
   {
-    "objectID": "logbook/posts/2024_10_04/index.html",
-    "href": "logbook/posts/2024_10_04/index.html",
-    "title": "Day 10",
+    "objectID": "logbook/posts/2024_10_07/index.html",
+    "href": "logbook/posts/2024_10_07/index.html",
+    "title": "Day 11",
     "section": "",
-    "text": "Note\n\n\n\nTried but could not reproduced Figure 7 (same issue as Figure 5), and wrote script to run Experiment 3. Total time used: 14h 18m (35.8%)"
+    "text": "Note\n\n\n\nX. Total time used: Xh Xm (X%)"
   },
   {
-    "objectID": "logbook/posts/2024_10_04/index.html#experiment-2-figure-7",
-    "href": "logbook/posts/2024_10_04/index.html#experiment-2-figure-7",
-    "title": "Day 10",
-    "section": "09.29-10.06, 10.15-10.27, 11.40-12.05: Experiment 2 (Figure 7)",
-    "text": "09.29-10.06, 10.15-10.27, 11.40-12.05: Experiment 2 (Figure 7)\nHaving concluded with Figure 5 (not reproduced) and Figure 6 (reproduced) from Experiment 1, I now explored reproducing Figure 7. This is very similar to Figure 5, but ran with the bi-objective model.\nI wasn’t convinced that my amendment to the arrival rate in PodSimulation() yesterday was correct, as the waiting times became quite out, so I returned it to how it was originally (1/float(200)).\nOn Day 6, I’d spotted that to get the bi-objective model instead of tri-objective (which is what we need for Experiment 2) I adjust this section in StaffAllocationProblem():\nself.maximize = True\n#minimize Waiting time, minimize Resources, maximize throughput  \n#minimize resources, maximize throughput, minimize time\nself.objectiveTypes = [False, True, False]\n              ...[minimise, maximise, minimise]\nTo this:\n#minimize resources, maximize throughput\nself.objectiveTypes = [False, True]\nI want to do this from my main/Experiment .py file rather than directly in StaffAllocationProblem.py. I made amendments:\n\nTo Experiment1.py, converting it to main.py and then having seperate scripts for each experiment.\nTo ExperimentRunner.py which calls StaffAllocationProblem(), so it can input bi or tri-objective\n\nI then ran it with the specified 50 population 25 generations (but with 1 run instead of 3, so expect to have less dense points), with parallel processing on the remote machine.\nRun time: 58 minutes\nI amended the plotting .Rmd file, renaming it to create_figures.Rmd and amending the code so the same functions could be used to plot Figure 7 as Figure 5.\nI also set the Experiment1 results back to those when I had run with 100pop 50gen 1run prior to the arrival rate amendment.\nUnsurprisingly, as I had found for Figure 5, I am seeing the same issue here - that the result is very similar, except for the Y axis scale, with my results going much higher than the original.\nI have no further troubleshooting suggestions, as this is just like Figure 5, but with the amendment of one parameter, so I will consider this likewise not able to reproduce."
+    "objectID": "logbook/posts/2024_10_07/index.html#running-and-processing-experiment-3",
+    "href": "logbook/posts/2024_10_07/index.html#running-and-processing-experiment-3",
+    "title": "Day 11",
+    "section": "09.20-09.35: Running and processing Experiment 3",
+    "text": "09.20-09.35: Running and processing Experiment 3\nWas going to alter Experiment 3 to just do the two shorter scenarios, but then realised those had finished on Friday, and the process had only remained running for the longer scenario. However, the timings were missing, as that would have been done once all completed. Hence, still amended the script to just run two, and then set these to run, as I need to know the times.\nsource ~/miniconda3/bin/activate\nconda activate hernandez2015\npython -m Experiment3\nI checked the results, and - unsurprisingly, given previous - these are similar but differ from the article.\n\nOnce this finished, it had a run time of: TODO: ADD RUN TIME"
   },
   {
-    "objectID": "logbook/posts/2024_10_04/index.html#experiment-3-figure-8",
-    "href": "logbook/posts/2024_10_04/index.html#experiment-3-figure-8",
-    "title": "Day 10",
-    "section": "12.10-12.33, 16.39-16.44: Experiment 3 (Figure 8)",
-    "text": "12.10-12.33, 16.39-16.44: Experiment 3 (Figure 8)\nExperiment 3 is the tri-objective model, with (a) 100 pop 50 gen (b) 200 pop 100 gen (c) 50 pop 25 gen. It doesn’t specify a pre-screened percentage. so I’m presuming it will be the default from the code which, if parameterReader == None, then self. preScreened Percentage = 0.1.\nI set up Experiment3.py, and had to amend main.py to enable these scenarios, as it was set up assuming the scenarios were pre-screening, whilst this is varying something else. I set this to then run on the remote machine. However, it was not finished by the end of the day - and then realised that this should not have been surprising, as the paper states that the 200 / 100 scenario took 27 hours.\nGiven that I am at a standstill for resolving issues in Figures 5 and 7, I anticipate it likely to be the case likewise for Figure 8. Hence, I think a reasonable strategy for this would be to attempt to other two scenarios from this figure and, if those do not match up to the paper, do not also need to try the long scenario, as there is nothing to gain, since it would be “not reproduced” either way.\n\n\n\n\n\n\nReflection\n\n\n\nFigures 5 and 7 are not reproduced, but Figure 6 is, but that is in a large part related to the nature of what is being plot (given 5 and 6 are from the same results). So that impacts reproducibility."
+    "objectID": "logbook/posts/2024_10_07/index.html#experiment-4",
+    "href": "logbook/posts/2024_10_07/index.html#experiment-4",
+    "title": "Day 11",
+    "section": "09.36-09.41, 09.50-10.07: Experiment 4",
+    "text": "09.36-09.41, 09.50-10.07: Experiment 4\nExperiment 4 is the tri-objective with a maximum of 1, 2 or 3 line managers (known as greeters in the code) ran with population 50 and 25 generations. We set the upper bounds for the number of line managers in StaffAllocationProblem.py:\nself.upperBounds = [60, 60, 60, 60]\nHence, I’m assuming I’ll need to alter this to:\nself.upperBounds = [1, 60, 60, 60]\nself.upperBounds = [2, 60, 60, 60]\nself.upperBounds = [3, 60, 60, 60]\nTo do so programmatically, I’ll need to make this an input to the class StaffAllocationProblem(), and then likewise in ExperimentRunner() and main.py where it is called, alike how I did for objectiveTypes."
   },
   {
-    "objectID": "logbook/posts/2024_10_04/index.html#timings",
-    "href": "logbook/posts/2024_10_04/index.html#timings",
-    "title": "Day 10",
+    "objectID": "logbook/posts/2024_10_07/index.html#experiment-5",
+    "href": "logbook/posts/2024_10_07/index.html#experiment-5",
+    "title": "Day 11",
+    "section": "10.09-10.14, 10.18-10.28: Experiment 5",
+    "text": "10.09-10.14, 10.18-10.28: Experiment 5\nExperiment 5 has 6 dispensing, 6 sceening, 4 line manager and one medical. It then varies the number of replications from 1-7.\nTo set staff numbers, I’m assuming I’ll need to set upperBounds and lowerBounds to the same values, and so modified the code accordingly to allow input of lowerBounds.\nTo set number of replications, I’m assuming this is referring to runs, as that is an input that was set up, and I have previously assumed that when it says to set to run three times, it is referring to that parameter.\nIt doesn’t state population and generations, but I’m assuming generations is 1 (as it’s a fixed number of staff), and that population is 1000."
+  },
+  {
+    "objectID": "logbook/posts/2024_10_07/index.html#processing-experiment-4",
+    "href": "logbook/posts/2024_10_07/index.html#processing-experiment-4",
+    "title": "Day 11",
+    "section": "10.51-10.57: Processing Experiment 4",
+    "text": "10.51-10.57: Processing Experiment 4\nRun time: 37 minutes\nAs observed for similar figures previously, although patterns are similar, the axis values differ sufficiently that this is not reproduced (e.g. 10-120 staff members instead of 10-70, and 2000-6000 throughput rather than 500-5000 throughput)."
+  },
+  {
+    "objectID": "logbook/posts/2024_10_07/index.html#troubleshooting-experiment-5",
+    "href": "logbook/posts/2024_10_07/index.html#troubleshooting-experiment-5",
+    "title": "Day 11",
+    "section": "11.09-11.55, 11.57-12.10, 12.14-12.24: Troubleshooting Experiment 5",
+    "text": "11.09-11.55, 11.57-12.10, 12.14-12.24: Troubleshooting Experiment 5\nRun time: 41 minutes\nHowever, the result from each was identical. I’m wondering if I changed the right thing? Looking at PODSimulation.py they have option of amending capacities:\n########################\nname = 'greeter'\nn = 0\nself.resources[name] = simpy.Resource(capacity=capacities[n], \n                                        name=name,\n                                        monitored=True)\nself.monitors[name] = simpy.Monitor(name=name, ylab=ylab)\n\n########################\nname = 'screener'\nn = 1\nself.resources[name] = simpy.Resource(capacity=capacities[n], \n                                        name=name,\n                                        monitored=True)\nself.monitors[name] = simpy.Monitor(name=name, ylab=ylab)\n\n########################        \nname = 'dispenser'\nn = 2\nself.resources[name] = simpy.Resource(capacity=capacities[n], \n                                        name=name,\n                                        monitored=True)        \nself.monitors[name] = simpy.Monitor(name=name, ylab=ylab)\n\n########################\nname = 'medic'\nn = 3\nself.resources[name] = simpy.Resource(capacity=capacities[n], \n                                        name=name,\n                                        monitored=True)\nself.monitors[name] = simpy.Monitor(name=name, ylab=ylab)\nThis seems to imply there are 0 greeters, 1 screener, 2 dispensers and 3 medics.\nI’m wondering if perhaps I shouldn’t be running this like I have done so far, which is by searching through candidate solutions, given that this should only be the result of running the discrete event simulation? I completely changed Experiment5.py to run PODSimulation() directly. I borrowed code from StaffAllocationProblem.py.\nRunning this manually, I found I could get the same result (459.333333 throughoutput, 64.820665 time).\nThen, in PODSimulation.py, I stumbled across the code that looks like it was designed to run this experiment:\nif __name__ == '__main__':\n    #greeter, screener, dispenser, medic\n    \n    startTime = datetime.datetime.now()\n    print \"program started:\", startTime\n    #capacities = [1,1,1,1]\n    capacities = [4, 6, 6, 1]\n    \n    seeds = get_20_seeds()\n    #seeds = [123]\n    simulations = []\n    for seed in seeds:\n        simul = PODSimulation(capacities)\n        simul.model(seed)\n        simulations.append(simul)\n    resultsAnalyzer = ResultsAnalyzer.ResultsAnalyzer(simulations)\n    resultsAnalyzer.show_results()\n    endTime = datetime.datetime.now()\n    print \"program finished:\", endTime \n    print \"simulation length: \", endTime - startTime\nI copied this into Experiment5.py, adapting it so that it saved the individual results to a file (rather than printing average results), and so it saved the time to a file too. To get individual results took a bit of work to figure out.\nFrom StaffAllocationProblem.py, we know throughput = simulatorRunner.get_processed_count().\nIn SimulatorRunner.py, we see that:\ndef get_processed_count(self):\n        return self.avgProcessedCount\nAnd -\nself.avgProcessedCount = self.resultsAnalyzer.get_avg_total_number_out()\nFrom ResultsAnalyzer.py, we can see that:\ndef get_avg_total_number_out(self):\n        return self.avgTotalNumberOut\nAnd -\nself.avgTotalNumberOut += simul.get_number_out() / float(n)\nWhere self.n = len(simulations).\nHence, to get the throughput per simulation, we just need simul.get_number_out(). I saved this to .txt.\nRun time: 8 seconds\nI checked plotting_staff_results.r but it didn’t seem to have any code for this figure, so I wrote some to produce the figure.\nAnd, alike I have found for other figures, I see a similar pattern in the results, although different values on the axises."
+  },
+  {
+    "objectID": "logbook/posts/2024_10_07/index.html#timings",
+    "href": "logbook/posts/2024_10_07/index.html#timings",
+    "title": "Day 11",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 756\n\n# Times from today\ntimes = [\n    ('09.29', '10.06'),\n    ('10.15', '10.27'),\n    ('11.40', '12.05'),\n    ('12.10', '12.33'),\n    ('16.39', '16.44')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 102m, or 1h 42m\nTotal used to date: 858m, or 14h 18m\nTime remaining: 1542m, or 25h 42m\nUsed 35.8% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 858\n\n# Times from today\ntimes = [\n    ('09.20', '09.35'),\n    ('09.36', '09.41'),\n    ('09.50', '10.07'),\n    ('10.09', '10.14'),\n    ('10.18', '10.28'),\n    ('10.51', '10.57'),\n    ('11.09', '11.55'),\n    ('11.57', '12.10'),\n    ('12.14', '12.24')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 127m, or 2h 7m\nTotal used to date: 985m, or 16h 25m\nTime remaining: 1415m, or 23h 35m\nUsed 41.0% of 40 hours max"
   },
   {
-    "objectID": "logbook/posts/2024_10_01/index.html",
-    "href": "logbook/posts/2024_10_01/index.html",
-    "title": "Day 7",
+    "objectID": "logbook/posts/2024_10_02/index.html",
+    "href": "logbook/posts/2024_10_02/index.html",
+    "title": "Day 8",
     "section": "",
-    "text": "Note\n\n\n\nTroubleshooting Experiment 1: trying a long run, expanding boundaries further, and cross-checking parameters between article and code. Total time used: 10h 6m (25.2%)"
+    "text": "Note\n\n\n\nCorrecting a parameter, adding parallel processing, and experimenting with parameters to try and run similarly but more quickly. Total time used: 11h 21m (28.4%)"
   },
   {
-    "objectID": "logbook/posts/2024_10_01/index.html#troubleshooting-figure-5",
-    "href": "logbook/posts/2024_10_01/index.html#troubleshooting-figure-5",
-    "title": "Day 7",
-    "section": "09.15-09.17, 11.40-11.45: Troubleshooting Figure 5",
-    "text": "09.15-09.17, 11.40-11.45: Troubleshooting Figure 5\nRunning one scenario with 100 population 50 generation 1 run on remote machine.\nsource ~/miniconda3/bin/activate\nconda activate hernandez2015\npython -m Experiment1\nBelow, you can see the result from this for prescreen10 (top left). The others are all 100 population 5 generation from 1 run or 3 runs for prescreen50. As you can see, this unfortunately has no impact on the Y axis, and just the density of points.\n\nBelow is Figure 6 from prescreen10, just showing examples where forms &gt; 6000."
+    "objectID": "logbook/posts/2024_10_02/index.html#continuing-to-check-parameters",
+    "href": "logbook/posts/2024_10_02/index.html#continuing-to-check-parameters",
+    "title": "Day 8",
+    "section": "09.14-09.47: Continuing to check parameters",
+    "text": "09.14-09.47: Continuing to check parameters\n\n\n\n\n\n\nReflection\n\n\n\nWould’ve been handy if all parameters could have been mentioned in one place.\n\n\n\n\n\nParameter\nCode\nLocation in paper\nLocation in code\n\n\n\n\nLength of simulation: 1 hour\n✅ self.maxTime = 60\n4.3 Processing\nPODSimulation() __init__ in PodSimulation.py\n\n\nAt screening station, 1% go to med eval and 99% to dispensing. At med eval station, 99% got to dispensing and 1% exit POD\n❔ Can’t find\n4.1.1 Splits\n-\n\n\nNumber of forms per designee: 1 31.8%, 2 26.7%, 3 16.8%, 4 12.6%, 5 6.8%, 6 5.6%\n❔ throughput x 3.2 - so appears to be averaged to 3.2?\nTable 1\nplotting_ staff_ results.r\n\n\nService time line manager: triangular, minimum = 0.029, maximum = 0.039, mode = 0.044\n❌ time = random. triangular( low=5/60.0, high=92/60.0, mode=23/60.0). Low 5/60 = 0.0833. High 92/60 = 1.533. Mode 23/60 = 0.3833. There is one commented out which has… Low 1.77/60 = 0.0295. Higher 2.66/60 = 0.044. Mode 2.38/60 = 0.0397. This would match the article, except maximum and mode the other way round.\nTable 2\nvisit_greeter() in Customer.py\n\n\nService time screening: weibull, shape = 2.29, scale = 0.142\n✅ time = random. weibullvariate( alpha=0.142, beta=2.29 )\nTable 2\nvisit_screener() in Customer.py\n\n\nService time dispensing: weibull, shape = 1, scale = 0.311\n✅ time = random. weibullvariate( alpha=0.311, beta=1 )\nTable 2\nvisit_dispenser() in Customer.py\n\n\nService time medical evaluation: lognormal, logarithmic mean = 1.024, logarithmic stdev = 0.788\n✅ time = random. lognormvariate( mu=1.024, sigma=0.788 )\nTable 2\nvisit_medic() in Customer.py\n\n\nArrival rate 100 designess per minute per POD (following a Poisson distribution)\n❌ self.meanTBA = 1/200.0  #1/float(115)  #mean time between arrivals, minutes btw entities. This would mean 200 arrivals per minute, rather than 100.\n4.1.4 Arrival rate\nPODSimulation() __init__ in PodSimulation.py\n\n\nThree simulation runs\n🟡 This wasn’t the case when I first started, but have already been changing this\n4.3 Processing\nmain.py\n\n\nNumber of staff members per station - mentions examples of where “each station could have up to thirty staff members” or “for example 60”. We know it cannot be 30, but could reasonably assume to be 60\n🟡 This wasn’t the case when I first started, but I have already noticed and addressed, and fixed to 60.\n3 Problem and 4.3 Processing\nStaff Allocation Problem() in Staff Allocation Problem.py\n\n\nDefault crossover rate 1.0 and n=1\n✅ ea.variator = [variators. n_point_crossover] with variators imported from inspyred.ec, which can see from docs the default crossover rate is 1 and default number of crossover points is 1\n5 Experimental results\nnsga2.py\n\n\nExperiment 1: tri-objective model, population 100, generations 50, pre-screened scenarios 10%, 20%, 30%… 90%\n✅ As in the input files like 10-prescreened.txt\n4.1.1 Splits and Figure 5\nAs left\n\n\nExperiment 2: bi-objective model, population 50, generations 25, pre-screened scenarios 10%, 20%, 30%… 90%\nTBC\n4.1.1 Splits and Figure 7\n-\n\n\nExperiment 3: tri-objective model, pre-screened percentage ??, (a) 100 pop 50 gen (b) 200 pop 100 gen (c) 50 pop 25 gen\nTBCNote: Where I am unsure of pre-screened percentage here, I presume it might be default from code which, if parameterReader == None, then self. preScreened Percentage = 0.1\n5.3 Experiment 3 and Figure 8\n-PODSimulation() __init__ in PodSimulation.py\n\n\nExperiment 4: tri-objective model, maximum line managers 1, 2 or 3\nTBC\n5.4 Experiment 4 and Figure 9\n-\n\n\nExperiment 5: 6 dispensing, 6 screening, 4 line manager, one medical evaluator, number of replications 1-7\nTBC\n5.5 Experiment 5 and Figure 10\n-\n\n\n\nReflections on discrepancies (❌): Big difference in the line manager service times - this might explain it! Will start with this, but could then try some of the others? Wary of trying all at once, as always hard to know what might be right - the code or the article. Will run 100pop 5gen 1 run."
   },
   {
-    "objectID": "logbook/posts/2024_10_01/index.html#expanding-boundaries-further",
-    "href": "logbook/posts/2024_10_01/index.html#expanding-boundaries-further",
-    "title": "Day 7",
-    "section": "12.07-12.14, 15.54-16.01: Expanding boundaries further",
-    "text": "12.07-12.14, 15.54-16.01: Expanding boundaries further\nI tried running with boundaries of 1-100 (rather than 1-60). Ran 100 population 5 generation 1 run.\nAlthough this gets a more similar Y axis, the number of staff members became too high (so X axis becomes wrong), so that is not the solution.\n\nFigure 6 (just showing forms &gt; 10500)"
+    "objectID": "logbook/posts/2024_10_02/index.html#corrected-line-manager-service-times",
+    "href": "logbook/posts/2024_10_02/index.html#corrected-line-manager-service-times",
+    "title": "Day 8",
+    "section": "13.15-13.25: Corrected line manager service times",
+    "text": "13.15-13.25: Corrected line manager service times\nThis took 210 minutes to run (3 hours and a half). The Y axis of Figure 5 is now much higher - in fact, too high!\nFigure 5:\n\nFigure 6, filtered to just the throughouput in the range of those plot in the article:\n\nI tried switching to 10pop 1 gen 1run, just to confirm if it gives results with similar range, as if so, that’s much quicker for trying out different changes, but these looked rather different!\nRun time: 6 minutes\nThese looked quite different though, so will need to run with a bit more…\nFigure 5:\n\nFigure 6:"
   },
   {
-    "objectID": "logbook/posts/2024_10_01/index.html#checking-other-parameters",
-    "href": "logbook/posts/2024_10_01/index.html#checking-other-parameters",
-    "title": "Day 7",
-    "section": "16.02-16.28, 16.42-16.54: Checking other parameters",
-    "text": "16.02-16.28, 16.42-16.54: Checking other parameters\nI set the boundaries back to 1-60 (as that gave the correct range of staff members for Figures 5 and 6).\nLooking at Figure 6 in the article, the number of line managers was always fairly low, but I find that to be as high as dispensers - although, in Table 4 (which is a sample of results) they likewise find high numbers of line managers.\nI decided to go back over the paper, identifying all the model parameters mentioned, and make sure I could find these in the code and confirm they matched the paper.\nI returned to this the following day, so please refer to subsequent logbook for results."
+    "objectID": "logbook/posts/2024_10_02/index.html#adding-parallel-processing",
+    "href": "logbook/posts/2024_10_02/index.html#adding-parallel-processing",
+    "title": "Day 8",
+    "section": "13.26-13.35, 13.44-14.03, 15.17-15.21: Adding parallel processing",
+    "text": "13.26-13.35, 13.44-14.03, 15.17-15.21: Adding parallel processing\nI tried switching the loop in Experiment1.py into a parallel loop, to speed up the run time.\nFirst, I just changed it to a function with a loop.\nI ran this with the same parameters as above (10 pop 1 gen 1 run) to confirm the results didn’t change at all due to the parallel processing and, indeed, they remained the same, so this is successfully implemented. The only change was - as expected - to the times files, which is now a single file.\nRun time: 6 minutes\nI then adjusted the loop to use parallel processing (with multiprocessing Pool). This required the old syntax (i.e. not the with() statement).\nRun time: 55 seconds\n\n\n\n\n\n\nReflection\n\n\n\nThe pre-existing seed control and way the code was structured made it really easy to implement this.\n\n\nI then tried running with 50 pop 25 gen 1 run, as they used that for Figure 7 (though 3 runs) so it should be similar.\nRun time: 57 minutes\n\n\nI realised then that that had just as much impact on the y axis as anything else! Hence, I figured best plan of action would be to run as is with 100 pop 50 gen 1 run, and see how that looks. Then, if that doesn’t look right, try tweaking with parameters identified in table above."
   },
   {
-    "objectID": "logbook/posts/2024_10_01/index.html#timings",
-    "href": "logbook/posts/2024_10_01/index.html#timings",
-    "title": "Day 7",
+    "objectID": "logbook/posts/2024_10_02/index.html#timings",
+    "href": "logbook/posts/2024_10_02/index.html#timings",
+    "title": "Day 8",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 547\n\n# Times from today\ntimes = [\n    ('09.15', '09.17'),\n    ('11.40', '11.45'),\n    ('12.07', '12.14'),\n    ('15.54', '16.01'),\n    ('16.02', '16.28'),\n    ('16.42', '16.54')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 59m, or 0h 59m\nTotal used to date: 606m, or 10h 6m\nTime remaining: 1794m, or 29h 54m\nUsed 25.2% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 606\n\n# Times from today\ntimes = [\n    ('09.14', '09.47'),\n    ('13.15', '13.25'),\n    ('13.26', '13.35'),\n    ('13.44', '14.03'),\n    ('15.17', '15.21')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 75m, or 1h 15m\nTotal used to date: 681m, or 11h 21m\nTime remaining: 1719m, or 28h 39m\nUsed 28.4% of 40 hours max"
   },
   {
-    "objectID": "logbook/posts/2024_09_26/index.html",
-    "href": "logbook/posts/2024_09_26/index.html",
-    "title": "Day 4",
+    "objectID": "logbook/posts/2024_09_27/index.html",
+    "href": "logbook/posts/2024_09_27/index.html",
+    "title": "Day 5",
     "section": "",
-    "text": "Note\n\n\n\nCreated Figures 5 and 6 from mini-run, and started trying to setup to run on remote machine. Total time used: 6h 26m (16.1%)"
+    "text": "Note\n\n\n\nRunning one scenario (of nine from experiment 1) with 100 generations 50 populations 3 runs, which took 5 and a half hours, but results do not match. Total time used: 6h 50m (17.1%)"
   },
   {
-    "objectID": "logbook/posts/2024_09_26/index.html#run-and-plot-all-9-scenarios-from-experiment-1-with-mini-version-of-parameters",
-    "href": "logbook/posts/2024_09_26/index.html#run-and-plot-all-9-scenarios-from-experiment-1-with-mini-version-of-parameters",
-    "title": "Day 4",
-    "section": "09.08-09.22, 09.32-09.46: Run and plot all 9 scenarios from experiment 1, with mini version of parameters",
-    "text": "09.08-09.22, 09.32-09.46: Run and plot all 9 scenarios from experiment 1, with mini version of parameters\nModified main.py into Experiment1.py. Changed so it saves the time for each experiment run to txt (as important to record this, but could potentially get lost if just print to screen, when we start running larger numbers).\nRan all with 10 population and 1 generation. Wrote code to identify and loop through importing the results from experiment1/ folder.\n\n\n\nFigure 5 from 10 pop 1 gen"
+    "objectID": "logbook/posts/2024_09_27/index.html#resuming-attempt-to-run-on-remote-machine",
+    "href": "logbook/posts/2024_09_27/index.html#resuming-attempt-to-run-on-remote-machine",
+    "title": "Day 5",
+    "section": "09.51-09.57, 10.52-10.55, 11.00-11.06: Resuming attempt to run on remote machine",
+    "text": "09.51-09.57, 10.52-10.55, 11.00-11.06: Resuming attempt to run on remote machine\nAs left off yesterday, getting error:\n...\n13, in &lt;module&gt;\n    import ExperimentRunner\n  File \"ExperimentRunner.py\", line 15, in &lt;module&gt;\n    import SimulatorRunner\n  File \"SimulatorRunner.py\", line 11, in &lt;module&gt;\n    import PODSimulation\n  File \"PODSimulation.py\", line 13, in &lt;module&gt;\n    import SimPy.SimPlot as simplot\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py\", line 68, in &lt;module&gt;\n    class SimPlot(object):\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py\", line 69, in SimPlot\n    def __init__(self, root = Tk()):\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/lib-tk/Tkinter.py\", line 1815, in __init__\n    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)\n_tkinter.TclError: no display name and no $DISPLAY environment variable\nThis is related to import of simpy.simplot, but as simplot isn’t used anywhere, I tried commenting out this import in PODSimulation.py. This resolved the error!\nThe original was population 100 and 50 generations. I anticipate this will be very long, so working up to it…\n10 population, 1 generation: just a few minutes\n \n100 population, 1 generation: 37 minutes\n \nBut seems will be important to try and run with the full version - particularly as Figure 9 is an experiment of that impact of that.\nAlso realised that default in script was runs=1 but paper mentions they “perform three simulation runs to obtain reliable estimates”."
   },
   {
-    "objectID": "logbook/posts/2024_09_26/index.html#re-ran-to-confirm-that-results-were-consistent-between-runs",
-    "href": "logbook/posts/2024_09_26/index.html#re-ran-to-confirm-that-results-were-consistent-between-runs",
-    "title": "Day 4",
-    "section": "09.47-09.48, 10.00-10.05: Re-ran to confirm that results were consistent between runs",
-    "text": "09.47-09.48, 10.00-10.05: Re-ran to confirm that results were consistent between runs\nThis was to check that provided seeds ensured consistency. At the same time, tweaked how time was output. Indeed, consistent between runs, which is great and really helpful that this was already set up by the author.\nTotal run time for the 9 scenarios was 7 minutes."
+    "objectID": "logbook/posts/2024_09_27/index.html#results-from-pre-screen-10-with-full-set-up",
+    "href": "logbook/posts/2024_09_27/index.html#results-from-pre-screen-10-with-full-set-up",
+    "title": "Day 5",
+    "section": "16.40-16.49: Results from pre-screen 10 with full set-up",
+    "text": "16.40-16.49: Results from pre-screen 10 with full set-up\nWith 100 population, 50 generation and 3 runs, I only had time to run one scenario on the remote machine. It took 327 minutes, or 5.45 hours.\nResults alongside/combined with 1 gen results:\n \nResults from 50 gen alone:\n \nUnfortunately though, the results from the run with popuation 100 50 generation 3 run for pre-screen 10 do not look the same as those in the paper - with fewer points, and very different X and Y axises. I’m presuming it would be worth double-checking parameters for the model are correct."
   },
   {
-    "objectID": "logbook/posts/2024_09_26/index.html#creating-figure-6",
-    "href": "logbook/posts/2024_09_26/index.html#creating-figure-6",
-    "title": "Day 4",
-    "section": "11.48-12.00, 13.11-13.37: Creating Figure 6",
-    "text": "11.48-12.00, 13.11-13.37: Creating Figure 6\nThere is some code in plotting_staff_results.r for “barplot staff, stratified by prescreened”, which appears relevant to Figure 6.\nI installed reshape2 to melt the data.\nAs before, this function gave a great starting point to get matching figure, although it did require more work this time to get it more similar to the article.\n\nChanging facet wrap to throughput\nArticle appears to plot ascending throughput, and perhaps a subsample\nWhen add fill colour by pre-screen, realise that it’s including multiple rows in the same plot. This doesn’t appear to be the case in the original. They also don’t have any consecutive graphs with the same throughput. Hence, it appears I’d maybe need to remove duplicates with same throughput? I tried this and it looked like it maybe is heading in the right direction\n\n\n\n\nFigure 6 from 10 pop 1 gen"
-  },
-  {
-    "objectID": "logbook/posts/2024_09_26/index.html#running-on-remote-machine",
-    "href": "logbook/posts/2024_09_26/index.html#running-on-remote-machine",
-    "title": "Day 4",
-    "section": "14.30-14.47: Running on remote machine",
-    "text": "14.30-14.47: Running on remote machine\nCloned and built environment on remote machine (more computational power than my local machine, but not HPC). Had to install conda -\nwget https://repo.anaconda.com/miniconda/Miniconda3-py39_24.7.1-0-Linux-x86_64.sh\nbash Miniconda3-py39_24.7.1-0-Linux-x86_64.sh\nsource ~/miniconda3/bin/activate\nconda activate hernandez2015\npython -m Experiment1\nHowever, this had an error:\n...\n13, in &lt;module&gt;\n    import ExperimentRunner\n  File \"ExperimentRunner.py\", line 15, in &lt;module&gt;\n    import SimulatorRunner\n  File \"SimulatorRunner.py\", line 11, in &lt;module&gt;\n    import PODSimulation\n  File \"PODSimulation.py\", line 13, in &lt;module&gt;\n    import SimPy.SimPlot as simplot\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py\", line 68, in &lt;module&gt;\n    class SimPlot(object):\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py\", line 69, in SimPlot\n    def __init__(self, root = Tk()):\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/lib-tk/Tkinter.py\", line 1815, in __init__\n    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)\n_tkinter.TclError: no display name and no $DISPLAY environment variable\nThis is likely related to me working in a terminal-only set-up, with Tkinter wanting access to a display for GUI operations. echo $DISPLAY returned blank. Tried setting to export DISPLAY=:0.0 but then just an error _tkinter.TclError: couldn't connect to display \":0.0\"."
-  },
-  {
-    "objectID": "logbook/posts/2024_09_26/index.html#timings",
-    "href": "logbook/posts/2024_09_26/index.html#timings",
-    "title": "Day 4",
+    "objectID": "logbook/posts/2024_09_27/index.html#timings",
+    "href": "logbook/posts/2024_09_27/index.html#timings",
+    "title": "Day 5",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 297\n\n# Times from today\ntimes = [\n    ('09.08', '09.22'),\n    ('09.32', '09.46'),\n    ('09.47', '09.48'),\n    ('10.00', '10.05'),\n    ('11.48', '12.00'),\n    ('13.11', '13.37'),\n    ('14.30', '14.47')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 89m, or 1h 29m\nTotal used to date: 386m, or 6h 26m\nTime remaining: 2014m, or 33h 34m\nUsed 16.1% of 40 hours max"
-  },
-  {
-    "objectID": "logbook/posts/2024_09_20/index.html",
-    "href": "logbook/posts/2024_09_20/index.html",
-    "title": "Day 1",
-    "section": "",
-    "text": "Note\n\n\n\nSet-up repository, read article and proposed scope. Total time used: 0h 47m (2.0%)"
-  },
-  {
-    "objectID": "logbook/posts/2024_09_20/index.html#previously-contacted-the-authors",
-    "href": "logbook/posts/2024_09_20/index.html#previously-contacted-the-authors",
-    "title": "Day 1",
-    "section": "Previously: Contacted the authors",
-    "text": "Previously: Contacted the authors\nContacted Ivan Hernandez over LinkedIn, who kindly add an MIT license to the repository to enable reuse."
-  },
-  {
-    "objectID": "logbook/posts/2024_09_20/index.html#set-up-repository",
-    "href": "logbook/posts/2024_09_20/index.html#set-up-repository",
-    "title": "Day 1",
-    "section": "14.38-14.52: Set-up repository",
-    "text": "14.38-14.52: Set-up repository\n\nCreated repository from template\nSet up environment\nModified template files:\n\nREADME.md\nquarto site index.qmd\nCITATION.cff\n_quarto.yml\n\nSet up site on GitHub pages (quarto publish gh-pages)"
-  },
-  {
-    "objectID": "logbook/posts/2024_09_20/index.html#upload-code-to-repository",
-    "href": "logbook/posts/2024_09_20/index.html#upload-code-to-repository",
-    "title": "Day 1",
-    "section": "14.57-14.58: Upload code to repository",
-    "text": "14.57-14.58: Upload code to repository\nThe code is available at https://github.com/ivihernandez/staff-allocation/tree/master. It is licensed under an MIT license."
-  },
-  {
-    "objectID": "logbook/posts/2024_09_20/index.html#upload-journal-article-and-artefacts",
-    "href": "logbook/posts/2024_09_20/index.html#upload-journal-article-and-artefacts",
-    "title": "Day 1",
-    "section": "15.00-15.08: Upload journal article and artefacts",
-    "text": "15.00-15.08: Upload journal article and artefacts\nThe published article with the journal “Computers & Industrial Engineering” at https://www.sciencedirect.com/science/article/pii/S0360835215000728 does not appear to have the rights to share the full article or reuse images.\nThe abstract is shared at ACM Digital Library and the Stevens Institute but both link to the journal website, with neither containing a green open-access version."
-  },
-  {
-    "objectID": "logbook/posts/2024_09_20/index.html#read-the-article-and-defined-scope",
-    "href": "logbook/posts/2024_09_20/index.html#read-the-article-and-defined-scope",
-    "title": "Day 1",
-    "section": "15.10-15.34: Read the article and defined scope",
-    "text": "15.10-15.34: Read the article and defined scope\nRead the article and identified what I think the scope of the reproduction to be. Outlined this on the scope quarto page then forwarded to Tom for review."
-  },
-  {
-    "objectID": "logbook/posts/2024_09_20/index.html#timings",
-    "href": "logbook/posts/2024_09_20/index.html#timings",
-    "title": "Day 1",
-    "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 0\n\n# Times from today\ntimes = [\n    ('14.38', '14.52'),\n    ('14.57', '14.58'),\n    ('15.00', '15.08'),\n    ('15.10', '15.34')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 47m, or 0h 47m\nTotal used to date: 47m, or 0h 47m\nTime remaining: 2353m, or 39h 13m\nUsed 2.0% of 40 hours max"
-  },
-  {
-    "objectID": "quarto_site/study_publication.html",
-    "href": "quarto_site/study_publication.html",
-    "title": "Publication",
-    "section": "",
-    "text": "Hernandez et al. (2015)"
-  },
-  {
-    "objectID": "quarto_site/study_publication.html#code-and-data",
-    "href": "quarto_site/study_publication.html#code-and-data",
-    "title": "Publication",
-    "section": "Code and data",
-    "text": "Code and data\nView at: https://github.com/ivihernandez/staff-allocation/tree/master"
-  },
-  {
-    "objectID": "quarto_site/study_publication.html#journal-article",
-    "href": "quarto_site/study_publication.html#journal-article",
-    "title": "Publication",
-    "section": "Journal article",
-    "text": "Journal article\nThe article does not provide permissions to reshare, so cannot be uploaded.\nIf you wish to view this article, please navigate to: https://doi.org/10.1016/j.cie.2015.02.015."
-  },
-  {
-    "objectID": "evaluation/scope.html",
-    "href": "evaluation/scope.html",
-    "title": "Scope",
-    "section": "",
-    "text": "This page outlines the parts of the journal article which we will attempt to reproduce from Hernandez et al. (2015). The journal does not give permission for upload and reuse of images, so you should refer to the article online to view these."
-  },
-  {
-    "objectID": "evaluation/scope.html#within-scope",
-    "href": "evaluation/scope.html#within-scope",
-    "title": "Scope",
-    "section": "Within scope",
-    "text": "Within scope\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n“Fig. 5. Pareto fronts for tri-objective Model (2). Experiments were run with a population of 100 and 50 generations. The computational time for obtaining each Pareto front was 6.5 h. The title of each grid corresponds to the percentage of Pre-Screened Designees.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 6\n\n\n\n\n\n“Fig. 6. Stafﬁng levels of a sample of solutions. The Dispensing Station needs more resources regardless of the percentage of Pre-Screened Designees. The title of each grid represents the throughput of the solution in forms per hour.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 7\n\n\n\n\n\n“Fig. 7. Pareto fronts for bi-objective Model (2). Experiments were run with a population of 50 and for 25 generations. The computational time for each Pareto was 1.6 h. The title of each grid corresponds to the percentage of Pre-Screened Designees.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 8\n\n\n\n\n\n“Fig. 8. Pareto fronts for analyzing the impact of the population and generations parameters. Each grid has two numbers in parenthesis: the population size and the number of generations. The objectives are: minimize waiting time, maximize throughput and minimize staff members.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 9\n\n\n\n\n\n“Fig. 9. Pareto fronts for analyzing the impact of constraining the maximum number of Line Managers. The name of each grid corresponds to the maximum number of Line Managers allowed.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 10\n\n\n\n\n\n“Fig. 10. Impact of replications of the Discrete Event Simulation for modeling the movement of Designees inside the PODs.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n“Table 3 Conﬁdence intervals. Waiting times are in minutes.” Hernandez et al. (2015)\nScope: To reproduce the Python columns, but not relevant to reproduce the Arena columns.\n\n\n\n\n\n\n\n\n\nTable 4\n\n\n\n\n\n“Table 4 Stafﬁng levels and associated throughput.” Hernandez et al. (2015)"
-  },
-  {
-    "objectID": "evaluation/scope.html#outside-scope",
-    "href": "evaluation/scope.html#outside-scope",
-    "title": "Scope",
-    "section": "Outside scope",
-    "text": "Outside scope\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n“Fig. 1. Illustration of the concept of Pareto Efﬁciency. Blue points are non- dominated (i.e. efﬁcient) and red points are dominated. For example, point a is dominated because there is another point with the same number of staff members but with higher throughput (indicated by the dashed line). With the Pareto front decision makers can select the trade-off solution that best meets their criteria. (For interpretation of the references to color in this ﬁgure legend, the reader is referred to the web version of this article.)” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 1\n\n\n\n\n\n“Table 1 Number of forms per Designee.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n“Fig. 2. Architecture of the simulation. There are four inputs (left), one control parameter (top) and three outputs (right). The objective of the simulation is to change the stafﬁng levels (control parameter) in order to explore the trade-off solutions.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 3\n\n\n\n\n\n“Fig. 3. Systems architecture of the proposed framework. There are three main components: a custom program based on Python that performs the optimization (top left), an Arena (http://www.arenasimulation.com/) model used to verify the results obtained by the Python program (top right) and an R program used to generate publication quality plots of the results (bottom).” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n“Fig. 4. Network representation of the ﬂow of Designees inside the POD. Designees follow one of the multiple paths inside the POD.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 2\n\n\n\n\n\n“Table 2 Service time.” Hernandez et al. (2015)"
-  },
-  {
-    "objectID": "evaluation/reflections.html",
-    "href": "evaluation/reflections.html",
-    "title": "Reflections",
-    "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nThis page contains reflections on the facilitators and barriers to this reproduction, as well as a full list of the troubleshooting steps taken to reproduce this work."
-  },
-  {
-    "objectID": "evaluation/reflections.html#what-would-have-helped-facilitate-this-reproduction",
-    "href": "evaluation/reflections.html#what-would-have-helped-facilitate-this-reproduction",
-    "title": "Reflections",
-    "section": "What would have helped facilitate this reproduction?",
-    "text": "What would have helped facilitate this reproduction?"
-  },
-  {
-    "objectID": "evaluation/reflections.html#full-list-of-troubleshooting-steps",
-    "href": "evaluation/reflections.html#full-list-of-troubleshooting-steps",
-    "title": "Reflections",
-    "section": "Full list of troubleshooting steps",
-    "text": "Full list of troubleshooting steps\n\n\n\n\n\n\nView list\n\n\n\n\n\nTroubleshooting steps are grouped by theme, and the day these occurred is given in brackets at the end of each bullet."
-  },
-  {
-    "objectID": "evaluation/artefacts.html",
-    "href": "evaluation/artefacts.html",
-    "title": "STARS framework",
-    "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nThis page evaluates the extent to which the original study meets the recommendations from the STARS framework for the sharing of code and associated materials from discrete-event simulation models (Monks, Harper, and Mustafee (2024)).\nOf the 8 essential STARS components:\n\n\nX were met fully (✅)\nX was met partially (🟡)\nX was not met (❌)\n\nOf the 5 optional STARS components:\n\n\nX was met fully (✅)\nX were not met (❌)\n\n\n\n\n\n\n\n\n\n\n\nComponent\nDescription\nMet by study?\nEvidence/location\n\n\n\n\nEssential components\n\n\n\n\n\nOpen license\nFree and open-source software (FOSS) license (e.g. MIT, GNU Public License (GPL))\n\n\n\n\nDependency management\nSpecify software libraries, version numbers and sources (e.g. dependency management tools like virtualenv, conda, poetry)\n\n\n\n\nFOSS model\nCoded in FOSS language (e.g. R, Julia, Python)\n\n\n\n\nMinimum documentation\nMinimal instructions (e.g. in README) that overview (a) what model does, (b) how to install and run model to obtain results, and (c) how to vary parameters to run new experiments\n\n\n\n\nORCID\nORCID for each study author\n\n\n\n\nCitation information\nInstructions on how to cite the research artefact (e.g. CITATION.cff file)\n\n\n\n\nRemote code repository\nCode available in a remote code repository (e.g. GitHub, GitLab, BitBucket)\n\n\n\n\nOpen science archive\nCode stored in an open science archive with FORCE11 compliant citation and guaranteed persistance of digital artefacts (e.g. Figshare, Zenodo, the Open Science Framework (OSF), and the Computational Modeling in the Social and Ecological Sciences Network (CoMSES Net))\n\n\n\n\nOptional components\n\n\n\n\n\nEnhanced documentation\nOpen and high quality documentation on how the model is implemented and works (e.g. via notebooks and markdown files, brought together using software like Quarto and Jupyter Book). Suggested content includes:• Plain english summary of project and model• Clarifying license• Citation instructions• Contribution instructions• Model installation instructions• Structured code walk through of model• Documentation of modelling cycle using TRACE• Annotated simulation reporting guidelines• Clear description of model validation including its intended purpose\n\n\n\n\nDocumentation hosting\nHost documentation (e.g. with GitHub pages, GitLab pages, BitBucket Cloud, Quarto Pub)\n\n\n\n\nOnline coding environment\nProvide an online environment where users can run and change code (e.g. BinderHub, Google Colaboratory, Deepnote)\n\n\n\n\nModel interface\nProvide web application interface to the model so it is accessible to less technical simulation users\n\n\n\n\nWeb app hosting\nHost web app online (e.g. Streamlit Community Cloud, ShinyApps hosting)\n\n\n\n\n\n\n\n\n\nReferences\n\nMonks, Thomas, Alison Harper, and Navonil Mustafee. 2024. “Towards Sharing Tools and Artefacts for Reusable Simulations in Healthcare.” Journal of Simulation 0 (0): 1–20. https://doi.org/10.1080/17477778.2024.2347882."
-  },
-  {
-    "objectID": "evaluation/reporting.html",
-    "href": "evaluation/reporting.html",
-    "title": "Reporting guidelines",
-    "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nThis page evaluates the extent to which the journal article meets the criteria from two discrete-event simulation study reporting guidelines:"
-  },
-  {
-    "objectID": "evaluation/reporting.html#stress-des",
-    "href": "evaluation/reporting.html#stress-des",
-    "title": "Reporting guidelines",
-    "section": "STRESS-DES",
-    "text": "STRESS-DES\nOf the 24 items in the checklist:\n\n\nX were met fully (✅)\nX were partially met (🟡)\nX were not met (❌)\nX were not applicable (N/A)\n\n\n\n\n\n\n\n\n\n\n\nItem\nRecommendation\nMet by study?\nEvidence\n\n\n\n\nObjectives\n\n\n\n\n\n1.1 Purpose of the model\nExplain the background and objectives for the model\n\n\n\n\n1.2 Model outputs\nDefine all quantitative performance measures that are reported, using equations where necessary. Specify how and when they are calculated during the model run along with how any measures of error such as confidence intervals are calculated.\n\n\n\n\n1.3 Experimentation aims\nIf the model has been used for experimentation, state the objectives that it was used to investigate.(A) Scenario based analysis – Provide a name and description for each scenario, providing a rationale for the choice of scenarios and ensure that item 2.3 (below) is completed.(B) Design of experiments – Provide details of the overall design of the experiments with reference to performance measures and their parameters (provide further details in data below).(C) Simulation Optimisation – (if appropriate) Provide full details of what is to be optimised, the parameters that were included and the algorithm(s) that was be used. Where possible provide a citation of the algorithm(s).\n\n\n\n\nLogic\n\n\n\n\n\n2.1 Base model overview diagram\nDescribe the base model using appropriate diagrams and description. This could include one or more process flow, activity cycle or equivalent diagrams sufficient to describe the model to readers. Avoid complicated diagrams in the main text. The goal is to describe the breadth and depth of the model with respect to the system being studied.\n\n\n\n\n2.2 Base model logic\nGive details of the base model logic. Give additional model logic details sufficient to communicate to the reader how the model works.\n\n\n\n\n2.3 Scenario logic\nGive details of the logical difference between the base case model and scenarios (if any). This could be incorporated as text or where differences are substantial could be incorporated in the same manner as 2.2.\n\n\n\n\n2.4 Algorithms\nProvide further detail on any algorithms in the model that (for example) mimic complex or manual processes in the real world (i.e. scheduling of arrivals/ appointments/ operations/ maintenance, operation of a conveyor system, machine breakdowns, etc.). Sufficient detail should be included (or referred to in other published work) for the algorithms to be reproducible. Pseudo-code may be used to describe an algorithm.\n\n\n\n\n2.5.1 Components - entities\nGive details of all entities within the simulation including a description of their role in the model and a description of all their attributes.\n\n\n\n\n2.5.2 Components - activities\nDescribe the activities that entities engage in within the model. Provide details of entity routing into and out of the activity.\n\n\n\n\n2.5.3 Components - resources\nList all the resources included within the model and which activities make use of them.\n\n\n\n\n2.5.4 Components - queues\nGive details of the assumed queuing discipline used in the model (e.g. First in First Out, Last in First Out, prioritisation, etc.). Where one or more queues have a different discipline from the rest, provide a list of queues, indicating the queuing discipline used for each. If reneging, balking or jockeying occur, etc., provide details of the rules. Detail any delays or capacity constraints on the queues.\n\n\n\n\n2.5.5 Components - entry/exit points\nGive details of the model boundaries i.e. all arrival and exit points of entities. Detail the arrival mechanism (e.g. ‘thinning’ to mimic a non-homogenous Poisson process or balking)\n\n\n\n\nData\n\n\n\n\n\n3.1 Data sources\nList and detail all data sources. Sources may include:• Interviews with stakeholders,• Samples of routinely collected data,• Prospectively collected samples for the purpose of the simulation study,• Public domain data published in either academic or organisational literature. Provide, where possible, the link and DOI to the data or reference to published literature.All data source descriptions should include details of the sample size, sample date ranges and use within the study.\n\n\n\n\n3.2 Pre-processing\nProvide details of any data manipulation that has taken place before its use in the simulation, e.g. interpolation to account for missing data or the removal of outliers.\n\n\n\n\n3.3 Input parameters\nList all input variables in the model. Provide a description of their use and include parameter values. For stochastic inputs provide details of any continuous, discrete or empirical distributions used along with all associated parameters. Give details of all time dependent parameters and correlation.Clearly state:• Base case data• Data use in experimentation, where different from the base case.• Where optimisation or design of experiments has been used, state the range of values that parameters can take.• Where theoretical distributions are used, state how these were selected and prioritised above other candidate distributions.\n\n\n\n\n3.4 Assumptions\nWhere data or knowledge of the real system is unavailable what assumptions are included in the model? This might include parameter values, distributions or routing logic within the model.\n\n\n\n\nExperimentation\n\n\n\n\n\n4.1 Initialisation\nReport if the system modelled is terminating or non-terminating. State if a warm-up period has been used, its length and the analysis method used to select it. For terminating systems state the stopping condition.State what if any initial model conditions have been included, e.g., pre-loaded queues and activities. Report whether initialisation of these variables is deterministic or stochastic.\n\n\n\n\n4.2 Run length\nDetail the run length of the simulation model and time units.\n\n\n\n\n4.3 Estimation approach\nState the method used to account for the stochasticity: For example, two common methods are multiple replications or batch means. Where multiple replications have been used, state the number of replications and for batch means, indicate the batch length and whether the batch means procedure is standard, spaced or overlapping. For both procedures provide a justification for the methods used and the number of replications/size of batches.\n\n\n\n\nImplementation\n\n\n\n\n\n5.1 Software or programming language\nState the operating system and version and build number.State the name, version and build number of commercial or open source DES software that the model is implemented in.State the name and version of general-purpose programming languages used (e.g. Python 3.5).Where frameworks and libraries have been used provide all details including version numbers.\n\n\n\n\n5.2 Random sampling\nState the algorithm used to generate random samples in the software/programming language used e.g. Mersenne Twister.If common random numbers are used, state how seeds (or random number streams) are distributed among sampling processes.\n\n\n\n\n5.3 Model execution\nState the event processing mechanism used e.g. three phase, event, activity, process interaction.Note that in some commercial software the event processing mechanism may not be published. In these cases authors should adhere to item 5.1 software recommendations.State all priority rules included if entities/activities compete for resources.If the model is parallel, distributed and/or use grid or cloud computing, etc., state and preferably reference the technology used. For parallel and distributed simulations the time management algorithms used. If the HLA is used then state the version of the standard, which run-time infrastructure (and version), and any supporting documents (FOMs, etc.)\n\n\n\n\n5.4 System specification\nState the model run time and specification of hardware used. This is particularly important for large scale models that require substantial computing power. For parallel, distributed and/or use grid or cloud computing, etc. state the details of all systems used in the implementation (processors, network, etc.)\n\n\n\n\nCode access\n\n\n\n\n\n6.1 Computer model sharing statement\nDescribe how someone could obtain the model described in the paper, the simulation software and any other associated software (or hardware) needed to reproduce the results. Provide, where possible, the link and DOIs to these."
-  },
-  {
-    "objectID": "evaluation/reporting.html#des-checklist-derived-from-ispor-sdm",
-    "href": "evaluation/reporting.html#des-checklist-derived-from-ispor-sdm",
-    "title": "Reporting guidelines",
-    "section": "DES checklist derived from ISPOR-SDM",
-    "text": "DES checklist derived from ISPOR-SDM\nOf the 18 items in the checklist:\n\n\nX were met fully (✅)\nX were partially met (🟡)\nX were not met (❌)\nX were not applicable (N/A)\n\n\n\n\n\n\n\n\n\n\n\nItem\nAssessed if…\nMet by study?\nEvidence/location\n\n\n\n\nModel conceptualisation\n\n\n\n\n\n1 Is the focused health-related decision problem clarified?\n…the decision problem under investigation was defined. DES studies included different types of decision problems, eg, those listed in previously developed taxonomies.\n\n\n\n\n2 Is the modeled healthcare setting/health condition clarified?\n…the physical context/scope (eg, a certain healthcare unit or a broader system) or disease spectrum simulated was described.\n\n\n\n\n3 Is the model structure described?\n…the model’s conceptual structure was described in the form of either graphical or text presentation.\n\n\n\n\n4 Is the time horizon given?\n…the time period covered by the simulation was reported.\n\n\n\n\n5 Are all simulated strategies/scenarios specified?\n…the comparators under test were described in terms of their components, corresponding variations, etc\n\n\n\n\n6 Is the target population described?\n…the entities simulated and their main attributes were characterized.\n\n\n\n\nParamaterisation and uncertainty assessment\n\n\n\n\n\n7 Are data sources informing parameter estimations provided?\n…the sources of all data used to inform model inputs were reported.\n\n\n\n\n8 Are the parameters used to populate model frameworks specified?\n…all relevant parameters fed into model frameworks were disclosed.\n\n\n\n\n9 Are model uncertainties discussed?\n…the uncertainty surrounding parameter estimations and adopted statistical methods (eg, 95% confidence intervals or possibility distributions) were reported.\n\n\n\n\n10 Are sensitivity analyses performed and reported?\n…the robustness of model outputs to input uncertainties was examined, for example via deterministic (based on parameters’ plausible ranges) or probabilistic (based on a priori-defined probability distributions) sensitivity analyses, or both.\n\n\n\n\nValidation\n\n\n\n\n\n11 Is face validity evaluated and reported?\n…it was reported that the model was subjected to the examination on how well model designs correspond to the reality and intuitions. It was assumed that this type of validation should be conducted by external evaluators with no stake in the study.\n\n\n\n\n12 Is cross validation performed and reported\n…comparison across similar modeling studies which deal with the same decision problem was undertaken.\n\n\n\n\n13 Is external validation performed and reported?\n…the modeler(s) examined how well the model’s results match the empirical data of an actual event modeled.\n\n\n\n\n14 Is predictive validation performed or attempted?\n…the modeler(s) examined the consistency of a model’s predictions of a future event and the actual outcomes in the future. If this was not undertaken, it was assessed whether the reasons were discussed.\n\n\n\n\nGeneralisability and stakeholder involvement\n\n\n\n\n\n15 Is the model generalizability issue discussed?\n…the modeler(s) discussed the potential of the resulting model for being applicable to other settings/populations (single/multiple application).\n\n\n\n\n16 Are decision makers or other stakeholders involved in modeling?\n…the modeler(s) reported in which part throughout the modeling process decision makers and other stakeholders (eg, subject experts) were engaged.\n\n\n\n\n17 Is the source of funding stated?\n…the sponsorship of the study was indicated.\n\n\n\n\n18 Are model limitations discussed?\n…limitations of the assessed model, especially limitations of interest to decision makers, were discussed."
-  },
-  {
-    "objectID": "logbook/logbook.html",
-    "href": "logbook/logbook.html",
-    "title": "Logbook",
-    "section": "",
-    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 10\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 4, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 9\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 3, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 8\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 2, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 7\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 1, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 6\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 30, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 5\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 27, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 4\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 26, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 3\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 25, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\nscope\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 24, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\nread\n\n\nscope\n\n\n\n\n\n\n\n\n\nSep 20, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "evaluation/reproduction_report.html",
-    "href": "evaluation/reproduction_report.html",
-    "title": "Summary report",
-    "section": "",
-    "text": "Please note: This is a template page and has not yet been completed"
-  },
-  {
-    "objectID": "evaluation/reproduction_report.html#study",
-    "href": "evaluation/reproduction_report.html#study",
-    "title": "Summary report",
-    "section": "Study",
-    "text": "Study\n\n[Authors]. [Title]. [Journal] [Volume], [Edition] ([Year]). &lt;[URL]&gt;.\n\n[Paragraph summarising model]"
-  },
-  {
-    "objectID": "evaluation/reproduction_report.html#computational-reproducibility",
-    "href": "evaluation/reproduction_report.html#computational-reproducibility",
-    "title": "Summary report",
-    "section": "Computational reproducibility",
-    "text": "Computational reproducibility\nSuccessfully reproduced X out of X (X%) of items from the scope in Xh Xm (X%).\nRequired troubleshooting:\n\n[List of required changes to code]\n\n\nItem XItem YFigure 4\n\n\n[One sentence description of item X]\n[Display side-by-side] \n\n\n[Set-up as for Item X]\n\n\n[Set-up as for Item X]"
-  },
-  {
-    "objectID": "evaluation/reproduction_report.html#evaluation-against-guidelines",
-    "href": "evaluation/reproduction_report.html#evaluation-against-guidelines",
-    "title": "Summary report",
-    "section": "Evaluation against guidelines",
-    "text": "Evaluation against guidelines\n\n\n                                                \n\n\nContext: The original study repository was evaluated against criteria from journal badges relating to how open and reproducible the model is and against guidance for sharing artefacts from the STARS framework. The original study article and supplementary materials (excluding code) were evaluated against reporting guidelines for DES models: STRESS-DES, and guidelines adapted from ISPOR-SDM."
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 386\n\n# Times from today\ntimes = [\n    ('09.51', '09.57'),\n    ('10.52', '10.55'),\n    ('11.00', '11.06'),\n    ('16.40', '16.49')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 24m, or 0h 24m\nTotal used to date: 410m, or 6h 50m\nTime remaining: 1990m, or 33h 10m\nUsed 17.1% of 40 hours max"
   },
   {
     "objectID": "logbook/posts/2024_09_25/index.html",
@@ -420,67 +252,284 @@
     "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 138\n\n# Times from today\ntimes = [\n    ('09.26', '09.55'),\n    ('09.56', '10.06'),\n    ('10.32', '11.03'),\n    ('11.11', '11.27'),\n    ('11.48', '11.56'),\n    ('11.58', '12.25'),\n    ('13.24', '13.48'),\n    ('13.55', '14.09')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 159m, or 2h 39m\nTotal used to date: 297m, or 4h 57m\nTime remaining: 2103m, or 35h 3m\nUsed 12.4% of 40 hours max"
   },
   {
-    "objectID": "logbook/posts/2024_09_27/index.html",
-    "href": "logbook/posts/2024_09_27/index.html",
-    "title": "Day 5",
+    "objectID": "evaluation/reproduction_report.html",
+    "href": "evaluation/reproduction_report.html",
+    "title": "Summary report",
     "section": "",
-    "text": "Note\n\n\n\nRunning one scenario (of nine from experiment 1) with 100 generations 50 populations 3 runs, which took 5 and a half hours, but results do not match. Total time used: 6h 50m (17.1%)"
+    "text": "Please note: This is a template page and has not yet been completed"
   },
   {
-    "objectID": "logbook/posts/2024_09_27/index.html#resuming-attempt-to-run-on-remote-machine",
-    "href": "logbook/posts/2024_09_27/index.html#resuming-attempt-to-run-on-remote-machine",
-    "title": "Day 5",
-    "section": "09.51-09.57, 10.52-10.55, 11.00-11.06: Resuming attempt to run on remote machine",
-    "text": "09.51-09.57, 10.52-10.55, 11.00-11.06: Resuming attempt to run on remote machine\nAs left off yesterday, getting error:\n...\n13, in &lt;module&gt;\n    import ExperimentRunner\n  File \"ExperimentRunner.py\", line 15, in &lt;module&gt;\n    import SimulatorRunner\n  File \"SimulatorRunner.py\", line 11, in &lt;module&gt;\n    import PODSimulation\n  File \"PODSimulation.py\", line 13, in &lt;module&gt;\n    import SimPy.SimPlot as simplot\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py\", line 68, in &lt;module&gt;\n    class SimPlot(object):\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py\", line 69, in SimPlot\n    def __init__(self, root = Tk()):\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/lib-tk/Tkinter.py\", line 1815, in __init__\n    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)\n_tkinter.TclError: no display name and no $DISPLAY environment variable\nThis is related to import of simpy.simplot, but as simplot isn’t used anywhere, I tried commenting out this import in PODSimulation.py. This resolved the error!\nThe original was population 100 and 50 generations. I anticipate this will be very long, so working up to it…\n10 population, 1 generation: just a few minutes\n \n100 population, 1 generation: 37 minutes\n \nBut seems will be important to try and run with the full version - particularly as Figure 9 is an experiment of that impact of that.\nAlso realised that default in script was runs=1 but paper mentions they “perform three simulation runs to obtain reliable estimates”."
+    "objectID": "evaluation/reproduction_report.html#study",
+    "href": "evaluation/reproduction_report.html#study",
+    "title": "Summary report",
+    "section": "Study",
+    "text": "Study\n\n[Authors]. [Title]. [Journal] [Volume], [Edition] ([Year]). &lt;[URL]&gt;.\n\n[Paragraph summarising model]"
   },
   {
-    "objectID": "logbook/posts/2024_09_27/index.html#results-from-pre-screen-10-with-full-set-up",
-    "href": "logbook/posts/2024_09_27/index.html#results-from-pre-screen-10-with-full-set-up",
-    "title": "Day 5",
-    "section": "16.40-16.49: Results from pre-screen 10 with full set-up",
-    "text": "16.40-16.49: Results from pre-screen 10 with full set-up\nWith 100 population, 50 generation and 3 runs, I only had time to run one scenario on the remote machine. It took 327 minutes, or 5.45 hours.\nResults alongside/combined with 1 gen results:\n \nResults from 50 gen alone:\n \nUnfortunately though, the results from the run with popuation 100 50 generation 3 run for pre-screen 10 do not look the same as those in the paper - with fewer points, and very different X and Y axises. I’m presuming it would be worth double-checking parameters for the model are correct."
+    "objectID": "evaluation/reproduction_report.html#computational-reproducibility",
+    "href": "evaluation/reproduction_report.html#computational-reproducibility",
+    "title": "Summary report",
+    "section": "Computational reproducibility",
+    "text": "Computational reproducibility\nSuccessfully reproduced X out of X (X%) of items from the scope in Xh Xm (X%).\nRequired troubleshooting:\n\n[List of required changes to code]\n\n\nItem XItem YFigure 4\n\n\n[One sentence description of item X]\n[Display side-by-side] \n\n\n[Set-up as for Item X]\n\n\n[Set-up as for Item X]"
   },
   {
-    "objectID": "logbook/posts/2024_09_27/index.html#timings",
-    "href": "logbook/posts/2024_09_27/index.html#timings",
-    "title": "Day 5",
-    "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 386\n\n# Times from today\ntimes = [\n    ('09.51', '09.57'),\n    ('10.52', '10.55'),\n    ('11.00', '11.06'),\n    ('16.40', '16.49')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 24m, or 0h 24m\nTotal used to date: 410m, or 6h 50m\nTime remaining: 1990m, or 33h 10m\nUsed 17.1% of 40 hours max"
+    "objectID": "evaluation/reproduction_report.html#evaluation-against-guidelines",
+    "href": "evaluation/reproduction_report.html#evaluation-against-guidelines",
+    "title": "Summary report",
+    "section": "Evaluation against guidelines",
+    "text": "Evaluation against guidelines\n\n\n                                                \n\n\nContext: The original study repository was evaluated against criteria from journal badges relating to how open and reproducible the model is and against guidance for sharing artefacts from the STARS framework. The original study article and supplementary materials (excluding code) were evaluated against reporting guidelines for DES models: STRESS-DES, and guidelines adapted from ISPOR-SDM."
   },
   {
-    "objectID": "logbook/posts/2024_10_02/index.html",
-    "href": "logbook/posts/2024_10_02/index.html",
-    "title": "Day 8",
+    "objectID": "logbook/logbook.html",
+    "href": "logbook/logbook.html",
+    "title": "Logbook",
     "section": "",
-    "text": "Note\n\n\n\nCorrecting a parameter, adding parallel processing, and experimenting with parameters to try and run similarly but more quickly. Total time used: 11h 21m (28.4%)"
+    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 10\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 4, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 9\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 3, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 8\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 2, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 7\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 1, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 6\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 30, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 5\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 27, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 4\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 26, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 3\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 25, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\nscope\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 24, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\nread\n\n\nscope\n\n\n\n\n\n\n\n\n\nSep 20, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 11\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nInvalid Date\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "logbook/posts/2024_10_02/index.html#continuing-to-check-parameters",
-    "href": "logbook/posts/2024_10_02/index.html#continuing-to-check-parameters",
-    "title": "Day 8",
-    "section": "09.14-09.47: Continuing to check parameters",
-    "text": "09.14-09.47: Continuing to check parameters\n\n\n\n\n\n\nReflection\n\n\n\nWould’ve been handy if all parameters could have been mentioned in one place.\n\n\n\n\n\nParameter\nCode\nLocation in paper\nLocation in code\n\n\n\n\nLength of simulation: 1 hour\n✅ self.maxTime = 60\n4.3 Processing\nPODSimulation() __init__ in PodSimulation.py\n\n\nAt screening station, 1% go to med eval and 99% to dispensing. At med eval station, 99% got to dispensing and 1% exit POD\n❔ Can’t find\n4.1.1 Splits\n-\n\n\nNumber of forms per designee: 1 31.8%, 2 26.7%, 3 16.8%, 4 12.6%, 5 6.8%, 6 5.6%\n❔ throughput x 3.2 - so appears to be averaged to 3.2?\nTable 1\nplotting_ staff_ results.r\n\n\nService time line manager: triangular, minimum = 0.029, maximum = 0.039, mode = 0.044\n❌ time = random. triangular( low=5/60.0, high=92/60.0, mode=23/60.0). Low 5/60 = 0.0833. High 92/60 = 1.533. Mode 23/60 = 0.3833. There is one commented out which has… Low 1.77/60 = 0.0295. Higher 2.66/60 = 0.044. Mode 2.38/60 = 0.0397. This would match the article, except maximum and mode the other way round.\nTable 2\nvisit_greeter() in Customer.py\n\n\nService time screening: weibull, shape = 2.29, scale = 0.142\n✅ time = random. weibullvariate( alpha=0.142, beta=2.29 )\nTable 2\nvisit_screener() in Customer.py\n\n\nService time dispensing: weibull, shape = 1, scale = 0.311\n✅ time = random. weibullvariate( alpha=0.311, beta=1 )\nTable 2\nvisit_dispenser() in Customer.py\n\n\nService time medical evaluation: lognormal, logarithmic mean = 1.024, logarithmic stdev = 0.788\n✅ time = random. lognormvariate( mu=1.024, sigma=0.788 )\nTable 2\nvisit_medic() in Customer.py\n\n\nArrival rate 100 designess per minute per POD (following a Poisson distribution)\n❌ self.meanTBA = 1/200.0  #1/float(115)  #mean time between arrivals, minutes btw entities. This would mean 200 arrivals per minute, rather than 100.\n4.1.4 Arrival rate\nPODSimulation() __init__ in PodSimulation.py\n\n\nThree simulation runs\n🟡 This wasn’t the case when I first started, but have already been changing this\n4.3 Processing\nmain.py\n\n\nNumber of staff members per station - mentions examples of where “each station could have up to thirty staff members” or “for example 60”. We know it cannot be 30, but could reasonably assume to be 60\n🟡 This wasn’t the case when I first started, but I have already noticed and addressed, and fixed to 60.\n3 Problem and 4.3 Processing\nStaff Allocation Problem() in Staff Allocation Problem.py\n\n\nDefault crossover rate 1.0 and n=1\n✅ ea.variator = [variators. n_point_crossover] with variators imported from inspyred.ec, which can see from docs the default crossover rate is 1 and default number of crossover points is 1\n5 Experimental results\nnsga2.py\n\n\nExperiment 1: tri-objective model, population 100, generations 50, pre-screened scenarios 10%, 20%, 30%… 90%\n✅ As in the input files like 10-prescreened.txt\n4.1.1 Splits and Figure 5\nAs left\n\n\nExperiment 2: bi-objective model, population 50, generations 25, pre-screened scenarios 10%, 20%, 30%… 90%\nTBC\n4.1.1 Splits and Figure 7\n-\n\n\nExperiment 3: tri-objective model, pre-screened percentage ??, (a) 100 pop 50 gen (b) 200 pop 100 gen (c) 50 pop 25 gen\nTBCNote: Where I am unsure of pre-screened percentage here, I presume it might be default from code which, if parameterReader == None, then self. preScreened Percentage = 0.1\n5.3 Experiment 3 and Figure 8\n-PODSimulation() __init__ in PodSimulation.py\n\n\nExperiment 4: tri-objective model, maximum line managers 1, 2 or 3\nTBC\n5.4 Experiment 4 and Figure 9\n-\n\n\nExperiment 5: 6 dispensing, 6 screening, 4 line manager, one medical evaluator, number of replications 1-7\nTBC\n5.5 Experiment 5 and Figure 10\n-\n\n\n\nReflections on discrepancies (❌): Big difference in the line manager service times - this might explain it! Will start with this, but could then try some of the others? Wary of trying all at once, as always hard to know what might be right - the code or the article. Will run 100pop 5gen 1 run."
+    "objectID": "evaluation/reporting.html",
+    "href": "evaluation/reporting.html",
+    "title": "Reporting guidelines",
+    "section": "",
+    "text": "Please note: This is a template page and has not yet been completed\nThis page evaluates the extent to which the journal article meets the criteria from two discrete-event simulation study reporting guidelines:"
   },
   {
-    "objectID": "logbook/posts/2024_10_02/index.html#corrected-line-manager-service-times",
-    "href": "logbook/posts/2024_10_02/index.html#corrected-line-manager-service-times",
-    "title": "Day 8",
-    "section": "13.15-13.25: Corrected line manager service times",
-    "text": "13.15-13.25: Corrected line manager service times\nThis took 210 minutes to run (3 hours and a half). The Y axis of Figure 5 is now much higher - in fact, too high!\nFigure 5:\n\nFigure 6, filtered to just the throughouput in the range of those plot in the article:\n\nI tried switching to 10pop 1 gen 1run, just to confirm if it gives results with similar range, as if so, that’s much quicker for trying out different changes, but these looked rather different!\nRun time: 6 minutes\nThese looked quite different though, so will need to run with a bit more…\nFigure 5:\n\nFigure 6:"
+    "objectID": "evaluation/reporting.html#stress-des",
+    "href": "evaluation/reporting.html#stress-des",
+    "title": "Reporting guidelines",
+    "section": "STRESS-DES",
+    "text": "STRESS-DES\nOf the 24 items in the checklist:\n\n\nX were met fully (✅)\nX were partially met (🟡)\nX were not met (❌)\nX were not applicable (N/A)\n\n\n\n\n\n\n\n\n\n\n\nItem\nRecommendation\nMet by study?\nEvidence\n\n\n\n\nObjectives\n\n\n\n\n\n1.1 Purpose of the model\nExplain the background and objectives for the model\n\n\n\n\n1.2 Model outputs\nDefine all quantitative performance measures that are reported, using equations where necessary. Specify how and when they are calculated during the model run along with how any measures of error such as confidence intervals are calculated.\n\n\n\n\n1.3 Experimentation aims\nIf the model has been used for experimentation, state the objectives that it was used to investigate.(A) Scenario based analysis – Provide a name and description for each scenario, providing a rationale for the choice of scenarios and ensure that item 2.3 (below) is completed.(B) Design of experiments – Provide details of the overall design of the experiments with reference to performance measures and their parameters (provide further details in data below).(C) Simulation Optimisation – (if appropriate) Provide full details of what is to be optimised, the parameters that were included and the algorithm(s) that was be used. Where possible provide a citation of the algorithm(s).\n\n\n\n\nLogic\n\n\n\n\n\n2.1 Base model overview diagram\nDescribe the base model using appropriate diagrams and description. This could include one or more process flow, activity cycle or equivalent diagrams sufficient to describe the model to readers. Avoid complicated diagrams in the main text. The goal is to describe the breadth and depth of the model with respect to the system being studied.\n\n\n\n\n2.2 Base model logic\nGive details of the base model logic. Give additional model logic details sufficient to communicate to the reader how the model works.\n\n\n\n\n2.3 Scenario logic\nGive details of the logical difference between the base case model and scenarios (if any). This could be incorporated as text or where differences are substantial could be incorporated in the same manner as 2.2.\n\n\n\n\n2.4 Algorithms\nProvide further detail on any algorithms in the model that (for example) mimic complex or manual processes in the real world (i.e. scheduling of arrivals/ appointments/ operations/ maintenance, operation of a conveyor system, machine breakdowns, etc.). Sufficient detail should be included (or referred to in other published work) for the algorithms to be reproducible. Pseudo-code may be used to describe an algorithm.\n\n\n\n\n2.5.1 Components - entities\nGive details of all entities within the simulation including a description of their role in the model and a description of all their attributes.\n\n\n\n\n2.5.2 Components - activities\nDescribe the activities that entities engage in within the model. Provide details of entity routing into and out of the activity.\n\n\n\n\n2.5.3 Components - resources\nList all the resources included within the model and which activities make use of them.\n\n\n\n\n2.5.4 Components - queues\nGive details of the assumed queuing discipline used in the model (e.g. First in First Out, Last in First Out, prioritisation, etc.). Where one or more queues have a different discipline from the rest, provide a list of queues, indicating the queuing discipline used for each. If reneging, balking or jockeying occur, etc., provide details of the rules. Detail any delays or capacity constraints on the queues.\n\n\n\n\n2.5.5 Components - entry/exit points\nGive details of the model boundaries i.e. all arrival and exit points of entities. Detail the arrival mechanism (e.g. ‘thinning’ to mimic a non-homogenous Poisson process or balking)\n\n\n\n\nData\n\n\n\n\n\n3.1 Data sources\nList and detail all data sources. Sources may include:• Interviews with stakeholders,• Samples of routinely collected data,• Prospectively collected samples for the purpose of the simulation study,• Public domain data published in either academic or organisational literature. Provide, where possible, the link and DOI to the data or reference to published literature.All data source descriptions should include details of the sample size, sample date ranges and use within the study.\n\n\n\n\n3.2 Pre-processing\nProvide details of any data manipulation that has taken place before its use in the simulation, e.g. interpolation to account for missing data or the removal of outliers.\n\n\n\n\n3.3 Input parameters\nList all input variables in the model. Provide a description of their use and include parameter values. For stochastic inputs provide details of any continuous, discrete or empirical distributions used along with all associated parameters. Give details of all time dependent parameters and correlation.Clearly state:• Base case data• Data use in experimentation, where different from the base case.• Where optimisation or design of experiments has been used, state the range of values that parameters can take.• Where theoretical distributions are used, state how these were selected and prioritised above other candidate distributions.\n\n\n\n\n3.4 Assumptions\nWhere data or knowledge of the real system is unavailable what assumptions are included in the model? This might include parameter values, distributions or routing logic within the model.\n\n\n\n\nExperimentation\n\n\n\n\n\n4.1 Initialisation\nReport if the system modelled is terminating or non-terminating. State if a warm-up period has been used, its length and the analysis method used to select it. For terminating systems state the stopping condition.State what if any initial model conditions have been included, e.g., pre-loaded queues and activities. Report whether initialisation of these variables is deterministic or stochastic.\n\n\n\n\n4.2 Run length\nDetail the run length of the simulation model and time units.\n\n\n\n\n4.3 Estimation approach\nState the method used to account for the stochasticity: For example, two common methods are multiple replications or batch means. Where multiple replications have been used, state the number of replications and for batch means, indicate the batch length and whether the batch means procedure is standard, spaced or overlapping. For both procedures provide a justification for the methods used and the number of replications/size of batches.\n\n\n\n\nImplementation\n\n\n\n\n\n5.1 Software or programming language\nState the operating system and version and build number.State the name, version and build number of commercial or open source DES software that the model is implemented in.State the name and version of general-purpose programming languages used (e.g. Python 3.5).Where frameworks and libraries have been used provide all details including version numbers.\n\n\n\n\n5.2 Random sampling\nState the algorithm used to generate random samples in the software/programming language used e.g. Mersenne Twister.If common random numbers are used, state how seeds (or random number streams) are distributed among sampling processes.\n\n\n\n\n5.3 Model execution\nState the event processing mechanism used e.g. three phase, event, activity, process interaction.Note that in some commercial software the event processing mechanism may not be published. In these cases authors should adhere to item 5.1 software recommendations.State all priority rules included if entities/activities compete for resources.If the model is parallel, distributed and/or use grid or cloud computing, etc., state and preferably reference the technology used. For parallel and distributed simulations the time management algorithms used. If the HLA is used then state the version of the standard, which run-time infrastructure (and version), and any supporting documents (FOMs, etc.)\n\n\n\n\n5.4 System specification\nState the model run time and specification of hardware used. This is particularly important for large scale models that require substantial computing power. For parallel, distributed and/or use grid or cloud computing, etc. state the details of all systems used in the implementation (processors, network, etc.)\n\n\n\n\nCode access\n\n\n\n\n\n6.1 Computer model sharing statement\nDescribe how someone could obtain the model described in the paper, the simulation software and any other associated software (or hardware) needed to reproduce the results. Provide, where possible, the link and DOIs to these."
   },
   {
-    "objectID": "logbook/posts/2024_10_02/index.html#adding-parallel-processing",
-    "href": "logbook/posts/2024_10_02/index.html#adding-parallel-processing",
-    "title": "Day 8",
-    "section": "13.26-13.35, 13.44-14.03, 15.17-15.21: Adding parallel processing",
-    "text": "13.26-13.35, 13.44-14.03, 15.17-15.21: Adding parallel processing\nI tried switching the loop in Experiment1.py into a parallel loop, to speed up the run time.\nFirst, I just changed it to a function with a loop.\nI ran this with the same parameters as above (10 pop 1 gen 1 run) to confirm the results didn’t change at all due to the parallel processing and, indeed, they remained the same, so this is successfully implemented. The only change was - as expected - to the times files, which is now a single file.\nRun time: 6 minutes\nI then adjusted the loop to use parallel processing (with multiprocessing Pool). This required the old syntax (i.e. not the with() statement).\nRun time: 55 seconds\n\n\n\n\n\n\nReflection\n\n\n\nThe pre-existing seed control and way the code was structured made it really easy to implement this.\n\n\nI then tried running with 50 pop 25 gen 1 run, as they used that for Figure 7 (though 3 runs) so it should be similar.\nRun time: 57 minutes\n\n\nI realised then that that had just as much impact on the y axis as anything else! Hence, I figured best plan of action would be to run as is with 100 pop 50 gen 1 run, and see how that looks. Then, if that doesn’t look right, try tweaking with parameters identified in table above."
+    "objectID": "evaluation/reporting.html#des-checklist-derived-from-ispor-sdm",
+    "href": "evaluation/reporting.html#des-checklist-derived-from-ispor-sdm",
+    "title": "Reporting guidelines",
+    "section": "DES checklist derived from ISPOR-SDM",
+    "text": "DES checklist derived from ISPOR-SDM\nOf the 18 items in the checklist:\n\n\nX were met fully (✅)\nX were partially met (🟡)\nX were not met (❌)\nX were not applicable (N/A)\n\n\n\n\n\n\n\n\n\n\n\nItem\nAssessed if…\nMet by study?\nEvidence/location\n\n\n\n\nModel conceptualisation\n\n\n\n\n\n1 Is the focused health-related decision problem clarified?\n…the decision problem under investigation was defined. DES studies included different types of decision problems, eg, those listed in previously developed taxonomies.\n\n\n\n\n2 Is the modeled healthcare setting/health condition clarified?\n…the physical context/scope (eg, a certain healthcare unit or a broader system) or disease spectrum simulated was described.\n\n\n\n\n3 Is the model structure described?\n…the model’s conceptual structure was described in the form of either graphical or text presentation.\n\n\n\n\n4 Is the time horizon given?\n…the time period covered by the simulation was reported.\n\n\n\n\n5 Are all simulated strategies/scenarios specified?\n…the comparators under test were described in terms of their components, corresponding variations, etc\n\n\n\n\n6 Is the target population described?\n…the entities simulated and their main attributes were characterized.\n\n\n\n\nParamaterisation and uncertainty assessment\n\n\n\n\n\n7 Are data sources informing parameter estimations provided?\n…the sources of all data used to inform model inputs were reported.\n\n\n\n\n8 Are the parameters used to populate model frameworks specified?\n…all relevant parameters fed into model frameworks were disclosed.\n\n\n\n\n9 Are model uncertainties discussed?\n…the uncertainty surrounding parameter estimations and adopted statistical methods (eg, 95% confidence intervals or possibility distributions) were reported.\n\n\n\n\n10 Are sensitivity analyses performed and reported?\n…the robustness of model outputs to input uncertainties was examined, for example via deterministic (based on parameters’ plausible ranges) or probabilistic (based on a priori-defined probability distributions) sensitivity analyses, or both.\n\n\n\n\nValidation\n\n\n\n\n\n11 Is face validity evaluated and reported?\n…it was reported that the model was subjected to the examination on how well model designs correspond to the reality and intuitions. It was assumed that this type of validation should be conducted by external evaluators with no stake in the study.\n\n\n\n\n12 Is cross validation performed and reported\n…comparison across similar modeling studies which deal with the same decision problem was undertaken.\n\n\n\n\n13 Is external validation performed and reported?\n…the modeler(s) examined how well the model’s results match the empirical data of an actual event modeled.\n\n\n\n\n14 Is predictive validation performed or attempted?\n…the modeler(s) examined the consistency of a model’s predictions of a future event and the actual outcomes in the future. If this was not undertaken, it was assessed whether the reasons were discussed.\n\n\n\n\nGeneralisability and stakeholder involvement\n\n\n\n\n\n15 Is the model generalizability issue discussed?\n…the modeler(s) discussed the potential of the resulting model for being applicable to other settings/populations (single/multiple application).\n\n\n\n\n16 Are decision makers or other stakeholders involved in modeling?\n…the modeler(s) reported in which part throughout the modeling process decision makers and other stakeholders (eg, subject experts) were engaged.\n\n\n\n\n17 Is the source of funding stated?\n…the sponsorship of the study was indicated.\n\n\n\n\n18 Are model limitations discussed?\n…limitations of the assessed model, especially limitations of interest to decision makers, were discussed."
   },
   {
-    "objectID": "logbook/posts/2024_10_02/index.html#timings",
-    "href": "logbook/posts/2024_10_02/index.html#timings",
-    "title": "Day 8",
+    "objectID": "evaluation/artefacts.html",
+    "href": "evaluation/artefacts.html",
+    "title": "STARS framework",
+    "section": "",
+    "text": "Please note: This is a template page and has not yet been completed\nThis page evaluates the extent to which the original study meets the recommendations from the STARS framework for the sharing of code and associated materials from discrete-event simulation models (Monks, Harper, and Mustafee (2024)).\nOf the 8 essential STARS components:\n\n\nX were met fully (✅)\nX was met partially (🟡)\nX was not met (❌)\n\nOf the 5 optional STARS components:\n\n\nX was met fully (✅)\nX were not met (❌)\n\n\n\n\n\n\n\n\n\n\n\nComponent\nDescription\nMet by study?\nEvidence/location\n\n\n\n\nEssential components\n\n\n\n\n\nOpen license\nFree and open-source software (FOSS) license (e.g. MIT, GNU Public License (GPL))\n\n\n\n\nDependency management\nSpecify software libraries, version numbers and sources (e.g. dependency management tools like virtualenv, conda, poetry)\n\n\n\n\nFOSS model\nCoded in FOSS language (e.g. R, Julia, Python)\n\n\n\n\nMinimum documentation\nMinimal instructions (e.g. in README) that overview (a) what model does, (b) how to install and run model to obtain results, and (c) how to vary parameters to run new experiments\n\n\n\n\nORCID\nORCID for each study author\n\n\n\n\nCitation information\nInstructions on how to cite the research artefact (e.g. CITATION.cff file)\n\n\n\n\nRemote code repository\nCode available in a remote code repository (e.g. GitHub, GitLab, BitBucket)\n\n\n\n\nOpen science archive\nCode stored in an open science archive with FORCE11 compliant citation and guaranteed persistance of digital artefacts (e.g. Figshare, Zenodo, the Open Science Framework (OSF), and the Computational Modeling in the Social and Ecological Sciences Network (CoMSES Net))\n\n\n\n\nOptional components\n\n\n\n\n\nEnhanced documentation\nOpen and high quality documentation on how the model is implemented and works (e.g. via notebooks and markdown files, brought together using software like Quarto and Jupyter Book). Suggested content includes:• Plain english summary of project and model• Clarifying license• Citation instructions• Contribution instructions• Model installation instructions• Structured code walk through of model• Documentation of modelling cycle using TRACE• Annotated simulation reporting guidelines• Clear description of model validation including its intended purpose\n\n\n\n\nDocumentation hosting\nHost documentation (e.g. with GitHub pages, GitLab pages, BitBucket Cloud, Quarto Pub)\n\n\n\n\nOnline coding environment\nProvide an online environment where users can run and change code (e.g. BinderHub, Google Colaboratory, Deepnote)\n\n\n\n\nModel interface\nProvide web application interface to the model so it is accessible to less technical simulation users\n\n\n\n\nWeb app hosting\nHost web app online (e.g. Streamlit Community Cloud, ShinyApps hosting)\n\n\n\n\n\n\n\n\n\nReferences\n\nMonks, Thomas, Alison Harper, and Navonil Mustafee. 2024. “Towards Sharing Tools and Artefacts for Reusable Simulations in Healthcare.” Journal of Simulation 0 (0): 1–20. https://doi.org/10.1080/17477778.2024.2347882."
+  },
+  {
+    "objectID": "evaluation/reflections.html",
+    "href": "evaluation/reflections.html",
+    "title": "Reflections",
+    "section": "",
+    "text": "Please note: This is a template page and has not yet been completed\nThis page contains reflections on the facilitators and barriers to this reproduction, as well as a full list of the troubleshooting steps taken to reproduce this work."
+  },
+  {
+    "objectID": "evaluation/reflections.html#what-would-have-helped-facilitate-this-reproduction",
+    "href": "evaluation/reflections.html#what-would-have-helped-facilitate-this-reproduction",
+    "title": "Reflections",
+    "section": "What would have helped facilitate this reproduction?",
+    "text": "What would have helped facilitate this reproduction?"
+  },
+  {
+    "objectID": "evaluation/reflections.html#full-list-of-troubleshooting-steps",
+    "href": "evaluation/reflections.html#full-list-of-troubleshooting-steps",
+    "title": "Reflections",
+    "section": "Full list of troubleshooting steps",
+    "text": "Full list of troubleshooting steps\n\n\n\n\n\n\nView list\n\n\n\n\n\nTroubleshooting steps are grouped by theme, and the day these occurred is given in brackets at the end of each bullet."
+  },
+  {
+    "objectID": "evaluation/scope.html",
+    "href": "evaluation/scope.html",
+    "title": "Scope",
+    "section": "",
+    "text": "This page outlines the parts of the journal article which we will attempt to reproduce from Hernandez et al. (2015). The journal does not give permission for upload and reuse of images, so you should refer to the article online to view these."
+  },
+  {
+    "objectID": "evaluation/scope.html#within-scope",
+    "href": "evaluation/scope.html#within-scope",
+    "title": "Scope",
+    "section": "Within scope",
+    "text": "Within scope\n\n\n\n\n\n\nFigure 5\n\n\n\n\n\n“Fig. 5. Pareto fronts for tri-objective Model (2). Experiments were run with a population of 100 and 50 generations. The computational time for obtaining each Pareto front was 6.5 h. The title of each grid corresponds to the percentage of Pre-Screened Designees.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 6\n\n\n\n\n\n“Fig. 6. Stafﬁng levels of a sample of solutions. The Dispensing Station needs more resources regardless of the percentage of Pre-Screened Designees. The title of each grid represents the throughput of the solution in forms per hour.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 7\n\n\n\n\n\n“Fig. 7. Pareto fronts for bi-objective Model (2). Experiments were run with a population of 50 and for 25 generations. The computational time for each Pareto was 1.6 h. The title of each grid corresponds to the percentage of Pre-Screened Designees.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 8\n\n\n\n\n\n“Fig. 8. Pareto fronts for analyzing the impact of the population and generations parameters. Each grid has two numbers in parenthesis: the population size and the number of generations. The objectives are: minimize waiting time, maximize throughput and minimize staff members.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 9\n\n\n\n\n\n“Fig. 9. Pareto fronts for analyzing the impact of constraining the maximum number of Line Managers. The name of each grid corresponds to the maximum number of Line Managers allowed.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 10\n\n\n\n\n\n“Fig. 10. Impact of replications of the Discrete Event Simulation for modeling the movement of Designees inside the PODs.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 3\n\n\n\n\n\n“Table 3 Conﬁdence intervals. Waiting times are in minutes.” Hernandez et al. (2015)\nScope: To reproduce the Python columns, but not relevant to reproduce the Arena columns.\n\n\n\n\n\n\n\n\n\nTable 4\n\n\n\n\n\n“Table 4 Stafﬁng levels and associated throughput.” Hernandez et al. (2015)"
+  },
+  {
+    "objectID": "evaluation/scope.html#outside-scope",
+    "href": "evaluation/scope.html#outside-scope",
+    "title": "Scope",
+    "section": "Outside scope",
+    "text": "Outside scope\n\n\n\n\n\n\nFigure 1\n\n\n\n\n\n“Fig. 1. Illustration of the concept of Pareto Efﬁciency. Blue points are non- dominated (i.e. efﬁcient) and red points are dominated. For example, point a is dominated because there is another point with the same number of staff members but with higher throughput (indicated by the dashed line). With the Pareto front decision makers can select the trade-off solution that best meets their criteria. (For interpretation of the references to color in this ﬁgure legend, the reader is referred to the web version of this article.)” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 1\n\n\n\n\n\n“Table 1 Number of forms per Designee.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 2\n\n\n\n\n\n“Fig. 2. Architecture of the simulation. There are four inputs (left), one control parameter (top) and three outputs (right). The objective of the simulation is to change the stafﬁng levels (control parameter) in order to explore the trade-off solutions.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 3\n\n\n\n\n\n“Fig. 3. Systems architecture of the proposed framework. There are three main components: a custom program based on Python that performs the optimization (top left), an Arena (http://www.arenasimulation.com/) model used to verify the results obtained by the Python program (top right) and an R program used to generate publication quality plots of the results (bottom).” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nFigure 4\n\n\n\n\n\n“Fig. 4. Network representation of the ﬂow of Designees inside the POD. Designees follow one of the multiple paths inside the POD.” Hernandez et al. (2015)\n\n\n\n\n\n\n\n\n\nTable 2\n\n\n\n\n\n“Table 2 Service time.” Hernandez et al. (2015)"
+  },
+  {
+    "objectID": "quarto_site/study_publication.html",
+    "href": "quarto_site/study_publication.html",
+    "title": "Publication",
+    "section": "",
+    "text": "Hernandez et al. (2015)"
+  },
+  {
+    "objectID": "quarto_site/study_publication.html#code-and-data",
+    "href": "quarto_site/study_publication.html#code-and-data",
+    "title": "Publication",
+    "section": "Code and data",
+    "text": "Code and data\nView at: https://github.com/ivihernandez/staff-allocation/tree/master"
+  },
+  {
+    "objectID": "quarto_site/study_publication.html#journal-article",
+    "href": "quarto_site/study_publication.html#journal-article",
+    "title": "Publication",
+    "section": "Journal article",
+    "text": "Journal article\nThe article does not provide permissions to reshare, so cannot be uploaded.\nIf you wish to view this article, please navigate to: https://doi.org/10.1016/j.cie.2015.02.015."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_20/index.html",
+    "href": "logbook/posts/2024_09_20/index.html",
+    "title": "Day 1",
+    "section": "",
+    "text": "Note\n\n\n\nSet-up repository, read article and proposed scope. Total time used: 0h 47m (2.0%)"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_20/index.html#previously-contacted-the-authors",
+    "href": "logbook/posts/2024_09_20/index.html#previously-contacted-the-authors",
+    "title": "Day 1",
+    "section": "Previously: Contacted the authors",
+    "text": "Previously: Contacted the authors\nContacted Ivan Hernandez over LinkedIn, who kindly add an MIT license to the repository to enable reuse."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_20/index.html#set-up-repository",
+    "href": "logbook/posts/2024_09_20/index.html#set-up-repository",
+    "title": "Day 1",
+    "section": "14.38-14.52: Set-up repository",
+    "text": "14.38-14.52: Set-up repository\n\nCreated repository from template\nSet up environment\nModified template files:\n\nREADME.md\nquarto site index.qmd\nCITATION.cff\n_quarto.yml\n\nSet up site on GitHub pages (quarto publish gh-pages)"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_20/index.html#upload-code-to-repository",
+    "href": "logbook/posts/2024_09_20/index.html#upload-code-to-repository",
+    "title": "Day 1",
+    "section": "14.57-14.58: Upload code to repository",
+    "text": "14.57-14.58: Upload code to repository\nThe code is available at https://github.com/ivihernandez/staff-allocation/tree/master. It is licensed under an MIT license."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_20/index.html#upload-journal-article-and-artefacts",
+    "href": "logbook/posts/2024_09_20/index.html#upload-journal-article-and-artefacts",
+    "title": "Day 1",
+    "section": "15.00-15.08: Upload journal article and artefacts",
+    "text": "15.00-15.08: Upload journal article and artefacts\nThe published article with the journal “Computers & Industrial Engineering” at https://www.sciencedirect.com/science/article/pii/S0360835215000728 does not appear to have the rights to share the full article or reuse images.\nThe abstract is shared at ACM Digital Library and the Stevens Institute but both link to the journal website, with neither containing a green open-access version."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_20/index.html#read-the-article-and-defined-scope",
+    "href": "logbook/posts/2024_09_20/index.html#read-the-article-and-defined-scope",
+    "title": "Day 1",
+    "section": "15.10-15.34: Read the article and defined scope",
+    "text": "15.10-15.34: Read the article and defined scope\nRead the article and identified what I think the scope of the reproduction to be. Outlined this on the scope quarto page then forwarded to Tom for review."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_20/index.html#timings",
+    "href": "logbook/posts/2024_09_20/index.html#timings",
+    "title": "Day 1",
     "section": "Timings",
-    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 606\n\n# Times from today\ntimes = [\n    ('09.14', '09.47'),\n    ('13.15', '13.25'),\n    ('13.26', '13.35'),\n    ('13.44', '14.03'),\n    ('15.17', '15.21')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 75m, or 1h 15m\nTotal used to date: 681m, or 11h 21m\nTime remaining: 1719m, or 28h 39m\nUsed 28.4% of 40 hours max"
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 0\n\n# Times from today\ntimes = [\n    ('14.38', '14.52'),\n    ('14.57', '14.58'),\n    ('15.00', '15.08'),\n    ('15.10', '15.34')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 47m, or 0h 47m\nTotal used to date: 47m, or 0h 47m\nTime remaining: 2353m, or 39h 13m\nUsed 2.0% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_26/index.html",
+    "href": "logbook/posts/2024_09_26/index.html",
+    "title": "Day 4",
+    "section": "",
+    "text": "Note\n\n\n\nCreated Figures 5 and 6 from mini-run, and started trying to setup to run on remote machine. Total time used: 6h 26m (16.1%)"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_26/index.html#run-and-plot-all-9-scenarios-from-experiment-1-with-mini-version-of-parameters",
+    "href": "logbook/posts/2024_09_26/index.html#run-and-plot-all-9-scenarios-from-experiment-1-with-mini-version-of-parameters",
+    "title": "Day 4",
+    "section": "09.08-09.22, 09.32-09.46: Run and plot all 9 scenarios from experiment 1, with mini version of parameters",
+    "text": "09.08-09.22, 09.32-09.46: Run and plot all 9 scenarios from experiment 1, with mini version of parameters\nModified main.py into Experiment1.py. Changed so it saves the time for each experiment run to txt (as important to record this, but could potentially get lost if just print to screen, when we start running larger numbers).\nRan all with 10 population and 1 generation. Wrote code to identify and loop through importing the results from experiment1/ folder.\n\n\n\nFigure 5 from 10 pop 1 gen"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_26/index.html#re-ran-to-confirm-that-results-were-consistent-between-runs",
+    "href": "logbook/posts/2024_09_26/index.html#re-ran-to-confirm-that-results-were-consistent-between-runs",
+    "title": "Day 4",
+    "section": "09.47-09.48, 10.00-10.05: Re-ran to confirm that results were consistent between runs",
+    "text": "09.47-09.48, 10.00-10.05: Re-ran to confirm that results were consistent between runs\nThis was to check that provided seeds ensured consistency. At the same time, tweaked how time was output. Indeed, consistent between runs, which is great and really helpful that this was already set up by the author.\nTotal run time for the 9 scenarios was 7 minutes."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_26/index.html#creating-figure-6",
+    "href": "logbook/posts/2024_09_26/index.html#creating-figure-6",
+    "title": "Day 4",
+    "section": "11.48-12.00, 13.11-13.37: Creating Figure 6",
+    "text": "11.48-12.00, 13.11-13.37: Creating Figure 6\nThere is some code in plotting_staff_results.r for “barplot staff, stratified by prescreened”, which appears relevant to Figure 6.\nI installed reshape2 to melt the data.\nAs before, this function gave a great starting point to get matching figure, although it did require more work this time to get it more similar to the article.\n\nChanging facet wrap to throughput\nArticle appears to plot ascending throughput, and perhaps a subsample\nWhen add fill colour by pre-screen, realise that it’s including multiple rows in the same plot. This doesn’t appear to be the case in the original. They also don’t have any consecutive graphs with the same throughput. Hence, it appears I’d maybe need to remove duplicates with same throughput? I tried this and it looked like it maybe is heading in the right direction\n\n\n\n\nFigure 6 from 10 pop 1 gen"
+  },
+  {
+    "objectID": "logbook/posts/2024_09_26/index.html#running-on-remote-machine",
+    "href": "logbook/posts/2024_09_26/index.html#running-on-remote-machine",
+    "title": "Day 4",
+    "section": "14.30-14.47: Running on remote machine",
+    "text": "14.30-14.47: Running on remote machine\nCloned and built environment on remote machine (more computational power than my local machine, but not HPC). Had to install conda -\nwget https://repo.anaconda.com/miniconda/Miniconda3-py39_24.7.1-0-Linux-x86_64.sh\nbash Miniconda3-py39_24.7.1-0-Linux-x86_64.sh\nsource ~/miniconda3/bin/activate\nconda activate hernandez2015\npython -m Experiment1\nHowever, this had an error:\n...\n13, in &lt;module&gt;\n    import ExperimentRunner\n  File \"ExperimentRunner.py\", line 15, in &lt;module&gt;\n    import SimulatorRunner\n  File \"SimulatorRunner.py\", line 11, in &lt;module&gt;\n    import PODSimulation\n  File \"PODSimulation.py\", line 13, in &lt;module&gt;\n    import SimPy.SimPlot as simplot\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py\", line 68, in &lt;module&gt;\n    class SimPlot(object):\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/site-packages/SimPy/SimPlot.py\", line 69, in SimPlot\n    def __init__(self, root = Tk()):\n  File \"/home/amyremote/miniconda3/envs/hernandez2015/lib/python2.7/lib-tk/Tkinter.py\", line 1815, in __init__\n    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)\n_tkinter.TclError: no display name and no $DISPLAY environment variable\nThis is likely related to me working in a terminal-only set-up, with Tkinter wanting access to a display for GUI operations. echo $DISPLAY returned blank. Tried setting to export DISPLAY=:0.0 but then just an error _tkinter.TclError: couldn't connect to display \":0.0\"."
+  },
+  {
+    "objectID": "logbook/posts/2024_09_26/index.html#timings",
+    "href": "logbook/posts/2024_09_26/index.html#timings",
+    "title": "Day 4",
+    "section": "Timings",
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 297\n\n# Times from today\ntimes = [\n    ('09.08', '09.22'),\n    ('09.32', '09.46'),\n    ('09.47', '09.48'),\n    ('10.00', '10.05'),\n    ('11.48', '12.00'),\n    ('13.11', '13.37'),\n    ('14.30', '14.47')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 89m, or 1h 29m\nTotal used to date: 386m, or 6h 26m\nTime remaining: 2014m, or 33h 34m\nUsed 16.1% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_01/index.html",
+    "href": "logbook/posts/2024_10_01/index.html",
+    "title": "Day 7",
+    "section": "",
+    "text": "Note\n\n\n\nTroubleshooting Experiment 1: trying a long run, expanding boundaries further, and cross-checking parameters between article and code. Total time used: 10h 6m (25.2%)"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_01/index.html#troubleshooting-figure-5",
+    "href": "logbook/posts/2024_10_01/index.html#troubleshooting-figure-5",
+    "title": "Day 7",
+    "section": "09.15-09.17, 11.40-11.45: Troubleshooting Figure 5",
+    "text": "09.15-09.17, 11.40-11.45: Troubleshooting Figure 5\nRunning one scenario with 100 population 50 generation 1 run on remote machine.\nsource ~/miniconda3/bin/activate\nconda activate hernandez2015\npython -m Experiment1\nBelow, you can see the result from this for prescreen10 (top left). The others are all 100 population 5 generation from 1 run or 3 runs for prescreen50. As you can see, this unfortunately has no impact on the Y axis, and just the density of points.\n\nBelow is Figure 6 from prescreen10, just showing examples where forms &gt; 6000."
+  },
+  {
+    "objectID": "logbook/posts/2024_10_01/index.html#expanding-boundaries-further",
+    "href": "logbook/posts/2024_10_01/index.html#expanding-boundaries-further",
+    "title": "Day 7",
+    "section": "12.07-12.14, 15.54-16.01: Expanding boundaries further",
+    "text": "12.07-12.14, 15.54-16.01: Expanding boundaries further\nI tried running with boundaries of 1-100 (rather than 1-60). Ran 100 population 5 generation 1 run.\nAlthough this gets a more similar Y axis, the number of staff members became too high (so X axis becomes wrong), so that is not the solution.\n\nFigure 6 (just showing forms &gt; 10500)"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_01/index.html#checking-other-parameters",
+    "href": "logbook/posts/2024_10_01/index.html#checking-other-parameters",
+    "title": "Day 7",
+    "section": "16.02-16.28, 16.42-16.54: Checking other parameters",
+    "text": "16.02-16.28, 16.42-16.54: Checking other parameters\nI set the boundaries back to 1-60 (as that gave the correct range of staff members for Figures 5 and 6).\nLooking at Figure 6 in the article, the number of line managers was always fairly low, but I find that to be as high as dispensers - although, in Table 4 (which is a sample of results) they likewise find high numbers of line managers.\nI decided to go back over the paper, identifying all the model parameters mentioned, and make sure I could find these in the code and confirm they matched the paper.\nI returned to this the following day, so please refer to subsequent logbook for results."
+  },
+  {
+    "objectID": "logbook/posts/2024_10_01/index.html#timings",
+    "href": "logbook/posts/2024_10_01/index.html#timings",
+    "title": "Day 7",
+    "section": "Timings",
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 547\n\n# Times from today\ntimes = [\n    ('09.15', '09.17'),\n    ('11.40', '11.45'),\n    ('12.07', '12.14'),\n    ('15.54', '16.01'),\n    ('16.02', '16.28'),\n    ('16.42', '16.54')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 59m, or 0h 59m\nTotal used to date: 606m, or 10h 6m\nTime remaining: 1794m, or 29h 54m\nUsed 25.2% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_04/index.html",
+    "href": "logbook/posts/2024_10_04/index.html",
+    "title": "Day 10",
+    "section": "",
+    "text": "Note\n\n\n\nTried but could not reproduced Figure 7 (same issue as Figure 5), and wrote script to run Experiment 3. Total time used: 14h 18m (35.8%)"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_04/index.html#experiment-2-figure-7",
+    "href": "logbook/posts/2024_10_04/index.html#experiment-2-figure-7",
+    "title": "Day 10",
+    "section": "09.29-10.06, 10.15-10.27, 11.40-12.05: Experiment 2 (Figure 7)",
+    "text": "09.29-10.06, 10.15-10.27, 11.40-12.05: Experiment 2 (Figure 7)\nHaving concluded with Figure 5 (not reproduced) and Figure 6 (reproduced) from Experiment 1, I now explored reproducing Figure 7. This is very similar to Figure 5, but ran with the bi-objective model.\nI wasn’t convinced that my amendment to the arrival rate in PodSimulation() yesterday was correct, as the waiting times became quite out, so I returned it to how it was originally (1/float(200)).\nOn Day 6, I’d spotted that to get the bi-objective model instead of tri-objective (which is what we need for Experiment 2) I adjust this section in StaffAllocationProblem():\nself.maximize = True\n#minimize Waiting time, minimize Resources, maximize throughput  \n#minimize resources, maximize throughput, minimize time\nself.objectiveTypes = [False, True, False]\n              ...[minimise, maximise, minimise]\nTo this:\n#minimize resources, maximize throughput\nself.objectiveTypes = [False, True]\nI want to do this from my main/Experiment .py file rather than directly in StaffAllocationProblem.py. I made amendments:\n\nTo Experiment1.py, converting it to main.py and then having seperate scripts for each experiment.\nTo ExperimentRunner.py which calls StaffAllocationProblem(), so it can input bi or tri-objective\n\nI then ran it with the specified 50 population 25 generations (but with 1 run instead of 3, so expect to have less dense points), with parallel processing on the remote machine.\nRun time: 58 minutes\nI amended the plotting .Rmd file, renaming it to create_figures.Rmd and amending the code so the same functions could be used to plot Figure 7 as Figure 5.\nI also set the Experiment1 results back to those when I had run with 100pop 50gen 1run prior to the arrival rate amendment.\nUnsurprisingly, as I had found for Figure 5, I am seeing the same issue here - that the result is very similar, except for the Y axis scale, with my results going much higher than the original.\nI have no further troubleshooting suggestions, as this is just like Figure 5, but with the amendment of one parameter, so I will consider this likewise not able to reproduce."
+  },
+  {
+    "objectID": "logbook/posts/2024_10_04/index.html#experiment-3-figure-8",
+    "href": "logbook/posts/2024_10_04/index.html#experiment-3-figure-8",
+    "title": "Day 10",
+    "section": "12.10-12.33, 16.39-16.44: Experiment 3 (Figure 8)",
+    "text": "12.10-12.33, 16.39-16.44: Experiment 3 (Figure 8)\nExperiment 3 is the tri-objective model, with (a) 100 pop 50 gen (b) 200 pop 100 gen (c) 50 pop 25 gen. It doesn’t specify a pre-screened percentage. so I’m presuming it will be the default from the code which, if parameterReader == None, then self. preScreened Percentage = 0.1.\nI set up Experiment3.py, and had to amend main.py to enable these scenarios, as it was set up assuming the scenarios were pre-screening, whilst this is varying something else. I set this to then run on the remote machine. However, it was not finished by the end of the day - and then realised that this should not have been surprising, as the paper states that the 200 / 100 scenario took 27 hours.\nGiven that I am at a standstill for resolving issues in Figures 5 and 7, I anticipate it likely to be the case likewise for Figure 8. Hence, I think a reasonable strategy for this would be to attempt to other two scenarios from this figure and, if those do not match up to the paper, do not also need to try the long scenario, as there is nothing to gain, since it would be “not reproduced” either way.\n\n\n\n\n\n\nReflection\n\n\n\nFigures 5 and 7 are not reproduced, but Figure 6 is, but that is in a large part related to the nature of what is being plot (given 5 and 6 are from the same results). So that impacts reproducibility."
+  },
+  {
+    "objectID": "logbook/posts/2024_10_04/index.html#timings",
+    "href": "logbook/posts/2024_10_04/index.html#timings",
+    "title": "Day 10",
+    "section": "Timings",
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 756\n\n# Times from today\ntimes = [\n    ('09.29', '10.06'),\n    ('10.15', '10.27'),\n    ('11.40', '12.05'),\n    ('12.10', '12.33'),\n    ('16.39', '16.44')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 102m, or 1h 42m\nTotal used to date: 858m, or 14h 18m\nTime remaining: 1542m, or 25h 42m\nUsed 35.8% of 40 hours max"
   },
   {
     "objectID": "index.html",
