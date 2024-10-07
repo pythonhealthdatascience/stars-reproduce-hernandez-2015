@@ -75,18 +75,21 @@ run_time <- function(time) {
 ```
 
 ```{r}
-plot_scatter <- function(data, savepath, nrow=NULL){
+plot_scatter <- function(data, savepath, nrow=NULL, ylimits=c(0, 16000),
+                         ybreaks=seq(0, 16000, 3000)){
   #' Creates scatter plot of staff members against throughput with size of dots
   #' indicating wait time, and plots for each pre-screening scenario
   #' 
   #' @param data dataframe with results from model run
   #' @param savepath string, path to save figure to
   #' @param nrow int, number of rows in plot, if NULL then will go with default
+  #' @param ylimits tuple, y minimum and maximum axis
+  #' @param ybreaks seq() object, setting frequency of y axis ticks
 
   fig <- ggplot(data=data) + 
     geom_point(aes(x=resources, y=forms, size=time), alpha=0.7) +
     #scale_x_continuous(limits=c(0, 150)) +
-    scale_y_continuous(limits=c(0, 16000), breaks=seq(0, 16000, 3000)) +
+    scale_y_continuous(limits=ylimits, breaks=ybreaks) +
     facet_wrap(~scenario, nrow=nrow) +
     labs(size="Waiting Time (minutes)") + xlab("Staff Members") + ylab("Throughput (forms per hour)") +
     theme(axis.title.y = element_text( face='bold')) + theme(axis.title.x = element_text( face='bold')) +
@@ -104,7 +107,26 @@ Import results for each experiment.
 ```{r}
 exp1 <- import("../python_outputs/experiment1")
 exp2 <- import("../python_outputs/experiment2")
-exp3 <- import("../python_outputs/experiment3")
+#exp3 <- import("../python_outputs/experiment3")
+exp4 <- import("../python_outputs/experiment4")
+```
+
+Import and processing experiment 5 separately (as different format to the rest).
+
+```{r}
+base_folder = "../python_outputs/experiment5"
+
+# Time
+exp5 <- list()
+exp5$time <- readLines(file.path(base_folder, "time.txt"), warn=FALSE)
+
+# Import and process results
+temp_res <- readLines(file.path(base_folder, "results.txt"), warn=FALSE)
+temp_res <- gsub("\\[|\\]", "", temp_res)
+temp_res <- as.numeric(unlist(strsplit(temp_res, ",\\s*")))  
+
+# Save to list
+exp5$results <- as.numeric(temp_res)
 ```
 
 ## Experiment 1
@@ -198,5 +220,62 @@ plot_scatter(exp2$results, "../r_outputs/figure7.png")
 ### Figure 8
 
 ```{r}
-plot_scatter(exp3$results, "../r_outputs/figure8.png", nrow=2)
+# plot_scatter(exp3$results, "../r_outputs/figure8.png", nrow=2)
+```
+
+## Experiment 4
+
+### Run time
+
+```{r}
+run_time(exp4$time)
+```
+
+### Figure 9
+
+```{r}
+plot_scatter(exp4$results, "../r_outputs/figure9.png", nrow=3,
+             ylimits=c(0, 6000), ybreaks=seq(0, 6000, 1000))
+```
+
+## Experiment 5
+
+### Run time
+
+```{r}
+run_time(exp5$time)
+```
+
+### Figure 10
+
+```{r}
+# Convert to forms
+exp5$forms <- exp5$results*3.2
+
+# Just get the first 7
+reps <- exp5$forms[1:7]
+
+# Initialize an empty data frame
+results <- data.frame(n = 1:length(reps))
+
+# Calculate cumulative means and confidence intervals
+results <- results %>%
+  rowwise() %>%
+  mutate(
+    mean = mean(reps[1:n]),
+    std_error = sd(reps[1:n]) / sqrt(n),
+    error_margin = qt(0.975, df = n - 1) * std_error,
+    lower_ci = mean - error_margin,
+    upper_ci = mean + error_margin
+  )
+
+# Plot the mean and confidence interval using ggplot2
+ggplot(results, aes(x = n, y = mean)) +
+  geom_point() +
+  geom_errorbar(aes(ymin = lower_ci, ymax = upper_ci), width = 0.2) +
+  labs(x = "Replications",
+       y = "Throughput (forms per hour)") +
+  theme_bw(18)
+  
+ggsave("../r_outputs/figure10.png", width = 10 , height = 7)
 ```
