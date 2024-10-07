@@ -22,7 +22,7 @@ experimentFolder = '../python_outputs/experiment3'
 # Scenarios to run for this experiment
 scenarios = [
     {
-        'population': 100
+        'population': 100,
         'generations': 50,
         'solutionpath': join(experimentFolder, '100pop50gen')
     },
