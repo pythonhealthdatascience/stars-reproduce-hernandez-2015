@@ -2,7 +2,7 @@
 # 6 dispensing, 6 screening, 4 line manager, 1 medical evaluator
 # Number of replications 20
 
-# Run time: 9 seconds
+# Run time: 10 seconds
 # (Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux)
 
 from os.path import join

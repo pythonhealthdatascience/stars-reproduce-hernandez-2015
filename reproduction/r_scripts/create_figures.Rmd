@@ -111,7 +111,7 @@ exp3 <- import("../python_outputs/experiment3")
 exp4 <- import("../python_outputs/experiment4")
 ```
 
-Import and processing experiment 5 separately (as different format to the rest).
+Import and processing these other experiments (they are different format to the rest!).
 
 ```{r}
 base_folder = "../python_outputs/experiment5"
@@ -127,6 +127,17 @@ temp_res <- as.numeric(unlist(strsplit(temp_res, ",\\s*")))
 
 # Save to list
 exp5$results <- as.numeric(temp_res)
+```
+
+```{r}
+base_folder = "../python_outputs/experimenta1"
+
+# Time
+expa1 <- list()
+expa1$time <- readLines(file.path(base_folder, "time.txt"), warn=FALSE)
+
+# Results
+expa1$results <- read.csv(file.path(base_folder, "results.csv"))
 ```
 
 ## Experiment 1
@@ -278,4 +289,24 @@ ggplot(results, aes(x = n, y = mean)) +
   theme_bw(18)
   
 ggsave("../r_outputs/figure10.png", width = 10 , height = 7)
+```
+
+## Experiment for Appendix A.1
+
+### Run time
+
+```{r}
+run_time(expa1$time)
+```
+
+### Table 3
+
+```{r}
+tab3 <- expa1$results %>%
+  mutate(LowerBound = Avg - HalfWidth,
+         UpperBound = Avg + HalfWidth) %>%
+  select(-HalfWidth) %>%
+  mutate(across(where(is.numeric), round, 2))
+
+write.csv(tab3, "../r_outputs/table3.csv")
 ```
