@@ -26,11 +26,12 @@ scenarios = [
         'generations': 50,
         'solutionpath': join(experimentFolder, '100pop50gen')
     },
-    {
-        'population': 200,
-        'generations': 100,
-        'solutionpath': join(experimentFolder, '200pop100gen')
-    },
+    # Not included due to run time
+    # {
+    #     'population': 200,
+    #     'generations': 100,
+    #     'solutionpath': join(experimentFolder, '200pop100gen')
+    # },
     {
         'population': 50,
         'generations': 25,
