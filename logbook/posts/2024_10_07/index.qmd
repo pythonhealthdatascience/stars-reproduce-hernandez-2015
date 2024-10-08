@@ -1,14 +1,14 @@
 ---
 title: "Day 11"
 author: "Amy Heather"
-date: "2024-10-07s"
+date: "2024-10-07"
 categories: [reproduce]
 bibliography: ../../../quarto_site/references.bib
 ---
 
 ::: {.callout-note}
 
-X. Total time used: Xh Xm (X%)
+Ran remaining experiments and created figures and tables, although unfortunately not reproduced and no further troubleshooting ideas. Total time used: 17h 41m (44.2%)
 
 :::
 

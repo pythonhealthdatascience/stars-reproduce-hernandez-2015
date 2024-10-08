@@ -1,0 +1,19 @@
+---
+title: "Day 12"
+author: "Amy Heather"
+date: "2024-10-08"
+categories: [reproduce, evaluation]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+X. Total time used: Xh Xm (X%)
+
+:::
+
+::: Reflection
+
+This study did alot of things right - well structured code, seeds, provision of some code towards making figures, to name a few - but still, didn't manage to reproduce most parts. This doesn't mean it was bad/worse! And is just likely to be that there are some mismatch parameters in there causing everything to be out of sync. It just shows how important that is in enabling reproduction of results, that the model is parametrised to match the paper (as well as for each scenario).
+
+:::
