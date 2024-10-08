@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Amy Heather">
+<meta name="dcterms.date" content="2024-10-07">
 
 <title>Day 11 – Reproducing Hernandez et al.&nbsp;2015</title>
 <style>
@@ -221,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Invalid Date</p>
+        <p class="date">October 7, 2024</p>
       </div>
     </div>
     
@@ -266,7 +267,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>X. Total time used: Xh Xm (X%)</p>
+<p>Ran remaining experiments and created figures and tables, although unfortunately not reproduced and no further troubleshooting ideas. Total time used: 17h 41m (44.2%)</p>
 </div>
 </div>
 <section id="running-and-processing-experiment-3" class="level2">
@@ -396,7 +397,7 @@ self.monitors[name] = simpy.Monitor(name=name, ylab=ylab)</code></pre>
 <p>However, I then started getting an error when importing <code>myutils</code>: <code>ImportError: matplotlib requires dateutil</code>. I think this probably resulted from my adding <code>python-dateutil</code> and then just pruning environment, so I deleted it and rebuilt it.</p>
 <p>Run time: 10 seconds</p>
 <p>Again however, this differed from the original.</p>
-<div id="c853443a" class="cell" data-execution_count="1">
+<div id="1e8d0a80" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'table3.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -504,7 +505,7 @@ self.monitors[name] = simpy.Monitor(name=name, ylab=ylab)</code></pre>
 <p>Table 4 is described as being results with line manager and 10% pre-screened. Hence, I’m assuming it’s just the pre-screen 10 results from Experiment 1?</p>
 <p>These have 255 rows though, so I’m then assuming it’s just the first 40 rows.</p>
 <p>It doesn’t appear reproduced, with quite different results, which was as I expected, given prior results.</p>
-<div id="b5942f9b" class="cell" data-execution_count="2">
+<div id="e54e99d7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> pd.read_csv(<span class="st">'exp1_prescreen10.txt'</span>, sep<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(res.shape)</span>
@@ -946,7 +947,7 @@ self.monitors[name] = simpy.Monitor(name=name, ylab=ylab)</code></pre>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="305df76b" class="cell" data-execution_count="3">
+<div id="1f8c1557" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
