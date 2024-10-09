@@ -1,4 +1,4 @@
-# Experiment 1 (Figure 5 and 6)
+# Experiment 1 (Figure 5 and 6 and Appendix A.2)
 # Tri-objective model + alter percentage of pre-screened (10%, 20%, 30%... 90%)
 
 # Run time: 4 hours 28 minutes
