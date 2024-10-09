@@ -215,8 +215,6 @@ div.csl-indent {
 </header>
 
 
-<!-- TODO: Remove this warning once completed assessment -->
-<p><strong>Please note: This is a template page and has not yet been completed</strong></p>
 <p>This page evaluates the extent to which the journal article meets the criteria from two discrete-event simulation study reporting guidelines:</p>
 <ul>
 <li><span class="citation" data-cites="monks_strengthening_2019">Monks et al. (<a href="#ref-monks_strengthening_2019" role="doc-biblioref">2019</a>)</span> - STRESS-DES: Strengthening The Reporting of Empirical Simulation Studies (Discrete-Event Simulation) (Version 1.0).</li>
@@ -256,13 +254,13 @@ div.csl-indent {
 <tr class="even">
 <td>1.1 Purpose of the model</td>
 <td>Explain the background and objectives for the model</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td><code>1 Introduction</code> and <code>2 Background</code> - e.g.&nbsp;“catastrophic public health emergency”… “Fast, efficient and large-scale dispensing of such critical medical countermeasures”… “Points of Dispensing (PODSs)”… “how to develop staffing plans for each individual POD”<br><br><span class="citation" data-cites="hernandez_optimal_2015">Hernandez et al. (<a href="#ref-hernandez_optimal_2015" role="doc-biblioref">2015</a>)</span></td>
 </tr>
 <tr class="odd">
 <td>1.2 Model outputs</td>
 <td>Define all quantitative performance measures that are reported, using equations where necessary. Specify how and when they are calculated during the model run along with how any measures of error such as confidence intervals are calculated.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td>Outputs are throughput, waiting time and number of staff members. It gives details on these in <code>4.4 Mathematical programming representation</code> - “The total waiting time for the Designees is the sum of all the waiting time of all the stations they had to visit before exiting the POD. After the simulation concludes we obtain the throughput in term of forms per hour, the average waiting time of the Designees and the total staff that was allocated.”<br><br><span class="citation" data-cites="hernandez_optimal_2015">Hernandez et al. (<a href="#ref-hernandez_optimal_2015" role="doc-biblioref">2015</a>)</span></td>
 </tr>
 <tr class="even">
@@ -280,55 +278,55 @@ div.csl-indent {
 <tr class="even">
 <td>2.1 Base model overview diagram</td>
 <td>Describe the base model using appropriate diagrams and description. This could include one or more process flow, activity cycle or equivalent diagrams sufficient to describe the model to readers. Avoid complicated diagrams in the main text. The goal is to describe the breadth and depth of the model with respect to the system being studied.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td><code>Figure 4</code></td>
 </tr>
 <tr class="odd">
 <td>2.2 Base model logic</td>
 <td>Give details of the base model logic. Give additional model logic details sufficient to communicate to the reader how the model works.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td><code>Figure 4</code> and <code>2.1 PODs</code> - e.g.&nbsp;“…Upon arrival at the POD, the Designee is received by a Line Manager who reviews forms to determine if they are Pre-Screened. If they are Pre-Screened, the Line Manager directs the Designee to the Express Line…”<br><br><span class="citation" data-cites="hernandez_optimal_2015">Hernandez et al. (<a href="#ref-hernandez_optimal_2015" role="doc-biblioref">2015</a>)</span></td>
 </tr>
 <tr class="even">
 <td>2.3 Scenario logic</td>
 <td>Give details of the logical difference between the base case model and scenarios (if any). This could be incorporated as text or where differences are substantial could be incorporated in the same manner as 2.2.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td>Experiments 1 to 5, described throughout <code>5. Experimental results</code></td>
 </tr>
 <tr class="odd">
 <td>2.4 Algorithms</td>
 <td>Provide further detail on any algorithms in the model that (for example) mimic complex or manual processes in the real world (i.e.&nbsp;scheduling of arrivals/ appointments/ operations/ maintenance, operation of a conveyor system, machine breakdowns, etc.). Sufficient detail should be included (or referred to in other published work) for the algorithms to be reproducible. Pseudo-code may be used to describe an algorithm.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td>Several algorithms mentioned relate to optimisation performed using evolutionary algorithms prior to DES. However, DES algorithms also mentioned - e.g.&nbsp;arrival rate following a Poisson distribution in <code>4.1.4 Arrival rate</code>.</td>
 </tr>
 <tr class="even">
 <td>2.5.1 Components - entities</td>
 <td>Give details of all entities within the simulation including a description of their role in the model and a description of all their attributes.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td><code>4.4 Mathematical programming representation</code> - “The Designees are the entities of the DES.”<br><code>2.1 PODS</code> - “A Designee is a member of the public that arrives at a POD with one to six antibiotic screening forms representing him or herself and up to five other individuals”<br><br><span class="citation" data-cites="hernandez_optimal_2015">Hernandez et al. (<a href="#ref-hernandez_optimal_2015" role="doc-biblioref">2015</a>)</span></td>
 </tr>
 <tr class="odd">
 <td>2.5.2 Components - activities</td>
 <td>Describe the activities that entities engage in within the model. Provide details of entity routing into and out of the activity.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td>Implicit in <code>Figure 4</code> and <code>2.1 PODs</code></td>
 </tr>
 <tr class="even">
 <td>2.5.3 Components - resources</td>
 <td>List all the resources included within the model and which activities make use of them.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td>Implicit in <code>Figure 4</code> and <code>2.1 PODs</code></td>
 </tr>
 <tr class="odd">
 <td>2.5.4 Components - queues</td>
 <td>Give details of the assumed queuing discipline used in the model (e.g.&nbsp;First in First Out, Last in First Out, prioritisation, etc.). Where one or more queues have a different discipline from the rest, provide a list of queues, indicating the queuing discipline used for each. If reneging, balking or jockeying occur, etc., provide details of the rules. Detail any delays or capacity constraints on the queues.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td>As indicated in <code>4.4 Mathematical programming representation</code>, entities queue for each station, and no queueing discipline is mentioned, so it seems reasonable to assume it is simply first in first out, and so do not feel this is “missing” anything in this regard, as it is clear people wait, and I feel this to then be the assumed default.</td>
 </tr>
 <tr class="even">
 <td>2.5.5 Components - entry/exit points</td>
 <td>Give details of the model boundaries i.e.&nbsp;all arrival and exit points of entities. Detail the arrival mechanism (e.g.&nbsp;‘thinning’ to mimic a non-homogenous Poisson process or balking)</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td>Evident in <code>Figure 4</code>.</td>
 </tr>
 <tr class="odd">
@@ -340,7 +338,7 @@ div.csl-indent {
 <tr class="even">
 <td>3.1 Data sources</td>
 <td>List and detail all data sources. Sources may include:<br>• Interviews with stakeholders,<br>• Samples of routinely collected data,<br>• Prospectively collected samples for the purpose of the simulation study,<br>• Public domain data published in either academic or organisational literature. Provide, where possible, the link and DOI to the data or reference to published literature.<br>All data source descriptions should include details of the sample size, sample date ranges and use within the study.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td>Mentioned thoughout <code>4.1 Inputs</code> - for example…<br><code>4.1.1 Splits</code> - “Research indicating proportion of the population with certain allergies and/or contraindications helped determine the percentage of people who may move through various paths in the POD”<br><code>4.1.2 Number of forms</code> - “The percentage of Designees that arrive with one to six forms was based on 2000 census data on household sizes in New York City (Census 2000 Public Use Microdata Sample 5% Sample files, NY and NJ)”<br><br><span class="citation" data-cites="hernandez_optimal_2015">Hernandez et al. (<a href="#ref-hernandez_optimal_2015" role="doc-biblioref">2015</a>)</span></td>
 </tr>
 <tr class="odd">
@@ -352,13 +350,13 @@ div.csl-indent {
 <tr class="even">
 <td>3.3 Input parameters</td>
 <td>List all input variables in the model. Provide a description of their use and include parameter values. For stochastic inputs provide details of any continuous, discrete or empirical distributions used along with all associated parameters. Give details of all time dependent parameters and correlation.<br>Clearly state:<br>• Base case data<br>• Data use in experimentation, where different from the base case.<br>• Where optimisation or design of experiments has been used, state the range of values that parameters can take.<br>• Where theoretical distributions are used, state how these were selected and prioritised above other candidate distributions.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td><code>4.1 Inputs</code>, <code>Table 1</code>, and <code>Table 2</code></td>
 </tr>
 <tr class="odd">
 <td>3.4 Assumptions</td>
 <td>Where data or knowledge of the real system is unavailable what assumptions are included in the model? This might include parameter values, distributions or routing logic within the model.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td><code>4.1.2 Number of forms</code> - “we assume that no Designee picks up countermeasures for anyone outside of his/her household as defined by the US Census”<br><code>4.6. Model assumptions</code> - e.g.&nbsp;“It is assumed that POD staff doe not make any mistakes filling out the forms or dispensing the MCM…”<br><br><span class="citation" data-cites="hernandez_optimal_2015">Hernandez et al. (<a href="#ref-hernandez_optimal_2015" role="doc-biblioref">2015</a>)</span></td>
 </tr>
 <tr class="even">
@@ -376,13 +374,13 @@ div.csl-indent {
 <tr class="even">
 <td>4.2 Run length</td>
 <td>Detail the run length of the simulation model and time units.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td><code>4.3 Processing</code> - “The Discrete Event Simulation time is set to an hour”, and throughout mentions “minutes” (which is the time unit)</td>
 </tr>
 <tr class="odd">
 <td>4.3 Estimation approach</td>
 <td>State the method used to account for the stochasticity: For example, two common methods are multiple replications or batch means. Where multiple replications have been used, state the number of replications and for batch means, indicate the batch length and whether the batch means procedure is standard, spaced or overlapping. For both procedures provide a justification for the methods used and the number of replications/size of batches.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td><code>4.3 Processing</code> - “three simulation runs to obtain reliable estimates”<br><br>Justification for number given by <code>Figure 10</code> from <code>Experiment 5</code><br><br><span class="citation" data-cites="hernandez_optimal_2015">Hernandez et al. (<a href="#ref-hernandez_optimal_2015" role="doc-biblioref">2015</a>)</span></td>
 </tr>
 <tr class="even">
@@ -424,7 +422,7 @@ div.csl-indent {
 <tr class="even">
 <td>6.1 Computer model sharing statement</td>
 <td>Describe how someone could obtain the model described in the paper, the simulation software and any other associated software (or hardware) needed to reproduce the results. Provide, where possible, the link and DOIs to these.</td>
-<td>✅</td>
+<td>✅ Fully</td>
 <td><code>4.4 Mathematical programming representation</code> - “The complete source code used to perform these experiments can be found on github (<a href="https://github.com/ivihernandez/staff-allocation" class="uri">https://github.com/ivihernandez/staff-allocation</a>).”<br><br><span class="citation" data-cites="hernandez_optimal_2015">Hernandez et al. (<a href="#ref-hernandez_optimal_2015" role="doc-biblioref">2015</a>)</span></td>
 </tr>
 </tbody>
@@ -433,20 +431,10 @@ div.csl-indent {
 <section id="des-checklist-derived-from-ispor-sdm" class="level2">
 <h2 class="anchored" data-anchor-id="des-checklist-derived-from-ispor-sdm">DES checklist derived from ISPOR-SDM</h2>
 <p>Of the <strong>18</strong> items in the checklist:</p>
-<!-- TODO: Add counts from evaluation -->
 <ul>
-<li><strong>X</strong> were met fully (✅)</li>
-<li><strong>X</strong> were partially met (🟡)</li>
-<li><strong>X</strong> were not met (❌)</li>
-<li><strong>X</strong> were not applicable (N/A)</li>
+<li><strong>10</strong> were met fully (✅)</li>
+<li><strong>8</strong> were not met (❌)</li>
 </ul>
-<!-- TODO: Fill in the table. Options are ✅ Fully, 🟡 Partially, ❌ Not met, or N/A
-Handy tips:
-* 3 overlaps with STRESS-DES 2.1 Base model overview diagram and 2.2 Base model logic
-* 4 overlaps with STRESS-DES 4.2 Run length
-* 5 overlaps with STRESS-DES 1.3 Experimentation aims
-* 7 overlaps with STRESS-DES 3.1 Data source
-* 8 overlaps with STRESS-DES 3.3 Input parameters -->
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -472,38 +460,38 @@ Handy tips:
 <tr class="even">
 <td>1 Is the focused health-related decision problem clarified?</td>
 <td>…the decision problem under investigation was defined. DES studies included different types of decision problems, eg, those listed in previously developed taxonomies.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>1 Introduction</code> and <code>2 Background</code> - e.g.&nbsp;“catastrophic public health emergency”… “Fast, efficient and large-scale dispensing of such critical medical countermeasures”… “Points of Dispensing (PODSs)”… “how to develop staffing plans for each individual POD”<br><br><span class="citation" data-cites="hernandez_optimal_2015">Hernandez et al. (<a href="#ref-hernandez_optimal_2015" role="doc-biblioref">2015</a>)</span></td>
 </tr>
 <tr class="odd">
 <td>2 Is the modeled healthcare setting/health condition clarified?</td>
 <td>…the physical context/scope (eg, a certain healthcare unit or a broader system) or disease spectrum simulated was described.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>1 Introduction</code> and <code>2 Background</code> - New York City</td>
 </tr>
 <tr class="even">
 <td>3 Is the model structure described?</td>
 <td>…the model’s conceptual structure was described in the form of either graphical or text presentation.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Figure 4</code> and <code>2.1 PODs</code> - e.g.&nbsp;“…Upon arrival at the POD, the Designee is received by a Line Manager who reviews forms to determine if they are Pre-Screened. If they are Pre-Screened, the Line Manager directs the Designee to the Express Line…”<br><br><span class="citation" data-cites="hernandez_optimal_2015">Hernandez et al. (<a href="#ref-hernandez_optimal_2015" role="doc-biblioref">2015</a>)</span></td>
 </tr>
 <tr class="odd">
 <td>4 Is the time horizon given?</td>
 <td>…the time period covered by the simulation was reported.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>4.3 Processing</code> - “The Discrete Event Simulation time is set to an hour”</td>
 </tr>
 <tr class="even">
 <td>5 Are all simulated strategies/scenarios specified?</td>
 <td>…the comparators under test were described in terms of their components, corresponding variations, etc</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Experiments 1 to 5, described throughout <code>5. Experimental results</code>.</td>
 </tr>
 <tr class="odd">
 <td>6 Is the target population described?</td>
 <td>…the entities simulated and their main attributes were characterized.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>In this case, it is quite a hypothetical situation, and there doesn’t feel to be a lot that needs descibing? The only attribute we are interested in for the entities is how many forms they have and whether they would complete beforehand, and this information is given in e.g.&nbsp;<code>4.1.2</code> based on census data of household sizes. In <code>1 Introduction</code>, they describe the situation relavant to this population, and the plans from the Cities Readiness Initiative.</td>
 </tr>
 <tr class="even">
 <td><strong>Paramaterisation and uncertainty assessment</strong></td>
@@ -514,26 +502,26 @@ Handy tips:
 <tr class="odd">
 <td>7 Are data sources informing parameter estimations provided?</td>
 <td>…the sources of all data used to inform model inputs were reported.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Mentioned thoughout <code>4.1 Inputs</code> - for example…<br><code>4.1.1 Splits</code> - “Research indicating proportion of the population with certain allergies and/or contraindications helped determine the percentage of people who may move through various paths in the POD”<br><code>4.1.2 Number of forms</code> - “The percentage of Designees that arrive with one to six forms was based on 2000 census data on household sizes in New York City (Census 2000 Public Use Microdata Sample 5% Sample files, NY and NJ)”<br><br><span class="citation" data-cites="hernandez_optimal_2015">Hernandez et al. (<a href="#ref-hernandez_optimal_2015" role="doc-biblioref">2015</a>)</span></td>
 </tr>
 <tr class="even">
 <td>8 Are the parameters used to populate model frameworks specified?</td>
 <td>…all relevant parameters fed into model frameworks were disclosed.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>4.1 Inputs</code>, <code>Table 1</code>, and <code>Table 2</code></td>
 </tr>
 <tr class="odd">
 <td>9 Are model uncertainties discussed?</td>
 <td>…the uncertainty surrounding parameter estimations and adopted statistical methods (eg, 95% confidence intervals or possibility distributions) were reported.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>The scatter plots include all the results from the run. Where average results are reported though (e.g.&nbsp;<code>Table 3</code>, <code>Figure 10</code>), they do include confidence intervals along with the average.</td>
 </tr>
 <tr class="even">
 <td>10 Are sensitivity analyses performed and reported?</td>
 <td>…the robustness of model outputs to input uncertainties was examined, for example via deterministic (based on parameters’ plausible ranges) or probabilistic (based on a priori-defined probability distributions) sensitivity analyses, or both.</td>
-<td><!----></td>
-<td><!----></td>
+<td>❌ Not met</td>
+<td>None mentioned.</td>
 </tr>
 <tr class="odd">
 <td><strong>Validation</strong></td>
@@ -544,26 +532,26 @@ Handy tips:
 <tr class="even">
 <td>11 Is face validity evaluated and reported?</td>
 <td>…it was reported that the model was subjected to the examination on how well model designs correspond to the reality and intuitions. It was assumed that this type of validation should be conducted by external evaluators with no stake in the study.</td>
-<td><!----></td>
-<td><!----></td>
+<td>❌ Not met</td>
+<td>Not mentioned.</td>
 </tr>
 <tr class="odd">
 <td>12 Is cross validation performed and reported</td>
 <td>…comparison across similar modeling studies which deal with the same decision problem was undertaken.</td>
-<td><!----></td>
-<td><!----></td>
+<td>❌ Not met</td>
+<td>Not mentioned.</td>
 </tr>
 <tr class="even">
 <td>13 Is external validation performed and reported?</td>
 <td>…the modeler(s) examined how well the model’s results match the empirical data of an actual event modeled.</td>
-<td><!----></td>
-<td><!----></td>
+<td>❌ Not met</td>
+<td>Not mentioned.</td>
 </tr>
 <tr class="odd">
 <td>14 Is predictive validation performed or attempted?</td>
 <td>…the modeler(s) examined the consistency of a model’s predictions of a future event and the actual outcomes in the future. If this was not undertaken, it was assessed whether the reasons were discussed.</td>
-<td><!----></td>
-<td><!----></td>
+<td>❌ Not met</td>
+<td>Not mentioned.</td>
 </tr>
 <tr class="even">
 <td><strong>Generalisability and stakeholder involvement</strong></td>
@@ -574,26 +562,26 @@ Handy tips:
 <tr class="odd">
 <td>15 Is the model generalizability issue discussed?</td>
 <td>…the modeler(s) discussed the potential of the resulting model for being applicable to other settings/populations (single/multiple application).</td>
-<td><!----></td>
-<td><!----></td>
+<td>❌ Not met</td>
+<td>The model is developed for New York City planners. No mention is made of applying it outside this context.</td>
 </tr>
 <tr class="even">
 <td>16 Are decision makers or other stakeholders involved in modeling?</td>
 <td>…the modeler(s) reported in which part throughout the modeling process decision makers and other stakeholders (eg, subject experts) were engaged.</td>
-<td><!----></td>
-<td><!----></td>
+<td>❌ Not met</td>
+<td>Not mentioned.</td>
 </tr>
 <tr class="odd">
 <td>17 Is the source of funding stated?</td>
 <td>…the sponsorship of the study was indicated.</td>
-<td><!----></td>
-<td><!----></td>
+<td>❌ Not met</td>
+<td>Was not able to find any funding statements.</td>
 </tr>
 <tr class="even">
 <td>18 Are model limitations discussed?</td>
 <td>…limitations of the assessed model, especially limitations of interest to decision makers, were discussed.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>8. Limitations</code> - e.g.&nbsp;“Functional exercises like those conducted to gather very speciﬁc data on the Screening, Dispensing and Flow Monitor functions are not indicative of an actual POD. In real-world operations, POD sta- tions do not operate independently of each other. POD operations are heavily affected by how Stations operate together to facilitate smooth, efﬁcient movement of people”<br><br><span class="citation" data-cites="hernandez_optimal_2015">Hernandez et al. (<a href="#ref-hernandez_optimal_2015" role="doc-biblioref">2015</a>)</span></td>
 </tr>
 </tbody>
 </table>
