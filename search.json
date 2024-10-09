@@ -620,49 +620,49 @@
     "href": "quarto_site/reproduction_readme.html",
     "title": "README for reproduction",
     "section": "",
-    "text": "Please note: This is a template README and has not yet been completed\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\n\nTBC\n\n\n\nTBC\n\n\n\nTBC\n\n\n\n\nTBC\n\n\n\n\nTBC\n\n\n\nTBC"
+    "text": "This study models Points-of-Dispensing (PODs) in New York City. These are sites set up during a public health emergency to dispense countermeasures. The authors use evolutionary algorithms combined with discrete-event simulation to explore optimal staff numbers with regards to resource use, wait time and throughput.\n\n\n\nIn this assessment, we attempted to reproduce 8 items: 6 figures and 2 tables.\n\n\n\n\n\n├── docker\n│   └──  ...\n├── inputs\n│   └──  ...\n├── python_outputs\n│   └──  ...\n├── python_scripts\n│   └──  ...\n├── r_outputs\n│   └──  ...\n├── r_scripts\n│   └──  ...\n├── renv\n│   └──  ...\n├── tests\n│   └──  ...\n├── .Rprofile\n├── environment.yml\n├── README.md\n├── renv.lock\n└── reproduction.Rproj\n\ndocker/ - Instructions for creation of Docker container.\ninputs/ - Nine .txt files with parameters for pre-screening\npython_outputs/ - Results for each experiment\npython_scripts/ - Python code to run experiments with evolutionary algorithms and discrete-event simulation\nr_outputs/ - Tables and figures\nr_scripts/ - R code to produce the tables and figures from the model outputs\nrenv/ - Instructions for creation of R environment\ntests/ - Test to check that model produces consistent results with our reproduction.\n.Rprofile - Activates R environment.\nenvironment.yml - Instructions for creation of python environment.\nREADME.md - This file!\nrenv.lock - Lists R version and all packages in the R environment.\nreproduction.Rproj - Project settings.\n\n\n\n\n\n\nA conda/mamba environment has been provided. To create this environment on your machine, you should run this command in your terminal:\nconda env create -f environment.yml\nYou can then use this environment in your preferred IDE, such as VSCode (where you will be asked to select the kernel/interpreter). You can activate it in the terminal by running:\nconda activate hernandez2015\nYou can run either of these commands also using mamba instead (e.g. mamba activate hernandez2015).\n\n\n\n\n\n\n\n\n\n\nTo run all the model scenarios, open and execute each of the Experiment... files in python_scripts/. These are:\n\nExperiment 1 - Figure 5 and 6 and Appendix A.2\nExperiment 2 - Figure 7\nExperiment 3 - Figure 8\nExperiment 4 - Figure 9\nExperiment 5 - Figure 10\nExperiment A.1 - Table 3\n\nEnsure you are located in the python_scripts/ directory when running these.\n\n\n\nOne of the experiments (Experiment 5) has been set up as a test, so you can check whether your output matches the expected output. You can run this from the terminal. Ensure that the hernandez2015 environment is active and that you are in the tests/ folder. Then run:\npytest -W ignore::DeprecationWarning\nWe use ignore::DeprecationWarning to prevent a warning that the “oldnumeric module will be dropped in Numpy 1.9”. The test should take approximately 10 to 20 seconds to run.\n\n\n\n\nAn renv environment has been provided. To create this environment locally on your machine, you should open the R project with the renv package loaded, and then run:\nrenv::restore()\nIn renv.lock, you will see the version of R listed. However, renv will not install this for you, so you will need to switch to this yourself if you wish to also use the same version of R. This reproduction has been run in R 4.4.1, and it is possible (although not definite) that later versions of R may not be compatible, or that you may encounter difficulties installing the specified package versions in later versions of R.\n\n\n\nRun r_scripts/create_figures.Rmd to produce the tables and figures.\n\n\n\n\nThis reproduced was conducted mostly on an Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux.\nTo run all the experiments, total run time is 9 hours 16 minutes (556 minutes).\n\nExperiment 1 - 4 hours 28 minutes\nExperiment 2 - 58 minutes\nExperiment 3 - 3 hours 13 minutes\nExperiment 4 - 37 minutes\nExperiment 5 - 8 seconds\nExperiment A.1 - 10 seconds\n\nHowever, it is important to note that:\n\nThis involve running the models within each experiment in parallel, but each of the experiment files seperately. If these are run at the same time (which I could do without issue), then you will be able to run them all within 4 hours 28 minutes (the longest experiment)\nThis has excluded one of the variants for Experiment 3, which I did not run as it had a very long run time (quoted to be 27 hours in the article) and as, regardless, I had not managed to reproduce the other sub-plots in the figure for that experiment\n\n\n\n\nTo cite the original study, please refer to the reference above. To cite this reproduction, please refer to the CITATION.cff file in the parent folder.\n\n\n\nThis repository is licensed under the MIT License."
   },
   {
     "objectID": "quarto_site/reproduction_readme.html#model-summary",
     "href": "quarto_site/reproduction_readme.html#model-summary",
     "title": "README for reproduction",
     "section": "",
-    "text": "TBC"
+    "text": "This study models Points-of-Dispensing (PODs) in New York City. These are sites set up during a public health emergency to dispense countermeasures. The authors use evolutionary algorithms combined with discrete-event simulation to explore optimal staff numbers with regards to resource use, wait time and throughput."
   },
   {
     "objectID": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
     "href": "quarto_site/reproduction_readme.html#scope-of-the-reproduction",
     "title": "README for reproduction",
     "section": "",
-    "text": "TBC"
+    "text": "In this assessment, we attempted to reproduce 8 items: 6 figures and 2 tables."
   },
   {
     "objectID": "quarto_site/reproduction_readme.html#reproducing-these-results",
     "href": "quarto_site/reproduction_readme.html#reproducing-these-results",
     "title": "README for reproduction",
     "section": "",
-    "text": "TBC\n\n\n\nTBC\n\n\n\nTBC"
+    "text": "├── docker\n│   └──  ...\n├── inputs\n│   └──  ...\n├── python_outputs\n│   └──  ...\n├── python_scripts\n│   └──  ...\n├── r_outputs\n│   └──  ...\n├── r_scripts\n│   └──  ...\n├── renv\n│   └──  ...\n├── tests\n│   └──  ...\n├── .Rprofile\n├── environment.yml\n├── README.md\n├── renv.lock\n└── reproduction.Rproj\n\ndocker/ - Instructions for creation of Docker container.\ninputs/ - Nine .txt files with parameters for pre-screening\npython_outputs/ - Results for each experiment\npython_scripts/ - Python code to run experiments with evolutionary algorithms and discrete-event simulation\nr_outputs/ - Tables and figures\nr_scripts/ - R code to produce the tables and figures from the model outputs\nrenv/ - Instructions for creation of R environment\ntests/ - Test to check that model produces consistent results with our reproduction.\n.Rprofile - Activates R environment.\nenvironment.yml - Instructions for creation of python environment.\nREADME.md - This file!\nrenv.lock - Lists R version and all packages in the R environment.\nreproduction.Rproj - Project settings.\n\n\n\n\n\n\nA conda/mamba environment has been provided. To create this environment on your machine, you should run this command in your terminal:\nconda env create -f environment.yml\nYou can then use this environment in your preferred IDE, such as VSCode (where you will be asked to select the kernel/interpreter). You can activate it in the terminal by running:\nconda activate hernandez2015\nYou can run either of these commands also using mamba instead (e.g. mamba activate hernandez2015).\n\n\n\n\n\n\n\n\n\n\nTo run all the model scenarios, open and execute each of the Experiment... files in python_scripts/. These are:\n\nExperiment 1 - Figure 5 and 6 and Appendix A.2\nExperiment 2 - Figure 7\nExperiment 3 - Figure 8\nExperiment 4 - Figure 9\nExperiment 5 - Figure 10\nExperiment A.1 - Table 3\n\nEnsure you are located in the python_scripts/ directory when running these.\n\n\n\nOne of the experiments (Experiment 5) has been set up as a test, so you can check whether your output matches the expected output. You can run this from the terminal. Ensure that the hernandez2015 environment is active and that you are in the tests/ folder. Then run:\npytest -W ignore::DeprecationWarning\nWe use ignore::DeprecationWarning to prevent a warning that the “oldnumeric module will be dropped in Numpy 1.9”. The test should take approximately 10 to 20 seconds to run.\n\n\n\n\nAn renv environment has been provided. To create this environment locally on your machine, you should open the R project with the renv package loaded, and then run:\nrenv::restore()\nIn renv.lock, you will see the version of R listed. However, renv will not install this for you, so you will need to switch to this yourself if you wish to also use the same version of R. This reproduction has been run in R 4.4.1, and it is possible (although not definite) that later versions of R may not be compatible, or that you may encounter difficulties installing the specified package versions in later versions of R.\n\n\n\nRun r_scripts/create_figures.Rmd to produce the tables and figures."
   },
   {
     "objectID": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
     "href": "quarto_site/reproduction_readme.html#reproduction-specs-and-runtime",
     "title": "README for reproduction",
     "section": "",
-    "text": "TBC"
+    "text": "This reproduced was conducted mostly on an Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux.\nTo run all the experiments, total run time is 9 hours 16 minutes (556 minutes).\n\nExperiment 1 - 4 hours 28 minutes\nExperiment 2 - 58 minutes\nExperiment 3 - 3 hours 13 minutes\nExperiment 4 - 37 minutes\nExperiment 5 - 8 seconds\nExperiment A.1 - 10 seconds\n\nHowever, it is important to note that:\n\nThis involve running the models within each experiment in parallel, but each of the experiment files seperately. If these are run at the same time (which I could do without issue), then you will be able to run them all within 4 hours 28 minutes (the longest experiment)\nThis has excluded one of the variants for Experiment 3, which I did not run as it had a very long run time (quoted to be 27 hours in the article) and as, regardless, I had not managed to reproduce the other sub-plots in the figure for that experiment"
   },
   {
     "objectID": "quarto_site/reproduction_readme.html#citation",
     "href": "quarto_site/reproduction_readme.html#citation",
     "title": "README for reproduction",
     "section": "",
-    "text": "TBC"
+    "text": "To cite the original study, please refer to the reference above. To cite this reproduction, please refer to the CITATION.cff file in the parent folder."
   },
   {
     "objectID": "quarto_site/reproduction_readme.html#license",
     "href": "quarto_site/reproduction_readme.html#license",
     "title": "README for reproduction",
     "section": "",
-    "text": "TBC"
+    "text": "This repository is licensed under the MIT License."
   },
   {
     "objectID": "logbook/posts/2024_09_24/index.html",

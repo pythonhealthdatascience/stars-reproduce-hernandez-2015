@@ -175,8 +175,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#reproducing-these-results" id="toc-reproducing-these-results" class="nav-link" data-scroll-target="#reproducing-these-results">Reproducing these results</a>
   <ul class="collapse">
   <li><a href="#repository-overview" id="toc-repository-overview" class="nav-link" data-scroll-target="#repository-overview">Repository overview</a></li>
-  <li><a href="#step-1.-set-up-environment" id="toc-step-1.-set-up-environment" class="nav-link" data-scroll-target="#step-1.-set-up-environment">Step 1. Set up environment</a></li>
+  <li><a href="#step-1.-set-up-python-environment" id="toc-step-1.-set-up-python-environment" class="nav-link" data-scroll-target="#step-1.-set-up-python-environment">Step 1. Set up Python environment</a></li>
   <li><a href="#step-2.-running-the-model" id="toc-step-2.-running-the-model" class="nav-link" data-scroll-target="#step-2.-running-the-model">Step 2. Running the model</a></li>
+  <li><a href="#step-3.-set-up-the-r-environment" id="toc-step-3.-set-up-the-r-environment" class="nav-link" data-scroll-target="#step-3.-set-up-the-r-environment">Step 3. Set up the R environment</a></li>
+  <li><a href="#step-4.-produce-the-figures-and-tables" id="toc-step-4.-produce-the-figures-and-tables" class="nav-link" data-scroll-target="#step-4.-produce-the-figures-and-tables">Step 4. Produce the figures and tables</a></li>
   </ul></li>
   <li><a href="#reproduction-specs-and-runtime" id="toc-reproduction-specs-and-runtime" class="nav-link" data-scroll-target="#reproduction-specs-and-runtime">Reproduction specs and runtime</a></li>
   <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
@@ -210,47 +212,128 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="reproduction-readme" class="level1">
 <h1>Reproduction README</h1>
-<!-- TODO: Remove this warning once filled out README -->
-<p><strong>Please note: This is a template README and has not yet been completed</strong></p>
-<!-- TODO: Fill out the README -->
 <section id="model-summary" class="level2">
 <h2 class="anchored" data-anchor-id="model-summary">Model summary</h2>
-<p>TBC</p>
+<p>This study models Points-of-Dispensing (PODs) in New York City. These are sites set up during a public health emergency to dispense countermeasures. The authors use evolutionary algorithms combined with discrete-event simulation to explore optimal staff numbers with regards to resource use, wait time and throughput.</p>
 </section>
 <section id="scope-of-the-reproduction" class="level2">
 <h2 class="anchored" data-anchor-id="scope-of-the-reproduction">Scope of the reproduction</h2>
-<p>TBC</p>
+<p>In this assessment, we attempted to reproduce 8 items: 6 figures and 2 tables.</p>
 </section>
 <section id="reproducing-these-results" class="level2">
 <h2 class="anchored" data-anchor-id="reproducing-these-results">Reproducing these results</h2>
 <section id="repository-overview" class="level3">
 <h3 class="anchored" data-anchor-id="repository-overview">Repository overview</h3>
-<p>TBC</p>
+<pre class="{bash}"><code>├── docker
+│   └──  ...
+├── inputs
+│   └──  ...
+├── python_outputs
+│   └──  ...
+├── python_scripts
+│   └──  ...
+├── r_outputs
+│   └──  ...
+├── r_scripts
+│   └──  ...
+├── renv
+│   └──  ...
+├── tests
+│   └──  ...
+├── .Rprofile
+├── environment.yml
+├── README.md
+├── renv.lock
+└── reproduction.Rproj</code></pre>
+<ul>
+<li><code>docker/</code> - Instructions for creation of Docker container.</li>
+<li><code>inputs/</code> - Nine <code>.txt</code> files with parameters for pre-screening</li>
+<li><code>python_outputs/</code> - Results for each experiment</li>
+<li><code>python_scripts/</code> - Python code to run experiments with evolutionary algorithms and discrete-event simulation</li>
+<li><code>r_outputs/</code> - Tables and figures</li>
+<li><code>r_scripts/</code> - R code to produce the tables and figures from the model outputs</li>
+<li><code>renv/</code> - Instructions for creation of R environment</li>
+<li><code>tests/</code> - Test to check that model produces consistent results with our reproduction.</li>
+<li><code>.Rprofile</code> - Activates R environment.</li>
+<li><code>environment.yml</code> - Instructions for creation of python environment.</li>
+<li><code>README.md</code> - This file!</li>
+<li><code>renv.lock</code> - Lists R version and all packages in the R environment.</li>
+<li><code>reproduction.Rproj</code> - Project settings.</li>
+</ul>
 </section>
-<section id="step-1.-set-up-environment" class="level3">
-<h3 class="anchored" data-anchor-id="step-1.-set-up-environment">Step 1. Set up environment</h3>
-<p>TBC</p>
+<section id="step-1.-set-up-python-environment" class="level3">
+<h3 class="anchored" data-anchor-id="step-1.-set-up-python-environment">Step 1. Set up Python environment</h3>
+<section id="option-a-condamamba-environment" class="level4">
+<h4 class="anchored" data-anchor-id="option-a-condamamba-environment">Option A: Conda/mamba environment</h4>
+<p>A <code>conda</code>/<code>mamba</code> environment has been provided. To create this environment on your machine, you should run this command in your terminal:</p>
+<pre><code>conda env create -f environment.yml</code></pre>
+<p>You can then use this environment in your preferred IDE, such as VSCode (where you will be asked to select the kernel/interpreter). You can activate it in the terminal by running:</p>
+<pre><code>conda activate hernandez2015</code></pre>
+<p>You can run either of these commands also using <code>mamba</code> instead (e.g.&nbsp;<code>mamba activate hernandez2015</code>).</p>
+</section>
+<section id="option-b-build-local-docker-image" class="level4">
+<h4 class="anchored" data-anchor-id="option-b-build-local-docker-image">Option B: Build local docker image</h4>
+<!--TODO: Add docker instructions -->
+</section>
 </section>
 <section id="step-2.-running-the-model" class="level3">
 <h3 class="anchored" data-anchor-id="step-2.-running-the-model">Step 2. Running the model</h3>
-<p>TBC</p>
+<section id="option-a-run-the-.py-files" class="level4">
+<h4 class="anchored" data-anchor-id="option-a-run-the-.py-files">Option A: Run the <code>.py</code> files</h4>
+<p>To run all the model scenarios, open and execute each of the <code>Experiment...</code> files in <code>python_scripts/</code>. These are:</p>
+<ul>
+<li>Experiment 1 - Figure 5 and 6 and Appendix A.2</li>
+<li>Experiment 2 - Figure 7</li>
+<li>Experiment 3 - Figure 8</li>
+<li>Experiment 4 - Figure 9</li>
+<li>Experiment 5 - Figure 10</li>
+<li>Experiment A.1 - Table 3</li>
+</ul>
+<p>Ensure you are located in the <code>python_scripts/</code> directory when running these.</p>
+</section>
+<section id="option-b-pytest" class="level4">
+<h4 class="anchored" data-anchor-id="option-b-pytest">Option B: Pytest</h4>
+<p>One of the experiments (Experiment 5) has been set up as a test, so you can check whether your output matches the expected output. You can run this from the terminal. Ensure that the <code>hernandez2015</code> environment is active and that you are in the <code>tests/</code> folder. Then run:</p>
+<pre><code>pytest -W ignore::DeprecationWarning</code></pre>
+<p>We use <code>ignore::DeprecationWarning</code> to prevent a warning that the “oldnumeric module will be dropped in Numpy 1.9”. The test should take approximately 10 to 20 seconds to run.</p>
+</section>
+</section>
+<section id="step-3.-set-up-the-r-environment" class="level3">
+<h3 class="anchored" data-anchor-id="step-3.-set-up-the-r-environment">Step 3. Set up the R environment</h3>
+<p>An <code>renv</code> environment has been provided. To create this environment locally on your machine, you should open the R project with the <code>renv</code> package loaded, and then run:</p>
+<pre><code>renv::restore()</code></pre>
+<p>In <code>renv.lock</code>, you will see the version of R listed. However, renv will not install this for you, so you will need to switch to this yourself if you wish to also use the same version of R. This reproduction has been run in R 4.4.1, and it is possible (although not definite) that later versions of R may not be compatible, or that you may encounter difficulties installing the specified package versions in later versions of R.</p>
+</section>
+<section id="step-4.-produce-the-figures-and-tables" class="level3">
+<h3 class="anchored" data-anchor-id="step-4.-produce-the-figures-and-tables">Step 4. Produce the figures and tables</h3>
+<p>Run <code>r_scripts/create_figures.Rmd</code> to produce the tables and figures.</p>
 </section>
 </section>
 <section id="reproduction-specs-and-runtime" class="level2">
 <h2 class="anchored" data-anchor-id="reproduction-specs-and-runtime">Reproduction specs and runtime</h2>
-<p>TBC</p>
-<!-- Hint: On Linux, you can find specs by running the following commands in the terminal:
-cat /etc/os-release  # Shows operating system and version
-lscpu  # Shows computer model
-free -g  # Shows RAM in GB (combine total column) -->
+<p>This reproduced was conducted mostly on an Intel Core i9-13900K with 81GB RAM running Pop!_OS 22.04 Linux.</p>
+<p>To run all the experiments, total run time is <strong>9 hours 16 minutes</strong> (556 minutes).</p>
+<ul>
+<li>Experiment 1 - 4 hours 28 minutes</li>
+<li>Experiment 2 - 58 minutes</li>
+<li>Experiment 3 - 3 hours 13 minutes</li>
+<li>Experiment 4 - 37 minutes</li>
+<li>Experiment 5 - 8 seconds</li>
+<li>Experiment A.1 - 10 seconds</li>
+</ul>
+<p>However, it is important to note that:</p>
+<ul>
+<li>This involve running the models within each experiment in parallel, but each of the experiment files seperately. If these are run at the same time (which I could do without issue), then you will be able to run them all within <strong>4 hours 28 minutes</strong> (the longest experiment)</li>
+<li>This has excluded one of the variants for Experiment 3, which I did not run as it had a very long run time (quoted to be 27 hours in the article) and as, regardless, I had not managed to reproduce the other sub-plots in the figure for that experiment</li>
+</ul>
 </section>
 <section id="citation" class="level2">
 <h2 class="anchored" data-anchor-id="citation">Citation</h2>
-<p>TBC</p>
+<p>To cite the original study, please refer to the reference above. To cite this reproduction, please refer to the <code>CITATION.cff</code> file in the parent folder.</p>
 </section>
 <section id="license" class="level2">
 <h2 class="anchored" data-anchor-id="license">License</h2>
-<p>TBC</p>
+<p>This repository is licensed under the MIT License.</p>
 
 
 </section>
