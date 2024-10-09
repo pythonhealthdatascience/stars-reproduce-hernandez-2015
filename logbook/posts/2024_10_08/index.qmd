@@ -2,13 +2,13 @@
 title: "Day 12"
 author: "Amy Heather"
 date: "2024-10-08"
-categories: [reproduce, evaluation]
+categories: [evaluation]
 bibliography: ../../../quarto_site/references.bib
 ---
 
 ::: {.callout-note}
 
-X. Total time used: Xh Xm (X%)
+Badge, STARS and STRESS-DES evaluation. Total evaluation time used: 1h 0m.
 
 :::
 
@@ -17,3 +17,40 @@ X. Total time used: Xh Xm (X%)
 This study did alot of things right - well structured code, seeds, provision of some code towards making figures, to name a few - but still, didn't manage to reproduce most parts. This doesn't mean it was bad/worse! And is just likely to be that there are some mismatch parameters in there causing everything to be out of sync. It just shows how important that is in enabling reproduction of results, that the model is parametrised to match the paper (as well as for each scenario).
 
 :::
+
+As not able to get consensus on reproduction at the moment, moving onto evaluation.
+
+## 15.07-15.12: Badges evaluation
+
+As in previous evaluations, marked as having not included license as add on request.
+
+Not complete set of materials as had to right some code myself (e.g. scenarios, processing results).
+
+Well structured (classes).
+
+## 15.16-15.24: STARS evaluation
+
+## 15.34-16.07, 16.34-16.40, 16.50-16.58: STRESS-DES evaluation
+
+None uncertain.
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 0
+
+# Times from today
+times = [
+    ('15.07', '15.12'),
+    ('15.16', '15.24'),
+    ('15.34', '16.07'),
+    ('16.34', '16.40'),
+    ('16.50', '16.58')]
+
+calculate_times(used_to_date, times, limit=False)
+```
