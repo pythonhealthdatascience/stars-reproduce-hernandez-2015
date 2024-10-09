@@ -25,7 +25,6 @@ time_list = [
     [np.nan, 'Table 3'],
     [np.nan, 'Table 4']]
 times_df = process_times(time_list, adjust='Figure 5')
-display(times_df)
 ```
 
 Non-interactive plot:
@@ -42,8 +41,7 @@ success_interactive(times_df)
 
 ## Figure 5
 
-<!--TODO: Add consensus
-**Consensus: Not reproduced / Successfully reproduced**-->
+**Consensus: Not reproduced**
 
 ![](../reproduction/r_outputs/figure5.png)
 
@@ -55,36 +53,31 @@ success_interactive(times_df)
 
 ## Figure 7
 
-<!--TODO: Add consensus
-**Consensus: Not reproduced / Successfully reproduced**-->
+**Consensus: Not reproduced**
 
 ![](../reproduction/r_outputs/figure7.png)
 
 ## Figure 8
 
-<!--TODO: Add consensus
-**Consensus: Not reproduced / Successfully reproduced**-->
+**Consensus: Not reproduced**
 
 ![](../reproduction/r_outputs/figure8.png)
 
 ## Figure 9
 
-<!--TODO: Add consensus
-**Consensus: Not reproduced / Successfully reproduced**-->
+**Consensus: Not reproduced**
 
 ![](../reproduction/r_outputs/figure9.png)
 
 ## Figure 10
 
-<!--TODO: Add consensus
-**Consensus: Not reproduced / Successfully reproduced**-->
+**Consensus: Not reproduced**
 
 ![](../reproduction/r_outputs/figure10.png)
 
 ## Table 3
 
-<!--TODO: Add consensus
-**Consensus: Not reproduced / Successfully reproduced**-->
+**Consensus: Not reproduced**
 
 ```{python}
 pd.read_csv('../reproduction/r_outputs/table3.csv')
@@ -92,8 +85,7 @@ pd.read_csv('../reproduction/r_outputs/table3.csv')
 
 ## Table 4
 
-<!--TODO: Add consensus
-**Consensus: Not reproduced / Successfully reproduced**-->
+**Consensus: Not reproduced**
 
 ```{python}
 pd.read_csv('../reproduction/r_outputs/table4.csv')
