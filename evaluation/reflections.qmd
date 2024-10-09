@@ -2,19 +2,58 @@
 title: "Reflections"
 ---
 
-<!-- TODO: Remove this warning once completed assessment -->
-**Please note: This is a template page and has not yet been completed**
-
 This page contains reflections on the facilitators and barriers to this reproduction, as well as a full list of the troubleshooting steps taken to reproduce this work.
 
 ## What would have helped facilitate this reproduction?
 
-<!-- TODO: Add reflections. Example:
 **Provide environment (packages and versions)**
 
-* Not all packages needed will be listed in the imports (e.g. greenlet, pathlib)
-* Didn't work with latest package versions, had to backdate it for it to work
--->
+* Not all packages needed were listed, and some versions were not very specific (e.g. 2.7, v.s. 2.7.12)
+* Given the age of this work, some packages were no longer available on conda and had to be installed from PyPI
+
+Unavoidable: **Unsupported Python version**
+
+* This used an old version of Python that is no longer supported. The main trouble for this is with IDEs - not supported by VSCode, Jupyter Notebook, Jupyter Lab, and can't run `.ipynb` notebooks - and required "tricks" to run in VSCode
+* This is a slightly unavoidable problem, as at this age, we run into these issues. If you were reusing this code for a new purpose, you would likely explore changing it so you can upgrade to Python 3
+
+**Make local dependencies clear**
+
+* This package depended on another GitHub repository from the same author, which wasn't initially apparent
+
+**Unused files and code**
+
+* Output files included a very large number of individual results files that weren't used, and one that was - for simplicity and to reduce number of files in directory, could've disabled this if not typically needed (but maybe keeping for quality control purposes)
+
+**Run time**
+
+* If there are alternatives for running the model that get *similar* results at lower run times, that can be handy to know, as it is difficult to get started up and running with a model if the default run time is hours
+* Speed up where possible - e.g. with parallel processing
+
+**Matching parameters in the code and article**
+
+* This seems likely to be the **main reason** for discrepancies. There were several differences between the code and article which (a) were hard to spot, and (b) you can never quite be sure which is the right parameter!
+
+**Scenarios**
+
+* Include instructions or code for running the scenarios. To spot how to implement them, it took searches through the code trying to spot which line we might need to tweak, or spotting sections of code that would run that experiment.
+
+**Full code for figures and tables**
+
+* Very handy to have some code, but would have been beneficial if included all - i.e. imports, pre-processing, plot amendments - that would make a figure matching up to the article (or table)
+
+## What did help facilitate this reproduction?
+
+**Results file** - the summary results file was clear and easy to understand.
+
+**Partial code for figures** - some code was provided to create figures in R and - although not comprehensive (not all figures, and not all processing steps) - it was very beneficial in giving a baseline to work from when writing code for the plots.
+
+**Provision of some results from the author's runs of the models**
+
+**Seeds** - the code was set up with seeds that ensured consistent results between runs of the scripts which was great.
+
+**Reported run times** - which was handy to be aware of ahead of time, to anticipate long run times, and to know e.g. on of the Experiment 3 runs just wouldn't be feasible
+
+**Structuring of code into classes** - this is a nice clear way of structuring code and is nice to work with/amend
 
 ## Full list of troubleshooting steps
 
@@ -23,12 +62,63 @@ This page contains reflections on the facilitators and barriers to this reproduc
 
 Troubleshooting steps are grouped by theme, and the day these occurred is given in brackets at the end of each bullet.
 
-<!-- TODO: Add full list of troubleshooting steps. Example:
+### Python Environment
 
-### Environment
+* No environment file, but versions for Python, inspyred, simpy, R and ggplot are given in the paper (2)
+* Created Python environment with dependencies either based on the paper or - for other packages - on or prior to 10th December 2013 (2)
+* To use Python 2.7 in VSCode, I had to switch to a pre-release version of VSCode Python via the extensions tab, as it was no longer supported (2)
+    * Impact of IDEs - with VSCode being an issue in running 2.7. From a google, I can see likewise that Jupyter Notebook and JupterLab no longer support Python 2.7 (since 2020). (3)
+    * In a case like this, if I were reusing the code for a new purpose, I might look to upgrade to Python 3+. However, for the sake of the reproduction, for now, sticking with 2.7. However, that brings limitations, like being unable to run notebooks, and having to use a pre-release version of the Python extension in VSCode to run the .py files. (3)
+* I estimated based on dates that I would need Python 2.7.6 (paper just gave 2.7). However, conda only have 2.7.13 onwards and conda-forge have 2.6.9 or 2.7.12 onwards. I couldn't tried to identify another conda channel with 2.7.6, but was reluctant as these were the main/typical channels - and so, instead, I decided to use 2.7.12, as this was the most recent version of Python 2.7 provided by the main channeles. This is more recent than desired though (26th June 2016). (2)
+* Identified additional packages required from errors i.e. `ImportError: No module named -` (2,3)
+* Several packages had to be installed from PyPi instead of Conda as Conda doesn't include versions old enough (2,3)
+* Was not able to work with `.ipynb` notebooks as these are not supported for Python 2.7. (2)
 
-* No environment file, and no versions for Python or Salabim in paper (2)
-* Dependencies based on PHC.py and package versions on or prior to 14th March 2021 (2)
--->
+### R Environment
+
+* Created an renv and, due to difficulties I’ve had with backdating R previously, I decided to try with latest versions in the first instance. This worked without issue, although I did find some unusual behaviour from renv, not updating the lockfile correctly. (3)
+
+### Other repositories
+
+* Realised it required another repository from the author's GitHub, `myutils`, with the author kindly also add a license to so I could use it - *note: importance of having license in all repositories used* (2)
+
+### Organisation, files, folders and outputs
+
+* Reorganised repository into python scripts, R scripts, python outputs, and R outputs, as it was quite busy (3)
+* Altered `SolutionWriter.py` to allow custom folder name for when save results (so can save as e.g. `experiment1/`)
+* The default behaviour of the scripts was to output lots of individual results files alongside a summary results file. These individual files were very numerous and, since they are not used, I removed them for simplicity. This was very easy to do due to the structure of the code - I just had to comment out `self.dumpResultsAnalyzer()` in `SolutionWriter.py` (9)
+
+### Run time
+
+* Experimented with reducing the parameters (`runs`, `population`, `generations`) to reduce run time - either to just check I can run a model, or to try and reproduce results with shorter run time (3+)
+* Amended script to save run time to a file rather than just printing, as I anticipated losing it then (4)
+* Long run times made it a bit trickier to work with, having to wait for it to run to see if results worked out (5+)
+* Add parallel processing (8)
+* I did not run one part of Experiment 3 as it was too long (stated to be 27 hours) (10)
+
+### Model parameters
+
+* Provided code had 1 run, population 100 and 5 generations. This differs from the paper - e.g. Experiment 1 is 3 runs, population 100 and 50 generations (3+)
+* Results were very low, to help figure out issue I looked at the results files provided in the repository, plotting each of these, and realising I had similar results to the "bounded" "tri-objective" results. I wasn't sure what "bounding" meant - it wasn't mentioned in the article - and searched through repository, spotting some "lowerBounds" and "upperBounds" set in `StaffAllocationProblem()`. These had been set to `self.lowerBounds = [3, 3, 3, 3]` and `self.upperBounds = [8, 8, 25, 8]` but, looking at the number of staff in the unbounded provided results, they were much wider (1-60), which got the results looking much more similar. Experimented with 1-100 but that didn't look right. (6,7)
+    * Then assumed to amend this for Experiment 4 (11)
+* Searched through article creating table with all the model parameters and checking them in the code. From this, noticed line manager service time was mismatched, and arrival rate. (7,8)
+* Corrected line manager service time (8)
+* Changed arrival rate, but wasn't convinced, and changed it back. Trouble with mismatch parameters is that you never quite know which is right - the code or the article! (9)
+* Tried tweaking `capacities = [4, 6, 6, 1]` but that didn't impact results (10)
+
+### Scenarios
+
+* I wasn't sure where the model was set to be bi-objective or tr-objective, but noticed in `StaffAllocationProblem()` the code `self.objectiveTypes = [False, True, False]`, and deduced from understanding of objectives from article, and from looking at the commit history of the `.py` file, that this made it tri-objective and switching to bi-objective was done by setting `self.objectiveTypes = [False, True]` (6)
+* Wrote and amended code to allow me to run each of the scenarios programmaticaly (e.g. change to bi-objective model without directly changing code in `StaffAllocationProblem.py`)
+* For Experiment 5 and Appendix A.1, had to spot code at the end of `PODSimulation.py` which I could use of basis for experiment
+
+### Figures and tables
+
+* Using the provided `plotting_staff_results.r` as a baseline, I pre-processed the results data (binding together, with column to indicate scenario), and made a few other little adaptions, to get the basic scatter plot (3)
+* Likewise for the bar plots, requiring a little more work (melting data, changing facet wrap, identifying what to plot, figuring out how to colour) (4)
+
+### Running from command line
+
+* When run on command line, Tkinter had error related to display for GUI operations, which was resolved by removing import of `simpy.simplot` which wasn't actually used (4,5)
 
 :::
