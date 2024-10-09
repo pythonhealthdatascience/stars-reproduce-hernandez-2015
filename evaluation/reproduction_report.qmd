@@ -1,6 +1,6 @@
 ---
 title: "Summary report"
-subtitle: "For computational reproducibility assessment of Author et al. Year"
+subtitle: "For computational reproducibility assessment of Hernandez et al. 2015"
 format:
   html:
     page-layout: full
@@ -8,43 +8,98 @@ echo: False
 bibliography: ../quarto_site/references.bib
 ---
 
-<!-- TODO: Remove this warning once filled out report -->
-**Please note: This is a template page and has not yet been completed**
-
-<!-- TODO: Use this skeleton to create a summary report -->
-
 ## Study
 
-> [Authors]. **[Title]**. *[Journal]* [Volume], [Edition] ([Year]). <[URL]>.
+> Hernandez, I., Ramirez-Marquez, J., Starr, D., McKay, R., Guthartz, S., Motherwell, M., Barcellona, J. **Optimal staffing strategies for points of dispensing**. *Computers & Industrial Engineering* 83 (2015). <https://doi.org/10.1016/j.cie.2015.02.015>.
 
-[Paragraph summarising model]
+This study models Points-of-Dispensing (PODs) in New York City. These are sites set up during a public health emergency to dispense countermeasures. The authors use evolutionary algorithms combined with discrete-event simulation to explore optimal staff numbers with regards to resource use, wait time and throughput.
 
 ## Computational reproducibility
 
-Successfully reproduced **X out of X (X%)** of items from the scope in **Xh Xm (X%)**.
+Successfully reproduced **1 out of 8 (12.5%)** of items from the scope in **17h 41m (44.2%)**.
 
 Required troubleshooting:
 
-* [List of required changes to code]
+* **Environment** - installing packages and working with unsupported Python version
+* **Additional repositories** - realised that another repository from the author is required and importing
+* **Organisation** - organising files and amending output folder names
+* **Run time** - exploring parameters that can run with similar results but shorter run time, and adding parallel processing
+* **Parameters** - identifying mis-match parameters between article and code and attempting to correct
+* **Scenarios** - identifying how to implement scenarios and writing code, or spotting code that can be used for scenario from part of a script
+* **Figures and tables** - using provided code as a starting place, wrote additional code to tweak plotting code, and pre-process data beforehand
+* **Command line** - removing import of `simpy.simplot` which prevented from running on the command line
 
 ::: {.panel-tabset}
 
-## Item X
+## Figure 5
 
-[One sentence description of item X]
+Cannot display original figure as do not have permission for reuse, but can view at @hernandez_optimal_2015
 
-[Display side-by-side]
-<!-- Example:
-![Original](../original_study/article_fig2.png){width=49% .lightbox}
-![Reproduction](../reproduction/output/patients_base_3_month.png){width=49% .lightbox} -->
+Reproduction:
 
-## Item Y
+![Reproduction](../reproduction/r_outputs/figure5.png){.lightbox}
 
-[Set-up as for Item X]
+## Figure 6
 
-## Figure 4
+Cannot display original figure as do not have permission for reuse, but can view at @hernandez_optimal_2015
 
-[Set-up as for Item X]
+Reproduction:
+
+![Reproduction](../reproduction/r_outputs/figure6.png){.lightbox}
+
+## Figure 7
+
+Cannot display original figure as do not have permission for reuse, but can view at @hernandez_optimal_2015
+
+Reproduction:
+
+![Reproduction](../reproduction/r_outputs/figure7.png){.lightbox}
+
+## Figure 8
+
+Cannot display original figure as do not have permission for reuse, but can view at @hernandez_optimal_2015
+
+Reproduction:
+
+![Reproduction](../reproduction/r_outputs/figure8.png){.lightbox}
+
+## Figure 9
+
+Cannot display original figure as do not have permission for reuse, but can view at @hernandez_optimal_2015
+
+Reproduction:
+
+![Reproduction](../reproduction/r_outputs/figure9.png){.lightbox}
+
+## Figure 10
+
+Cannot display original figure as do not have permission for reuse, but can view at @hernandez_optimal_2015
+
+Reproduction:
+
+![Reproduction](../reproduction/r_outputs/figure10.png){.lightbox}
+
+## Table 3
+
+Cannot display original table as do not have permission for reuse, but can view at @hernandez_optimal_2015
+
+Reproduction:
+
+```{python}
+import pandas as pd
+
+pd.read_csv('../reproduction/r_outputs/table3.csv')
+```
+
+## Table 4
+
+Cannot display original table as do not have permission for reuse, but can view at @hernandez_optimal_2015
+
+Reproduction:
+
+```{python}
+pd.read_csv('../reproduction/r_outputs/table4.csv')
+```
 
 :::
 
@@ -57,12 +112,12 @@ import plotly.express as px
 # Create dataframe of results
 col = ['fully', 'partially', 'not', 'na']
 eval_dict = {
-  'STARS (essential)': [1, 1, 1, 1],
-  'STARS (optional)': [1, 1, 1, 1],
-  'Badges (criteria)': [1, 1, 1, 1],
-  'Badges (badges)': [1, 1, 1, 1],
-  'STRESS-DES': [1, 1, 1, 1],
-  'ISPOR-SDM': [1, 1, 1, 1]
+  'STARS (essential)': [2, 0, 6, 0],
+  'STARS (optional)': [0, 0, 5, 0],
+  'Badges (criteria)': [3, 0, 9, 0],
+  'Badges (badges)': [0, 0, 12, 0],
+  'STRESS-DES': [18, 2, 3, 1],
+  'ISPOR-SDM': [10, 0, 8, 0]
 }
 eval_wide = pd.DataFrame(eval_dict, index=col).T
 eval = (eval_wide
