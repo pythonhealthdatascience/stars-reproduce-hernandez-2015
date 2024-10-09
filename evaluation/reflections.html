@@ -169,6 +169,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#what-would-have-helped-facilitate-this-reproduction" id="toc-what-would-have-helped-facilitate-this-reproduction" class="nav-link active" data-scroll-target="#what-would-have-helped-facilitate-this-reproduction">What would have helped facilitate this reproduction?</a></li>
+  <li><a href="#what-did-help-facilitate-this-reproduction" id="toc-what-did-help-facilitate-this-reproduction" class="nav-link" data-scroll-target="#what-did-help-facilitate-this-reproduction">What did help facilitate this reproduction?</a></li>
   <li><a href="#full-list-of-troubleshooting-steps" id="toc-full-list-of-troubleshooting-steps" class="nav-link" data-scroll-target="#full-list-of-troubleshooting-steps">Full list of troubleshooting steps</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/evaluation/reflections.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -195,17 +196,53 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- TODO: Remove this warning once completed assessment -->
-<p><strong>Please note: This is a template page and has not yet been completed</strong></p>
 <p>This page contains reflections on the facilitators and barriers to this reproduction, as well as a full list of the troubleshooting steps taken to reproduce this work.</p>
 <section id="what-would-have-helped-facilitate-this-reproduction" class="level2">
 <h2 class="anchored" data-anchor-id="what-would-have-helped-facilitate-this-reproduction">What would have helped facilitate this reproduction?</h2>
-<!-- TODO: Add reflections. Example:
-**Provide environment (packages and versions)**
-
-* Not all packages needed will be listed in the imports (e.g. greenlet, pathlib)
-* Didn't work with latest package versions, had to backdate it for it to work
--->
+<p><strong>Provide environment (packages and versions)</strong></p>
+<ul>
+<li>Not all packages needed were listed, and some versions were not very specific (e.g.&nbsp;2.7, v.s. 2.7.12)</li>
+<li>Given the age of this work, some packages were no longer available on conda and had to be installed from PyPI</li>
+</ul>
+<p>Unavoidable: <strong>Unsupported Python version</strong></p>
+<ul>
+<li>This used an old version of Python that is no longer supported. The main trouble for this is with IDEs - not supported by VSCode, Jupyter Notebook, Jupyter Lab, and can’t run <code>.ipynb</code> notebooks - and required “tricks” to run in VSCode</li>
+<li>This is a slightly unavoidable problem, as at this age, we run into these issues. If you were reusing this code for a new purpose, you would likely explore changing it so you can upgrade to Python 3</li>
+</ul>
+<p><strong>Make local dependencies clear</strong></p>
+<ul>
+<li>This package depended on another GitHub repository from the same author, which wasn’t initially apparent</li>
+</ul>
+<p><strong>Unused files and code</strong></p>
+<ul>
+<li>Output files included a very large number of individual results files that weren’t used, and one that was - for simplicity and to reduce number of files in directory, could’ve disabled this if not typically needed (but maybe keeping for quality control purposes)</li>
+</ul>
+<p><strong>Run time</strong></p>
+<ul>
+<li>If there are alternatives for running the model that get <em>similar</em> results at lower run times, that can be handy to know, as it is difficult to get started up and running with a model if the default run time is hours</li>
+<li>Speed up where possible - e.g.&nbsp;with parallel processing</li>
+</ul>
+<p><strong>Matching parameters in the code and article</strong></p>
+<ul>
+<li>This seems likely to be the <strong>main reason</strong> for discrepancies. There were several differences between the code and article which (a) were hard to spot, and (b) you can never quite be sure which is the right parameter!</li>
+</ul>
+<p><strong>Scenarios</strong></p>
+<ul>
+<li>Include instructions or code for running the scenarios. To spot how to implement them, it took searches through the code trying to spot which line we might need to tweak, or spotting sections of code that would run that experiment.</li>
+</ul>
+<p><strong>Full code for figures and tables</strong></p>
+<ul>
+<li>Very handy to have some code, but would have been beneficial if included all - i.e.&nbsp;imports, pre-processing, plot amendments - that would make a figure matching up to the article (or table)</li>
+</ul>
+</section>
+<section id="what-did-help-facilitate-this-reproduction" class="level2">
+<h2 class="anchored" data-anchor-id="what-did-help-facilitate-this-reproduction">What did help facilitate this reproduction?</h2>
+<p><strong>Results file</strong> - the summary results file was clear and easy to understand.</p>
+<p><strong>Partial code for figures</strong> - some code was provided to create figures in R and - although not comprehensive (not all figures, and not all processing steps) - it was very beneficial in giving a baseline to work from when writing code for the plots.</p>
+<p><strong>Provision of some results from the author’s runs of the models</strong></p>
+<p><strong>Seeds</strong> - the code was set up with seeds that ensured consistent results between runs of the scripts which was great.</p>
+<p><strong>Reported run times</strong> - which was handy to be aware of ahead of time, to anticipate long run times, and to know e.g.&nbsp;on of the Experiment 3 runs just wouldn’t be feasible</p>
+<p><strong>Structuring of code into classes</strong> - this is a nice clear way of structuring code and is nice to work with/amend</p>
 </section>
 <section id="full-list-of-troubleshooting-steps" class="level2">
 <h2 class="anchored" data-anchor-id="full-list-of-troubleshooting-steps">Full list of troubleshooting steps</h2>
@@ -222,13 +259,87 @@ View list
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Troubleshooting steps are grouped by theme, and the day these occurred is given in brackets at the end of each bullet.</p>
-<!-- TODO: Add full list of troubleshooting steps. Example:
-
-### Environment
-
-* No environment file, and no versions for Python or Salabim in paper (2)
-* Dependencies based on PHC.py and package versions on or prior to 14th March 2021 (2)
--->
+<section id="python-environment" class="level3">
+<h3 class="anchored" data-anchor-id="python-environment">Python Environment</h3>
+<ul>
+<li>No environment file, but versions for Python, inspyred, simpy, R and ggplot are given in the paper (2)</li>
+<li>Created Python environment with dependencies either based on the paper or - for other packages - on or prior to 10th December 2013 (2)</li>
+<li>To use Python 2.7 in VSCode, I had to switch to a pre-release version of VSCode Python via the extensions tab, as it was no longer supported (2)
+<ul>
+<li>Impact of IDEs - with VSCode being an issue in running 2.7. From a google, I can see likewise that Jupyter Notebook and JupterLab no longer support Python 2.7 (since 2020). (3)</li>
+<li>In a case like this, if I were reusing the code for a new purpose, I might look to upgrade to Python 3+. However, for the sake of the reproduction, for now, sticking with 2.7. However, that brings limitations, like being unable to run notebooks, and having to use a pre-release version of the Python extension in VSCode to run the .py files. (3)</li>
+</ul></li>
+<li>I estimated based on dates that I would need Python 2.7.6 (paper just gave 2.7). However, conda only have 2.7.13 onwards and conda-forge have 2.6.9 or 2.7.12 onwards. I couldn’t tried to identify another conda channel with 2.7.6, but was reluctant as these were the main/typical channels - and so, instead, I decided to use 2.7.12, as this was the most recent version of Python 2.7 provided by the main channeles. This is more recent than desired though (26th June 2016). (2)</li>
+<li>Identified additional packages required from errors i.e.&nbsp;<code>ImportError: No module named -</code> (2,3)</li>
+<li>Several packages had to be installed from PyPi instead of Conda as Conda doesn’t include versions old enough (2,3)</li>
+<li>Was not able to work with <code>.ipynb</code> notebooks as these are not supported for Python 2.7. (2)</li>
+</ul>
+</section>
+<section id="r-environment" class="level3">
+<h3 class="anchored" data-anchor-id="r-environment">R Environment</h3>
+<ul>
+<li>Created an renv and, due to difficulties I’ve had with backdating R previously, I decided to try with latest versions in the first instance. This worked without issue, although I did find some unusual behaviour from renv, not updating the lockfile correctly. (3)</li>
+</ul>
+</section>
+<section id="other-repositories" class="level3">
+<h3 class="anchored" data-anchor-id="other-repositories">Other repositories</h3>
+<ul>
+<li>Realised it required another repository from the author’s GitHub, <code>myutils</code>, with the author kindly also add a license to so I could use it - <em>note: importance of having license in all repositories used</em> (2)</li>
+</ul>
+</section>
+<section id="organisation-files-folders-and-outputs" class="level3">
+<h3 class="anchored" data-anchor-id="organisation-files-folders-and-outputs">Organisation, files, folders and outputs</h3>
+<ul>
+<li>Reorganised repository into python scripts, R scripts, python outputs, and R outputs, as it was quite busy (3)</li>
+<li>Altered <code>SolutionWriter.py</code> to allow custom folder name for when save results (so can save as e.g.&nbsp;<code>experiment1/</code>)</li>
+<li>The default behaviour of the scripts was to output lots of individual results files alongside a summary results file. These individual files were very numerous and, since they are not used, I removed them for simplicity. This was very easy to do due to the structure of the code - I just had to comment out <code>self.dumpResultsAnalyzer()</code> in <code>SolutionWriter.py</code> (9)</li>
+</ul>
+</section>
+<section id="run-time" class="level3">
+<h3 class="anchored" data-anchor-id="run-time">Run time</h3>
+<ul>
+<li>Experimented with reducing the parameters (<code>runs</code>, <code>population</code>, <code>generations</code>) to reduce run time - either to just check I can run a model, or to try and reproduce results with shorter run time (3+)</li>
+<li>Amended script to save run time to a file rather than just printing, as I anticipated losing it then (4)</li>
+<li>Long run times made it a bit trickier to work with, having to wait for it to run to see if results worked out (5+)</li>
+<li>Add parallel processing (8)</li>
+<li>I did not run one part of Experiment 3 as it was too long (stated to be 27 hours) (10)</li>
+</ul>
+</section>
+<section id="model-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="model-parameters">Model parameters</h3>
+<ul>
+<li>Provided code had 1 run, population 100 and 5 generations. This differs from the paper - e.g.&nbsp;Experiment 1 is 3 runs, population 100 and 50 generations (3+)</li>
+<li>Results were very low, to help figure out issue I looked at the results files provided in the repository, plotting each of these, and realising I had similar results to the “bounded” “tri-objective” results. I wasn’t sure what “bounding” meant - it wasn’t mentioned in the article - and searched through repository, spotting some “lowerBounds” and “upperBounds” set in <code>StaffAllocationProblem()</code>. These had been set to <code>self.lowerBounds = [3, 3, 3, 3]</code> and <code>self.upperBounds = [8, 8, 25, 8]</code> but, looking at the number of staff in the unbounded provided results, they were much wider (1-60), which got the results looking much more similar. Experimented with 1-100 but that didn’t look right. (6,7)
+<ul>
+<li>Then assumed to amend this for Experiment 4 (11)</li>
+</ul></li>
+<li>Searched through article creating table with all the model parameters and checking them in the code. From this, noticed line manager service time was mismatched, and arrival rate. (7,8)</li>
+<li>Corrected line manager service time (8)</li>
+<li>Changed arrival rate, but wasn’t convinced, and changed it back. Trouble with mismatch parameters is that you never quite know which is right - the code or the article! (9)</li>
+<li>Tried tweaking <code>capacities = [4, 6, 6, 1]</code> but that didn’t impact results (10)</li>
+</ul>
+</section>
+<section id="scenarios" class="level3">
+<h3 class="anchored" data-anchor-id="scenarios">Scenarios</h3>
+<ul>
+<li>I wasn’t sure where the model was set to be bi-objective or tr-objective, but noticed in <code>StaffAllocationProblem()</code> the code <code>self.objectiveTypes = [False, True, False]</code>, and deduced from understanding of objectives from article, and from looking at the commit history of the <code>.py</code> file, that this made it tri-objective and switching to bi-objective was done by setting <code>self.objectiveTypes = [False, True]</code> (6)</li>
+<li>Wrote and amended code to allow me to run each of the scenarios programmaticaly (e.g.&nbsp;change to bi-objective model without directly changing code in <code>StaffAllocationProblem.py</code>)</li>
+<li>For Experiment 5 and Appendix A.1, had to spot code at the end of <code>PODSimulation.py</code> which I could use of basis for experiment</li>
+</ul>
+</section>
+<section id="figures-and-tables" class="level3">
+<h3 class="anchored" data-anchor-id="figures-and-tables">Figures and tables</h3>
+<ul>
+<li>Using the provided <code>plotting_staff_results.r</code> as a baseline, I pre-processed the results data (binding together, with column to indicate scenario), and made a few other little adaptions, to get the basic scatter plot (3)</li>
+<li>Likewise for the bar plots, requiring a little more work (melting data, changing facet wrap, identifying what to plot, figuring out how to colour) (4)</li>
+</ul>
+</section>
+<section id="running-from-command-line" class="level3">
+<h3 class="anchored" data-anchor-id="running-from-command-line">Running from command line</h3>
+<ul>
+<li>When run on command line, Tkinter had error related to display for GUI operations, which was resolved by removing import of <code>simpy.simplot</code> which wasn’t actually used (4,5)</li>
+</ul>
+</section>
 </div>
 </div>
 </div>
