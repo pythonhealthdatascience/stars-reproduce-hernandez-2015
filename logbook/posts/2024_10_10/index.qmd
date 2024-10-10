@@ -1,0 +1,179 @@
+---
+title: "Day 14"
+author: "Amy Heather"
+date: "2024-10-10"
+categories: [compendium]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+Some final ideas for reproduction, but no luck (17h 56m, 44.8%). Troubleshooting docker.
+
+:::
+
+## Untimed: Resuming troubleshooting Docker
+
+### Commands
+
+Build image:
+
+```
+sudo docker build --tag hernandez2015 . -f ./reproduction/docker/Dockerfile
+```
+
+View images:
+
+```
+sudo docker images
+```
+
+Pulling image and starting a container (with -it keeping it running):
+
+```
+sudo docker run -it --name hernandez2015_docker hernandez2015
+```
+
+Remove container and image
+```
+sudo docker container rm hernandez2015_docker
+sudo docker image rm hernandez2015
+```
+
+### Using FROM python
+
+```
+# Use Python 2.7.12
+FROM python:2.7.12-wheezy
+
+# Copy files
+COPY ./reproduction ./
+
+# Install dependencies
+RUN pip install --no-cache-dir --upgrade pip \
+  && pip install --no-cache-dir -r ./docker/requirements.txt
+```
+
+Had SSL issues. Appears this might be related to 2.7.12-wheezy being unsupported.
+
+### Building from scratch
+
+Tom suggested building from scratch, with an example from like:
+
+```
+# Use the official Ubuntu base image
+FROM ubuntu:16.04
+
+# Set environment variables to prevent Python from buffering stdout and stderr
+ENV PYTHONUNBUFFERED=1
+
+# Update the package list and install dependencies for Python
+RUN apt-get update && \
+    apt-get install -y \
+    wget \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    zlib1g-dev \
+    libncurses5-dev \
+    libgdbm-dev \
+    libnss3-dev \
+    tk-dev \
+    liblzma-dev \
+    libsqlite3-dev \
+    lzma \
+    ca-certificates \
+    curl \
+    git
+
+# Download and install Python 2.7.12 from source
+RUN wget https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tgz && \
+    tar xzf Python-2.7.12.tgz && \
+    cd Python-2.7.12 && \
+    ./configure --enable-optimizations && \
+    make altinstall && \
+    cd .. && \
+    rm -rf Python-2.7.12 Python-2.7.12.tgz
+
+# Install pip version 19.3.1
+RUN wget https://bootstrap.pypa.io/pip/2.7/get-pip.py && \
+    python2.7 get-pip.py pip==19.3.1 && \
+    rm get-pip.py
+
+# Install the required Python packages
+RUN pip2.7 install \
+    inspyred==1.0 \
+    matplotlib==1.3.1 \
+    networkx==1.8.1 \
+    numpy==1.8.0 \
+    pytest==4.6.2 \
+    scipy==0.13.2 \
+    simpy==2.3.1
+
+# Set the working directory to /app
+WORKDIR /app
+
+# Copy the local directory content to /app in the container
+COPY . /app
+
+# Set the default command to run when the container starts
+# This is optional, but helpful if you want to automatically run a Python script
+CMD ["/bin/bash"]
+
+# Expose the default port, if your Experiment1.py requires network communication
+EXPOSE 8000
+```
+
+## 10.35-10.50: Some final attempts at the reproduction
+
+Tom asked about the reproduction troubleshooting, I decided to try just some more final attempts, just focusing on Experiment5, which had no parameters changed from the original.
+
+I tried 100 arrivals:
+
+![](Fig10_100arrivals.png)
+
+I tried 115 arrivals:
+
+![](Fig10_115arrivals.png)
+
+I tried 100 arrivals with 24 hours:
+
+![](Fig10_100arrivals_1440maxtime.png)
+
+I tried 100K max entities:
+
+![](Fig10_100arrivals_max100k.png)
+
+But no luck.
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 1061
+
+# Times from today
+times = [
+    ('10.35', '10.50')]
+
+calculate_times(used_to_date, times)
+```
+
+## Untimed: Wrapping up research compendium
+
+Remaining to do is:
+
+1. Create functional docker image for Python
+2. Consider changing Docker to run Python and R
+3. Push to GHCR
+4. Test the local and GHCR docker images
+5. Update the README accordingly with information about docker
+
+Can then send for test-run, and finally archive.

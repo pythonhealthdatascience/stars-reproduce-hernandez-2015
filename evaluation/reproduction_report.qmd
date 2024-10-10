@@ -16,7 +16,7 @@ This study models Points-of-Dispensing (PODs) in New York City. These are sites 
 
 ## Computational reproducibility
 
-Successfully reproduced **1 out of 8 (12.5%)** of items from the scope in **17h 41m (44.2%)**.
+Successfully reproduced **1 out of 8 (12.5%)** of items from the scope in **17h 56m (44.8%)**.
 
 Required troubleshooting:
 

@@ -1,0 +1,101 @@
+---
+title: "Day 13"
+author: "Amy Heather"
+date: "2024-10-09"
+categories: [evaluation, report, reflcetions, compendium]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+Report evaluation against ISPOR-SDM-derived checklist. Created summary report and reflections page. Working on research compendium. Total evaluation time used: 1h 24m.
+
+:::
+
+## Untimed: Consensus
+
+Tom confirmed he was happy with my decisions re: reproduction success, agreeing that only 1/8 had been reproduced. I then emailed Ivan (author) to let him know.
+
+## 09.41-09.45, 09.47-10.07: ISPOR-SDM Derived Checklist Evaluation
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 60
+
+# Times from today
+times = [
+    ('09.41', '09.45'),
+    ('09.47', '10.07')]
+
+calculate_times(used_to_date, times, limit=False)
+```
+
+## Untimed: Summary report
+
+## Untimed: Reflections
+
+## Untimed: Response from the author
+
+Ivan (the author) replied, noting that he agreed that it is likely an issue of the code on GitHub not having the exact same version of inputs - and that, interestingly, an older version of the paper had a similar throughput range for Figure 5 as ours.
+
+He also suggested that it could be random seed or number of runs, but as we are using the same seeds and have played with run number, it unfortunately appears unlikely to be for this reason.
+
+We are very grateful to him for this email, and for being so communicative and supportive.
+
+## Untimed Research compendium
+
+Status at end of today:
+
+* Seperate folders for data, methods and outputs ✅
+* Tests to check if can get same results by comparing CSV files. Due to long run times, this was just set up to check Experiment 5 (which only takes a few seconds). ✅
+* Run times in each .py file and clear which parts of article it is producing ✅
+* README 🟡
+* Dockerfile (build, check it works). This has been set up to run the models, but not to produce the tables and figures. 🟡
+* GitHub action to push docker image to GHCR ❌
+
+When building the Docker image, I had to use a different process to my previous Python reproduction (which used miniconda3 and jupyter notebooks), since this is in Python 2. My initial attempt:
+
+```
+# Creates Docker Image to run Python Scripts (not the R Scripts)
+
+# Use Linux-Miniconda image (not miniconda3 as that is python 3)
+FROM continuumio/miniconda:latest
+
+# Copy all files across to container
+COPY ./reproduction ./
+
+# Update conda and create environment
+RUN conda update conda && conda env create -f environment.yml && conda clean -afy 
+```
+
+Returned an error related to `matplotlib` and `freetype`, which appeared to be a compatability for that type of matplotlib on the system with missing or outdated dependencies like freetype. I tried installing `freetype` prior to creating the environment by adding:
+
+```
+# Install system dependencies for matplotlib
+RUN apt-get update && \
+    apt-get install -y libfreetype6-dev libpng-dev
+```
+
+This then had an error as Debian's buster resources moved from `stable` to `oldoldstable`. I tried manually updating the `sources.list` to add `oldoldstable`.
+
+```
+# Update apt repository information to handle 'oldoldstable'
+# Install system dependencies for matplotlib
+RUN sed -i 's/buster/oldoldstable/g' /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y libfreetype6-dev libpng-dev
+```
+
+However, I then found that the freetype issue had persisted.
+
+I decided to start from scratch with a different method, starting with:
+
+```
+FROM python:2.7.12-wheezy
+```
