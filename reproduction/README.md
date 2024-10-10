@@ -70,7 +70,49 @@ You can run either of these commands also using `mamba` instead (e.g. `mamba act
 
 #### Option B: Build local docker image
 
-<!--TODO: Add docker instructions -->
+A `Dockerfile` is provided, which you can use to build the Docker image. The docker image will include the correct version of Python and the packages, allow you to run the scripts from the command line.
+
+For this option (and option C), you'll need to ensure that `docker` is installed on your machine.
+
+To create the docker image and then open jupyter lab:
+
+1. In the terminal, navigate to parent directory of the `reproduction/` folder
+2. Build the image:
+
+```
+sudo docker build --tag hernandez2015 . -f ./reproduction/docker/Dockerfile
+```
+
+3. Create a docker container from that image:
+
+```
+sudo docker run -it --name hernandez2015_docker hernandez2015
+```
+
+#### Option C: Pull pre-built docker image
+
+Pull pre-built docker image
+
+A pre-built image is available on the GitHub container registry. To use it:
+
+1. Create a Personal Access Token (Classic) for your GitHub account with `write:packages` and `delete:packages` access
+2. On terminal, run the following command and enter your sudo password (if prompted), followed by the token just generated (which acts as your GitHub password)
+
+```
+sudo docker login ghcr.io -u githubusername
+```
+
+3. Download the image:
+
+```
+sudo docker pull ghcr.io/pythonhealthdatascience/hernandez2015
+```
+
+4. Create container:
+
+```
+sudo docker run -it --name hernandez2015_docker ghcr.io/pythonhealthdatascience/hernandez2015:latest
+```
 
 ### Step 2. Running the model
 
@@ -85,7 +127,17 @@ To run all the model scenarios, open and execute each of the `Experiment...` fil
 * Experiment 5 - Figure 10
 * Experiment A.1 - Table 3
 
-Ensure you are located in the `python_scripts/` directory when running these.
+Ensure you are located in the `python_scripts/` directory when running these. Commands used can vary but examples:
+
+```
+python -m Experiment1.py
+```
+
+Within the docker container:
+
+```
+python2.7 Experiment1.py
+```
 
 #### Option B: Pytest
 
