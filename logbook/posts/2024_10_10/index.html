@@ -349,18 +349,21 @@ RUN pip2.7 install \
     scipy==0.13.2 \
     simpy==2.3.1
 
-# Set the working directory to /app
-WORKDIR /app
+# Copy the local directory content into the container
+COPY ./reproduction ./
 
-# Copy the local directory content to /app in the container
-COPY . /app
-
-# Set the default command to run when the container starts
-# This is optional, but helpful if you want to automatically run a Python script
-CMD ["/bin/bash"]
-
-# Expose the default port, if your Experiment1.py requires network communication
-EXPOSE 8000</code></pre>
+# Open the container with a bash shell
+CMD ["/bin/bash"]</code></pre>
+<p>This worked, as I could run this from <code>python_scripts/</code>:</p>
+<pre><code>python2.7 Experiment5.py</code></pre>
+<p>And this from <code>tests/</code>:</p>
+<pre><code>pytest</code></pre>
+<p>And can check it has correct packages and versions:</p>
+<pre><code>pip list
+python2.7 --version</code></pre>
+<p>Then:</p>
+<pre><code>exit</code></pre>
+<p>This image was <code>1.12GB</code>, although that was actually smalelr than most my other images have been (2-3GB), so I kept as is without slim.</p>
 </section>
 </section>
 <section id="some-final-attempts-at-the-reproduction" class="level2">
@@ -378,19 +381,19 @@ EXPOSE 8000</code></pre>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="7736c6f6" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">1061</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.35'</span>, <span class="st">'10.50'</span>)]</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2c172223" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">1061</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.35'</span>, <span class="st">'10.50'</span>)]</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Time spent today: 15m, or 0h 15m
 Total used to date: 1076m, or 17h 56m
@@ -401,15 +404,9 @@ Used 44.8% of 40 hours max</code></pre>
 </section>
 <section id="untimed-wrapping-up-research-compendium" class="level2">
 <h2 class="anchored" data-anchor-id="untimed-wrapping-up-research-compendium">Untimed: Wrapping up research compendium</h2>
-<p>Remaining to do is:</p>
-<ol type="1">
-<li>Create functional docker image for Python</li>
-<li>Consider changing Docker to run Python and R</li>
-<li>Push to GHCR</li>
-<li>Test the local and GHCR docker images</li>
-<li>Update the README accordingly with information about docker</li>
-</ol>
-<p>Can then send for test-run, and finally archive.</p>
+<p>Activated GitHub action to push container to GHCR.</p>
+<p>Updated the README accordingly with information about docker.</p>
+<p>Let Tom know its ready for a test-run.</p>
 
 
 </section>

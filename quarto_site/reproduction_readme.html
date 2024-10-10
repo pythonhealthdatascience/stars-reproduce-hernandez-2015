@@ -273,7 +273,36 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="option-b-build-local-docker-image" class="level4">
 <h4 class="anchored" data-anchor-id="option-b-build-local-docker-image">Option B: Build local docker image</h4>
-<!--TODO: Add docker instructions -->
+<p>A <code>Dockerfile</code> is provided, which you can use to build the Docker image. The docker image will include the correct version of Python and the packages, allow you to run the scripts from the command line.</p>
+<p>For this option (and option C), you’ll need to ensure that <code>docker</code> is installed on your machine.</p>
+<p>To create the docker image and then open jupyter lab:</p>
+<ol type="1">
+<li>In the terminal, navigate to parent directory of the <code>reproduction/</code> folder</li>
+<li>Build the image:</li>
+</ol>
+<pre><code>sudo docker build --tag hernandez2015 . -f ./reproduction/docker/Dockerfile</code></pre>
+<ol start="3" type="1">
+<li>Create a docker container from that image:</li>
+</ol>
+<pre><code>sudo docker run -it --name hernandez2015_docker hernandez2015</code></pre>
+</section>
+<section id="option-c-pull-pre-built-docker-image" class="level4">
+<h4 class="anchored" data-anchor-id="option-c-pull-pre-built-docker-image">Option C: Pull pre-built docker image</h4>
+<p>Pull pre-built docker image</p>
+<p>A pre-built image is available on the GitHub container registry. To use it:</p>
+<ol type="1">
+<li>Create a Personal Access Token (Classic) for your GitHub account with <code>write:packages</code> and <code>delete:packages</code> access</li>
+<li>On terminal, run the following command and enter your sudo password (if prompted), followed by the token just generated (which acts as your GitHub password)</li>
+</ol>
+<pre><code>sudo docker login ghcr.io -u githubusername</code></pre>
+<ol start="3" type="1">
+<li>Download the image:</li>
+</ol>
+<pre><code>sudo docker pull ghcr.io/pythonhealthdatascience/hernandez2015</code></pre>
+<ol start="4" type="1">
+<li>Create container:</li>
+</ol>
+<pre><code>sudo docker run -it --name hernandez2015_docker ghcr.io/pythonhealthdatascience/hernandez2015:latest</code></pre>
 </section>
 </section>
 <section id="step-2.-running-the-model" class="level3">
@@ -289,7 +318,10 @@ ul.task-list li input[type="checkbox"] {
 <li>Experiment 5 - Figure 10</li>
 <li>Experiment A.1 - Table 3</li>
 </ul>
-<p>Ensure you are located in the <code>python_scripts/</code> directory when running these.</p>
+<p>Ensure you are located in the <code>python_scripts/</code> directory when running these. Commands used can vary but examples:</p>
+<pre><code>python -m Experiment1.py</code></pre>
+<p>Within the docker container:</p>
+<pre><code>python2.7 Experiment1.py</code></pre>
 </section>
 <section id="option-b-pytest" class="level4">
 <h4 class="anchored" data-anchor-id="option-b-pytest">Option B: Pytest</h4>
