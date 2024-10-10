@@ -113,19 +113,39 @@ RUN pip2.7 install \
     scipy==0.13.2 \
     simpy==2.3.1
 
-# Set the working directory to /app
-WORKDIR /app
+# Copy the local directory content into the container
+COPY ./reproduction ./
 
-# Copy the local directory content to /app in the container
-COPY . /app
-
-# Set the default command to run when the container starts
-# This is optional, but helpful if you want to automatically run a Python script
+# Open the container with a bash shell
 CMD ["/bin/bash"]
-
-# Expose the default port, if your Experiment1.py requires network communication
-EXPOSE 8000
 ```
+
+This worked, as I could run this from `python_scripts/`:
+
+```
+python2.7 Experiment5.py
+```
+
+And this from `tests/`:
+
+```
+pytest
+```
+
+And can check it has correct packages and versions:
+
+```
+pip list
+python2.7 --version
+```
+
+Then:
+
+```
+exit
+```
+
+This image was `1.12GB`, although that was actually smalelr than most my other images have been (2-3GB), so I kept as is without slim.
 
 ## 10.35-10.50: Some final attempts at the reproduction
 
@@ -168,12 +188,8 @@ calculate_times(used_to_date, times)
 
 ## Untimed: Wrapping up research compendium
 
-Remaining to do is:
+Activated GitHub action to push container to GHCR.
 
-1. Create functional docker image for Python
-2. Consider changing Docker to run Python and R
-3. Push to GHCR
-4. Test the local and GHCR docker images
-5. Update the README accordingly with information about docker
+Updated the README accordingly with information about docker.
 
-Can then send for test-run, and finally archive.
+Let Tom know its ready for a test-run.
