@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Amy Heather">
-<meta name="dcterms.date" content="2024-09-24">
+<meta name="dcterms.date" content="2024-10-09">
 
-<title>Day 2 – Reproducing Hernandez et al.&nbsp;2015</title>
+<title>Day 13 – Reproducing Hernandez et al.&nbsp;2015</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -199,10 +199,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Day 2</h1>
+      <h1 class="title">Day 13</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">scope</div>
-                <div class="quarto-category">reproduce</div>
+                <div class="quarto-category">evaluation</div>
+                <div class="quarto-category">report</div>
+                <div class="quarto-category">reflcetions</div>
+                <div class="quarto-category">compendium</div>
               </div>
                   </div>
   </div>
@@ -220,7 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 24, 2024</p>
+        <p class="date">October 9, 2024</p>
       </div>
     </div>
     
@@ -236,19 +238,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#archive-on-zenodo" id="toc-archive-on-zenodo" class="nav-link active" data-scroll-target="#archive-on-zenodo">09.20-09.26: Archive on Zenodo</a></li>
-  <li><a href="#look-over-code-and-create-environment" id="toc-look-over-code-and-create-environment" class="nav-link" data-scroll-target="#look-over-code-and-create-environment">09.55-10.07: Look over code and create environment</a></li>
-  <li><a href="#troubleshooting-environment" id="toc-troubleshooting-environment" class="nav-link" data-scroll-target="#troubleshooting-environment">10.24-11.37: Troubleshooting environment</a>
-  <ul class="collapse">
-  <li><a href="#use-of-python-2.7-in-vscode" id="toc-use-of-python-2.7-in-vscode" class="nav-link" data-scroll-target="#use-of-python-2.7-in-vscode">Use of Python 2.7 in VSCode</a></li>
-  <li><a href="#myutils" id="toc-myutils" class="nav-link" data-scroll-target="#myutils">myutils</a></li>
-  <li><a href="#numpy-and-python" id="toc-numpy-and-python" class="nav-link" data-scroll-target="#numpy-and-python">numpy and python</a></li>
-  <li><a href="#scipy" id="toc-scipy" class="nav-link" data-scroll-target="#scipy">scipy</a></li>
-  <li><a href="#nsga2-and-myutils" id="toc-nsga2-and-myutils" class="nav-link" data-scroll-target="#nsga2-and-myutils">nsga2 and myutils</a></li>
-  </ul></li>
+  <li><a href="#untimed-consensus" id="toc-untimed-consensus" class="nav-link active" data-scroll-target="#untimed-consensus">Untimed: Consensus</a></li>
+  <li><a href="#ispor-sdm-derived-checklist-evaluation" id="toc-ispor-sdm-derived-checklist-evaluation" class="nav-link" data-scroll-target="#ispor-sdm-derived-checklist-evaluation">09.41-09.45, 09.47-10.07: ISPOR-SDM Derived Checklist Evaluation</a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
+  <li><a href="#untimed-summary-report" id="toc-untimed-summary-report" class="nav-link" data-scroll-target="#untimed-summary-report">Untimed: Summary report</a></li>
+  <li><a href="#untimed-reflections" id="toc-untimed-reflections" class="nav-link" data-scroll-target="#untimed-reflections">Untimed: Reflections</a></li>
+  <li><a href="#untimed-response-from-the-author" id="toc-untimed-response-from-the-author" class="nav-link" data-scroll-target="#untimed-response-from-the-author">Untimed: Response from the author</a></li>
+  <li><a href="#untimed-research-compendium" id="toc-untimed-research-compendium" class="nav-link" data-scroll-target="#untimed-research-compendium">Untimed Research compendium</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_09_24/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_10_09/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -267,178 +265,85 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Set-up and troubleshooting environment. Total time used: 2h 18m (5.8%)</p>
+<p>Report evaluation against ISPOR-SDM-derived checklist. Created summary report and reflections page. Working on research compendium. Total evaluation time used: 1h 24m.</p>
 </div>
 </div>
-<section id="archive-on-zenodo" class="level2">
-<h2 class="anchored" data-anchor-id="archive-on-zenodo">09.20-09.26: Archive on Zenodo</h2>
-<p>Consensus on the proposed scope was acquired on 23 September, with Tom agreeing with the proposal. Hence, now archived the repository on Zenodo.</p>
+<section id="untimed-consensus" class="level2">
+<h2 class="anchored" data-anchor-id="untimed-consensus">Untimed: Consensus</h2>
+<p>Tom confirmed he was happy with my decisions re: reproduction success, agreeing that only 1/8 had been reproduced. I then emailed Ivan (author) to let him know.</p>
 </section>
-<section id="look-over-code-and-create-environment" class="level2">
-<h2 class="anchored" data-anchor-id="look-over-code-and-create-environment">09.55-10.07: Look over code and create environment</h2>
-<p>There is a very minimal readme, but looking over the scripts, I’m assuming <code>main.py</code> will be a good starting point, just from the name.</p>
-<p>The plots look to be from <code>r-plots/plotting_staff_results.r</code>.</p>
-<p>Doesn’t appear to be any environment management/versions in the repository but this is detailed in the paper in Figure 3…</p>
-<ul>
-<li>Python 2.7 with inspyred 1.0 and simpy 2.3.1</li>
-<li>R 2.15.3 with ggplot 0.9.3</li>
-</ul>
-<p>I created a simple python environment just with the three dependencies:</p>
-<pre><code>name: hernandez2015
-channels:
-  - defaults
-  - conda-forge
-dependencies:
-  - inspyred=1.0
-  - python=2.7
-  - simpy=2.3.1</code></pre>
-<p>This was built using mamba:</p>
-<pre><code>mamba env create --name hernandez2015 --file environment.yml</code></pre>
-<p>This had an error:</p>
-<pre><code>PackagesNotFoundError: The following packages are not available from current channels:
-
-  - simpy=2.3.1*</code></pre>
-<p><a href="https://anaconda.org/conda-forge/simpy/files">Conda-forge</a> just has SimPy 3.0.13 to 4.1.1. However, <a href="https://pypi.org/project/simpy/#history">PyPi</a> have releases back to 2.0.1, so I switched this to pip install:</p>
-<pre><code>name: hernandez2015
-channels:
-  - defaults
-  - conda-forge
-dependencies:
-  - inspyred=1.0
-  - pip
-  - python=2.7
-  - pip:
-    - simpy==2.3.1</code></pre>
-<p>This built quickly and successfully.</p>
-</section>
-<section id="troubleshooting-environment" class="level2">
-<h2 class="anchored" data-anchor-id="troubleshooting-environment">10.24-11.37: Troubleshooting environment</h2>
-<section id="use-of-python-2.7-in-vscode" class="level3">
-<h3 class="anchored" data-anchor-id="use-of-python-2.7-in-vscode">Use of Python 2.7 in VSCode</h3>
-<p>I selected this environment as the interpreter in VSCode then attempted to run <code>main.py</code>, but it had an error stating it was an invalid environment:</p>
-<pre><code>An Invalid Python interpreter is selected, please try changing it to enable features such as IntelliSense, linting, and debugging. See output for more details regarding why the interpreter is invalid.</code></pre>
-<p>I tried clearing the workspace interpreter setting, but when trying to select environment again in VSCode, it won’t show the python 2.7 environment in the drop-down list. <a href="https://github.com/microsoft/vscode-python/issues/20637">Based on this forum</a>, it appears that the VSCode python extension dropped support for python 2.7. One comments suggests switching the Python language server to Jedi. To do this:</p>
-<ul>
-<li>Ctrl + Shift + P</li>
-<li>User Settings</li>
-<li>Select Workspace Tab</li>
-<li>Search Python Language Server</li>
-<li>Change from “Default” to “Jedi”</li>
-</ul>
-<p>However, it still complained this was an invalid python interpreter, so I reverted this back. Other suggestions were to switch the VSCode Python extension to either:</p>
-<ul>
-<li>Pre-release version</li>
-<li>Pinned to 2022.2</li>
-</ul>
-<p>I tried switching to the pre-release version in the Extensions tab, and this worked in allowing me to use Python 2.7 environment. The downside of this is that I will/may want to switch it back for other projects.</p>
-</section>
-<section id="myutils" class="level3">
-<h3 class="anchored" data-anchor-id="myutils">myutils</h3>
-<p>On attempting to run <code>main.py</code>, it had an error when importing ExperimentRunner:</p>
-<pre><code>File "/home/amy/Documents/stars/stars-reproduce-hernandez-2015/reproduction/ExperimentRunner.py", line 14, in &lt;module&gt;
-  import myutils
-ImportError: No module named myutils</code></pre>
-<p>From the script, I can see that <code>myutils/</code> is a sister folder, and not included in this repository. I can see that it is imported by:</p>
-<ul>
-<li><code>ExperimentRunner.py</code></li>
-<li><code>ResultsAnalyzer.py</code></li>
-<li><code>StaffAllocationProblem.py</code></li>
-</ul>
-<p>There is only one line of code that specifies that a function is from myutils, which is in <code>StaffAllocationProblem.py</code>:</p>
-<div id="0650a701" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#capacities = myutils.boundingFunction(capacities, self.boundingParameters)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>However, as that is commented out, it actually might be possible that <code>myutils/</code> is not actually needed. I tried commenting out all attempts to import <code>myutils</code> in all scripts, then re-ran.</p>
-</section>
-<section id="numpy-and-python" class="level3">
-<h3 class="anchored" data-anchor-id="numpy-and-python">numpy and python</h3>
-<p>There was then an error:</p>
-<pre><code>ImportError: No module named numpy</code></pre>
-<p>We want to attempt to backdate it. Looking at the other known dates…</p>
-<ul>
-<li><a href="https://pypi.org/project/inspyred/#history">inspyred=1.0</a> - released 4 April 2012 (with 1.0.1 on 25 July 2015)</li>
-<li><a href="https://www.python.org/doc/versions/">python=2.7</a> - released 4 July 2010 to 20 April 2020 (depending on date)</li>
-<li><a href="https://pypi.org/project/simpy/#history">simpy==2.3.1</a> - released 11 October 2013 (with 3.0 on 11 October 2013)</li>
-</ul>
-<p>Hence, it appears I’ll also want to backdate python, as just setting to 2.7 defaulted to 2.7.18, but that wouldn’t have been possible based on the publication dates. Dates:</p>
-<ul>
-<li>Article received 23 September 2014</li>
-<li>Article revised 6 February 2015</li>
-<li>Article accepted 22 February 2015</li>
-<li>Last commit to GitHub (prior to license) 10 December 2013</li>
-</ul>
-<p>Will choose versions that are on or prior to <strong>10 December 2013</strong>. Hence, for the python version:</p>
-<ul>
-<li><a href="https://www.python.org/doc/versions/">Python 2.7.6</a> (10 November 2013, 2.7.7 31 May 2014)</li>
-<li><a href="https://pypi.org/project/numpy/#history">Numpy 1.8.0</a> (30 October 2013, 1.8.1 25 March 2014)</li>
-</ul>
-<p>Numpy was set to <strong>install from pypi</strong>, as conda didn’t support a version that old.</p>
-<p>Deleted and rebuilt:</p>
-<pre><code>mamba remove -n hernandez2015 --all
-mamba env create --name hernandez2015 --file environment.yml</code></pre>
-<p>However, had error:</p>
-<pre><code>PackagesNotFoundError: The following packages are not available from current channels:
-
-  - python=2.7.6*
-
-Current channels:
-
-  - https://repo.anaconda.com/pkgs/main/linux-64
-  - https://repo.anaconda.com/pkgs/r/linux-64
-  - https://conda.anaconda.org/conda-forge/linux-64
-
-To search for alternate channels that may provide the conda package you're
-looking for, navigate to
-
-    https://anaconda.org</code></pre>
-<p>Checking the two python channels it lists:</p>
-<ul>
-<li><a href="https://repo.anaconda.com/pkgs/main/linux-64/" class="uri">https://repo.anaconda.com/pkgs/main/linux-64/</a> I can see they have 2.7.13 onwards.</li>
-<li><a href="https://conda.anaconda.org/conda-forge/linux-64/" class="uri">https://conda.anaconda.org/conda-forge/linux-64/</a>, but looking directly at <a href="https://anaconda.org/conda-forge/python/files">python on conda-forge</a>, I can see they have 2.6.9 or leap up to 2.7.12</li>
-</ul>
-<p>My options are either to:</p>
-<ul>
-<li>Use Python 2.6.9 - not ideal, as know they were 2.7</li>
-<li>Look for another conda channel that includes 2.7.6 - however, we are using the default conda channels, and others can be more personal uploads and so on</li>
-<li><strong>Use a more recent Python version</strong> - chose this option, and switched to 2.7.12, which was the oldest 2.7 version supported on these channels (2.7.12 is 26 June 2016)</li>
-</ul>
-</section>
-<section id="scipy" class="level3">
-<h3 class="anchored" data-anchor-id="scipy">scipy</h3>
-<p>Then missing scipy, which based on <a href="https://pypi.org/project/scipy/#history">released history</a>, I chose 0.13.2 (8 December 2013, 0.13.3 4 February 2014). As a version this old wasn’t on conda, I used pypi. Add to <code>environment.yml</code> then updated:</p>
-<pre><code>mamba env update --file environment.yml --prune</code></pre>
-</section>
-<section id="nsga2-and-myutils" class="level3">
-<h3 class="anchored" data-anchor-id="nsga2-and-myutils">nsga2 and myutils</h3>
-<p>Then had error that it was missing nsga2. This doesn’t appear to be a public package. It is only imported in <code>ExperimentRunner.py</code>, which lists it under “Ivan’s imports”, indicating it is a personal package/script. It uses a single function: <code>nsga2.nsga2_integer()</code>. As there was no mention of it in this repository, I tried looking at <a href="https://github.com/ivihernandez?tab=repositories">Ivan’s other GitHub repositories</a>.</p>
-<p>There I found <code>myutils</code> which contains <code>nsga2.py</code>, <a href="https://github.com/ivihernandez/myutils" class="uri">https://github.com/ivihernandez/myutils</a>. However, this did not have a license, so I am not presently able to download this repository. I sent a message to Ivan to see if he would be happy to likewise add a license to that repository. I also undid the changes I’d made to comment <code>myutils</code>.</p>
-<p>Ivan Hernandez later kindly responded to this, adding an open license to the repository.</p>
-</section>
+<section id="ispor-sdm-derived-checklist-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="ispor-sdm-derived-checklist-evaluation">09.41-09.45, 09.47-10.07: ISPOR-SDM Derived Checklist Evaluation</h2>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="7c7403ae" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">47</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.20'</span>, <span class="st">'09.26'</span>),</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.55'</span>, <span class="st">'10.07'</span>),</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.24'</span>, <span class="st">'11.37'</span>)]</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3efa574c" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">60</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.41'</span>, <span class="st">'09.45'</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.47'</span>, <span class="st">'10.07'</span>)]</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times, limit<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 91m, or 1h 31m
-Total used to date: 138m, or 2h 18m
-Time remaining: 2262m, or 37h 42m
-Used 5.8% of 40 hours max</code></pre>
+<pre><code>Time spent today: 24m, or 0h 24m
+Total used to date: 84m, or 1h 24m</code></pre>
 </div>
 </div>
+</section>
+<section id="untimed-summary-report" class="level2">
+<h2 class="anchored" data-anchor-id="untimed-summary-report">Untimed: Summary report</h2>
+</section>
+<section id="untimed-reflections" class="level2">
+<h2 class="anchored" data-anchor-id="untimed-reflections">Untimed: Reflections</h2>
+</section>
+<section id="untimed-response-from-the-author" class="level2">
+<h2 class="anchored" data-anchor-id="untimed-response-from-the-author">Untimed: Response from the author</h2>
+<p>Ivan (the author) replied, noting that he agreed that it is likely an issue of the code on GitHub not having the exact same version of inputs - and that, interestingly, an older version of the paper had a similar throughput range for Figure 5 as ours.</p>
+<p>He also suggested that it could be random seed or number of runs, but as we are using the same seeds and have played with run number, it unfortunately appears unlikely to be for this reason.</p>
+<p>We are very grateful to him for this email, and for being so communicative and supportive.</p>
+</section>
+<section id="untimed-research-compendium" class="level2">
+<h2 class="anchored" data-anchor-id="untimed-research-compendium">Untimed Research compendium</h2>
+<p>Status at end of today:</p>
+<ul>
+<li>Seperate folders for data, methods and outputs ✅</li>
+<li>Tests to check if can get same results by comparing CSV files. Due to long run times, this was just set up to check Experiment 5 (which only takes a few seconds). ✅</li>
+<li>Run times in each .py file and clear which parts of article it is producing ✅</li>
+<li>README 🟡</li>
+<li>Dockerfile (build, check it works). This has been set up to run the models, but not to produce the tables and figures. 🟡</li>
+<li>GitHub action to push docker image to GHCR ❌</li>
+</ul>
+<p>When building the Docker image, I had to use a different process to my previous Python reproduction (which used miniconda3 and jupyter notebooks), since this is in Python 2. My initial attempt:</p>
+<pre><code># Creates Docker Image to run Python Scripts (not the R Scripts)
+
+# Use Linux-Miniconda image (not miniconda3 as that is python 3)
+FROM continuumio/miniconda:latest
+
+# Copy all files across to container
+COPY ./reproduction ./
+
+# Update conda and create environment
+RUN conda update conda &amp;&amp; conda env create -f environment.yml &amp;&amp; conda clean -afy </code></pre>
+<p>Returned an error related to <code>matplotlib</code> and <code>freetype</code>, which appeared to be a compatability for that type of matplotlib on the system with missing or outdated dependencies like freetype. I tried installing <code>freetype</code> prior to creating the environment by adding:</p>
+<pre><code># Install system dependencies for matplotlib
+RUN apt-get update &amp;&amp; \
+    apt-get install -y libfreetype6-dev libpng-dev</code></pre>
+<p>This then had an error as Debian’s buster resources moved from <code>stable</code> to <code>oldoldstable</code>. I tried manually updating the <code>sources.list</code> to add <code>oldoldstable</code>.</p>
+<pre><code># Update apt repository information to handle 'oldoldstable'
+# Install system dependencies for matplotlib
+RUN sed -i 's/buster/oldoldstable/g' /etc/apt/sources.list &amp;&amp; \
+    apt-get update &amp;&amp; \
+    apt-get install -y libfreetype6-dev libpng-dev</code></pre>
+<p>However, I then found that the freetype issue had persisted.</p>
+<p>I decided to start from scratch with a different method, starting with:</p>
+<pre><code>FROM python:2.7.12-wheezy</code></pre>
 
 
 </section>
@@ -888,7 +793,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </a>
   </li>  
 </ul>
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_09_24/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_10_09/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

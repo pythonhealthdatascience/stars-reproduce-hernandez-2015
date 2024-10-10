@@ -123,7 +123,7 @@
     "href": "evaluation/reproduction_report.html#computational-reproducibility",
     "title": "Summary report",
     "section": "Computational reproducibility",
-    "text": "Computational reproducibility\nSuccessfully reproduced 1 out of 8 (12.5%) of items from the scope in 17h 41m (44.2%).\nRequired troubleshooting:\n\nEnvironment - installing packages and working with unsupported Python version\nAdditional repositories - realised that another repository from the author is required and importing\nOrganisation - organising files and amending output folder names\nRun time - exploring parameters that can run with similar results but shorter run time, and adding parallel processing\nParameters - identifying mis-match parameters between article and code and attempting to correct\nScenarios - identifying how to implement scenarios and writing code, or spotting code that can be used for scenario from part of a script\nFigures and tables - using provided code as a starting place, wrote additional code to tweak plotting code, and pre-process data beforehand\nCommand line - removing import of simpy.simplot which prevented from running on the command line\n\n\nFigure 5Figure 6Figure 7Figure 8Figure 9Figure 10Table 3Table 4\n\n\nCannot display original figure as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\nReproduction\n\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\nReproduction\n\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\nReproduction\n\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\nReproduction\n\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\nReproduction\n\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\nReproduction\n\n\n\n\nCannot display original table as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\n\n\n\n\n\n\nEstimate\nAvg\nLowerBound\nUpperBound\n\n\n\n\n0\nWait time\n66.66\n63.75\n69.57\n\n\n1\nNo. in (Designees)\n11979.15\n11935.90\n12022.40\n\n\n2\nNo. out (Designees)\n473.20\n458.87\n487.53\n\n\n3\nDispensing wait time\n18.84\n18.33\n19.35\n\n\n4\nLine mngr. wait time\n23.73\n23.60\n23.86\n\n\n5\nMed. eval. wait time\n9.06\n6.05\n12.06\n\n\n6\nScreening wait time\n15.04\n14.79\n15.29\n\n\n7\nDispensing no. waiting\n434.81\n423.35\n446.27\n\n\n8\nLine mngr. no. waiting\n4733.55\n4705.73\n4761.38\n\n\n9\nMed. eval. no. waiting\n2.19\n1.42\n2.96\n\n\n10\nScreening no. waiting\n569.06\n560.52\n577.61\n\n\n\n\n\n\n\n\n\nCannot display original table as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\n\n\n\n\n\n\nLine Manager\nScreening\nDispensing\nMed. eval.\nTotal staff\nWait. time\nForms processed\n\n\n\n\n0\n4\n1\n14\n1\n20\n52\n1392\n\n\n1\n4\n1\n14\n3\n22\n51\n1394\n\n\n2\n7\n1\n14\n1\n23\n47\n2080\n\n\n3\n8\n1\n14\n1\n24\n48\n2143\n\n\n4\n7\n1\n14\n3\n25\n47\n2070\n\n\n5\n4\n6\n14\n1\n25\n54\n3347\n\n\n6\n9\n1\n14\n2\n26\n44\n2407\n\n\n7\n4\n6\n14\n2\n26\n47\n3355\n\n\n8\n5\n6\n14\n1\n26\n62\n3387\n\n\n9\n9\n1\n14\n3\n27\n44\n2412\n\n\n10\n4\n6\n14\n3\n27\n45\n3509\n\n\n11\n4\n6\n14\n4\n28\n45\n3436\n\n\n12\n8\n6\n14\n1\n29\n61\n3530\n\n\n13\n4\n6\n14\n6\n30\n45\n3435\n\n\n14\n16\n1\n14\n1\n32\n35\n3455\n\n\n15\n4\n10\n14\n4\n32\n43\n3531\n\n\n16\n8\n6\n14\n4\n32\n49\n3557\n\n\n17\n8\n6\n14\n5\n33\n49\n3545\n\n\n18\n4\n10\n14\n6\n34\n42\n3501\n\n\n19\n4\n6\n25\n1\n36\n46\n4313\n\n\n20\n4\n6\n25\n2\n37\n41\n4325\n\n\n21\n5\n6\n25\n1\n37\n51\n4597\n\n\n22\n4\n6\n25\n3\n38\n39\n4389\n\n\n23\n5\n6\n25\n2\n38\n42\n4637\n\n\n24\n4\n6\n25\n4\n39\n38\n4387\n\n\n25\n5\n6\n25\n3\n39\n42\n4585\n\n\n26\n7\n6\n25\n1\n39\n45\n4949\n\n\n27\n5\n6\n25\n4\n40\n40\n4586\n\n\n28\n7\n6\n25\n2\n40\n43\n4945\n\n\n29\n4\n10\n25\n1\n40\n44\n6003\n\n\n30\n4\n6\n25\n6\n41\n38\n4396\n\n\n31\n4\n10\n25\n2\n41\n39\n6009\n\n\n32\n4\n10\n27\n1\n42\n43\n6576\n\n\n33\n4\n10\n25\n4\n43\n32\n5958\n\n\n34\n4\n10\n27\n2\n43\n38\n6546\n\n\n35\n4\n10\n25\n5\n44\n31\n6109\n\n\n36\n4\n10\n27\n3\n44\n36\n6420\n\n\n37\n18\n1\n25\n1\n45\n30\n4231\n\n\n38\n4\n10\n25\n6\n45\n31\n6129\n\n\n39\n4\n10\n27\n4\n45\n33\n6545"
+    "text": "Computational reproducibility\nSuccessfully reproduced 1 out of 8 (12.5%) of items from the scope in 17h 56m (44.8%).\nRequired troubleshooting:\n\nEnvironment - installing packages and working with unsupported Python version\nAdditional repositories - realised that another repository from the author is required and importing\nOrganisation - organising files and amending output folder names\nRun time - exploring parameters that can run with similar results but shorter run time, and adding parallel processing\nParameters - identifying mis-match parameters between article and code and attempting to correct\nScenarios - identifying how to implement scenarios and writing code, or spotting code that can be used for scenario from part of a script\nFigures and tables - using provided code as a starting place, wrote additional code to tweak plotting code, and pre-process data beforehand\nCommand line - removing import of simpy.simplot which prevented from running on the command line\n\n\nFigure 5Figure 6Figure 7Figure 8Figure 9Figure 10Table 3Table 4\n\n\nCannot display original figure as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\nReproduction\n\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\nReproduction\n\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\nReproduction\n\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\nReproduction\n\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\nReproduction\n\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\nReproduction\n\n\n\n\nCannot display original table as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\n\n\n\n\n\n\nEstimate\nAvg\nLowerBound\nUpperBound\n\n\n\n\n0\nWait time\n66.66\n63.75\n69.57\n\n\n1\nNo. in (Designees)\n11979.15\n11935.90\n12022.40\n\n\n2\nNo. out (Designees)\n473.20\n458.87\n487.53\n\n\n3\nDispensing wait time\n18.84\n18.33\n19.35\n\n\n4\nLine mngr. wait time\n23.73\n23.60\n23.86\n\n\n5\nMed. eval. wait time\n9.06\n6.05\n12.06\n\n\n6\nScreening wait time\n15.04\n14.79\n15.29\n\n\n7\nDispensing no. waiting\n434.81\n423.35\n446.27\n\n\n8\nLine mngr. no. waiting\n4733.55\n4705.73\n4761.38\n\n\n9\nMed. eval. no. waiting\n2.19\n1.42\n2.96\n\n\n10\nScreening no. waiting\n569.06\n560.52\n577.61\n\n\n\n\n\n\n\n\n\nCannot display original table as do not have permission for reuse, but can view at Hernandez et al. (2015)\nReproduction:\n\n\n\n\n\n\n\n\n\nLine Manager\nScreening\nDispensing\nMed. eval.\nTotal staff\nWait. time\nForms processed\n\n\n\n\n0\n4\n1\n14\n1\n20\n52\n1392\n\n\n1\n4\n1\n14\n3\n22\n51\n1394\n\n\n2\n7\n1\n14\n1\n23\n47\n2080\n\n\n3\n8\n1\n14\n1\n24\n48\n2143\n\n\n4\n7\n1\n14\n3\n25\n47\n2070\n\n\n5\n4\n6\n14\n1\n25\n54\n3347\n\n\n6\n9\n1\n14\n2\n26\n44\n2407\n\n\n7\n4\n6\n14\n2\n26\n47\n3355\n\n\n8\n5\n6\n14\n1\n26\n62\n3387\n\n\n9\n9\n1\n14\n3\n27\n44\n2412\n\n\n10\n4\n6\n14\n3\n27\n45\n3509\n\n\n11\n4\n6\n14\n4\n28\n45\n3436\n\n\n12\n8\n6\n14\n1\n29\n61\n3530\n\n\n13\n4\n6\n14\n6\n30\n45\n3435\n\n\n14\n16\n1\n14\n1\n32\n35\n3455\n\n\n15\n4\n10\n14\n4\n32\n43\n3531\n\n\n16\n8\n6\n14\n4\n32\n49\n3557\n\n\n17\n8\n6\n14\n5\n33\n49\n3545\n\n\n18\n4\n10\n14\n6\n34\n42\n3501\n\n\n19\n4\n6\n25\n1\n36\n46\n4313\n\n\n20\n4\n6\n25\n2\n37\n41\n4325\n\n\n21\n5\n6\n25\n1\n37\n51\n4597\n\n\n22\n4\n6\n25\n3\n38\n39\n4389\n\n\n23\n5\n6\n25\n2\n38\n42\n4637\n\n\n24\n4\n6\n25\n4\n39\n38\n4387\n\n\n25\n5\n6\n25\n3\n39\n42\n4585\n\n\n26\n7\n6\n25\n1\n39\n45\n4949\n\n\n27\n5\n6\n25\n4\n40\n40\n4586\n\n\n28\n7\n6\n25\n2\n40\n43\n4945\n\n\n29\n4\n10\n25\n1\n40\n44\n6003\n\n\n30\n4\n6\n25\n6\n41\n38\n4396\n\n\n31\n4\n10\n25\n2\n41\n39\n6009\n\n\n32\n4\n10\n27\n1\n42\n43\n6576\n\n\n33\n4\n10\n25\n4\n43\n32\n5958\n\n\n34\n4\n10\n27\n2\n43\n38\n6546\n\n\n35\n4\n10\n25\n5\n44\n31\n6109\n\n\n36\n4\n10\n27\n3\n44\n36\n6420\n\n\n37\n18\n1\n25\n1\n45\n30\n4231\n\n\n38\n4\n10\n25\n6\n45\n31\n6129\n\n\n39\n4\n10\n27\n4\n45\n33\n6545"
   },
   {
     "objectID": "evaluation/reproduction_report.html#evaluation-against-guidelines",
@@ -166,6 +166,41 @@
     "title": "Open Source License",
     "section": "",
     "text": "This repository is licensed under the [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\nMIT License\nCopyright (c) 2024 STARS Project Team\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\nTHE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n\n\n\n\nThis is aligned with the original study, who shared their code under [license].\n\n\n\n\n\n\nView license\n\n\n\n\n\n\n[Embedded license]\n\n\n\n\nThe original study was published in the journal “[Journal name]”. They distributed the article under [Add more details about license]\n\n\n\n\n\n\nView copyright statement from journal"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_10/index.html",
+    "href": "logbook/posts/2024_10_10/index.html",
+    "title": "Day 14",
+    "section": "",
+    "text": "Note\n\n\n\nSome final ideas for reproduction, but no luck (17h 56m, 44.8%). Troubleshooting docker."
+  },
+  {
+    "objectID": "logbook/posts/2024_10_10/index.html#untimed-resuming-troubleshooting-docker",
+    "href": "logbook/posts/2024_10_10/index.html#untimed-resuming-troubleshooting-docker",
+    "title": "Day 14",
+    "section": "Untimed: Resuming troubleshooting Docker",
+    "text": "Untimed: Resuming troubleshooting Docker\n\nCommands\nBuild image:\nsudo docker build --tag hernandez2015 . -f ./reproduction/docker/Dockerfile\nView images:\nsudo docker images\nPulling image and starting a container (with -it keeping it running):\nsudo docker run -it --name hernandez2015_docker hernandez2015\nRemove container and image\nsudo docker container rm hernandez2015_docker\nsudo docker image rm hernandez2015\n\n\nUsing FROM python\n# Use Python 2.7.12\nFROM python:2.7.12-wheezy\n\n# Copy files\nCOPY ./reproduction ./\n\n# Install dependencies\nRUN pip install --no-cache-dir --upgrade pip \\\n  && pip install --no-cache-dir -r ./docker/requirements.txt\nHad SSL issues. Appears this might be related to 2.7.12-wheezy being unsupported.\n\n\nBuilding from scratch\nTom suggested building from scratch, with an example from like:\n# Use the official Ubuntu base image\nFROM ubuntu:16.04\n\n# Set environment variables to prevent Python from buffering stdout and stderr\nENV PYTHONUNBUFFERED=1\n\n# Update the package list and install dependencies for Python\nRUN apt-get update && \\\n    apt-get install -y \\\n    wget \\\n    build-essential \\\n    libssl-dev \\\n    libffi-dev \\\n    libbz2-dev \\\n    libreadline-dev \\\n    libsqlite3-dev \\\n    zlib1g-dev \\\n    libncurses5-dev \\\n    libgdbm-dev \\\n    libnss3-dev \\\n    tk-dev \\\n    liblzma-dev \\\n    libsqlite3-dev \\\n    lzma \\\n    ca-certificates \\\n    curl \\\n    git\n\n# Download and install Python 2.7.12 from source\nRUN wget https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tgz && \\\n    tar xzf Python-2.7.12.tgz && \\\n    cd Python-2.7.12 && \\\n    ./configure --enable-optimizations && \\\n    make altinstall && \\\n    cd .. && \\\n    rm -rf Python-2.7.12 Python-2.7.12.tgz\n\n# Install pip version 19.3.1\nRUN wget https://bootstrap.pypa.io/pip/2.7/get-pip.py && \\\n    python2.7 get-pip.py pip==19.3.1 && \\\n    rm get-pip.py\n\n# Install the required Python packages\nRUN pip2.7 install \\\n    inspyred==1.0 \\\n    matplotlib==1.3.1 \\\n    networkx==1.8.1 \\\n    numpy==1.8.0 \\\n    pytest==4.6.2 \\\n    scipy==0.13.2 \\\n    simpy==2.3.1\n\n# Set the working directory to /app\nWORKDIR /app\n\n# Copy the local directory content to /app in the container\nCOPY . /app\n\n# Set the default command to run when the container starts\n# This is optional, but helpful if you want to automatically run a Python script\nCMD [\"/bin/bash\"]\n\n# Expose the default port, if your Experiment1.py requires network communication\nEXPOSE 8000"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_10/index.html#some-final-attempts-at-the-reproduction",
+    "href": "logbook/posts/2024_10_10/index.html#some-final-attempts-at-the-reproduction",
+    "title": "Day 14",
+    "section": "10.35-10.50: Some final attempts at the reproduction",
+    "text": "10.35-10.50: Some final attempts at the reproduction\nTom asked about the reproduction troubleshooting, I decided to try just some more final attempts, just focusing on Experiment5, which had no parameters changed from the original.\nI tried 100 arrivals:\n\nI tried 115 arrivals:\n\nI tried 100 arrivals with 24 hours:\n\nI tried 100K max entities:\n\nBut no luck."
+  },
+  {
+    "objectID": "logbook/posts/2024_10_10/index.html#timings",
+    "href": "logbook/posts/2024_10_10/index.html#timings",
+    "title": "Day 14",
+    "section": "Timings",
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 1061\n\n# Times from today\ntimes = [\n    ('10.35', '10.50')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 15m, or 0h 15m\nTotal used to date: 1076m, or 17h 56m\nTime remaining: 1324m, or 22h 4m\nUsed 44.8% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_10/index.html#untimed-wrapping-up-research-compendium",
+    "href": "logbook/posts/2024_10_10/index.html#untimed-wrapping-up-research-compendium",
+    "title": "Day 14",
+    "section": "Untimed: Wrapping up research compendium",
+    "text": "Untimed: Wrapping up research compendium\nRemaining to do is:\n\nCreate functional docker image for Python\nConsider changing Docker to run Python and R\nPush to GHCR\nTest the local and GHCR docker images\nUpdate the README accordingly with information about docker\n\nCan then send for test-run, and finally archive."
   },
   {
     "objectID": "logbook/posts/2024_10_08/index.html",
@@ -378,6 +413,13 @@
     "text": "What did help facilitate this reproduction?\nResults file - the summary results file was clear and easy to understand.\nPartial code for figures - some code was provided to create figures in R and - although not comprehensive (not all figures, and not all processing steps) - it was very beneficial in giving a baseline to work from when writing code for the plots.\nProvision of some results from the author’s runs of the models\nSeeds - the code was set up with seeds that ensured consistent results between runs of the scripts which was great.\nReported run times - which was handy to be aware of ahead of time, to anticipate long run times, and to know e.g. on of the Experiment 3 runs just wouldn’t be feasible\nStructuring of code into classes - this is a nice clear way of structuring code and is nice to work with/amend"
   },
   {
+    "objectID": "evaluation/reflections.html#other-reflections-beyond-reproduction",
+    "href": "evaluation/reflections.html#other-reflections-beyond-reproduction",
+    "title": "Reflections",
+    "section": "Other reflections beyond reproduction",
+    "text": "Other reflections beyond reproduction\nWhen attempting to create the Docker environment for this project for the “research compendium” step, we were limited by this being in Python 2, as cannot use e.g. JupyterLab, and as using miniconda (instead of miniconda3) hit some issues like unsupported base images and having to install from scratch."
+  },
+  {
     "objectID": "evaluation/reflections.html#full-list-of-troubleshooting-steps",
     "href": "evaluation/reflections.html#full-list-of-troubleshooting-steps",
     "title": "Reflections",
@@ -417,7 +459,7 @@
     "href": "logbook/logbook.html",
     "title": "Logbook",
     "section": "",
-    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 12\n\n\n\n\n\n\nevaluation\n\n\n\n\n\n\n\n\n\nOct 8, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 11\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 7, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 10\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 4, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 9\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 3, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 8\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 2, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 7\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 1, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 6\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 30, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 5\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 27, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 4\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 26, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 3\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 25, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\nscope\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 24, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\nread\n\n\nscope\n\n\n\n\n\n\n\n\n\nSep 20, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
+    "text": "These diary entries record daily progress in reproduction of the study, providing a transparent and detailed record of work.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 14\n\n\n\n\n\n\ncompendium\n\n\n\n\n\n\n\n\n\nOct 10, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 13\n\n\n\n\n\n\nevaluation\n\n\nreport\n\n\nreflcetions\n\n\ncompendium\n\n\n\n\n\n\n\n\n\nOct 9, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 12\n\n\n\n\n\n\nevaluation\n\n\n\n\n\n\n\n\n\nOct 8, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 11\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 7, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 10\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 4, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 9\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 3, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 8\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 2, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 7\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nOct 1, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 6\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 30, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 5\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 27, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 4\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 26, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 3\n\n\n\n\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 25, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2\n\n\n\n\n\n\nscope\n\n\nreproduce\n\n\n\n\n\n\n\n\n\nSep 24, 2024\n\n\nAmy Heather\n\n\n\n\n\n\n\n\n\n\n\n\nDay 1\n\n\n\n\n\n\nsetup\n\n\nread\n\n\nscope\n\n\n\n\n\n\n\n\n\nSep 20, 2024\n\n\nAmy Heather\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "logbook/posts/2024_09_20/index.html",
@@ -572,6 +614,62 @@
     "title": "Day 10",
     "section": "Timings",
     "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 756\n\n# Times from today\ntimes = [\n    ('09.29', '10.06'),\n    ('10.15', '10.27'),\n    ('11.40', '12.05'),\n    ('12.10', '12.33'),\n    ('16.39', '16.44')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 102m, or 1h 42m\nTotal used to date: 858m, or 14h 18m\nTime remaining: 1542m, or 25h 42m\nUsed 35.8% of 40 hours max"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_09/index.html",
+    "href": "logbook/posts/2024_10_09/index.html",
+    "title": "Day 13",
+    "section": "",
+    "text": "Note\n\n\n\nReport evaluation against ISPOR-SDM-derived checklist. Created summary report and reflections page. Working on research compendium. Total evaluation time used: 1h 24m."
+  },
+  {
+    "objectID": "logbook/posts/2024_10_09/index.html#untimed-consensus",
+    "href": "logbook/posts/2024_10_09/index.html#untimed-consensus",
+    "title": "Day 13",
+    "section": "Untimed: Consensus",
+    "text": "Untimed: Consensus\nTom confirmed he was happy with my decisions re: reproduction success, agreeing that only 1/8 had been reproduced. I then emailed Ivan (author) to let him know."
+  },
+  {
+    "objectID": "logbook/posts/2024_10_09/index.html#ispor-sdm-derived-checklist-evaluation",
+    "href": "logbook/posts/2024_10_09/index.html#ispor-sdm-derived-checklist-evaluation",
+    "title": "Day 13",
+    "section": "09.41-09.45, 09.47-10.07: ISPOR-SDM Derived Checklist Evaluation",
+    "text": "09.41-09.45, 09.47-10.07: ISPOR-SDM Derived Checklist Evaluation"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_09/index.html#timings",
+    "href": "logbook/posts/2024_10_09/index.html#timings",
+    "title": "Day 13",
+    "section": "Timings",
+    "text": "Timings\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 60\n\n# Times from today\ntimes = [\n    ('09.41', '09.45'),\n    ('09.47', '10.07')]\n\ncalculate_times(used_to_date, times, limit=False)\n\nTime spent today: 24m, or 0h 24m\nTotal used to date: 84m, or 1h 24m"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_09/index.html#untimed-summary-report",
+    "href": "logbook/posts/2024_10_09/index.html#untimed-summary-report",
+    "title": "Day 13",
+    "section": "Untimed: Summary report",
+    "text": "Untimed: Summary report"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_09/index.html#untimed-reflections",
+    "href": "logbook/posts/2024_10_09/index.html#untimed-reflections",
+    "title": "Day 13",
+    "section": "Untimed: Reflections",
+    "text": "Untimed: Reflections"
+  },
+  {
+    "objectID": "logbook/posts/2024_10_09/index.html#untimed-response-from-the-author",
+    "href": "logbook/posts/2024_10_09/index.html#untimed-response-from-the-author",
+    "title": "Day 13",
+    "section": "Untimed: Response from the author",
+    "text": "Untimed: Response from the author\nIvan (the author) replied, noting that he agreed that it is likely an issue of the code on GitHub not having the exact same version of inputs - and that, interestingly, an older version of the paper had a similar throughput range for Figure 5 as ours.\nHe also suggested that it could be random seed or number of runs, but as we are using the same seeds and have played with run number, it unfortunately appears unlikely to be for this reason.\nWe are very grateful to him for this email, and for being so communicative and supportive."
+  },
+  {
+    "objectID": "logbook/posts/2024_10_09/index.html#untimed-research-compendium",
+    "href": "logbook/posts/2024_10_09/index.html#untimed-research-compendium",
+    "title": "Day 13",
+    "section": "Untimed Research compendium",
+    "text": "Untimed Research compendium\nStatus at end of today:\n\nSeperate folders for data, methods and outputs ✅\nTests to check if can get same results by comparing CSV files. Due to long run times, this was just set up to check Experiment 5 (which only takes a few seconds). ✅\nRun times in each .py file and clear which parts of article it is producing ✅\nREADME 🟡\nDockerfile (build, check it works). This has been set up to run the models, but not to produce the tables and figures. 🟡\nGitHub action to push docker image to GHCR ❌\n\nWhen building the Docker image, I had to use a different process to my previous Python reproduction (which used miniconda3 and jupyter notebooks), since this is in Python 2. My initial attempt:\n# Creates Docker Image to run Python Scripts (not the R Scripts)\n\n# Use Linux-Miniconda image (not miniconda3 as that is python 3)\nFROM continuumio/miniconda:latest\n\n# Copy all files across to container\nCOPY ./reproduction ./\n\n# Update conda and create environment\nRUN conda update conda && conda env create -f environment.yml && conda clean -afy \nReturned an error related to matplotlib and freetype, which appeared to be a compatability for that type of matplotlib on the system with missing or outdated dependencies like freetype. I tried installing freetype prior to creating the environment by adding:\n# Install system dependencies for matplotlib\nRUN apt-get update && \\\n    apt-get install -y libfreetype6-dev libpng-dev\nThis then had an error as Debian’s buster resources moved from stable to oldoldstable. I tried manually updating the sources.list to add oldoldstable.\n# Update apt repository information to handle 'oldoldstable'\n# Install system dependencies for matplotlib\nRUN sed -i 's/buster/oldoldstable/g' /etc/apt/sources.list && \\\n    apt-get update && \\\n    apt-get install -y libfreetype6-dev libpng-dev\nHowever, I then found that the freetype issue had persisted.\nI decided to start from scratch with a different method, starting with:\nFROM python:2.7.12-wheezy"
   },
   {
     "objectID": "index.html",
