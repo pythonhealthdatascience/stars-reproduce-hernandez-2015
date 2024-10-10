@@ -55,6 +55,10 @@ Unavoidable: **Unsupported Python version**
 
 **Structuring of code into classes** - this is a nice clear way of structuring code and is nice to work with/amend
 
+## Other reflections beyond reproduction
+
+When attempting to create the **Docker** environment for this project for the "research compendium" step, we were limited by this being in Python 2, as cannot use e.g. JupyterLab, and as using miniconda (instead of miniconda3) hit some issues like unsupported base images and having to install from scratch.
+
 ## Full list of troubleshooting steps
 
 ::: {.callout-note appearance="minimal" collapse=true}
