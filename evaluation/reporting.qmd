@@ -59,7 +59,8 @@ Of the **24** items in the checklist:
 Of the **18** items in the checklist:
 
 * **10** were met fully (✅)
-* **8** were not met (❌)
+* **7** were not met (❌)
+* **1** was not applicable (N/A)
 
 | Item | Assessed if... | Met by study? | Evidence/location |
 | - | - | - | - |
@@ -79,7 +80,7 @@ Of the **18** items in the checklist:
 | 11 Is face validity evaluated and reported? | ...it was reported that the model was subjected to the examination on how well model designs correspond to the reality and intuitions. It was assumed that this type of validation should be conducted by external evaluators with no stake in the study. | ❌ Not met | Not mentioned. |
 | 12 Is cross validation performed and reported | ...comparison across similar modeling studies which deal with the same decision problem was undertaken. | ❌ Not met | Not mentioned. |
 | 13 Is external validation performed and reported? | ...the modeler(s) examined how well the model’s results match the empirical data of an actual event modeled. | ❌ Not met | Not mentioned. |
-| 14 Is predictive validation performed or attempted? | ...the modeler(s) examined the consistency of a model’s predictions of a future event and the actual outcomes in the future. If this was not undertaken, it was assessed whether the reasons were discussed. | ❌ Not met | Not mentioned. |
+| 14 Is predictive validation performed or attempted? | ...the modeler(s) examined the consistency of a model’s predictions of a future event and the actual outcomes in the future. If this was not undertaken, it was assessed whether the reasons were discussed. | N/A | Only relevant to forecasting. |
 | **Generalisability and stakeholder involvement** |
 | 15 Is the model generalizability issue discussed? | ...the modeler(s) discussed the potential of the resulting model for being applicable to other settings/populations (single/multiple application). | ❌ Not met | The model is developed for New York City planners. No mention is made  of applying it outside this context. |
 | 16 Are decision makers or other stakeholders involved in modeling? | ...the modeler(s) reported in which part throughout the modeling process decision makers and other stakeholders (eg, subject experts) were engaged. | ❌ Not met | Not mentioned. |

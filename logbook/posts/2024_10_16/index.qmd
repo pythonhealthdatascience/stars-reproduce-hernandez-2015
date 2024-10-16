@@ -1,0 +1,17 @@
+---
+title: "Day 15"
+author: "Amy Heather"
+date: "2024-10-16"
+categories: [evaluation]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+Minor correction to evaluation.
+
+:::
+
+## Untimed: Correction to evaluation
+
+In evaluation of article against checklist derived from ISPOR-SDM, corrected "14 Is predictive validation performed or attempted?" from not met to not applicable.
