@@ -33,5 +33,5 @@ abstract: >-
   strategies for points of dispensing. Computers & Industrial Engineering 83
   (2015). https://doi.org/10.1016/j.cie.2015.02.015.
 license: MIT
-version: '0.1.0'
-date-released: '2024-09-24'
+version: '0.2.0'
+date-released: '2024-10-22'
