@@ -83,8 +83,7 @@ If you wish to cite this repository, please refer to the citation file `CITATION
 
 This repository is licensed under an [MIT license](https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/blob/a5ada4714f059d805f769a906bb2f4db0da2da8d/LICENSE).
 
-<!-- TODO: Add license name and link (e.g. "who also licensed their work under the [MIT License](link)") -->
-This is aligned with the original study, who who also licensed their work under the MIT License.
+This is aligned with the original study, who who also licensed their work under the [MIT License](https://github.com/ivihernandez/staff-allocation/blob/master/LICENSE).
 
 ## Funding
 

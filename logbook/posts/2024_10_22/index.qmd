@@ -22,8 +22,6 @@ test_model.py:18: in <module>
 E   ImportError: No module named python_scripts
 ```
 
-<!--TODO: Add reflection to reflections and wp1_summary that this test-run stage often is about spotting issues that I haven't spot in running it, as this is not the first time we've had this. -->
-
 I installed nano:
 
 ```
@@ -39,6 +37,20 @@ I tested that this change didn't break elsewhere - namely:
 * Running pytest on local machine
 
 These all seemed fine.
+
+Tom pulled the fix, and it then ran fine on his machine too. However, when he rebuilt his docker, he got a new issue, that `test_model` has attribute:
+
+```
+/home/tommonks/Documents/code/stars-reproduce-hernandez-2015/reproduction/tests/test_model.py
+```
+
+And that that is not the same as the test file we want to collect:
+
+```
+/tests/test_model.py
+```
+
+And gave hint to remove __pycache__ / .pyc files and/or use a unique basename for your test file modules. He removed the pycache and it ran fine. Hence, it seems it could be a problem related to having ran pytest locally first (given there is no pycache on GitHub).
 
 ### Renv
 
