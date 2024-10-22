@@ -228,7 +228,6 @@ Traceback:
 test_model.py:18: in &lt;module&gt;
     from python_scripts import PODSimulation
 E   ImportError: No module named python_scripts</code></pre>
-<!--TODO: Add reflection to reflections and wp1_summary that this test-run stage often is about spotting issues that I haven't spot in running it, as this is not the first time we've had this. -->
 <p>I installed nano:</p>
 <pre><code>apt-get install nano</code></pre>
 <p>Then used it to edit <code>test_model.py</code> from the command line. I found that the test would run if I add <code>__init__.py</code> to the <code>python_scripts/</code> and <code>myutils</code> directories.</p>
@@ -239,6 +238,11 @@ E   ImportError: No module named python_scripts</code></pre>
 <li>Running pytest on local machine</li>
 </ul>
 <p>These all seemed fine.</p>
+<p>Tom pulled the fix, and it then ran fine on his machine too. However, when he rebuilt his docker, he got a new issue, that <code>test_model</code> has attribute:</p>
+<pre><code>/home/tommonks/Documents/code/stars-reproduce-hernandez-2015/reproduction/tests/test_model.py</code></pre>
+<p>And that that is not the same as the test file we want to collect:</p>
+<pre><code>/tests/test_model.py</code></pre>
+<p>And gave hint to remove <strong>pycache</strong> / .pyc files and/or use a unique basename for your test file modules. He removed the pycache and it ran fine. Hence, it seems it could be a problem related to having ran pytest locally first (given there is no pycache on GitHub).</p>
 </section>
 <section id="renv" class="level3">
 <h3 class="anchored" data-anchor-id="renv">Renv</h3>
