@@ -1,0 +1,45 @@
+---
+title: "Day 16"
+author: "Amy Heather"
+date: "2024-10-22"
+categories: [compendium]
+bibliography: ../../../quarto_site/references.bib
+---
+
+## Untimed: Test-run
+
+### Pytest
+
+Tom did a test-run and found he couldn't run the pytest locally or on docker. I looked back at it, finding I could run it locally, but got same issue on machine:
+
+```
+_________________________________________________ ERROR collecting test_model.py __________________________________________________
+ImportError while importing test module '/tests/test_model.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+test_model.py:18: in <module>
+    from python_scripts import PODSimulation
+E   ImportError: No module named python_scripts
+```
+
+<!--TODO: Add reflection to reflections and wp1_summary that this test-run stage often is about spotting issues that I haven't spot in running it, as this is not the first time we've had this. -->
+
+I installed nano:
+
+```
+apt-get install nano
+```
+
+Then used it to edit `test_model.py` from the command line. I found that the test would run if I add `__init__.py` to the `python_scripts/` and `myutils` directories.
+
+I tested that this change didn't break elsewhere - namely:
+
+* Running experiment .py files on docker
+* Running experiment .py files on local machine
+* Running pytest on local machine
+
+These all seemed fine.
+
+### Renv
+
+Tom built the renv and recreated the figures without issue.
