@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Amy Heather">
-<meta name="dcterms.date" content="2024-10-02">
+<meta name="dcterms.date" content="2024-10-22">
 
-<title>Day 8 – Reproducing Hernandez et al.&nbsp;2015</title>
+<title>Day 16 – Reproducing Hernandez et al.&nbsp;2015</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -199,9 +165,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Day 8</h1>
+      <h1 class="title">Day 16</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">reproduce</div>
+                <div class="quarto-category">compendium</div>
               </div>
                   </div>
   </div>
@@ -219,7 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 2, 2024</p>
+        <p class="date">October 22, 2024</p>
       </div>
     </div>
     
@@ -235,12 +201,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#continuing-to-check-parameters" id="toc-continuing-to-check-parameters" class="nav-link active" data-scroll-target="#continuing-to-check-parameters">09.14-09.47: Continuing to check parameters</a></li>
-  <li><a href="#corrected-line-manager-service-times" id="toc-corrected-line-manager-service-times" class="nav-link" data-scroll-target="#corrected-line-manager-service-times">13.15-13.25: Corrected line manager service times</a></li>
-  <li><a href="#adding-parallel-processing" id="toc-adding-parallel-processing" class="nav-link" data-scroll-target="#adding-parallel-processing">13.26-13.35, 13.44-14.03, 15.17-15.21: Adding parallel processing</a></li>
-  <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
+  <li><a href="#untimed-test-run" id="toc-untimed-test-run" class="nav-link active" data-scroll-target="#untimed-test-run">Untimed: Test-run</a>
+  <ul class="collapse">
+  <li><a href="#pytest" id="toc-pytest" class="nav-link" data-scroll-target="#pytest">Pytest</a></li>
+  <li><a href="#renv" id="toc-renv" class="nav-link" data-scroll-target="#renv">Renv</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_10_02/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_10_22/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -249,214 +216,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Correcting a parameter, adding parallel processing, and experimenting with parameters to try and run similarly but more quickly. Total time used: 11h 21m (28.4%)</p>
-</div>
-</div>
-<section id="continuing-to-check-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="continuing-to-check-parameters">09.14-09.47: Continuing to check parameters</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Reflection
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Would’ve been handy if all parameters could have been mentioned in one place.</p>
-</div>
-</div>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Code</th>
-<th>Location in paper</th>
-<th>Location in code</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Length of simulation: 1 hour</td>
-<td>✅ <code>self.maxTime = 60</code></td>
-<td>4.3 Processing</td>
-<td><code>PODSimulation() __init__</code> in <code>PodSimulation.py</code></td>
-</tr>
-<tr class="even">
-<td>At screening station, 1% go to med eval and 99% to dispensing. At med eval station, 99% got to dispensing and 1% exit POD</td>
-<td>❔ <em>Can’t find</em></td>
-<td>4.1.1 Splits</td>
-<td>-</td>
-</tr>
-<tr class="odd">
-<td>Number of forms per designee: 1 31.8%, 2 26.7%, 3 16.8%, 4 12.6%, 5 6.8%, 6 5.6%</td>
-<td>❔ throughput x 3.2 - so appears to be averaged to 3.2?</td>
-<td>Table 1</td>
-<td><code>plotting_ staff_ results.r</code></td>
-</tr>
-<tr class="even">
-<td>Service time <strong>line manager</strong>: triangular, minimum = 0.029, maximum = 0.039, mode = 0.044</td>
-<td>❌ <code>time = random. triangular( low=5/60.0, high=92/60.0, mode=23/60.0)</code>. Low 5/60 = 0.0833. High 92/60 = 1.533. Mode 23/60 = 0.3833. There is one <strong>commented out</strong> which has… Low 1.77/60 = 0.0295. Higher 2.66/60 = 0.044. Mode 2.38/60 = 0.0397. This would match the article, except maximum and mode the other way round.</td>
-<td>Table 2</td>
-<td><code>visit_greeter()</code> in <code>Customer.py</code></td>
-</tr>
-<tr class="odd">
-<td>Service time <strong>screening</strong>: weibull, shape = 2.29, scale = 0.142</td>
-<td>✅ <code>time = random. weibullvariate( alpha=0.142, beta=2.29 )</code></td>
-<td>Table 2</td>
-<td><code>visit_screener()</code> in <code>Customer.py</code></td>
-</tr>
-<tr class="even">
-<td>Service time <strong>dispensing</strong>: weibull, shape = 1, scale = 0.311</td>
-<td>✅ <code>time = random. weibullvariate( alpha=0.311, beta=1 )</code></td>
-<td>Table 2</td>
-<td><code>visit_dispenser()</code> in <code>Customer.py</code></td>
-</tr>
-<tr class="odd">
-<td>Service time <strong>medical evaluation</strong>: lognormal, logarithmic mean = 1.024, logarithmic stdev = 0.788</td>
-<td>✅ <code>time = random. lognormvariate( mu=1.024, sigma=0.788 )</code></td>
-<td>Table 2</td>
-<td><code>visit_medic()</code> in <code>Customer.py</code></td>
-</tr>
-<tr class="even">
-<td>Arrival rate 100 designess per minute per POD (following a Poisson distribution)</td>
-<td>❌ <code>self.meanTBA = 1/200.0  #1/float(115)  #mean time between arrivals, minutes btw entities</code>. This would mean 200 arrivals per minute, rather than 100.</td>
-<td>4.1.4 Arrival rate</td>
-<td><code>PODSimulation() __init__</code> in <code>PodSimulation.py</code></td>
-</tr>
-<tr class="odd">
-<td>Three simulation runs</td>
-<td>🟡 This wasn’t the case when I first started, but have already been changing this</td>
-<td>4.3 Processing</td>
-<td><code>main.py</code></td>
-</tr>
-<tr class="even">
-<td>Number of staff members per station - mentions examples of where “<em>each station could have up to thirty staff members</em>” or “<em>for example 60</em>”. We know it cannot be 30, but could reasonably assume to be 60</td>
-<td>🟡 This wasn’t the case when I first started, but I have already noticed and addressed, and fixed to 60.</td>
-<td>3 Problem and 4.3 Processing</td>
-<td><code>Staff Allocation Problem()</code> in <code>Staff Allocation Problem.py</code></td>
-</tr>
-<tr class="odd">
-<td>Default crossover rate 1.0 and n=1</td>
-<td>✅ <code>ea.variator = [variators. n_point_crossover]</code> with <code>variators</code> imported from <code>inspyred.ec</code>, which can see from <a href="https://pythonhosted.org/inspyred/reference.html">docs</a> the default crossover rate is 1 and default number of crossover points is 1</td>
-<td>5 Experimental results</td>
-<td><code>nsga2.py</code></td>
-</tr>
-<tr class="even">
-<td>Experiment 1: tri-objective model, population 100, generations 50, pre-screened scenarios 10%, 20%, 30%… 90%</td>
-<td>✅ As in the input files like <code>10-prescreened.txt</code></td>
-<td>4.1.1 Splits and Figure 5</td>
-<td>As left</td>
-</tr>
-<tr class="odd">
-<td>Experiment 2: bi-objective model, population 50, generations 25, pre-screened scenarios 10%, 20%, 30%… 90%</td>
-<td>TBC</td>
-<td>4.1.1 Splits and Figure 7</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td>Experiment 3: tri-objective model, pre-screened percentage ??, (a) 100 pop 50 gen (b) 200 pop 100 gen (c) 50 pop 25 gen</td>
-<td>TBC<br><br>Note: Where I am unsure of pre-screened percentage here, I presume it might be default from code which, <code>if parameterReader == None</code>, then <code>self. preScreened Percentage = 0.1</code></td>
-<td>5.3 Experiment 3 and Figure 8</td>
-<td>-<br><br><code>PODSimulation() __init__</code> in <code>PodSimulation.py</code></td>
-</tr>
-<tr class="odd">
-<td>Experiment 4: tri-objective model, maximum line managers 1, 2 or 3</td>
-<td>TBC</td>
-<td>5.4 Experiment 4 and Figure 9</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td>Experiment 5: 6 dispensing, 6 screening, 4 line manager, one medical evaluator, number of replications 1-7</td>
-<td>TBC</td>
-<td>5.5 Experiment 5 and Figure 10</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<p>Reflections on discrepancies (❌): Big difference in the line manager service times - this might explain it! Will start with this, but could then try some of the others? Wary of trying all at once, as always hard to know what might be right - the code or the article. Will run 100pop 5gen 1 run.</p>
+<section id="untimed-test-run" class="level2">
+<h2 class="anchored" data-anchor-id="untimed-test-run">Untimed: Test-run</h2>
+<section id="pytest" class="level3">
+<h3 class="anchored" data-anchor-id="pytest">Pytest</h3>
+<p>Tom did a test-run and found he couldn’t run the pytest locally or on docker. I looked back at it, finding I could run it locally, but got same issue on machine:</p>
+<pre><code>_________________________________________________ ERROR collecting test_model.py __________________________________________________
+ImportError while importing test module '/tests/test_model.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+test_model.py:18: in &lt;module&gt;
+    from python_scripts import PODSimulation
+E   ImportError: No module named python_scripts</code></pre>
+<!--TODO: Add reflection to reflections and wp1_summary that this test-run stage often is about spotting issues that I haven't spot in running it, as this is not the first time we've had this. -->
+<p>I installed nano:</p>
+<pre><code>apt-get install nano</code></pre>
+<p>Then used it to edit <code>test_model.py</code> from the command line. I found that the test would run if I add <code>__init__.py</code> to the <code>python_scripts/</code> and <code>myutils</code> directories.</p>
+<p>I tested that this change didn’t break elsewhere - namely:</p>
+<ul>
+<li>Running experiment .py files on docker</li>
+<li>Running experiment .py files on local machine</li>
+<li>Running pytest on local machine</li>
+</ul>
+<p>These all seemed fine.</p>
 </section>
-<section id="corrected-line-manager-service-times" class="level2">
-<h2 class="anchored" data-anchor-id="corrected-line-manager-service-times">13.15-13.25: Corrected line manager service times</h2>
-<p>This took 210 minutes to run (3 hours and a half). The Y axis of Figure 5 is now much higher - in fact, too high!</p>
-<p>Figure 5:</p>
-<p><img src="figure5_fixtimes_100pop_5gen_1run.png" class="img-fluid"></p>
-<p>Figure 6, filtered to just the throughouput in the range of those plot in the article:</p>
-<p><img src="figure6_fixtimes_100pop_5gen_1run.png" class="img-fluid"></p>
-<p>I tried switching to 10pop 1 gen 1run, just to confirm if it gives results with similar range, as if so, that’s much quicker for trying out different changes, but these looked rather different!</p>
-<p>Run time: 6 minutes</p>
-<p>These looked quite different though, so will need to run with a bit more…</p>
-<p>Figure 5:</p>
-<p><img src="figure5_10pop_1gen_1run.png" class="img-fluid"></p>
-<p>Figure 6:</p>
-<p><img src="figure6_10pop_1gen_1run.png" class="img-fluid"></p>
-</section>
-<section id="adding-parallel-processing" class="level2">
-<h2 class="anchored" data-anchor-id="adding-parallel-processing">13.26-13.35, 13.44-14.03, 15.17-15.21: Adding parallel processing</h2>
-<p>I tried switching the loop in <code>Experiment1.py</code> into a parallel loop, to speed up the run time.</p>
-<p>First, I just changed it to a function with a loop.</p>
-<p>I ran this with the same parameters as above (10 pop 1 gen 1 run) to confirm the results didn’t change at all due to the parallel processing and, indeed, they remained the same, so this is successfully implemented. The only change was - as expected - to the times files, which is now a single file.</p>
-<p>Run time: <strong>6 minutes</strong></p>
-<p>I then adjusted the loop to use parallel processing (with multiprocessing Pool). This required the old syntax (i.e.&nbsp;not the with() statement).</p>
-<p>Run time: <strong>55 seconds</strong></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Reflection
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The pre-existing seed control and way the code was structured made it really easy to implement this.</p>
-</div>
-</div>
-<p>I then tried running with 50 pop 25 gen 1 run, as they used that for Figure 7 (though 3 runs) so it should be similar.</p>
-<p>Run time: <strong>57 minutes</strong></p>
-<p><img src="figure5_50pop_25gen_1run.png" class="img-fluid"></p>
-<p><img src="figure6_50pop_25gen_1run.png" class="img-fluid"></p>
-<p>I realised then that that had just as much impact on the y axis as anything else! Hence, I figured best plan of action would be to run as is with 100 pop 50 gen 1 run, and see how that looks. Then, if that doesn’t look right, try tweaking with parameters identified in table above.</p>
-</section>
-<section id="timings" class="level2">
-<h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="06d37ad1" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">606</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.14'</span>, <span class="st">'09.47'</span>),</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.15'</span>, <span class="st">'13.25'</span>),</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.26'</span>, <span class="st">'13.35'</span>),</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.44'</span>, <span class="st">'14.03'</span>),</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.17'</span>, <span class="st">'15.21'</span>)]</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 75m, or 1h 15m
-Total used to date: 681m, or 11h 21m
-Time remaining: 1719m, or 28h 39m
-Used 28.4% of 40 hours max</code></pre>
-</div>
-</div>
+<section id="renv" class="level3">
+<h3 class="anchored" data-anchor-id="renv">Renv</h3>
+<p>Tom built the renv and recreated the figures without issue.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -904,7 +693,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </a>
   </li>  
 </ul>
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_10_02/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/edit/main/logbook/posts/2024_10_22/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
