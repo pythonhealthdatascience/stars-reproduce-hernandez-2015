@@ -2,7 +2,7 @@
 title: "Day 13"
 author: "Amy Heather"
 date: "2024-10-09"
-categories: [evaluation, report, reflcetions, compendium]
+categories: [evaluation, report, reflections, compendium]
 bibliography: ../../../quarto_site/references.bib
 ---
 

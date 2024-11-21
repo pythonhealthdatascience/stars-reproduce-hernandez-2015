@@ -1,0 +1,25 @@
+---
+title: "Day 17"
+author: "Amy Heather"
+date: "2024-11-21"
+categories: [evaluation]
+---
+
+::: {.callout-note}
+
+Redid badge evaluation.
+
+:::
+
+## 11.12-11.14: Revisit evaluation
+
+Revisited and revised the badge criteria to (a) make them up-to-date, and (b) make sure they are *specific* to the descriptions from each badge. Hence, redoing evaluations for all eight studies.
+
+Notes:
+
+* careful - no, as not documented and lots of different folders and files, so takes a little time to figure out what does what, and so on
+* correspond - no, took a bit of working out to figure which plots in `plotting_staff_results.r` partly contribute to paper or not
+
+## Untimed: Update summary report
+
+With new badge evaluation results.
