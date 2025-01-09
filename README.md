@@ -1,7 +1,5 @@
-# STARS: Computational reproducibility of Hernandez et al. 2015 <a href="https://github.com/pythonhealthdatascience"><img src="quarto_site/stars_logo_blue.png" align="right" height="120" alt="STARS" /></a>
+# Hernandez et al. 2015 computational reproducibility assessment <a href="https://github.com/pythonhealthdatascience"><img src="quarto_site/stars_logo_blue.png" align="right" height="120" alt="STARS" /></a>
 
-<!-- Status badge from GitHub action checking validity of CITATION.cff -->
-[![Valid CITATION.cff](https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/actions/workflows/cff_validation.yaml/badge.svg)](https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/actions/workflows/cff_validation.yaml)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13832260.svg)](https://zenodo.org/doi/10.5281/zenodo.13832260)
 
 This repository forms part of work package 1 on the project STARS: Sharing Tools and Artefacts for Reproducible Simulations. It assesses the computational reproducibility of:
@@ -77,13 +75,17 @@ The protocol for this work is summarised in the diagram below and archived on Ze
 
 ## Citation
 
-If you wish to cite this repository, please refer to the citation file `CITATION.cff`, and the auto-generated alternatives `citation_apalike.apa` and `citation_bibtex.bib`.
+Please cite the archived version of this repository on Zenodo:
 
-## License
+> Heather, A., Monks, T., & Harper, A. (2025). Hernandez et al. 2015 computational reproducibility assessment. Zenodo. <https://zenodo.org/doi/10.5281/zenodo.13832260>
 
-This repository is licensed under an [MIT license](https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/blob/a5ada4714f059d805f769a906bb2f4db0da2da8d/LICENSE).
+You can also cite the repository on GitHub. Please refer to the citation file `CITATION.cff`, and the auto-generated alternatives `citation_apalike.apa` and `citation_bibtex.bib`.
 
-This is aligned with the original study, who who also licensed their work under the [MIT License](https://github.com/ivihernandez/staff-allocation/blob/master/LICENSE).
+## Licence
+
+This repository is licensed under an [MIT licence](https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015/blob/a5ada4714f059d805f769a906bb2f4db0da2da8d/LICENSE).
+
+This is aligned with the original study, who who also licensed their work under the [MIT Licence](https://github.com/ivihernandez/staff-allocation/blob/master/LICENSE).
 
 ## Funding
 
