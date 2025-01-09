@@ -536,7 +536,7 @@
     "href": "index.html#citation",
     "title": "Reproducing Hernandez et al. 2015",
     "section": "Citation",
-    "text": "Citation\nAPA:\nHeather A., Monks T., Harper A. (2024). STARS: Computational reproducibility of Hernandez et al. 2015 (version 0.2.0). URL: https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015\nSee CITATION.cff and citation_bibtex.bib for alternative formats."
+    "text": "Citation\nAPA:\nHeather A., Monks T., Harper A. (2025). Hernandez et al. 2015 computational reproducibility assessment (version 1.0.0). URL: https://github.com/pythonhealthdatascience/stars-reproduce-hernandez-2015\nSee CITATION.cff and citation_bibtex.bib for alternative formats."
   },
   {
     "objectID": "index.html#license",
